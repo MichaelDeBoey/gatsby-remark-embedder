@@ -36,8 +36,11 @@ function getTimeValueInSeconds(timeValue) {
   if (Number(timeValue).toString() === timeValue) {
     return timeValue;
   }
-  const { 2: hours = '0', 4: minutes = '0', 6: seconds = '0' } =
-    timeValue.match(/((\d*)h)?((\d*)m)?((\d*)s)?/) || [];
+  const {
+    2: hours = '0',
+    4: minutes = '0',
+    6: seconds = '0',
+  } = timeValue.match(/((\d*)h)?((\d*)m)?((\d*)s)?/);
   return String((Number(hours) * 60 + Number(minutes)) * 60 + Number(seconds));
 }
 
