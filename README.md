@@ -33,6 +33,7 @@ line and replace it with the proper embed-code.
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Inspiration](#inspiration)
 - [Issues](#issues)
   - [🐛 Bugs](#-bugs)
   - [💡 Feature Requests](#-feature-requests)
@@ -50,9 +51,29 @@ should be installed as one of your project's `dependencies`:
 npm install --save gatsby-remark-embedder
 ```
 
+This library has `peerDependencies` listings for [`gatsby`][gatsby].
+
 ## Usage
 
-// TODO
+```js
+// In your gatsby-config.js
+
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [`gatsby-remark-embedder`],
+    },
+  },
+];
+```
+
+## Inspiration
+
+This whole library was extracted out of Kent C. Dodds' [personal
+website][kentcdodds.com-repo].
+
+The intention is to make this available to be used independently.
 
 ## Issues
 
@@ -120,4 +141,7 @@ MIT
 [bugs]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Acreated-desc
 [requests]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=✓&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement
 [good-first-issue]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=✓&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3A"good+first+issue"
+
+[gatsby]: https://github.com/gatsbyjs/gatsby
+[kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
 <!-- prettier-ignore-end -->

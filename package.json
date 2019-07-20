@@ -9,7 +9,10 @@
     "gatsby-remark",
     "markdown",
     "remark",
-    "embed"
+    "embed",
+    "codesandbox",
+    "twitter",
+    "youtube"
   ],
   "author": "Michaël De Boey <info@michaeldeboey.be> (https://michaeldeboey.be)",
   "license": "MIT",
@@ -35,12 +38,18 @@
     "validate": "kcd-scripts validate"
   },
   "dependencies": {
-    "@babel/runtime": "^7.5.5"
+    "@babel/runtime": "^7.5.5",
+    "node-fetch": "^2.6.0",
+    "unist-util-visit": "^1.4.0"
   },
   "devDependencies": {
     "all-contributors-cli": "^6.8.1",
+    "jest-in-case": "^1.0.2",
     "kcd-scripts": "^1.5.2",
     "pretty-quick": "^1.11.1"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.0.0"
   },
   "engines": {
     "node": ">=8",
