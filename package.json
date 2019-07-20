@@ -1,0 +1,50 @@
+{
+  "name": "gatsby-remark-embedder",
+  "version": "0.0.0-semantically-released",
+  "description": "Gatsby Remark plugin to embed well known services by their URL.",
+  "main": "dist/index.js",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-remark",
+    "markdown",
+    "remark",
+    "embed"
+  ],
+  "author": "Michaël De Boey <info@michaeldeboey.be> (https://michaeldeboey.be)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MichaelDeBoey/gatsby-remark-embedder"
+  },
+  "bugs": {
+    "url": "https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues"
+  },
+  "homepage": "https://github.com/MichaelDeBoey/gatsby-remark-embedder#readme",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "kcd-scripts build",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
+    "lint": "kcd-scripts lint",
+    "setup": "npm install && npm run validate -s",
+    "test": "kcd-scripts test",
+    "test:update": "npm test -- --updateSnapshot --coverage",
+    "validate": "kcd-scripts validate"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.5"
+  },
+  "devDependencies": {
+    "all-contributors-cli": "^6.8.1",
+    "kcd-scripts": "^1.5.2",
+    "pretty-quick": "^1.11.1"
+  },
+  "engines": {
+    "node": ">=8",
+    "npm": ">=6",
+    "yarn": ">=1"
+  }
+}
