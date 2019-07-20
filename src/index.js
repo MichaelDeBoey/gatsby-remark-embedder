@@ -1,11 +1,22 @@
-const visit = require('unist-util-visit');
-const getYouTubeHTML = require('./get-youtube-html');
-const getTwitterHTML = require('./get-twitter-html');
-const getCodeSandboxHTML = require('./get-codesandbox-html');
+import visit from 'unist-util-visit';
+
+import getCodeSandboxHTML from './get-codesandbox-html';
+import getTwitterHTML from './get-twitter-html';
+import getYouTubeHTML from './get-youtube-html';
 
 const transformers = [getYouTubeHTML, getTwitterHTML, getCodeSandboxHTML];
 
-module.exports = async ({ markdownAST, cache }) => {
+const getUrlString = string => {
+  const urlString = string.startsWith('http') ? string : `https://${string}`;
+
+  try {
+    return new URL(urlString).toString();
+  } catch (error) {
+    return null;
+  }
+};
+
+export default async ({ markdownAST, cache }) => {
   const transformations = [];
   visit(markdownAST, 'paragraph', paragraphNode => {
     if (paragraphNode.children.length !== 1) {
@@ -49,14 +60,3 @@ module.exports = async ({ markdownAST, cache }) => {
 
   return markdownAST;
 };
-
-function getUrlString(string) {
-  if (!string.startsWith('http')) {
-    string = `https://${string}`;
-  }
-  try {
-    return new URL(string).toString();
-  } catch (error) {
-    return null;
-  }
-}

@@ -1,5 +1,6 @@
 import cases from 'jest-in-case';
 import fetchMock from 'node-fetch';
+
 import getTwitterHtml, { shouldTransform } from '../get-twitter-html';
 
 jest.mock('node-fetch', () =>
@@ -7,8 +8,8 @@ jest.mock('node-fetch', () =>
     json: () =>
       Promise.resolve({
         html: `
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>
-    `.trim(),
+          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>
+        `.trim(),
       }),
   })
 );

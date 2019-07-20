@@ -1,8 +1,9 @@
 import cases from 'jest-in-case';
+
 import getYouTubeHTML, {
+  getTimeValueInSeconds,
   getYouTubeIFrameSrc,
   shouldTransform,
-  getTimeValueInSeconds,
 } from '../get-youtube-html';
 
 cases(
@@ -71,8 +72,8 @@ cases(
     { value: '1h', seconds: '3600' },
     { value: '1h1m1s', seconds: '3661' },
   ].map(opts => ({
-    name: `${opts.value} -> ${opts.seconds}`,
     ...opts,
+    name: `${opts.value} -> ${opts.seconds}`,
   }))
 );
 

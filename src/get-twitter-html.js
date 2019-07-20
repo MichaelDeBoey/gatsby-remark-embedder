@@ -1,24 +1,21 @@
-const { URL } = require('url');
-const fetch = require('node-fetch');
+import { URL } from 'url';
+import fetch from 'node-fetch';
 
-function shouldTransform(string) {
+export const shouldTransform = string => {
   const { host, pathname } = new URL(string);
-  return host.endsWith('twitter.com') && pathname.includes('/status/');
-}
 
-function getTwitterHtml(string) {
-  return fetch(
-    `https://publish.twitter.com/oembed?url=${string}&omit_script=true`
-  )
+  return host.endsWith('twitter.com') && pathname.includes('/status/');
+};
+
+const getTwitterHtml = string =>
+  fetch(`https://publish.twitter.com/oembed?url=${string}c&omit_script=true`)
     .then(r => r.json())
-    .then(r => {
-      return [r.html]
+    .then(r =>
+      [r.html]
         .map(s => s.replace(/\?ref_src=twsrc.*?fw/g, ''))
         .map(s => s.replace(/<br>/g, '<br />'))
         .join('')
-        .trim();
-    });
-}
+        .trim()
+    );
 
-module.exports = getTwitterHtml;
-module.exports.shouldTransform = shouldTransform;
+export default getTwitterHtml;
