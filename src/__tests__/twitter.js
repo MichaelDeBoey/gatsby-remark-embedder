@@ -1,7 +1,7 @@
 import cases from 'jest-in-case';
 import fetchMock from 'node-fetch';
 
-import { getHTML, shouldTransform } from '../get-twitter-html';
+import { getHTML, shouldTransform } from '../twitter';
 
 jest.mock('node-fetch', () =>
   jest.fn().mockResolvedValue({

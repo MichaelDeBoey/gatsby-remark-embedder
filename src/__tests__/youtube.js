@@ -5,7 +5,7 @@ import {
   getTimeValueInSeconds,
   getYouTubeIFrameSrc,
   shouldTransform,
-} from '../get-youtube-html';
+} from '../youtube';
 
 cases(
   'url validation',
