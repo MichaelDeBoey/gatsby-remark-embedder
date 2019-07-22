@@ -20,7 +20,7 @@ const getUrlString = string => {
   }
 };
 
-export default async ({ markdownAST, cache }) => {
+module.exports = async ({ markdownAST, cache }) => {
   const transformations = [];
   visit(markdownAST, 'paragraph', paragraphNode => {
     if (paragraphNode.children.length !== 1) {
