@@ -7,7 +7,7 @@ export const shouldTransform = string => {
   return host.endsWith('twitter.com') && pathname.includes('/status/');
 };
 
-const getTwitterHtml = string =>
+export const getHTML = string =>
   fetch(`https://publish.twitter.com/oembed?url=${string}c&omit_script=true`)
     .then(r => r.json())
     .then(r =>
@@ -17,5 +17,3 @@ const getTwitterHtml = string =>
         .join('')
         .trim()
     );
-
-export default getTwitterHtml;

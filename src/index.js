@@ -1,10 +1,14 @@
 import visit from 'unist-util-visit';
 
-import getCodeSandboxHTML from './get-codesandbox-html';
-import getTwitterHTML from './get-twitter-html';
-import getYouTubeHTML from './get-youtube-html';
+import * as CodeSandboxTransformer from './codesandbox';
+import * as TwitterTransformer from './twitter';
+import * as YouTubeTransformer from './youtube';
 
-const transformers = [getYouTubeHTML, getTwitterHTML, getCodeSandboxHTML];
+const transformers = [
+  YouTubeTransformer,
+  TwitterTransformer,
+  CodeSandboxTransformer,
+];
 
 const getUrlString = string => {
   const urlString = string.startsWith('http') ? string : `https://${string}`;
@@ -46,7 +50,7 @@ export default async ({ markdownAST, cache }) => {
         transformations.push(async () => {
           let html = await cache.get(urlString);
           if (!html) {
-            html = await transformer(urlString);
+            html = await transformer.getHTML(urlString);
             await cache.set(urlString, html);
           }
           node.type = `html`;

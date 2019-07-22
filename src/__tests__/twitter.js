@@ -1,7 +1,7 @@
 import cases from 'jest-in-case';
 import fetchMock from 'node-fetch';
 
-import getTwitterHtml, { shouldTransform } from '../get-twitter-html';
+import { getHTML, shouldTransform } from '../twitter';
 
 jest.mock('node-fetch', () =>
   jest.fn().mockResolvedValue({
@@ -37,7 +37,7 @@ cases(
 );
 
 test('calls twitter API for the url', async () => {
-  const html = await getTwitterHtml(
+  const html = await getHTML(
     'https://twitter.com/kentcdodds/status/1078755736455278592'
   );
   expect(html).toMatchInlineSnapshot(
