@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/MichaelDeBoey/gatsby-remark-embedder#readme",
   "files": [
-    "dist"
+    "dist",
+    "index.js"
   ],
   "scripts": {
     "build": "kcd-scripts build",
