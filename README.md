@@ -16,9 +16,10 @@
 
 ## The problem
 
-Trying to embed well known services (like CodeSandbox, Twitter or YouTube) into
-your Gatsby website can be hard, since you have to know how this needs to be
-done for all of these different services.
+Trying to embed well known services (like [CodeSandbox][codesandbox],
+[Twitter][twitter] or [YouTube][youtube]) into your [Gatsby][gatsby] website can
+be hard, since you have to know how this needs to be done for all of these
+different services.
 
 ## This solution
 
@@ -33,6 +34,10 @@ line and replace it with the proper embed-code.
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Supported services](#supported-services)
+  - [CodeSandbox](#codesandbox)
+  - [Twitter](#twitter)
+  - [YouTube](#youtube)
 - [Inspiration](#inspiration)
 - [Issues](#issues)
   - [🐛 Bugs](#-bugs)
@@ -66,6 +71,87 @@ plugins: [
     },
   },
 ];
+```
+
+## Supported services
+
+### CodeSandbox
+
+#### Usage
+
+```md
+https://codesandbox.io/s/ynn88nx9x?view=split
+```
+
+#### Result
+
+```md
+<iframe
+  src="https://codesandbox.io/embed/ynn88nx9x?view=split"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+></iframe>
+```
+
+### Twitter
+
+The returned HTML snippet from the Twitter transformer will only be
+automatically recognized as an [Embedded Tweet][embedded-tweet-docs] when
+[Twitter's widget JavaScript][twitter-widget-javascript-docs] is included on the
+page.  
+Since the Twitter transformer doesn't include this JavaScript (because we don't
+want to include it multiple times on a page when having multiple embeds), you
+have to include it yourself. The recommended way of including it is by using
+[`gatsby-plugin-twitter`][gatsby-plugin-twitter].
+
+#### Usage
+
+```md
+https://twitter.com/MichaelDeBoey93/status/1152991421789548546
+```
+
+#### Result
+
+```md
+<blockquote class="twitter-tweet">
+  <p lang="en" dir="ltr" class="css-yw8fqx e11rucy10">
+    Happy to announce I just published the first gatsby-remark-embedder 🎉🎉🎉
+    <br />
+    <br />
+    This first version is an extract of
+    <a href="https://twitter.com/kentcdodds">@kentcdodds</a>' personal website
+    remark-embedder plugin, but I'm planning on adding extra services then
+    <a href="https://twitter.com/codesandbox">@codesandbox</a>,<a href="https://twitter.com/Twitter">
+      @Twitter
+    </a>
+    &amp; <a href="https://twitter.com/YouTube">@YouTube</a> too.
+    <a href="https://t.co/M4PA9aFZdG">https://t.co/M4PA9aFZdG</a>
+  </p>
+  — Michaël De Boey (@MichaelDeBoey93)
+  <a href="https://twitter.com/MichaelDeBoey93/status/1152991421789548546">
+    July 21, 2019
+  </a>
+</blockquote>
+```
+
+### YouTube
+
+#### Usage
+
+```md
+https://youtu.be/dQw4w9WgXcQ
+```
+
+#### Result
+
+```md
+<iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0"
+  frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
 ```
 
 ## Inspiration
@@ -142,6 +228,12 @@ MIT
 [requests]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=✓&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement
 [good-first-issue]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=✓&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3A"good+first+issue"
 
+[codesandbox]: https://codesandbox.io
+[embedded-tweet-docs]: https://developer.twitter.com/web/embedded-tweets
 [gatsby]: https://github.com/gatsbyjs/gatsby
+[gatsby-plugin-twitter]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-twitter
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
+[twitter]: https://twitter.com
+[twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
+[youtube]: https://youtube.com
 <!-- prettier-ignore-end -->
