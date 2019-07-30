@@ -8,7 +8,9 @@ export const shouldTransform = string => {
 };
 
 export const getHTML = string =>
-  fetch(`https://publish.twitter.com/oembed?url=${string}&omit_script=true`)
+  fetch(
+    `https://publish.twitter.com/oembed?url=${string}&dnt=true&omit_script=true`
+  )
     .then(r => r.json())
     .then(r =>
       [r.html]

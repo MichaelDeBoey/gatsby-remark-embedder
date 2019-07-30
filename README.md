@@ -112,7 +112,7 @@ https://twitter.com/MichaelDeBoey93/status/1152991421789548546
 #### Result
 
 ```md
-<blockquote class="twitter-tweet">
+<blockquote class="twitter-tweet" data-dnt="true">
   <p lang="en" dir="ltr" class="css-yw8fqx e11rucy10">
     Happy to announce I just published the first gatsby-remark-embedder 🎉🎉🎉
     <br />
