@@ -2,7 +2,7 @@
   "name": "gatsby-remark-embedder",
   "version": "0.0.0-semantically-released",
   "description": "Gatsby Remark plugin to embed well known services by their URL.",
-  "main": "dist/index.js",
+  "main": "./index.js",
   "keywords": [
     "gatsby",
     "gatsby-plugin",
