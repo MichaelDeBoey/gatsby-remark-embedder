@@ -97,10 +97,9 @@ https://codesandbox.io/s/ynn88nx9x?view=split
 The returned HTML snippet from the Twitter transformer will only be
 automatically recognized as an [Embedded Tweet][embedded-tweet-docs] when
 [Twitter's widget JavaScript][twitter-widget-javascript-docs] is included on the
-page.  
-Since the Twitter transformer doesn't include this JavaScript (because we don't
-want to include it multiple times on a page when having multiple embeds), you
-have to include it yourself. The recommended way of including it is by using
+page. Since the Twitter transformer doesn't include this JavaScript (because we
+don't want to include it multiple times on a page when having multiple embeds),
+you have to include it yourself. The recommended way of including it is by using
 [`gatsby-plugin-twitter`][gatsby-plugin-twitter].
 
 #### Usage
@@ -157,6 +156,27 @@ https://youtu.be/dQw4w9WgXcQ
   frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
+></iframe>
+```
+
+### Soundcloud
+
+#### Usage
+
+```md
+https://soundcloud.com/clemenswenners/africa
+```
+
+#### Result
+
+```md
+<iframe
+  width="100%"
+  height="300"
+  scrolling="no"
+  frameborder="no"
+  allow="autoplay"
+  src=https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fclemenswenners%2Fafrica&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true
 ></iframe>
 ```
 
