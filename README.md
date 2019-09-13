@@ -221,9 +221,9 @@ MIT
 [coc]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/blob/master/other/CODE_OF_CONDUCT.md
 [emojis]: https://allcontributors.org/docs/en/emoji-key
 [all-contributors]: https://github.com/all-contributors/all-contributors
-[bugs]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Acreated-desc
-[requests]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=✓&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement
-[good-first-issue]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=✓&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3A"good+first+issue"
+[bugs]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%90%9B+Bug%22+sort%3Acreated-desc
+[requests]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement
+[good-first-issue]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement+label%3A%22good+first+issue%22
 
 [codesandbox]: https://codesandbox.io
 [embedded-tweet-docs]: https://developer.twitter.com/web/embedded-tweets
