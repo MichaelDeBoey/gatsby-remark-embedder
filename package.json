@@ -39,14 +39,14 @@
     "validate": "kcd-scripts validate"
   },
   "dependencies": {
-    "@babel/runtime": "^7.5.5",
+    "@babel/runtime": "^7.6.0",
     "node-fetch": "^2.6.0",
     "unist-util-visit": "^2.0.0"
   },
   "devDependencies": {
-    "all-contributors-cli": "^6.8.1",
+    "all-contributors-cli": "^6.9.0",
     "jest-in-case": "^1.0.2",
-    "kcd-scripts": "^1.6.0",
+    "kcd-scripts": "^1.7.0",
     "pretty-quick": "^1.11.1"
   },
   "peerDependencies": {
