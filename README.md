@@ -135,6 +135,12 @@ https://twitter.com/MichaelDeBoey93/status/1152991421789548546
 
 ### YouTube
 
+The YouTube transformer (currently) only supports videos in the following
+formats:
+
+- Full url (`https://youtube.com/watch?v=dQw4w9WgXcQ`)
+- Short url (`https://youtu.be/dQw4w9WgXcQ`)
+
 #### Usage
 
 ```md

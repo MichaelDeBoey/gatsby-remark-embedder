@@ -1,9 +1,14 @@
 import { URL } from 'url';
 
 export const shouldTransform = string => {
-  const { host } = new URL(string);
+  const { host, pathname, searchParams } = new URL(string);
 
-  return host.endsWith('youtube.com') || host.endsWith('youtu.be');
+  return (
+    host.endsWith('youtu.be') ||
+    (host.endsWith('youtube.com') &&
+      pathname.includes('/watch') &&
+      Boolean(searchParams.get('v')))
+  );
 };
 
 export const getTimeValueInSeconds = timeValue => {
