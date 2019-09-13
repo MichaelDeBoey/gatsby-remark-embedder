@@ -33,6 +33,15 @@
         "doc",
         "test"
       ]
+    },
+    {
+      "login": "lekterable",
+      "name": "Kornel Dubieniecki",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/23037261?v=4",
+      "profile": "https://github.com/lekterable",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
