@@ -97,8 +97,7 @@ https://codesandbox.io/s/ynn88nx9x?view=split
 The returned HTML snippet from the Twitter transformer will only be
 automatically recognized as an [Embedded Tweet][embedded-tweet-docs] when
 [Twitter's widget JavaScript][twitter-widget-javascript-docs] is included on the
-page.
-
+page.  
 Since the Twitter transformer doesn't include this JavaScript (because we don't
 want to include it multiple times on a page when having multiple embeds), you
 have to include it yourself. The recommended way of including it is by using
