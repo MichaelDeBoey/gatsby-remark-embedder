@@ -22,7 +22,7 @@ cases(
     },
     'url with widget soundcloud subdomain': {
       url:
-        'https://w.soundcloud.com/player/?url=https://soundcloud.com/clemenswenners/africa',
+        'https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa',
       valid: false,
     },
     'soundcloud full-name url': {
