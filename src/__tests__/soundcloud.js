@@ -25,8 +25,12 @@ cases(
         'https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa',
       valid: false,
     },
-    'soundcloud full-name url': {
+    'valid soundcloud url with https protocol': {
       url: 'https://soundcloud.com/clemenswenners/africa',
+      valid: true,
+    },
+    'valid soundcloud url with http protocol': {
+      url: 'http://soundcloud.com/clemenswenners/africa',
       valid: true,
     },
   }
