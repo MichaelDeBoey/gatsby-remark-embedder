@@ -3,11 +3,13 @@ import visit from 'unist-util-visit';
 import * as CodeSandboxTransformer from './codesandbox';
 import * as TwitterTransformer from './twitter';
 import * as YouTubeTransformer from './youtube';
+import * as SoundcloudTransformer from './soundcloud';
 
 const transformers = [
   YouTubeTransformer,
   TwitterTransformer,
   CodeSandboxTransformer,
+  SoundcloudTransformer,
 ];
 
 const getUrlString = string => {
