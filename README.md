@@ -17,9 +17,9 @@
 ## The problem
 
 Trying to embed well known services (like [CodeSandbox][codesandbox],
-[Twitter][twitter] or [YouTube][youtube]) into your [Gatsby][gatsby] website can
-be hard, since you have to know how this needs to be done for all of these
-different services.
+[SoundCloud][soundcloud], [Twitter][twitter] or [YouTube][youtube]) into your
+[Gatsby][gatsby] website can be hard, since you have to know how this needs to
+be done for all of these different services.
 
 ## This solution
 
@@ -36,6 +36,7 @@ line and replace it with the proper embed-code.
 - [Usage](#usage)
 - [Supported services](#supported-services)
   - [CodeSandbox](#codesandbox)
+  - [SoundCloud](#soundcloud)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
 - [Inspiration](#inspiration)
@@ -89,6 +90,26 @@ https://codesandbox.io/s/ynn88nx9x?view=split
 <iframe
   src="https://codesandbox.io/embed/ynn88nx9x?view=split"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+></iframe>
+```
+
+### SoundCloud
+
+#### Usage
+
+```md
+https://soundcloud.com/clemenswenners/africa
+```
+
+#### Result
+
+```md
+<iframe
+  width="100%"
+  height="300"
+  scrolling="no"
+  frameborder="no"
+  src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true
 ></iframe>
 ```
 
@@ -236,6 +257,7 @@ MIT
 [gatsby]: https://github.com/gatsbyjs/gatsby
 [gatsby-plugin-twitter]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-twitter
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
+[soundcloud]: https://soundcloud.com
 [twitter]: https://twitter.com
 [twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
 [youtube]: https://youtube.com
