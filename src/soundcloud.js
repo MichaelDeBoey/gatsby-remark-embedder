@@ -9,5 +9,5 @@ const getSoundcloudIFrameSrc = string =>
 export const getHTML = string => {
   const iframeUrl = getSoundcloudIFrameSrc(string);
 
-  return `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src=${iframeUrl}></iframe>`;
+  return `<iframe width="100%" height="300" scrolling="no" frameborder="no" src=${iframeUrl}></iframe>`;
 };
