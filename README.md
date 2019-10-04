@@ -37,6 +37,7 @@ line and replace it with the proper embed-code.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Supported services](#supported-services)
+  - [Codepen](#codepen)
   - [CodeSandbox](#codesandbox)
   - [SoundCloud](#soundcloud)
   - [Twitter](#twitter)
@@ -77,6 +78,20 @@ plugins: [
 ```
 
 ## Supported services
+
+### Codepen
+
+#### Usage
+
+```md
+https://codepen.io/anuraghazra/pen/agKJEd
+```
+
+#### Result
+
+```md
+<iframe src="https://codepen.io/anuraghazra/pen/agKJEd" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"></iframe>
+```
 
 ### CodeSandbox
 
