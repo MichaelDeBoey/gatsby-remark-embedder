@@ -13,7 +13,8 @@
     "codesandbox",
     "soundcloud",
     "twitter",
-    "youtube"
+    "youtube",
+    "codepen"
   ],
   "author": "Michaël De Boey <info@michaeldeboey.be> (https://michaeldeboey.be)",
   "license": "MIT",

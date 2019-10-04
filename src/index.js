@@ -4,12 +4,14 @@ import * as CodeSandboxTransformer from './CodeSandbox';
 import * as SoundCloudTransformer from './SoundCloud';
 import * as TwitterTransformer from './Twitter';
 import * as YouTubeTransformer from './YouTube';
+import * as CodepenTransformer from './codepen';
 
 const transformers = [
   CodeSandboxTransformer,
   SoundCloudTransformer,
   TwitterTransformer,
   YouTubeTransformer,
+  CodepenTransformer,
 ];
 
 const getUrlString = url => {

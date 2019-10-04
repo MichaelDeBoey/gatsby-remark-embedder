@@ -13,7 +13,7 @@
 [![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 [![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
 
 ## The problem
@@ -213,7 +213,8 @@ a 👍. This helps maintainers prioritize what to work on.
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
   <tr>
     <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars0.githubusercontent.com/u/1500684?v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=kentcdodds" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=kentcdodds" title="Documentation">📖</a> <a href="#ideas-kentcdodds" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=kentcdodds" title="Tests">⚠️</a></td>
@@ -224,6 +225,8 @@ Thanks goes to these people ([emoji key][emojis]):
   </tr>
 </table>
 
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
