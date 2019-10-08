@@ -79,7 +79,7 @@ plugins: [
 
 ## Supported services
 
-### Codepen
+### CodePen
 
 #### Usage
 
