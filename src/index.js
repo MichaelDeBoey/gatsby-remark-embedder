@@ -6,10 +6,10 @@ import * as TwitterTransformer from './Twitter';
 import * as YouTubeTransformer from './YouTube';
 
 const transformers = [
-  YouTubeTransformer,
-  TwitterTransformer,
   CodeSandboxTransformer,
-  SoundcloudTransformer,
+  SoundCloudTransformer,
+  TwitterTransformer,
+  YouTubeTransformer,
 ];
 
 const getUrlString = url => {
