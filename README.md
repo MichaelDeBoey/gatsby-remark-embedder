@@ -37,7 +37,7 @@ line and replace it with the proper embed-code.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Supported services](#supported-services)
-  - [Codepen](#codepen)
+  - [CodePen](#codepen)
   - [CodeSandbox](#codesandbox)
   - [SoundCloud](#soundcloud)
   - [Twitter](#twitter)
