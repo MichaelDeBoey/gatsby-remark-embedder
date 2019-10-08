@@ -90,7 +90,9 @@ https://codepen.io/team/codepen/pen/PNaGbb
 #### Result
 
 ```md
-<iframe src="https://codepen.io/anuraghazra/pen/agKJEd" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"></iframe>
+<iframe
+  src="https://codepen.io/team/codepen/embed/PNaGbb"
+  style="width:100%; height:300px;"></iframe>
 ```
 
 ### CodeSandbox
