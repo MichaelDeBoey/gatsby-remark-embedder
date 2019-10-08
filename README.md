@@ -84,7 +84,7 @@ plugins: [
 #### Usage
 
 ```md
-https://codepen.io/anuraghazra/pen/agKJEd
+https://codepen.io/team/codepen/pen/PNaGbb
 ```
 
 #### Result
