@@ -1,7 +1,7 @@
 import { URL } from 'url';
 
-export const shouldTransform = string => {
-  const { host, pathname, searchParams } = new URL(string);
+export const shouldTransform = url => {
+  const { host, pathname, searchParams } = new URL(url);
 
   return (
     host.endsWith('youtu.be') ||
@@ -24,8 +24,8 @@ export const getTimeValueInSeconds = timeValue => {
 
   return String((Number(hours) * 60 + Number(minutes)) * 60 + Number(seconds));
 };
-export const getYouTubeIFrameSrc = string => {
-  const url = new URL(string);
+export const getYouTubeIFrameSrc = urlString => {
+  const url = new URL(urlString);
   let id = url.searchParams.get('v');
   if (url.host === 'youtu.be') {
     id = url.pathname.slice(1);
@@ -47,8 +47,8 @@ export const getYouTubeIFrameSrc = string => {
 
   return embedUrl.toString();
 };
-export const getHTML = string => {
-  const iframeSrc = getYouTubeIFrameSrc(string);
+export const getHTML = url => {
+  const iframeSrc = getYouTubeIFrameSrc(url);
 
   return `<iframe width="100%" height="315" src="${iframeSrc}" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>`;
 };

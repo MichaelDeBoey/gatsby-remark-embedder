@@ -12,8 +12,8 @@ const transformers = [
   SoundcloudTransformer,
 ];
 
-const getUrlString = string => {
-  const urlString = string.startsWith('http') ? string : `https://${string}`;
+const getUrlString = url => {
+  const urlString = url.startsWith('http') ? url : `https://${url}`;
 
   try {
     return new URL(urlString).toString();
