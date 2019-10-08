@@ -1,9 +1,9 @@
 import visit from 'unist-util-visit';
 
-import * as CodeSandboxTransformer from './codesandbox';
-import * as TwitterTransformer from './twitter';
-import * as YouTubeTransformer from './youtube';
-import * as SoundcloudTransformer from './soundcloud';
+import * as CodeSandboxTransformer from './CodeSandbox';
+import * as SoundCloudTransformer from './SoundCloud';
+import * as TwitterTransformer from './Twitter';
+import * as YouTubeTransformer from './YouTube';
 
 const transformers = [
   YouTubeTransformer,
