@@ -1,8 +1,6 @@
 import { URL } from 'url';
 
-export const shouldTransform = string => {
-  return new URL(string).host == 'codepen.io';
-};
+export const shouldTransform = string => new URL(string).host == 'codepen.io';
 
 export const getHTML = string => {
   const iframeUrl = string.replace('/pen/', '/embed/');
