@@ -1,3 +1,7 @@
+<p align="center">
+    <img width="400" height="130" src="https://raw.githubusercontent.com/MichaelDeBoey/gatsby-remark-embedder/master/art/logo.png" alt="Remark Embedder logo" />
+</p>
+
 <div align="center">
 <h1>gatsby-remark-embedder</h1>
 
@@ -118,7 +122,7 @@ https://soundcloud.com/clemenswenners/africa
 The returned HTML snippet from the Twitter transformer will only be
 automatically recognized as an [Embedded Tweet][embedded-tweet-docs] when
 [Twitter's widget JavaScript][twitter-widget-javascript-docs] is included on the
-page.  
+page.
 Since the Twitter transformer doesn't include this JavaScript (because we don't
 want to include it multiple times on a page when having multiple embeds), you
 have to include it yourself. The recommended way of including it is by using
@@ -218,6 +222,7 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://michaeldeboey.be"><img src="https://avatars3.githubusercontent.com/u/6643991?v=4" width="100px;" alt="Michaël De Boey"/><br /><sub><b>Michaël De Boey</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?q=author%3AMichaelDeBoey" title="Bug reports">🐛</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=MichaelDeBoey" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=MichaelDeBoey" title="Documentation">📖</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=MichaelDeBoey" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/lekterable"><img src="https://avatars2.githubusercontent.com/u/23037261?v=4" width="100px;" alt="Kornel Dubieniecki"/><br /><sub><b>Kornel Dubieniecki</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?q=author%3Alekterable" title="Bug reports">🐛</a></td>
     <td align="center"><a href="http://nicknish.co"><img src="https://avatars2.githubusercontent.com/u/5567838?v=4" width="100px;" alt="Nick Nish"/><br /><sub><b>Nick Nish</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=nicknish" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=nicknish" title="Tests">⚠️</a></td>
+    <td align="center"><a href="http://caneco.xyz"><img src="https://avatars2.githubusercontent.com/u/502041?v=4" width="100px;" alt="Caneco"/><br /><sub><b>Caneco</b></sub></a><br />💅</td>
   </tr>
 </table>
 
