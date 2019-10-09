@@ -52,6 +52,15 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "caneco",
+      "name": "Caneco",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/502041?v=4",
+      "profile": "https://github.com/caneco",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
