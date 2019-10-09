@@ -1,4 +1,6 @@
 <div align="center">
+<img width="400" height="130" src="https://raw.githubusercontent.com/MichaelDeBoey/gatsby-remark-embedder/master/art/logo.png" alt="Gatsby Remark Embedder logo" />
+
 <h1>gatsby-remark-embedder</h1>
 
 <p>Gatsby Remark plugin to embed well known services by their URL.</p>
