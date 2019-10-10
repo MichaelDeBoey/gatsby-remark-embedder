@@ -41,6 +41,10 @@ cases(
       url: 'https://youtube.com/watch?v=dQw4w9WgXcQ',
       valid: true,
     },
+    "full url having 'www' subdomain": {
+      url: 'https://youtube.com/watch?v=dQw4w9WgXcQ',
+      valid: true,
+    },
     'http full url': {
       url: 'http://youtube.com/watch?v=dQw4w9WgXcQ',
       valid: true,
