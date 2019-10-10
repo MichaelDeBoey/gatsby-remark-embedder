@@ -17,6 +17,18 @@ cases(
       url: 'https://not-a-youtube-url.com',
       valid: false,
     },
+    "non-YouTube url ending with 'youtu.be'": {
+      url: 'https://this-is-not-youtu.be',
+      valid: false,
+    },
+    "non-YouTube url ending with 'youtube.com'": {
+      url: 'https://this-is-not-youtube.com',
+      valid: false,
+    },
+    "non-YouTube url ending with 'youtube.com' and having a valid video path": {
+      url: 'https://this-is-not-youtube.com/watch?v=dQw4w9WgXcQ',
+      valid: false,
+    },
     'short url': {
       url: 'https://youtu.be/dQw4w9WgXcQ',
       valid: true,

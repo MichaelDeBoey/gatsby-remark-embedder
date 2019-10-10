@@ -4,8 +4,8 @@ export const shouldTransform = url => {
   const { host, pathname, searchParams } = new URL(url);
 
   return (
-    host.endsWith('youtu.be') ||
-    (host.endsWith('youtube.com') &&
+    host === 'youtu.be' ||
+    (host === 'youtube.com' &&
       pathname.includes('/watch') &&
       Boolean(searchParams.get('v')))
   );
