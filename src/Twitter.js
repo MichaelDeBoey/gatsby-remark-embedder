@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
-  return host.endsWith('twitter.com') && pathname.includes('/status/');
+  return host === 'twitter.com' && pathname.includes('/status/');
 };
 
 export const getHTML = url =>

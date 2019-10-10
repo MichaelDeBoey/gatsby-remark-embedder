@@ -28,6 +28,14 @@ cases(
       url: 'https://not-a-twitter-url.com',
       valid: false,
     },
+    "non-Twitter url ending with 'twitter.com'": {
+      url: 'https://this-is-not-twitter.com',
+      valid: false,
+    },
+    "non-Twitter url ending with 'twitter.com' and having '/status/'": {
+      url: 'https://this-is-not-twitter.com/foobar/status/123',
+      valid: false,
+    },
     'profile url': {
       url: 'https://twitter.com/MichaelDeBoey93',
       valid: false,
