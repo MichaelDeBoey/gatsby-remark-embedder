@@ -8,35 +8,35 @@ cases(
     expect(shouldTransform(url)).toBe(valid);
   },
   {
-    'non-soundcloud url': {
+    'non-SoundCloud url': {
       url: 'https://not-a-soundcloud-url.com',
       valid: false,
     },
-    'url with soundcloud track id': {
+    'url with SoundCloud track id': {
       url: 'https://api.soundcloud.com/tracks/151129490',
       valid: false,
     },
-    'url with soundcloud playlist id': {
+    'url with SoundCloud playlist id': {
       url: 'https://api.soundcloud.com/playlists/703823211',
       valid: false,
     },
-    'url with widget soundcloud subdomain': {
+    'url with widget SoundCloud subdomain': {
       url:
         'https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa',
       valid: false,
     },
-    'valid soundcloud url with https protocol': {
+    'valid SoundCloud url with https protocol': {
       url: 'https://soundcloud.com/clemenswenners/africa',
       valid: true,
     },
-    'valid soundcloud url with http protocol': {
+    'valid SoundCloud url with http protocol': {
       url: 'http://soundcloud.com/clemenswenners/africa',
       valid: true,
     },
   }
 );
 
-test('Gets the correct Soundcloud iframe', async () => {
+test('Gets the correct SoundCloud iframe', async () => {
   const html = await getHTML('https://soundcloud.com/clemenswenners/africa');
 
   expect(html).toMatchInlineSnapshot(

@@ -24,12 +24,15 @@ cases(
     expect(shouldTransform(url)).toBe(valid);
   },
   {
-    'url with twitter': { url: 'https://not-a-twitter-url.com', valid: false },
-    'not a status': {
-      url: 'https://twitter.com/mentions',
+    'non-Twitter url': {
+      url: 'https://not-a-twitter-url.com',
       valid: false,
     },
-    'valid url': {
+    'profile url': {
+      url: 'https://twitter.com/MichaelDeBoey93',
+      valid: false,
+    },
+    'status url': {
       url: 'https://twitter.com/foobar/status/123',
       valid: true,
     },
@@ -40,6 +43,7 @@ test('calls twitter API for the url', async () => {
   const html = await getHTML(
     'https://twitter.com/kentcdodds/status/1078755736455278592'
   );
+
   expect(html).toMatchInlineSnapshot(
     `"<blockquote class=\\"twitter-tweet\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>"`
   );

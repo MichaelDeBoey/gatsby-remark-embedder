@@ -20,27 +20,27 @@ cases(
       url: 'https://not-a-codepen-url.com/user/pen/123456',
       valid: false,
     },
-    'CodePen team page': {
+    'team page': {
       url: 'https://codepen.io/team/codepen',
       valid: false,
     },
-    'CodePen user page': {
+    'user page': {
       url: 'https://codepen.io/MichaelDeBoey',
       valid: false,
     },
-    'random CodePen page': {
+    'random page': {
       url: 'https://codepen.io/random-page',
       valid: false,
     },
-    'CodePen blog': {
+    'blog url': {
       url: 'https://blog.codepen.io',
       valid: false,
     },
-    "CodePen blog with '/embed/'": {
+    "blog url with '/embed/'": {
       url: 'https://blog.codepen.io/user/embed/123456',
       valid: false,
     },
-    "CodePen blog with '/pen/'": {
+    "blog url with '/pen/'": {
       url: 'https://blog.codepen.io/user/pen/123456',
       valid: false,
     },

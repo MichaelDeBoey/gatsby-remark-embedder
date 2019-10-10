@@ -13,7 +13,7 @@ cases(
     expect(shouldTransform(url)).toBe(valid);
   },
   {
-    'url with youtube': {
+    'non-YouTube url': {
       url: 'https://not-a-youtube-url.com',
       valid: false,
     },
