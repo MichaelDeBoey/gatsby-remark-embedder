@@ -13,7 +13,7 @@
 [![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
 
 ## The problem
@@ -239,6 +239,7 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://github.com/lekterable"><img src="https://avatars2.githubusercontent.com/u/23037261?v=4" width="100px;" alt="Kornel Dubieniecki"/><br /><sub><b>Kornel Dubieniecki</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?q=author%3Alekterable" title="Bug reports">🐛</a></td>
     <td align="center"><a href="http://nicknish.co"><img src="https://avatars2.githubusercontent.com/u/5567838?v=4" width="100px;" alt="Nick Nish"/><br /><sub><b>Nick Nish</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=nicknish" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=nicknish" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/caneco"><img src="https://avatars0.githubusercontent.com/u/502041?v=4" width="100px;" alt="Caneco"/><br /><sub><b>Caneco</b></sub></a><br /><a href="#design-caneco" title="Design">🎨</a></td>
+    <td align="center"><a href="http://anuraghazra.github.io"><img src="https://avatars3.githubusercontent.com/u/35374649?v=4" width="100px;" alt="Anurag Hazra"/><br /><sub><b>Anurag Hazra</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=anuraghazra" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=anuraghazra" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
