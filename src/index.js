@@ -1,11 +1,13 @@
 import visit from 'unist-util-visit';
 
+import * as CodePenTransformer from './CodePen';
 import * as CodeSandboxTransformer from './CodeSandbox';
 import * as SoundCloudTransformer from './SoundCloud';
 import * as TwitterTransformer from './Twitter';
 import * as YouTubeTransformer from './YouTube';
 
 const transformers = [
+  CodePenTransformer,
   CodeSandboxTransformer,
   SoundCloudTransformer,
   TwitterTransformer,

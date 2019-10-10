@@ -37,6 +37,7 @@ line and replace it with the proper embed-code.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Supported services](#supported-services)
+  - [CodePen](#codepen)
   - [CodeSandbox](#codesandbox)
   - [SoundCloud](#soundcloud)
   - [Twitter](#twitter)
@@ -77,6 +78,23 @@ plugins: [
 ```
 
 ## Supported services
+
+### CodePen
+
+#### Usage
+
+```md
+https://codepen.io/team/codepen/pen/PNaGbb
+```
+
+#### Result
+
+```md
+<iframe
+  src="https://codepen.io/team/codepen/embed/preview/PNaGbb"
+  style="width:100%; height:300px;"
+></iframe>
+```
 
 ### CodeSandbox
 
