@@ -1,6 +1,6 @@
 import visit from 'unist-util-visit';
 
-import * as CodepenTransformer from './CodePen';
+import * as CodePenTransformer from './CodePen';
 import * as CodeSandboxTransformer from './CodeSandbox';
 import * as SoundCloudTransformer from './SoundCloud';
 import * as TwitterTransformer from './Twitter';
