@@ -44,6 +44,10 @@ cases(
       url: 'https://twitter.com/foobar/status/123',
       valid: true,
     },
+    "status url having 'www' subdomain": {
+      url: 'https://www.twitter.com/foobar/status/123',
+      valid: true,
+    },
   }
 );
 
