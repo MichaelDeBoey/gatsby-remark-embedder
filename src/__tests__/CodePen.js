@@ -60,8 +60,16 @@ cases(
       url: 'https://codepen.io/team/codepen/pen/PNaGbb',
       valid: true,
     },
+    "Team Pen url having 'www' subdomain": {
+      url: 'https://www.codepen.io/team/codepen/pen/PNaGbb',
+      valid: true,
+    },
     'User Pen url': {
       url: 'https://codepen.io/chriscoyier/pen/owBwKM',
+      valid: true,
+    },
+    "User Pen url having 'www' subdomain": {
+      url: 'https://www.codepen.io/chriscoyier/pen/owBwKM',
       valid: true,
     },
   }

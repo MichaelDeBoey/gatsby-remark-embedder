@@ -3,7 +3,10 @@ import { URL } from 'url';
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
-  return host === 'codepen.io' && pathname.includes('/pen/');
+  return (
+    (host === 'codepen.io' || host === 'www.codepen.io') &&
+    pathname.includes('/pen/')
+  );
 };
 
 export const getHTML = url => {
