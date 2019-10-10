@@ -1,5 +1,5 @@
 <div align="center">
-<img width="400" height="130" src="https://raw.githubusercontent.com/MichaelDeBoey/gatsby-remark-embedder/master/art/logo.png" alt="Gatsby Remark Embedder logo" />
+<img width="450" height="76" src="https://raw.githubusercontent.com/MichaelDeBoey/gatsby-remark-embedder/master/art/logo.png" alt="Gatsby Remark Embedder logo" />
 
 <h1>gatsby-remark-embedder</h1>
 
@@ -120,7 +120,7 @@ https://soundcloud.com/clemenswenners/africa
 The returned HTML snippet from the Twitter transformer will only be
 automatically recognized as an [Embedded Tweet][embedded-tweet-docs] when
 [Twitter's widget JavaScript][twitter-widget-javascript-docs] is included on the
-page.  
+page.
 Since the Twitter transformer doesn't include this JavaScript (because we don't
 want to include it multiple times on a page when having multiple embeds), you
 have to include it yourself. The recommended way of including it is by using
