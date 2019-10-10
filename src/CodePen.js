@@ -1,11 +1,9 @@
 import { URL } from 'url';
 
 export const shouldTransform = url => {
-  const urlObj = new URL(url);
-  if (urlObj.host === 'codepen.io') {
-    return !!urlObj.pathname.match(/\/pen\/.*\w/);
-  }
-  return false;
+  const { host, pathname } = new URL(url);
+
+  return host.endsWith('codepen.io') && pathname.includes('/pen/');
 };
 
 export const getHTML = string => {
