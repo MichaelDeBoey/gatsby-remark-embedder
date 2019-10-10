@@ -30,11 +30,11 @@ cases(
     },
     'Pen embed url': {
       url: 'https://codepen.io/team/codepen/embed/PNaGbb',
-      valid: false,
+      valid: true,
     },
     'Pen embed url with parameters': {
       url: 'https://codepen.io/team/codepen/embed/PNaGbb?default-tab=js',
-      valid: false,
+      valid: true,
     },
     'Pen url': {
       url: 'https://codepen.io/team/codepen/pen/PNaGbb',
