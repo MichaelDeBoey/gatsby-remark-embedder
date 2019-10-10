@@ -47,7 +47,7 @@ cases(
   }
 );
 
-test('calls twitter API for the url', async () => {
+test('Gets the correct Twitter iframe', async () => {
   const html = await getHTML(
     'https://twitter.com/kentcdodds/status/1078755736455278592'
   );
