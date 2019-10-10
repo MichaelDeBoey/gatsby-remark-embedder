@@ -3,7 +3,7 @@ import { URL } from 'url';
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
-  return host.endsWith('codepen.io') && pathname.includes('/pen/');
+  return host === 'codepen.io' && pathname.includes('/pen/');
 };
 
 export const getHTML = string => {
