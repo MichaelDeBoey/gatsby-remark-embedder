@@ -12,12 +12,12 @@ cases(
       url: 'https://not-a-codepen-url.com',
       valid: false,
     },
-    "non-CodePen url with '/embed/'": {
-      url: 'https://not-a-codepen-url.com/user/embed/123456',
-      valid: false,
-    },
     "non-CodePen url with '/pen/'": {
       url: 'https://not-a-codepen-url.com/user/pen/123456',
+      valid: false,
+    },
+    "non-CodePen url with '/embed/'": {
+      url: 'https://not-a-codepen-url.com/user/embed/123456',
       valid: false,
     },
     'CodePen team page': {
@@ -34,14 +34,6 @@ cases(
     },
     'CodePen blog': {
       url: 'https://blog.codepen.io',
-      valid: false,
-    },
-    "CodePen blog with '/embed/'": {
-      url: 'https://blog.codepen.io/user/embed/123456',
-      valid: false,
-    },
-    "CodePen blog with '/pen/'": {
-      url: 'https://blog.codepen.io/user/pen/123456',
       valid: false,
     },
     'Pen embed url': {

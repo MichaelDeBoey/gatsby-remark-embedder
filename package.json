@@ -10,11 +10,11 @@
     "markdown",
     "remark",
     "embed",
+    "codepen",
     "codesandbox",
     "soundcloud",
     "twitter",
-    "youtube",
-    "codepen"
+    "youtube"
   ],
   "author": "Michaël De Boey <info@michaeldeboey.be> (https://michaeldeboey.be)",
   "license": "MIT",
