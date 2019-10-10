@@ -67,6 +67,6 @@ test('Gets the correct CodePen iframe', () => {
   const html = getHTML('https://codepen.io/team/codepen/pen/PNaGbb');
 
   expect(html).toMatchInlineSnapshot(
-    `"<iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>"`
+    `"<iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\"></iframe>"`
   );
 });
