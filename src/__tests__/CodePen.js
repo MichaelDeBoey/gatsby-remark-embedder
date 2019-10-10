@@ -12,12 +12,16 @@ cases(
       url: 'https://not-a-codepen-url.com',
       valid: false,
     },
-    "non-CodePen url with '/embed/'": {
-      url: 'https://not-a-codepen-url.com/user/embed/123456',
+    "non-CodePen url ending with 'codepen.io'": {
+      url: 'https://this-is-not-codepen.io',
       valid: false,
     },
-    "non-CodePen url with '/pen/'": {
-      url: 'https://not-a-codepen-url.com/user/pen/123456',
+    "non-CodePen url ending with 'codepen.io' and having '/embed/'": {
+      url: 'https://this-is-not-codepen.io/user/embed/123456',
+      valid: false,
+    },
+    "non-CodePen url ending with 'codepen.io' and having '/pen/'": {
+      url: 'https://this-is-not-codepen.io/user/pen/123456',
       valid: false,
     },
     'team page': {
