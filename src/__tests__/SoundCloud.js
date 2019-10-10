@@ -12,6 +12,10 @@ cases(
       url: 'https://not-a-soundcloud-url.com',
       valid: false,
     },
+    "non-SoundCloud url ending with 'soundcloud.com'": {
+      url: 'https://this-is-not-soundcloud.com',
+      valid: false,
+    },
     'url with SoundCloud track id': {
       url: 'https://api.soundcloud.com/tracks/151129490',
       valid: false,
