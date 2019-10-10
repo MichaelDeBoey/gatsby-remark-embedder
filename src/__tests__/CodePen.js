@@ -37,11 +37,11 @@ cases(
       valid: false,
     },
     "CodePen blog with '/embed/'": {
-      url: 'https://blog.codepen.io',
+      url: 'https://blog.codepen.io/user/embed/123456',
       valid: false,
     },
     "CodePen blog with '/pen/'": {
-      url: 'https://blog.codepen.io',
+      url: 'https://blog.codepen.io/user/pen/123456',
       valid: false,
     },
     'Pen embed url': {
