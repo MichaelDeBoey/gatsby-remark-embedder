@@ -68,9 +68,9 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/35374649?v=4",
       "profile": "http://anuraghazra.github.io",
       "contributions": [
+        "bug",
         "code",
-        "test",
-        "bug"
+        "test"
       ]
     }
   ],
