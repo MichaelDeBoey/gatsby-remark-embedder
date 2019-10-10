@@ -69,7 +69,8 @@
       "profile": "http://anuraghazra.github.io",
       "contributions": [
         "code",
-        "test"
+        "test",
+        "bug"
       ]
     }
   ],
