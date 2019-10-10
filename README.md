@@ -18,10 +18,10 @@
 
 ## The problem
 
-Trying to embed well known services (like [CodeSandbox][codesandbox],
-[SoundCloud][soundcloud], [Twitter][twitter] or [YouTube][youtube]) into your
-[Gatsby][gatsby] website can be hard, since you have to know how this needs to
-be done for all of these different services.
+Trying to embed well known services (like [CodePen][codepen],
+[CodeSandbox][codesandbox], [SoundCloud][soundcloud], [Twitter][twitter] or
+[YouTube][youtube]) into your [Gatsby][gatsby] website can be hard, since you
+have to know how this needs to be done for all of these different services.
 
 ## This solution
 
@@ -275,6 +275,7 @@ MIT
 [requests]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement
 [good-first-issue]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement+label%3A%22good+first+issue%22
 
+[codepen]: https://codepen.io
 [codesandbox]: https://codesandbox.io
 [embedded-tweet-docs]: https://developer.twitter.com/web/embedded-tweets
 [gatsby]: https://github.com/gatsbyjs/gatsby
