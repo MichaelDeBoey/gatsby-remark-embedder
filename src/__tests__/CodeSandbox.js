@@ -12,6 +12,14 @@ cases(
       url: 'https://not-a-codesandbox-url.com',
       valid: false,
     },
+    "non-CodeSandbox url ending with 'codesandbox.io'": {
+      url: 'https://this-is-not-codesandbox.io',
+      valid: false,
+    },
+    "non-CodeSandbox url ending with 'codesandbox.io' having '/s/'": {
+      url: 'https://this-is-not-codesandbox.io/s/ynn88nx9x',
+      valid: false,
+    },
     'Sandbox url': {
       url: 'https://codesandbox.io/s/ynn88nx9x',
       valid: true,
