@@ -9,5 +9,5 @@ export const shouldTransform = url => {
 export const getHTML = string => {
   const iframeUrl = string.replace('/pen/', '/embed/preview/');
 
-  return `<iframe src="${iframeUrl}" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"></iframe>`;
+  return `<iframe src="${iframeUrl}" style="width:100%; height:300px;"></iframe>`;
 };
