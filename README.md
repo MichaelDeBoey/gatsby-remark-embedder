@@ -26,8 +26,9 @@ have to know how this needs to be done for all of these different services.
 ## This solution
 
 `gatsby-remark-embedder` tries to solve this problem for you by letting you just
-copy-paste the link to the sandbox/tweet/video you want to embed on a separate
-line and replace it with the proper embed-code.
+copy-paste the link to the pen/player/sandbox/tweet/video you want to embed
+right from within your browser onto a separate line (surrounded by empty lines)
+and replace it with the proper embed-code.
 
 ## Table of Contents
 
