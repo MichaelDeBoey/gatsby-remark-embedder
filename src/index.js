@@ -7,7 +7,7 @@ import * as TwitterTransformer from './Twitter';
 import * as YouTubeTransformer from './YouTube';
 
 const transformers = [
-  CodepenTransformer,
+  CodePenTransformer,
   CodeSandboxTransformer,
   SoundCloudTransformer,
   TwitterTransformer,
