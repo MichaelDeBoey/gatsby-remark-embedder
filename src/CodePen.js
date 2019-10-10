@@ -1,7 +1,7 @@
 import { URL } from 'url';
 
 export const shouldTransform = string =>
-  !!new URL(string).pathname.match(/(\/embed|\/pen)/);
+  !!new URL(string).pathname.match(/\/pen/);
 
 export const getHTML = string => {
   const iframeUrl = string.replace('/pen/', '/embed/');
