@@ -28,6 +28,10 @@ cases(
       url: 'https://codesandbox.io/s/ynn88nx9x',
       valid: true,
     },
+    "Sandbox url having 'www' subdomain": {
+      url: 'https://www.codesandbox.io/s/ynn88nx9x',
+      valid: true,
+    },
   }
 );
 
