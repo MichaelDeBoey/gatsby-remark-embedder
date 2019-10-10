@@ -91,7 +91,7 @@ https://codepen.io/team/codepen/pen/PNaGbb
 
 ```md
 <iframe
-  src="https://codepen.io/team/codepen/embed/PNaGbb"
+  src="https://codepen.io/team/codepen/embed/preview/PNaGbb"
   style="width:100%; height:300px;"
 ></iframe>
 ```
