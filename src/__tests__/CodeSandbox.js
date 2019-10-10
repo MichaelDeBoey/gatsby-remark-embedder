@@ -20,6 +20,10 @@ cases(
       url: 'https://this-is-not-codesandbox.io/s/ynn88nx9x',
       valid: false,
     },
+    'embed url': {
+      url: 'https://codesandbox.io/embed/ynn88nx9x',
+      valid: false,
+    },
     'Sandbox url': {
       url: 'https://codesandbox.io/s/ynn88nx9x',
       valid: true,

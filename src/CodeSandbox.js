@@ -1,6 +1,10 @@
 import { URL } from 'url';
 
-export const shouldTransform = url => new URL(url).host === 'codesandbox.io';
+export const shouldTransform = url => {
+  const { host, pathname } = new URL(url);
+
+  return host === 'codesandbox.io' && pathname.includes('/s/');
+};
 
 export const getHTML = url => {
   const iframeUrl = url.replace('/s/', '/embed/');
