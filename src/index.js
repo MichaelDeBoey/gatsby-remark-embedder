@@ -59,6 +59,7 @@ module.exports = async ({ markdownAST, cache }) => {
           }
           node.type = `html`;
           node.value = html;
+          node.children = undefined;
         });
       }
     });
