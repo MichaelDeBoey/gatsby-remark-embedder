@@ -6,6 +6,7 @@ import * as SoundCloudTransformer from './SoundCloud';
 import * as SlidesTransformer from './Slides';
 import * as TwitterTransformer from './Twitter';
 import * as YouTubeTransformer from './YouTube';
+import * as SpotifyTransformer from './Spotify';
 
 const transformers = [
   CodePenTransformer,
@@ -14,6 +15,7 @@ const transformers = [
   SoundCloudTransformer,
   TwitterTransformer,
   YouTubeTransformer,
+  SpotifyTransformer,
 ];
 
 const getUrlString = url => {

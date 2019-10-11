@@ -45,6 +45,7 @@ and replace it with the proper embed-code.
   - [SoundCloud](#soundcloud)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
+  - [Spotify](#spotify)
 - [Inspiration](#inspiration)
 - [Issues](#issues)
   - [🐛 Bugs](#-bugs)
@@ -229,6 +230,20 @@ https://youtu.be/dQw4w9WgXcQ
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe>
+```
+
+### Spotify
+
+#### Usage
+
+```md
+https://open.spotify.com/album/1DFixLWuPkv3KT3TnV35m3
+```
+
+#### Result
+
+```md
+<iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" style="width:100%; height:400px; border:0;" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 ```
 
 ## Inspiration
