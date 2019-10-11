@@ -24,8 +24,9 @@ const getUrlString = url => {
   }
 };
 
-module.exports = async ({ markdownAST, cache }) => {
+module.exports = async ({ cache, markdownAST }) => {
   const transformations = [];
+
   visit(markdownAST, 'paragraph', paragraphNode => {
     if (paragraphNode.children.length !== 1) {
       return;
@@ -53,10 +54,12 @@ module.exports = async ({ markdownAST, cache }) => {
       if (transformer.shouldTransform(urlString)) {
         transformations.push(async () => {
           let html = await cache.get(urlString);
+
           if (!html) {
             html = await transformer.getHTML(urlString);
             await cache.set(urlString, html);
           }
+
           node.type = `html`;
           node.value = html;
           node.children = undefined;
@@ -64,8 +67,8 @@ module.exports = async ({ markdownAST, cache }) => {
       }
     });
   });
-  const promises = transformations.map(t => t());
-  await Promise.all(promises);
+
+  await Promise.all(transformations.map(t => t()));
 
   return markdownAST;
 };
