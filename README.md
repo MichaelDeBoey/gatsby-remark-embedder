@@ -234,16 +234,28 @@ https://youtu.be/dQw4w9WgXcQ
 
 ### Spotify
 
-#### Usage
+#### Usage for Album
 
 ```md
 https://open.spotify.com/album/1DFixLWuPkv3KT3TnV35m3
 ```
 
-#### Result
+#### Result for Album
 
 ```md
 <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" style="width:100%; height:400px; border:0;" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+```
+
+#### Usage for Track
+
+```md
+https://open.spotify.com/track/4Dg5moVCTqxAb7Wr8Dq2T5
+```
+
+#### Result for Track
+
+```md
+<iframe src="https://open.spotify.com/embed/track/4Dg5moVCTqxAb7Wr8Dq2T5" style="width:100%; height:80px; border:0;" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 ```
 
 ## Inspiration
