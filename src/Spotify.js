@@ -3,10 +3,7 @@ import { URL } from 'url';
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
-  return (
-    (host === 'open.spotify.com' || host === 'www.open.spotify.com') &&
-    pathname.includes('/album/')
-  );
+  return host === 'open.spotify.com' && pathname.includes('/album/');
 };
 
 export const getHTML = url => {
