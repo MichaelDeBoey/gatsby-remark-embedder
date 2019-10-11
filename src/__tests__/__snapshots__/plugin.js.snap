@@ -1,0 +1,644 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gatsby-remark-embedder can transform supported links 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "position": Position {
+            "end": Object {
+              "column": 12,
+              "line": 1,
+              "offset": 11,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 3,
+              "line": 1,
+              "offset": 2,
+            },
+          },
+          "type": "text",
+          "value": "Heading 1",
+        },
+      ],
+      "depth": 1,
+      "position": Position {
+        "end": Object {
+          "column": 12,
+          "line": 1,
+          "offset": 11,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "position": Position {
+            "end": Object {
+              "column": 12,
+              "line": 3,
+              "offset": 24,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 4,
+              "line": 3,
+              "offset": 16,
+            },
+          },
+          "type": "text",
+          "value": "Heading2",
+        },
+      ],
+      "depth": 2,
+      "position": Position {
+        "end": Object {
+          "column": 12,
+          "line": 3,
+          "offset": 24,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 3,
+          "offset": 13,
+        },
+      },
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "position": Position {
+            "end": Object {
+              "column": 28,
+              "line": 5,
+              "offset": 53,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 5,
+              "offset": 26,
+            },
+          },
+          "type": "text",
+          "value": "This is a normal paragraph.",
+        },
+      ],
+      "position": Position {
+        "end": Object {
+          "column": 28,
+          "line": 5,
+          "offset": 53,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 5,
+          "offset": 26,
+        },
+      },
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "position": Position {
+            "end": Object {
+              "column": 50,
+              "line": 7,
+              "offset": 104,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 7,
+              "offset": 55,
+            },
+          },
+          "type": "text",
+          "value": "This is the first line of a multi-line paragraph.",
+        },
+        Object {
+          "position": Position {
+            "end": Object {
+              "column": 1,
+              "line": 8,
+              "offset": 107,
+            },
+            "indent": Array [
+              1,
+            ],
+            "start": Object {
+              "column": 50,
+              "line": 7,
+              "offset": 104,
+            },
+          },
+          "type": "break",
+        },
+        Object {
+          "position": Position {
+            "end": Object {
+              "column": 29,
+              "line": 8,
+              "offset": 135,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 8,
+              "offset": 107,
+            },
+          },
+          "type": "text",
+          "value": "And this is the second line.",
+        },
+      ],
+      "position": Position {
+        "end": Object {
+          "column": 29,
+          "line": 8,
+          "offset": 135,
+        },
+        "indent": Array [
+          1,
+        ],
+        "start": Object {
+          "column": 1,
+          "line": 7,
+          "offset": 55,
+        },
+      },
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "position": Position {
+            "end": Object {
+              "column": 28,
+              "line": 10,
+              "offset": 164,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 10,
+              "offset": 137,
+            },
+          },
+          "type": "text",
+          "value": "This is a paragraph with a ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "position": Position {
+                "end": Object {
+                  "column": 33,
+                  "line": 10,
+                  "offset": 169,
+                },
+                "indent": Array [],
+                "start": Object {
+                  "column": 29,
+                  "line": 10,
+                  "offset": 165,
+                },
+              },
+              "type": "text",
+              "value": "link",
+            },
+          ],
+          "position": Position {
+            "end": Object {
+              "column": 55,
+              "line": 10,
+              "offset": 191,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 28,
+              "line": 10,
+              "offset": 164,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://example.com",
+        },
+        Object {
+          "position": Position {
+            "end": Object {
+              "column": 56,
+              "line": 10,
+              "offset": 192,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 55,
+              "line": 10,
+              "offset": 191,
+            },
+          },
+          "type": "text",
+          "value": ".",
+        },
+      ],
+      "position": Position {
+        "end": Object {
+          "column": 56,
+          "line": 10,
+          "offset": 192,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 10,
+          "offset": 137,
+        },
+      },
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "position": Position {
+                "end": Object {
+                  "column": 13,
+                  "line": 12,
+                  "offset": 206,
+                },
+                "indent": Array [],
+                "start": Object {
+                  "column": 2,
+                  "line": 12,
+                  "offset": 195,
+                },
+              },
+              "type": "text",
+              "value": "example.com",
+            },
+          ],
+          "position": Position {
+            "end": Object {
+              "column": 35,
+              "line": 12,
+              "offset": 228,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 12,
+              "offset": 194,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://example.com",
+        },
+      ],
+      "position": Position {
+        "end": Object {
+          "column": 35,
+          "line": 12,
+          "offset": 228,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 12,
+          "offset": 194,
+        },
+      },
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "position": Position {
+                "end": Object {
+                  "column": 21,
+                  "line": 14,
+                  "offset": 250,
+                },
+                "indent": Array [],
+                "start": Object {
+                  "column": 2,
+                  "line": 14,
+                  "offset": 231,
+                },
+              },
+              "type": "text",
+              "value": "https://example.com",
+            },
+          ],
+          "position": Position {
+            "end": Object {
+              "column": 67,
+              "line": 14,
+              "offset": 296,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 14,
+              "offset": 230,
+            },
+          },
+          "title": "A link to example.com",
+          "type": "link",
+          "url": "https://example.com",
+        },
+      ],
+      "position": Position {
+        "end": Object {
+          "column": 67,
+          "line": 14,
+          "offset": 296,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 14,
+          "offset": 230,
+        },
+      },
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "position": Position {
+                "end": Object {
+                  "column": 21,
+                  "line": 16,
+                  "offset": 318,
+                },
+                "indent": Array [],
+                "start": Object {
+                  "column": 2,
+                  "line": 16,
+                  "offset": 299,
+                },
+              },
+              "type": "text",
+              "value": "https://example.com",
+            },
+          ],
+          "position": Position {
+            "end": Object {
+              "column": 22,
+              "line": 16,
+              "offset": 319,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 16,
+              "offset": 298,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://example.com",
+        },
+      ],
+      "position": Position {
+        "end": Object {
+          "column": 22,
+          "line": 16,
+          "offset": 319,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 16,
+          "offset": 298,
+        },
+      },
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": undefined,
+          "position": Position {
+            "end": Object {
+              "column": 43,
+              "line": 18,
+              "offset": 363,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 18,
+              "offset": 321,
+            },
+          },
+          "title": null,
+          "type": "html",
+          "url": "https://codepen.io/team/codepen/pen/PNaGbb",
+          "value": "<iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>",
+        },
+      ],
+      "position": Position {
+        "end": Object {
+          "column": 43,
+          "line": 18,
+          "offset": 363,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 18,
+          "offset": 321,
+        },
+      },
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": undefined,
+          "position": Position {
+            "end": Object {
+              "column": 46,
+              "line": 20,
+              "offset": 410,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 20,
+              "offset": 365,
+            },
+          },
+          "title": null,
+          "type": "html",
+          "url": "https://codesandbox.io/s/ynn88nx9x?view=split",
+          "value": "<iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\"></iframe>",
+        },
+      ],
+      "position": Position {
+        "end": Object {
+          "column": 46,
+          "line": 20,
+          "offset": 410,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 20,
+          "offset": 365,
+        },
+      },
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": undefined,
+          "position": Position {
+            "end": Object {
+              "column": 45,
+              "line": 22,
+              "offset": 456,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 22,
+              "offset": 412,
+            },
+          },
+          "title": null,
+          "type": "html",
+          "url": "https://soundcloud.com/clemenswenners/africa",
+          "value": "<iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true></iframe>",
+        },
+      ],
+      "position": Position {
+        "end": Object {
+          "column": 45,
+          "line": 22,
+          "offset": 456,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 22,
+          "offset": 412,
+        },
+      },
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": undefined,
+          "position": Position {
+            "end": Object {
+              "column": 58,
+              "line": 24,
+              "offset": 515,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 24,
+              "offset": 458,
+            },
+          },
+          "title": null,
+          "type": "html",
+          "url": "https://twitter.com/kentcdodds/status/1078755736455278592",
+          "value": "<blockquote class=\\"twitter-tweet\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>",
+        },
+      ],
+      "position": Position {
+        "end": Object {
+          "column": 58,
+          "line": 24,
+          "offset": 515,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 24,
+          "offset": 458,
+        },
+      },
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": undefined,
+          "position": Position {
+            "end": Object {
+              "column": 29,
+              "line": 26,
+              "offset": 545,
+            },
+            "indent": Array [],
+            "start": Object {
+              "column": 1,
+              "line": 26,
+              "offset": 517,
+            },
+          },
+          "title": null,
+          "type": "html",
+          "url": "https://youtu.be/dQw4w9WgXcQ",
+          "value": "<iframe width=\\"100%\\" height=\\"315\\" src=\\"https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe>",
+        },
+      ],
+      "position": Position {
+        "end": Object {
+          "column": 29,
+          "line": 26,
+          "offset": 545,
+        },
+        "indent": Array [],
+        "start": Object {
+          "column": 1,
+          "line": 26,
+          "offset": 517,
+        },
+      },
+      "type": "paragraph",
+    },
+  ],
+  "position": Object {
+    "end": Object {
+      "column": 1,
+      "line": 27,
+      "offset": 546,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "type": "root",
+}
+`;
