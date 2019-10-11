@@ -24,7 +24,7 @@ const getUrlString = url => {
   }
 };
 
-module.exports = async ({ cache, markdownAST }) => {
+export default async ({ cache, markdownAST }) => {
   const transformations = [];
 
   visit(markdownAST, 'paragraph', paragraphNode => {
