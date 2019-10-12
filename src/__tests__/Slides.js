@@ -61,6 +61,10 @@ cases(
         'https://slides.com/college/actualites-b2caeb9f-d64d-49ce-923d-fb3fc17613da#/0/2',
       valid: true,
     },
+    'Slide with slider number specified 2': {
+      url: 'https://slides.com/cassiecodes/deck-4-5#/3',
+      valid: true,
+    },
     "Slides url having 'www' subdomain": {
       url: 'https://www.slides.com/news/math',
       valid: true,

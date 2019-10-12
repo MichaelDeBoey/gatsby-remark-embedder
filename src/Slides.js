@@ -4,20 +4,33 @@ export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
   /*
-   possible RegEx:
-   /^\/.*\w\/.*\w\/?[^embed].\/?$/
-   /^\/.\w[^/]*\/.\w[^/]*#?.*\/?$/
-   ^\/.*\w\/.*\w[^#/][^a-zA-Z0-9]?\/?$
+    INVALID:
+    https://not-a-slides-url.com
+    https://this-is-not-slides.com
+    https://this-is-not-codepen.io/news/math/embed
+    https://slides.com/explore
+    https://slides.com/random-page
+    https://slides.com/news/math/embed
+    https://slides.com/news/math/asdasd
+    https://slides.com/news/math/embed/
+    https://slides.com/
 
-   from twitter:
-   (([\w-]+\.)*slides.com\/[\w-]{2,}\/[\w-]+)(\/\w+)?
+    VALID:
+    https://slides.com/news/math
+    https://slides.com/news/math/
+    https://www.slides.com/news/math
+    https://slides.com/cassiecodes/deck-4-5#/3
+    https://slides.com/valentinogagliardi/django-rest#/1
+    https://slides.com/college/actualites-b2caeb9f-d64d-49ce-923d-fb3fc17613da#/0/2
+
   */
+
+  if (!(host === 'slides.com' || host === 'www.slides.com')) return false;
   if (pathname.includes('/embed')) return false;
 
-  return (
-    (host === 'slides.com' || host === 'www.slides.com') &&
-    !!pathname.match(/^\/.*\w\/.*\w[^#/][^a-zA-Z0-9]?\/?$/gi)
-  );
+  const pathTrimmed = pathname.split('/').filter(Boolean);
+  if (pathTrimmed.length !== 2) return false;
+  return true;
 };
 
 export const getHTML = url => {
