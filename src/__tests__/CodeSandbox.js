@@ -39,6 +39,6 @@ test('Gets the correct CodeSandbox iframe', () => {
   const html = getHTML('https://codesandbox.io/s/ynn88nx9x');
 
   expect(html).toMatchInlineSnapshot(
-    `"<iframe src=\\"https://codesandbox.io/embed/ynn88nx9x\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\"></iframe>"`
+    `"<iframe src=\\"https://codesandbox.io/embed/ynn88nx9x\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" sandbox=\\"allow-modals allow-forms allow-popups allow-scripts allow-same-origin\\"></iframe>"`
   );
 });
