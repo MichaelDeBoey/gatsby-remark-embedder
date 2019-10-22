@@ -4,7 +4,7 @@ export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
   return (
-    (host === 'codesandbox.io' || host === 'www.codesandbox.io') &&
+    ['codesandbox.io', 'www.codesandbox.io'].includes(host) &&
     pathname.includes('/s/')
   );
 };

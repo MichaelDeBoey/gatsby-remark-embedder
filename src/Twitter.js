@@ -5,7 +5,7 @@ export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
   return (
-    (host === 'twitter.com' || host === 'www.twitter.com') &&
+    ['twitter.com', 'www.twitter.com'].includes(host) &&
     pathname.includes('/status/')
   );
 };
