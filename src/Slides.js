@@ -1,6 +1,6 @@
 import { URL } from 'url';
 
-const getTrimmedPathName = str => str.replace(/\/+$/, '');
+const getTrimmedPathName = pathname => pathname.replace(/\/+$/, '');
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
@@ -18,9 +18,10 @@ export const shouldTransform = url => {
 
 export const getSlidesIFrameSrc = urlString => {
   const { host, pathname, hash } = new URL(urlString);
-  // remove trailing slash
-  const pathnameTrimmed = getTrimmedPathName(pathname);
-  return `https://${host.replace('www.', '')}${pathnameTrimmed}/embed${hash}`;
+
+  return `https://${host.replace('www.', '')}${getTrimmedPathName(
+    pathname
+  )}/embed${hash}`;
 };
 
 export const getHTML = url => {
