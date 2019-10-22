@@ -10,8 +10,8 @@ import * as YouTubeTransformer from './YouTube';
 const transformers = [
   CodePenTransformer,
   CodeSandboxTransformer,
-  SoundCloudTransformer,
   SlidesTransformer,
+  SoundCloudTransformer,
   TwitterTransformer,
   YouTubeTransformer,
 ];
