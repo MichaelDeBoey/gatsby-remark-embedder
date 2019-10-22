@@ -1,6 +1,6 @@
 import cases from 'jest-in-case';
 
-import { getHTML, shouldTransform, getSlidesIFrameSrc } from '../Slides';
+import { getHTML, getSlidesIFrameSrc, shouldTransform } from '../Slides';
 
 cases(
   'url validation',
@@ -16,8 +16,12 @@ cases(
       url: 'https://this-is-not-slides.com',
       valid: false,
     },
-    "non-Slides url ending with 'slides.com' and having '/embed/'": {
-      url: 'https://this-is-not-slides.com/news/math/embed',
+    "non-Slides url ending with 'slides.com' and having a username and deck-name": {
+      url: 'https://this-is-not-slides.com/kentcdodds/oss-we-want',
+      valid: false,
+    },
+    homepage: {
+      url: 'https://slides.com',
       valid: false,
     },
     'explore page': {
@@ -28,85 +32,150 @@ cases(
       url: 'https://slides.com/random-page',
       valid: false,
     },
-    'Slides embed url': {
-      url: 'https://slides.com/news/math/embed',
+    'team embed url': {
+      url: 'https://team.slides.com/hakimel/finch/embed',
       valid: false,
     },
-    'Slides url (valid) with extra pathname': {
-      url: 'https://slides.com/news/math/asdasd',
+    'team fullscreen url': {
+      url: 'https://team.slides.com/hakimel/finch/fullscreen',
       valid: false,
     },
-    'Slides embed url with trailing slash': {
-      url: 'https://slides.com/news/math/embed/',
+    'team live url': {
+      url: 'https://team.slides.com/hakimel/finch/live',
       valid: false,
     },
-    'Slides homepage': {
-      url: 'https://slides.com/',
+    'user embed url': {
+      url: 'https://slides.com/kentcdodds/oss-we-want/embed',
       valid: false,
     },
-    'Slides url': {
-      url: 'https://slides.com/news/math',
+    'user fullscreen url': {
+      url: 'https://slides.com/kentcdodds/oss-we-want/fullscreen',
+      valid: false,
+    },
+    'user live url': {
+      url: 'https://slides.com/kentcdodds/oss-we-want/live',
+      valid: false,
+    },
+    'team Deck url': {
+      url: 'https://team.slides.com/hakimel/finch',
       valid: true,
     },
-    'Slides user slide': {
-      url: 'https://slides.com/valentinogagliardi/django-rest#/1',
+    'team Deck url with selected page': {
+      url: 'https://team.slides.com/hakimel/finch#/0',
       valid: true,
     },
-    'Slides url with trailing slash': {
-      url: 'https://slides.com/news/math/',
+    'team Deck url with selected page & extra slashes': {
+      url: 'https://team.slides.com/hakimel/finch/////#/0',
       valid: true,
     },
-    'Slide with slider number specified': {
-      url:
-        'https://slides.com/college/actualites-b2caeb9f-d64d-49ce-923d-fb3fc17613da#/0/2',
+    "team Deck url having 'embed' as name": {
+      url: 'https://team.slides.com/teamname/embed',
       valid: true,
     },
-    'Slide with slider number specified 2': {
-      url: 'https://slides.com/cassiecodes/deck-4-5#/3',
+    "team Deck url having 'fullscreen' as name": {
+      url: 'https://team.slides.com/teamname/fullscreen',
       valid: true,
     },
-    "Slides url having 'www' subdomain": {
-      url: 'https://www.slides.com/news/math',
+    "team Deck url having 'live' as name": {
+      url: 'https://team.slides.com/teamname/live',
+      valid: true,
+    },
+    'user Deck url': {
+      url: 'https://slides.com/kentcdodds/oss-we-want',
+      valid: true,
+    },
+    "user Deck url having 'www' subdomain": {
+      url: 'https://www.slides.com/kentcdodds/oss-we-want',
+      valid: true,
+    },
+    "user Deck url having 'embed' as name": {
+      url: 'https://slides.com/michaeldeboey/embed',
+      valid: true,
+    },
+    "user Deck url having 'fullscreen' as name": {
+      url: 'https://slides.com/michaeldeboey/fullscreen',
+      valid: true,
+    },
+    "user Deck url having 'live' as name": {
+      url: 'https://slides.com/michaeldeboey/live',
+      valid: true,
+    },
+    'user Deck url with selected page': {
+      url: 'https://slides.com/kentcdodds/oss-we-want#/0',
+      valid: true,
+    },
+    'user Deck url with selected page & extra slashes': {
+      url: 'https://slides.com/kentcdodds/oss-we-want/////#/0',
       valid: true,
     },
   }
 );
 
 cases(
-  'get slides iframe url',
-  ({ url, valid }) => {
-    expect(getSlidesIFrameSrc(url)).toBe(valid);
+  'get Slides iframe url',
+  ({ iframe, url }) => {
+    expect(getSlidesIFrameSrc(url)).toBe(iframe);
   },
   {
-    'hash url': {
-      url:
-        'https://slides.com/college/actualites-b2caeb9f-d64d-49ce-923d-fb3fc17613da#/0/2',
-      valid:
-        'https://slides.com/college/actualites-b2caeb9f-d64d-49ce-923d-fb3fc17613da/embed#/0/2',
+    'team Deck url': {
+      url: 'https://team.slides.com/hakimel/finch',
+      iframe: 'https://team.slides.com/hakimel/finch/embed',
     },
-    'hash url 2': {
-      url: 'https://slides.com/cassiecodes/deck-4-5#/3',
-      valid: 'https://slides.com/cassiecodes/deck-4-5/embed#/3',
+    'team Deck url with selected page': {
+      url: 'https://team.slides.com/hakimel/finch#/0',
+      iframe: 'https://team.slides.com/hakimel/finch/embed#/0',
     },
-    'hash url 3': {
-      url: 'https://slides.com/valentinogagliardi/django-rest#/1',
-      valid: 'https://slides.com/valentinogagliardi/django-rest/embed#/1',
+    'team Deck url with selected page & extra slashes': {
+      url: 'https://team.slides.com/hakimel/finch/////#/0',
+      iframe: 'https://team.slides.com/hakimel/finch/embed#/0',
     },
-    'hash url with trailing slash': {
-      url: 'https://slides.com/news/math/#/3',
-      valid: 'https://slides.com/news/math/embed#/3',
+    "team Deck url having 'embed' as name": {
+      url: 'https://team.slides.com/teamname/embed',
+      iframe: 'https://team.slides.com/teamname/embed/embed',
     },
-    'hash url with multiple trailing slashes': {
-      url: 'https://slides.com/news/math/////#/3',
-      valid: 'https://slides.com/news/math/embed#/3',
+    "team Deck url having 'fullscreen' as name": {
+      url: 'https://team.slides.com/teamname/fullscreen',
+      iframe: 'https://team.slides.com/teamname/fullscreen/embed',
+    },
+    "team Deck url having 'live' as name": {
+      url: 'https://team.slides.com/teamname/live',
+      iframe: 'https://team.slides.com/teamname/live/embed',
+    },
+    'user Deck url': {
+      url: 'https://slides.com/kentcdodds/oss-we-want',
+      iframe: 'https://slides.com/kentcdodds/oss-we-want/embed',
+    },
+    "user Deck url having 'www' subdomain": {
+      url: 'https://www.slides.com/kentcdodds/oss-we-want',
+      iframe: 'https://slides.com/kentcdodds/oss-we-want/embed',
+    },
+    "user Deck url having 'embed' as name": {
+      url: 'https://slides.com/michaeldeboey/embed',
+      iframe: 'https://slides.com/michaeldeboey/embed/embed',
+    },
+    "user Deck url having 'fullscreen' as name": {
+      url: 'https://slides.com/michaeldeboey/fullscreen',
+      iframe: 'https://slides.com/michaeldeboey/fullscreen/embed',
+    },
+    "user Deck url having 'live' as name": {
+      url: 'https://slides.com/michaeldeboey/live',
+      iframe: 'https://slides.com/michaeldeboey/live/embed',
+    },
+    'user Deck url with selected page': {
+      url: 'https://slides.com/kentcdodds/oss-we-want#/0',
+      iframe: 'https://slides.com/kentcdodds/oss-we-want/embed#/0',
+    },
+    'user Deck url with selected page & extra slashes': {
+      url: 'https://slides.com/kentcdodds/oss-we-want/////#/0',
+      iframe: 'https://slides.com/kentcdodds/oss-we-want/embed#/0',
     },
   }
 );
 
 test('Gets the correct Slides iframe', () => {
-  const html = getHTML('https://slides.com/news/math');
+  const html = getHTML('https://slides.com/kentcdodds/oss-we-want');
 
   expect(html).toMatchInlineSnapshot(
-    `"<iframe src=\\"https://slides.com/news/math/embed\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"`
+    `"<iframe src=\\"https://slides.com/kentcdodds/oss-we-want/embed\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"`
   );
 });
