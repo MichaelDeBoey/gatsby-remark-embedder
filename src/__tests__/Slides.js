@@ -17,7 +17,7 @@ cases(
       valid: false,
     },
     "non-Slides url ending with 'slides.com' and having '/embed/'": {
-      url: 'https://this-is-not-codepen.io/news/math/embed',
+      url: 'https://this-is-not-slides.com/news/math/embed',
       valid: false,
     },
     'explore page': {
@@ -72,10 +72,28 @@ cases(
   }
 );
 
-test('Gets the correct CodePen iframe', () => {
+test('Gets the correct Slides iframe', () => {
   const html = getHTML('https://slides.com/news/math');
 
   expect(html).toMatchInlineSnapshot(
     `"<iframe src=\\"https://slides.com/news/math/embed\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"`
+  );
+});
+
+test('Gets the correct Slides iframe with query params', () => {
+  const html = getHTML('https://slides.com/cassiecodes/deck-4-5#/3');
+
+  expect(html).toMatchInlineSnapshot(
+    `"<iframe src=\\"https://slides.com/cassiecodes/deck-4-5/embed#/3\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"`
+  );
+});
+
+test('Gets the correct Slides iframe with query params 2', () => {
+  const html = getHTML(
+    'https://slides.com/college/actualites-b2caeb9f-d64d-49ce-923d-fb3fc17613da#/0/2'
+  );
+
+  expect(html).toMatchInlineSnapshot(
+    `"<iframe src=\\"https://slides.com/college/actualites-b2caeb9f-d64d-49ce-923d-fb3fc17613da/embed#/0/2\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"`
   );
 });
