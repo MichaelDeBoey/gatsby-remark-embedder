@@ -3,8 +3,14 @@ import { URL } from 'url';
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
-  if (!(host === 'slides.com' || host === 'www.slides.com')) return false;
-  if (pathname.includes('/embed')) return false;
+  if (
+    !(
+      host === 'slides.com' ||
+      host === 'www.slides.com' ||
+      host === 'team.slides.com'
+    )
+  )
+    return false;
 
   const pathTrimmed = pathname.split('/').filter(Boolean);
   if (pathTrimmed.length !== 2) return false;
