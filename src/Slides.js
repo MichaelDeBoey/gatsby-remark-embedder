@@ -3,17 +3,15 @@ import { URL } from 'url';
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
-  if (
-    !(
-      host === 'slides.com' ||
-      host === 'www.slides.com' ||
-      host === 'team.slides.com'
-    )
-  )
+  if (!['slides.com', 'www.slides.com', 'team.slides.com'].includes(host)) {
     return false;
+  }
 
   const pathTrimmed = pathname.split('/').filter(Boolean);
-  if (pathTrimmed.length !== 2) return false;
+  if (pathTrimmed.length !== 2) {
+    return false;
+  }
+
   return true;
 };
 
@@ -21,8 +19,7 @@ export const getSlidesIFrameSrc = urlString => {
   const { origin, pathname, hash } = new URL(urlString);
   // remove trailing slash
   const pathnameTrimmed = pathname.replace(/\/+$/, '');
-
-  return `${origin}${pathnameTrimmed}/embed${hash}`;
+  return `${origin.replace(/w{3}\./, '')}${pathnameTrimmed}/embed${hash}`;
 };
 
 export const getHTML = url => {
