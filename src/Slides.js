@@ -11,7 +11,16 @@ export const shouldTransform = url => {
   return true;
 };
 
+export const getSlidesIFrameSrc = urlString => {
+  const { origin, pathname, hash } = new URL(urlString);
+  // remove trailing slash
+  const pathnameTrimmed = pathname.replace(/\/+$/, '');
+
+  return `${origin}${pathnameTrimmed}/embed${hash}`;
+};
+
 export const getHTML = url => {
-  const _url = new URL(url);
-  return `<iframe src="${_url.origin}${_url.pathname}/embed${_url.hash}" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`;
+  const iframeSrc = getSlidesIFrameSrc(url);
+
+  return `<iframe src="${iframeSrc}" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`;
 };
