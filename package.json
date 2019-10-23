@@ -41,12 +41,12 @@
     "validate": "kcd-scripts validate"
   },
   "dependencies": {
-    "@babel/runtime": "^7.6.2",
+    "@babel/runtime": "^7.6.3",
     "node-fetch": "^2.6.0",
     "unist-util-visit": "^2.0.0"
   },
   "devDependencies": {
-    "all-contributors-cli": "^6.9.1",
+    "all-contributors-cli": "^6.9.3",
     "jest-in-case": "^1.0.2",
     "kcd-scripts": "^1.9.0",
     "pretty-quick": "^2.0.0",
