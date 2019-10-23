@@ -60,6 +60,18 @@ cases(
       url: 'https://team.slides.com/hakimel/finch',
       valid: true,
     },
+    'team Deck url with custom team subdomain': {
+      url: 'https://acme.slides.com/jack-k/sales-template',
+      valid: true,
+    },
+    'team Deck url with custom hyphened team subdomain': {
+      url: 'https://team-name.slides.com/username/deck-name',
+      valid: true,
+    },
+    'team Deck url with custom dotted team subdomain': {
+      url: 'https://dotted.team.slides.com/username/deck-name',
+      valid: true,
+    },
     'team Deck url with selected page': {
       url: 'https://team.slides.com/hakimel/finch#/0',
       valid: true,
@@ -69,15 +81,15 @@ cases(
       valid: true,
     },
     "team Deck url having 'embed' as name": {
-      url: 'https://team.slides.com/teamname/embed',
+      url: 'https://team.slides.com/username/embed',
       valid: true,
     },
     "team Deck url having 'fullscreen' as name": {
-      url: 'https://team.slides.com/teamname/fullscreen',
+      url: 'https://team.slides.com/username/fullscreen',
       valid: true,
     },
     "team Deck url having 'live' as name": {
-      url: 'https://team.slides.com/teamname/live',
+      url: 'https://team.slides.com/username/live',
       valid: true,
     },
     'user Deck url': {
