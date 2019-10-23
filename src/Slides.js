@@ -5,11 +5,8 @@ const getTrimmedPathName = pathname => pathname.replace(/\/+$/, '');
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
-  if (!['slides.com', 'www.slides.com', 'team.slides.com'].includes(host)) {
-    return false;
-  }
-
   return (
+    ['slides.com', 'www.slides.com', 'team.slides.com'].includes(host) &&
     getTrimmedPathName(pathname)
       .split('/')
       .filter(Boolean).length === 2
