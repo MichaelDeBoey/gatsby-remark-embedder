@@ -1,6 +1,8 @@
 import { URL } from 'url';
 
-const getTrimmedPathName = pathname => pathname.replace(/^\/|\/+$/g, '');
+const getTrimmedPathName = pathname =>
+  // Trim leading and trailing slashes
+  pathname.replace(/^\/|\/+$/g, '');
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
