@@ -13,10 +13,10 @@ export const shouldTransform = url => {
 
 export const getSlidesIFrameSrc = urlString => {
   const { host, pathname, hash } = new URL(urlString);
+  const trimmedHost = host.replace('www.', '');
+  const trimmedPathName = getTrimmedPathName(pathname);
 
-  return `https://${host.replace('www.', '')}/${getTrimmedPathName(
-    pathname
-  )}/embed${hash}`;
+  return `https://${trimmedHost}/${trimmedPathName}/embed${hash}`;
 };
 
 export const getHTML = url => {
