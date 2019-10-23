@@ -19,7 +19,7 @@
 ## The problem
 
 Trying to embed well known services (like [CodePen][codepen],
-[CodeSandbox][codesandbox], [Slides](slides), [SoundCloud][soundcloud],
+[CodeSandbox][codesandbox], [Slides][slides], [SoundCloud][soundcloud],
 [Twitter][twitter] or [YouTube][youtube]) into your [Gatsby][gatsby] website can
 be hard, since you have to know how this needs to be done for all of these
 different services.
