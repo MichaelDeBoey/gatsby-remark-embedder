@@ -62,6 +62,14 @@ describe('gatsby-remark-embedder', () => {
     expect(remark.stringify(processedAST)).toMatchSnapshot();
   });
 
+  it('can transform Slides links', async () => {
+    const markdownAST = getMarkdownASTForFile('Slides');
+
+    const processedAST = await plugin({ cache, markdownAST });
+
+    expect(remark.stringify(processedAST)).toMatchSnapshot();
+  });
+
   it('can transform SoundCloud links', async () => {
     const markdownAST = getMarkdownASTForFile('SoundCloud');
 

@@ -19,6 +19,8 @@ https://codepen.io/team/codepen/pen/PNaGbb
 
 https://codesandbox.io/s/ynn88nx9x?view=split
 
+https://slides.com/kentcdodds/oss-we-want
+
 https://soundcloud.com/clemenswenners/africa
 
 https://twitter.com/kentcdodds/status/1078755736455278592
