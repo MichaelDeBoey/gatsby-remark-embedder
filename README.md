@@ -19,9 +19,10 @@
 ## The problem
 
 Trying to embed well known services (like [CodePen][codepen],
-[CodeSandbox][codesandbox], [SoundCloud][soundcloud], [Twitter][twitter] or
-[YouTube][youtube]) into your [Gatsby][gatsby] website can be hard, since you
-have to know how this needs to be done for all of these different services.
+[CodeSandbox][codesandbox], [Slides](slides), [SoundCloud][soundcloud],
+[Twitter][twitter] or [YouTube][youtube]) into your [Gatsby][gatsby] website can
+be hard, since you have to know how this needs to be done for all of these
+different services.
 
 ## This solution
 
@@ -40,6 +41,7 @@ and replace it with the proper embed-code.
 - [Supported services](#supported-services)
   - [CodePen](#codepen)
   - [CodeSandbox](#codesandbox)
+  - [Slides](#slides)
   - [SoundCloud](#soundcloud)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
@@ -111,6 +113,29 @@ https://codesandbox.io/s/ynn88nx9x?view=split
 <iframe
   src="https://codesandbox.io/embed/ynn88nx9x?view=split"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+></iframe>
+```
+
+### Slides
+
+#### Usage
+
+```md
+https://slides.com/kentcdodds/oss-we-want
+```
+
+#### Result
+
+```md
+<iframe
+  src="https://slides.com/kentcdodds/oss-we-want/embed"
+  width="576"
+  height="420"
+  scrolling="no"
+  frameborder="0"
+  webkitallowfullscreen
+  mozallowfullscreen
+  allowfullscreen
 ></iframe>
 ```
 
@@ -282,6 +307,7 @@ MIT
 [gatsby]: https://github.com/gatsbyjs/gatsby
 [gatsby-plugin-twitter]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-twitter
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
+[slides]: https://slides.com
 [soundcloud]: https://soundcloud.com
 [twitter]: https://twitter.com
 [twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
