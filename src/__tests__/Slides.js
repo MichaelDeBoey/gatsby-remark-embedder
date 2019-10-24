@@ -76,6 +76,10 @@ cases(
       url: 'https://team_name.slides.com/username/deck-name',
       valid: true,
     },
+    'team Deck url with custom alphanumeric team subdomain': {
+      url: 'https://asdfdsa11232889ASD.slides.com/username/deck-name',
+      valid: true,
+    },
     'team Deck url with selected page': {
       url: 'https://team.slides.com/hakimel/finch#/0',
       valid: true,
