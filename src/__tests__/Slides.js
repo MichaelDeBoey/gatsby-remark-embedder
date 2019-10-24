@@ -44,6 +44,10 @@ cases(
       url: 'https://team.slides.com/hakimel/finch/live',
       valid: false,
     },
+    'team Deck url with custom dotted team subdomain': {
+      url: 'https://dotted.team.slides.com/username/deck-name',
+      valid: false,
+    },
     'user embed url': {
       url: 'https://slides.com/kentcdodds/oss-we-want/embed',
       valid: false,
@@ -66,10 +70,6 @@ cases(
     },
     'team Deck url with custom hyphened team subdomain': {
       url: 'https://team-name.slides.com/username/deck-name',
-      valid: true,
-    },
-    'team Deck url with custom dotted team subdomain': {
-      url: 'https://dotted.team.slides.com/username/deck-name',
       valid: true,
     },
     'team Deck url with selected page': {
