@@ -48,6 +48,10 @@ cases(
       url: 'https://dotted.team.slides.com/username/deck-name',
       valid: false,
     },
+    'team Deck url with custom team subdomain of 1 character': {
+      url: 'https://a.slides.com/username/deck-name',
+      valid: false,
+    },
     'user embed url': {
       url: 'https://slides.com/kentcdodds/oss-we-want/embed',
       valid: false,
@@ -78,6 +82,10 @@ cases(
     },
     'team Deck url with custom alphanumeric team subdomain': {
       url: 'https://asdfdsa11232889ASD.slides.com/username/deck-name',
+      valid: true,
+    },
+    'team Deck url with custom team subdomain of 2 characters': {
+      url: 'https://ab.slides.com/username/deck-name',
       valid: true,
     },
     'team Deck url with selected page': {
