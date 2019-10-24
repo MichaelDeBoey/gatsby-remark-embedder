@@ -4,7 +4,7 @@ const getTrimmedPathName = pathname =>
   // Trim leading and trailing slashes
   pathname.replace(/^\/|\/+$/g, '');
 
-const isSubDomain = host => /^([a-zA-Z-]+\.)?slides\.com$/.test(host);
+const isSubDomain = host => /^([a-zA-Z-_]+\.)?slides\.com$/.test(host);
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
