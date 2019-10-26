@@ -2,19 +2,36 @@ import { URL } from 'url';
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
-
   return (
     host === 'open.spotify.com' &&
-    (pathname.includes('/album/') || pathname.includes('/track/'))
+    (pathname.includes('/album/') ||
+      pathname.includes('/artist/') ||
+      pathname.includes('/episode/') ||
+      pathname.includes('/show/') ||
+      pathname.includes('/playlist/') ||
+      pathname.includes('/track/'))
   );
 };
 
-export const getHTML = url => {
-  const isTrack = url.includes('/track/');
+export const getSpotifyIframeSrc = urlString => {
+  const { pathname } = new URL(urlString);
+  const type = pathname.split('/')[1].toLowerCase();
 
-  const replaceKey = isTrack ? '/track/' : '/album/';
-  const iframeUrl = url.replace(replaceKey, `/embed${replaceKey}`);
-  return `<iframe src="${iframeUrl}" style="width:100%; height:${
-    isTrack ? '80px' : '400px'
-  }; border:0;" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
+  switch (type) {
+    case 'album':
+    case 'artist':
+    case 'episode':
+    case 'show':
+    case 'track':
+    case 'playlist':
+      return urlString.replace(type, `embed/${type}`);
+    default:
+      return null;
+  }
+};
+
+export const getHTML = url => {
+  const iFrameSrc = getSpotifyIframeSrc(url);
+
+  return `<iframe src="${iFrameSrc}" style="width:100%; height:240px; border:0;" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
 };
