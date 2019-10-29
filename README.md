@@ -43,9 +43,9 @@ and replace it with the proper embed-code.
   - [CodeSandbox](#codesandbox)
   - [Slides](#slides)
   - [SoundCloud](#soundcloud)
+  - [Spotify](#spotify)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
-  - [Spotify](#spotify)
 - [Inspiration](#inspiration)
 - [Issues](#issues)
   - [🐛 Bugs](#-bugs)
@@ -162,6 +162,27 @@ https://soundcloud.com/clemenswenners/africa
 ></iframe>
 ```
 
+### Spotify
+
+#### Usage
+
+```md
+https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
+```
+
+#### Result
+
+```html
+<iframe
+  src="https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L"
+  width="100%"
+  height="380"
+  frameborder="0"
+  allowtransparency="true"
+  allow="encrypted-media"
+></iframe>
+```
+
 ### Twitter
 
 The returned HTML snippet from the Twitter transformer will only be
@@ -230,32 +251,6 @@ https://youtu.be/dQw4w9WgXcQ
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe>
-```
-
-### Spotify
-
-#### Usage for Album
-
-```md
-https://open.spotify.com/album/1DFixLWuPkv3KT3TnV35m3
-```
-
-#### Result for Album
-
-```md
-<iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" style="width:100%; height:400px; border:0;" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-```
-
-#### Usage for Track
-
-```md
-https://open.spotify.com/track/4Dg5moVCTqxAb7Wr8Dq2T5
-```
-
-#### Result for Track
-
-```md
-<iframe src="https://open.spotify.com/embed/track/4Dg5moVCTqxAb7Wr8Dq2T5" style="width:100%; height:80px; border:0;" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 ```
 
 ## Inspiration
