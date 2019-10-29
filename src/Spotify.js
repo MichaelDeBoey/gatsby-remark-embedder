@@ -2,6 +2,7 @@ import { URL } from 'url';
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
+
   return (
     host === 'open.spotify.com' &&
     (pathname.includes('/album/') ||
@@ -13,7 +14,7 @@ export const shouldTransform = url => {
   );
 };
 
-export const getSpotifyIframeSrc = urlString => {
+export const getSpotifyIFrameSrc = urlString => {
   const { pathname } = new URL(urlString);
   const type = pathname.split('/')[1].toLowerCase();
 
@@ -31,7 +32,7 @@ export const getSpotifyIframeSrc = urlString => {
 };
 
 export const getHTML = url => {
-  const iFrameSrc = getSpotifyIframeSrc(url);
+  const iframeSrc = getSpotifyIFrameSrc(url);
 
-  return `<iframe src="${iFrameSrc}" style="width:100%; height:240px; border:0;" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
+  return `<iframe src="${iframeSrc}" style="width:100%; height:240px; border:0;" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
 };
