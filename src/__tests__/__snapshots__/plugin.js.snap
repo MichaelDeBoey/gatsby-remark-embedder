@@ -21,7 +21,7 @@ exports[`gatsby-remark-embedder can transform SoundCloud links 1`] = `
 `;
 
 exports[`gatsby-remark-embedder can transform Spotify links 1`] = `
-"<iframe src=\"https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L\" width=\"100%\" height=\"380\" frameborder=\"0\" allowtransparency=\"true\" allow=\"encrypted-media\"></iframe>
+"<iframe src=\\"https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L\\" width=\\"100%\\" height=\\"380\\" frameborder=\\"0\\" allowtransparency=\\"true\\" allow=\\"encrypted-media\\"></iframe>
 "
 `;
 
@@ -42,7 +42,7 @@ exports[`gatsby-remark-embedder can transform all supported links (kitchensink) 
 
 This is a normal paragraph.
 
-This is the first line of a multi-line paragraph.
+This is the first line of a multi-line paragraph.  
 And this is the second line.
 
 This is a paragraph with a [link](https://example.com).
@@ -61,7 +61,7 @@ This is a paragraph with a [link](https://example.com).
 
 <iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true></iframe>
 
-<iframe src=\"https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L\" width=\"100%\" height=\"380\" frameborder=\"0\" allowtransparency=\"true\" allow=\"encrypted-media\"></iframe>
+<iframe src=\\"https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L\\" width=\\"100%\\" height=\\"380\\" frameborder=\\"0\\" allowtransparency=\\"true\\" allow=\\"encrypted-media\\"></iframe>
 
 <blockquote class=\\"twitter-tweet-from-cache\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw\\">December 28, 2018</a></blockquote>
 
