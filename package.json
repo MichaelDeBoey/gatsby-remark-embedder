@@ -48,7 +48,7 @@
   "devDependencies": {
     "all-contributors-cli": "^6.9.3",
     "jest-in-case": "^1.0.2",
-    "kcd-scripts": "^1.9.0",
+    "kcd-scripts": "^1.11.0",
     "pretty-quick": "^2.0.0",
     "remark": "^11.0.1"
   },
