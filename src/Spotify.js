@@ -1,13 +1,14 @@
 import { URL } from 'url';
 
 const includesSomeOfArray = (string, array) =>
-  array.some(item => string.startsWith(item));
+  array.some(item => string.includes(item));
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
   return (
     host === 'open.spotify.com' &&
+    !includesSomeOfArray(pathname, ['embed', 'embed-podcast']) &&
     includesSomeOfArray(pathname, [
       '/album/',
       '/artist/',
@@ -23,7 +24,8 @@ export const getSpotifyIFrameSrc = urlString => {
   const { pathname } = new URL(urlString);
   const type = pathname.split('/')[1].toLowerCase();
 
-  if (['episode', 'show'].includes(type)) {
+  const podcastTypes = ['episode', 'show'];
+  if (podcastTypes.includes(type)) {
     return urlString.replace(type, `embed-podcast/${type}`);
   }
 
