@@ -43,6 +43,7 @@ and replace it with the proper embed-code.
   - [CodeSandbox](#codesandbox)
   - [Slides](#slides)
   - [SoundCloud](#soundcloud)
+  - [Spotify](#spotify)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
 - [Inspiration](#inspiration)
@@ -158,6 +159,27 @@ https://soundcloud.com/clemenswenners/africa
   scrolling="no"
   frameborder="no"
   src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true
+></iframe>
+```
+
+### Spotify
+
+#### Usage
+
+```md
+https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
+```
+
+#### Result
+
+```html
+<iframe
+  src="https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L"
+  width="100%"
+  height="380"
+  frameborder="0"
+  allowtransparency="true"
+  allow="encrypted-media"
 ></iframe>
 ```
 

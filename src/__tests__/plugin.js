@@ -78,6 +78,14 @@ describe('gatsby-remark-embedder', () => {
     expect(remark.stringify(processedAST)).toMatchSnapshot();
   });
 
+  it('can transform Spotify links', async () => {
+    const markdownAST = getMarkdownASTForFile('Spotify');
+
+    const processedAST = await plugin({ cache, markdownAST });
+
+    expect(remark.stringify(processedAST)).toMatchSnapshot();
+  });
+
   it('can transform Twitter links', async () => {
     fetchMock.mockResolvedValue({
       json: () =>
