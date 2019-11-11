@@ -20,9 +20,9 @@
 
 Trying to embed well known services (like [CodePen][codepen],
 [CodeSandbox][codesandbox], [Slides][slides], [SoundCloud][soundcloud],
-[Twitter][twitter] or [YouTube][youtube]) into your [Gatsby][gatsby] website can
-be hard, since you have to know how this needs to be done for all of these
-different services.
+[Spotify][spotify], [Twitter][twitter] or [YouTube][youtube]) into your
+[Gatsby][gatsby] website can be hard, since you have to know how this needs to
+be done for all of these different services.
 
 ## This solution
 
@@ -335,6 +335,7 @@ MIT
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
 [slides]: https://slides.com
 [soundcloud]: https://soundcloud.com
+[spotify]: https://spotify.com
 [twitter]: https://twitter.com
 [twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
 [youtube]: https://youtube.com
