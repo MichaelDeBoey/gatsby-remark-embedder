@@ -46,7 +46,7 @@ and replace it with the proper embed-code.
   - [Spotify](#spotify)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
-  - [Custom Transformers](#custom-transformers)
+- [Custom Transformers](#custom-transformers)
 - [Inspiration](#inspiration)
 - [Issues](#issues)
   - [🐛 Bugs](#-bugs)
