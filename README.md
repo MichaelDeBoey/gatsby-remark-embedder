@@ -298,20 +298,15 @@ marking it as `async` or by manually returning a `Promise` object.
 #### Example transformer object
 
 ```js
-// runkitOembedTransformer.js
-import fetch from 'node-fetch';
-const regex = /https?:\/\/runkit\.com\/.*\/([^/?#&]+).* /;
+// myDomainTransformer.js
+const regex = /^https?:\/\/my-domain\.com\//;
 
 export default {
   shouldTransform(url) {
     return regex.test(url);
   },
-  async getHTML(url) {
-    const res = await fetch(
-      `https://embed.runkit.com/oembed?url=${url}&format=json`
-    );
-    const { html } = await res.json();
-    return html;
+  getHTML(url) {
+    return `<iframe href="${url}"></iframe>`;
   },
 };
 ```
