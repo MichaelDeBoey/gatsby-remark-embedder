@@ -314,7 +314,7 @@ export default {
 You can also export the two functions separately:
 
 ```js
-// someTransformer.js
+// some-transformer.js
 export const shouldTransform = url => {
   // ...
 };
