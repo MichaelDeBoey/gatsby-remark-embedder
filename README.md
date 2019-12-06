@@ -46,6 +46,7 @@ and replace it with the proper embed-code.
   - [Spotify](#spotify)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
+  - [Custom Transformers](#custom-transformers)
 - [Inspiration](#inspiration)
 - [Issues](#issues)
   - [🐛 Bugs](#-bugs)
@@ -251,6 +252,81 @@ https://youtu.be/dQw4w9WgXcQ
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe>
+```
+
+### Custom Transformers
+
+The plugin allows you to pass an array of custom transformers that will be
+executed additionally to the default ones.
+
+#### Usage
+
+```js
+// In your gatsby-config.js
+import someSiteTransformer from './src/some-site-transformer';
+
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-embedder`,
+          options: {
+            customTransformers: [someSiteTransformer],
+          },
+        },
+      ],
+    },
+  },
+];
+```
+
+Each element of the array should be an object with two methods that receive the
+URL argument:
+
+- `shouldTransform(url)`
+- `getHTML(url)`
+
+The `shouldTransform` method should check if the URL matches the one intended to
+transform; it should to return a boolean value.
+
+The `getHTML` method is executed when the URL has been matched to transform. It
+should return the transformed HTML. This function can be asynchronous, either by
+marking it as `async` or by manually returning a `Promise` object.
+
+#### Example transformer object
+
+```js
+// runkitOembedTransformer.js
+import fetch from 'node-fetch';
+const regex = /https?:\/\/runkit\.com\/.*\/([^/?#&]+).* /;
+
+export default {
+  shouldTransform(url) {
+    return regex.test(url);
+  },
+  async getHTML(url) {
+    const res = await fetch(
+      `https://embed.runkit.com/oembed?url=${url}&format=json`
+    );
+    const { html } = await res.json();
+    return html;
+  },
+};
+```
+
+You can also export the two functions separately:
+
+```js
+// someTransformer.js
+export const shouldTransform = url => {
+  // ...
+};
+
+export const getHTML = async url => {
+  // ...
+};
 ```
 
 ## Inspiration

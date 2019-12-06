@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`gatsby-remark-embedder can execute custom transformers 1`] = `
+"<iframe href=\\"https://domain.com/id/abc\\" />
+
+<https://other-domain.com/>
+"
+`;
+
 exports[`gatsby-remark-embedder can transform CodePen links 1`] = `
 "<iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>
 "
