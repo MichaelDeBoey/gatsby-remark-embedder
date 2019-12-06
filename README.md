@@ -299,7 +299,7 @@ marking it as `async` or by manually returning a `Promise` object.
 
 ```js
 // some-site-transformer.js
-const regex = /^https?:\/\/my-domain\.com\//;
+const regex = /^https?:\/\/some-site\.com\//;
 
 export default {
   shouldTransform(url) {

@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`gatsby-remark-embedder can execute custom transformers 1`] = `
-"<iframe href=\\"https://domain.com/id/abc\\" />
+"<iframe href=\\"https://some-site.com/id/abc\\" />
 
-<https://other-domain.com/>
+<https://some-other-domain.com/>
 "
 `;
 

@@ -114,7 +114,7 @@ describe('gatsby-remark-embedder', () => {
     const markdownAST = getMarkdownASTForFile('CustomTransformer');
 
     const transformer = {
-      shouldTransform: jest.fn(url => url.startsWith('https://domain.com')),
+      shouldTransform: jest.fn(url => url.startsWith('https://some-site.com')),
       getHTML: jest.fn(url => `<iframe href="${url}" />`),
     };
 
@@ -125,10 +125,10 @@ describe('gatsby-remark-embedder', () => {
 
     expect(transformer.shouldTransform).toHaveBeenCalledTimes(2);
     expect(transformer.shouldTransform).toHaveBeenCalledWith(
-      'https://domain.com/id/abc'
+      'https://some-site.com/id/abc'
     );
     expect(transformer.shouldTransform).toHaveBeenCalledWith(
-      'https://other-domain.com/'
+      'https://some-other-domain.com/'
     );
 
     expect(transformer.getHTML).toHaveBeenCalledTimes(1);
