@@ -298,7 +298,7 @@ marking it as `async` or by manually returning a `Promise` object.
 ### Example transformer object
 
 ```js
-// myDomainTransformer.js
+// some-site-transformer.js
 const regex = /^https?:\/\/my-domain\.com\//;
 
 export default {
