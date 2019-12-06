@@ -115,7 +115,7 @@ describe('gatsby-remark-embedder', () => {
 
     const transformer = {
       shouldTransform: jest.fn(url => url.startsWith('https://some-site.com')),
-      getHTML: jest.fn(url => `<iframe href="${url}" />`),
+      getHTML: jest.fn(url => `<iframe href="${url}"></iframe>`),
     };
 
     const processedAST = await plugin(
