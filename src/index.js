@@ -28,12 +28,13 @@ const getUrlString = url => {
   }
 };
 
-export default async ({ cache, markdownAST }, options = {}) => {
+export default async (
+  { cache, markdownAST },
+  { customTransformers = [] } = {}
+) => {
   const transformations = [];
 
-  const transformers = defaultTransformers.concat(
-    options.customTransformers || []
-  );
+  const transformers = defaultTransformers.concat(customTransformers);
 
   visit(markdownAST, 'paragraph', paragraphNode => {
     if (paragraphNode.children.length !== 1) {
