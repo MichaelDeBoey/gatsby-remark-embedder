@@ -254,12 +254,12 @@ https://youtu.be/dQw4w9WgXcQ
 ></iframe>
 ```
 
-### Custom Transformers
+## Custom Transformers
 
 The plugin allows you to pass an array of custom transformers that will be
 executed additionally to the default ones.
 
-#### Usage
+### Usage
 
 ```js
 // In your gatsby-config.js
@@ -295,7 +295,7 @@ The `getHTML` method is executed when the URL has been matched to transform. It
 should return the transformed HTML. This function can be asynchronous, either by
 marking it as `async` or by manually returning a `Promise` object.
 
-#### Example transformer object
+### Example transformer object
 
 ```js
 // myDomainTransformer.js
