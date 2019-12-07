@@ -32,9 +32,9 @@ export default async (
   { cache, markdownAST },
   { customTransformers = [] } = {}
 ) => {
-  const transformations = [];
-
   const transformers = defaultTransformers.concat(customTransformers);
+
+  const transformations = [];
 
   visit(markdownAST, 'paragraph', paragraphNode => {
     if (paragraphNode.children.length !== 1) {
