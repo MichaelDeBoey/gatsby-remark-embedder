@@ -3,7 +3,7 @@
 exports[`gatsby-remark-embedder can execute custom transformers 1`] = `
 "<iframe href=\\"https://some-site.com/id/abc\\"></iframe>
 
-<https://some-other-domain.com/>
+<https://some-other-site.com>
 "
 `;
 

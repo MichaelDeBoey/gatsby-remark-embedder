@@ -1,3 +1,3 @@
 https://some-site.com/id/abc
 
-https://some-other-domain.com/
+https://some-other-site.com
