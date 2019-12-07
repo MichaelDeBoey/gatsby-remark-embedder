@@ -82,8 +82,19 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "cms",
+      "name": "Christian C. Salvadó",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/130128?v=4",
+      "profile": "https://cms.gt",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "commitConvention": "none"
+  "commitConvention": "none",
+  "skipCi": true
 }
