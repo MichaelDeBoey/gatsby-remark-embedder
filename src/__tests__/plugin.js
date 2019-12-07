@@ -128,7 +128,7 @@ describe('gatsby-remark-embedder', () => {
       'https://some-site.com/id/abc'
     );
     expect(transformer.shouldTransform).toHaveBeenCalledWith(
-      'https://some-other-site.com/'
+      'https://some-other-site.com/id/abc'
     );
 
     expect(transformer.getHTML).toHaveBeenCalledTimes(1);
