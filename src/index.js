@@ -8,7 +8,7 @@ import * as SpotifyTransformer from './Spotify';
 import * as TwitterTransformer from './Twitter';
 import * as YouTubeTransformer from './YouTube';
 
-const transformers = [
+const defaultTransformers = [
   CodePenTransformer,
   CodeSandboxTransformer,
   SlidesTransformer,
@@ -28,7 +28,12 @@ const getUrlString = url => {
   }
 };
 
-export default async ({ cache, markdownAST }) => {
+export default async (
+  { cache, markdownAST },
+  { customTransformers = [] } = {}
+) => {
+  const transformers = defaultTransformers.concat(customTransformers);
+
   const transformations = [];
 
   visit(markdownAST, 'paragraph', paragraphNode => {

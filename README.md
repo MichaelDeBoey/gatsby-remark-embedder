@@ -46,6 +46,7 @@ and replace it with the proper embed-code.
   - [Spotify](#spotify)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
+- [Custom Transformers](#custom-transformers)
 - [Inspiration](#inspiration)
 - [Issues](#issues)
   - [🐛 Bugs](#-bugs)
@@ -251,6 +252,76 @@ https://youtu.be/dQw4w9WgXcQ
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe>
+```
+
+## Custom Transformers
+
+The plugin allows you to pass an array of custom transformers that will be
+executed additionally to the default ones.
+
+### Usage
+
+```js
+// In your gatsby-config.js
+import someSiteTransformer from './src/some-site-transformer';
+
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-embedder`,
+          options: {
+            customTransformers: [someSiteTransformer],
+          },
+        },
+      ],
+    },
+  },
+];
+```
+
+Each element of the array should be an object with two methods that receive the
+URL argument:
+
+- `shouldTransform(url)`
+- `getHTML(url)`
+
+The `shouldTransform` method should check if the URL matches the one intended to
+transform; it should to return a boolean value.
+
+The `getHTML` method is executed when the URL has been matched to transform. It
+should return the transformed HTML. This function can be asynchronous, either by
+marking it as `async` or by manually returning a `Promise` object.
+
+### Example transformer object
+
+```js
+// some-site-transformer.js
+const regex = /^https?:\/\/some-site\.com\//;
+
+export default {
+  shouldTransform(url) {
+    return regex.test(url);
+  },
+  getHTML(url) {
+    return `<iframe href="${url}"></iframe>`;
+  },
+};
+```
+
+You can also export the two functions separately:
+
+```js
+// some-site-transformer.js
+export const shouldTransform = url => {
+  // ...
+};
+
+export const getHTML = async url => {
+  // ...
+};
 ```
 
 ## Inspiration
