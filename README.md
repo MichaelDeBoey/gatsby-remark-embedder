@@ -354,7 +354,8 @@ a 👍. This helps maintainers prioritize what to work on.
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
   <tr>
     <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars0.githubusercontent.com/u/1500684?v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=kentcdodds" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=kentcdodds" title="Documentation">📖</a> <a href="#ideas-kentcdodds" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=kentcdodds" title="Tests">⚠️</a></td>
@@ -365,8 +366,13 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="http://anuraghazra.github.io"><img src="https://avatars3.githubusercontent.com/u/35374649?v=4" width="100px;" alt="Anurag Hazra"/><br /><sub><b>Anurag Hazra</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?q=author%3Aanuraghazra" title="Bug reports">🐛</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=anuraghazra" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=anuraghazra" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/jyash97"><img src="https://avatars0.githubusercontent.com/u/22376783?v=4" width="100px;" alt="Yash Joshi"/><br /><sub><b>Yash Joshi</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=jyash97" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=jyash97" title="Tests">⚠️</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://cms.gt"><img src="https://avatars2.githubusercontent.com/u/130128?v=4" width="100px;" alt="Christian C. Salvadó"/><br /><sub><b>Christian C. Salvadó</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=cms" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=cms" title="Tests">⚠️</a></td>
+  </tr>
 </table>
 
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
