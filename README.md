@@ -306,7 +306,7 @@ export default {
     return regex.test(url);
   },
   getHTML(url) {
-    return `<iframe href="${url}"></iframe>`;
+    return `<iframe src="${url}"></iframe>`;
   },
 };
 ```
