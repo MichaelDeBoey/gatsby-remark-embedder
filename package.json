@@ -43,16 +43,16 @@
     "validate": "kcd-scripts validate"
   },
   "dependencies": {
-    "@babel/runtime": "^7.6.3",
+    "@babel/runtime": "^7.7.6",
     "node-fetch": "^2.6.0",
-    "unist-util-visit": "^2.0.0"
+    "unist-util-visit": "^2.0.1"
   },
   "devDependencies": {
-    "all-contributors-cli": "^6.9.3",
+    "all-contributors-cli": "^6.11.2",
     "jest-in-case": "^1.0.2",
-    "kcd-scripts": "^1.11.0",
-    "pretty-quick": "^2.0.0",
-    "remark": "^11.0.1"
+    "kcd-scripts": "^1.12.1",
+    "pretty-quick": "^2.0.1",
+    "remark": "^11.0.2"
   },
   "peerDependencies": {
     "gatsby": "^2.0.0"
