@@ -20,9 +20,9 @@
 
 Trying to embed well known services (like [CodePen][codepen],
 [CodeSandbox][codesandbox], [Slides][slides], [SoundCloud][soundcloud],
-[Spotify][spotify], [Twitter][twitter] or [YouTube][youtube]) into your
-[Gatsby][gatsby] website can be hard, since you have to know how this needs to
-be done for all of these different services.
+[Spotify][spotify], [Twitter][twitter], [Streamable][streamable] or
+[YouTube][youtube]) into your [Gatsby][gatsby] website can be hard, since you
+have to know how this needs to be done for all of these different services.
 
 ## This solution
 
@@ -44,6 +44,7 @@ and replace it with the proper embed-code.
   - [Slides](#slides)
   - [SoundCloud](#soundcloud)
   - [Spotify](#spotify)
+  - [Streamable](#streamable)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
 - [Custom Transformers](#custom-transformers)
@@ -184,15 +185,36 @@ https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
 ></iframe>
 ```
 
+### Streamable
+
+#### Usage
+
+```md
+https://streamable.com/s/some/embed-code-video-here
+```
+
+#### Result
+
+```html
+<div height="0" style="position: relative;" width="100%">
+  <iframe
+    height="100%"
+    src="https://streamable.com/s/some/embed-code-video-here"
+    style="overflow: hidden; position: absolute;"
+    width="100%"
+  >
+  </iframe>
+</div>
+```
+
 ### Twitter
 
 The returned HTML snippet from the Twitter transformer will only be
 automatically recognized as an [Embedded Tweet][embedded-tweet-docs] when
 [Twitter's widget JavaScript][twitter-widget-javascript-docs] is included on the
-page.  
-Since the Twitter transformer doesn't include this JavaScript (because we don't
-want to include it multiple times on a page when having multiple embeds), you
-have to include it yourself. The recommended way of including it is by using
+page. Since the Twitter transformer doesn't include this JavaScript (because we
+don't want to include it multiple times on a page when having multiple embeds),
+you have to include it yourself. The recommended way of including it is by using
 [`gatsby-plugin-twitter`][gatsby-plugin-twitter].
 
 #### Usage
@@ -373,6 +395,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
@@ -414,6 +437,7 @@ MIT
 [slides]: https://slides.com
 [soundcloud]: https://soundcloud.com
 [spotify]: https://spotify.com
+[streamable]: https://streamable.com
 [twitter]: https://twitter.com
 [twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
 [youtube]: https://youtube.com
