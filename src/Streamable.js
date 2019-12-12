@@ -1,17 +1,8 @@
-export const shouldTransform = url =>
-  /^https?:\/\/streamable\.com\/s\//.test(url);
+import fetch from 'node-fetch';
 
-export const getHTML = url =>
-  `<div
-  height="0"
-  style="position: relative;"
-  width="100%"
->
-  <iframe
-    height="100%"
-    src="${url}"
-    style="overflow: hidden; position: absolute;"
-    width="100%"
-  >
-  </iframe>
-</div>`;
+export const shouldTransform = url => /^https?:\/\/streamable\.com\//.test(url);
+
+export const getHTML = async url =>
+  fetch(`https://api.streamable.com/oembed.json?url=${url}`)
+    .then(res => res.json().then(streamable => streamable.html))
+    .catch(err => err);

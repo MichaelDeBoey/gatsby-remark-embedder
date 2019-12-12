@@ -12,33 +12,17 @@ cases(
       url: 'https://no-streamable-url-here.com',
       valid: false,
     },
-    'streamable-url-without-valid-embed-ending': {
-      url: 'https://streamable.com/a/something',
-      valid: false,
-    },
     'streamable-url-with-valid-embed-ending': {
-      url: 'https://streamable.com/s/something',
+      url: 'https://streamable.com/bx960',
       valid: true,
     },
   }
 );
 
-test('Builds the correct Streamable wrapper and iframe', () => {
-  const html = getHTML('https://streamable.com/s/bx960/hcobuo');
+test('Builds the correct Streamable wrapper and iframe', async () => {
+  const html = await getHTML('https://streamable.com/bx960');
 
-  expect(html).toMatchInlineSnapshot(`
-    "<div
-      height=\\"0\\"
-      style=\\"position: relative;\\"
-      width=\\"100%\\"
-    >
-      <iframe
-        height=\\"100%\\"
-        src=\\"https://streamable.com/s/bx960/hcobuo\\"
-        style=\\"overflow: hidden; position: absolute;\\"
-        width=\\"100%\\"
-      >
-      </iframe>
-    </div>"
-  `);
+  expect(html).toEqual(
+    `<iframe class=\"streamable-embed\" src=\"https://streamable.com/o/bx960\" frameborder=\"0\" scrolling=\"no\" width=\"1920\" height=\"1080\" allowfullscreen></iframe>`
+  );
 });

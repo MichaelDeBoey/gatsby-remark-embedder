@@ -190,21 +190,21 @@ https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
 #### Usage
 
 ```md
-https://streamable.com/s/some/embed-code-video-here
+https://streamable.com/yourShortCodeHere
 ```
 
 #### Result
 
 ```html
-<div height="0" style="position: relative;" width="100%">
-  <iframe
-    height="100%"
-    src="https://streamable.com/s/some/embed-code-video-here"
-    style="overflow: hidden; position: absolute;"
-    width="100%"
-  >
-  </iframe>
-</div>
+<iframe
+  class="streamable-embed"
+  src="https://streamable.com/s/some/embed-code-video-here"
+  frameborder="0"
+  scrolling="no"
+  width="your width here%"
+  height="your height here"
+  allowfullscreen
+></iframe>
 ```
 
 ### Twitter
