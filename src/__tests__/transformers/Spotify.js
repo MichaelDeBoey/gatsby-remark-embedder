@@ -77,7 +77,7 @@ cases(
 );
 
 cases(
-  'get spotify iframe',
+  'getSpotifyIFrameSrc',
   ({ url, iframe }) => {
     expect(getSpotifyIFrameSrc(url)).toBe(iframe);
   },
@@ -111,7 +111,7 @@ cases(
   }
 );
 
-test('Gets the correct Spotify iframe for Track', () => {
+test('Gets the correct Spotify iframe', () => {
   const html = getHTML('https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L');
 
   expect(html).toMatchInlineSnapshot(

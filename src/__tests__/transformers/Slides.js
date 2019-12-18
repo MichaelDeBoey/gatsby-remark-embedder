@@ -144,7 +144,7 @@ cases(
 );
 
 cases(
-  'get Slides iframe url',
+  'getSlidesIFrameSrc',
   ({ iframe, url }) => {
     expect(getSlidesIFrameSrc(url)).toBe(iframe);
   },

@@ -74,7 +74,7 @@ cases(
 );
 
 cases(
-  'get youtube ids',
+  'getYouTubeIFrameSrc',
   ({ url, iframe }) => {
     expect(getYouTubeIFrameSrc(url)).toBe(iframe);
   },
