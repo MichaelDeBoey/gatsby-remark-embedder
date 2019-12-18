@@ -1,6 +1,6 @@
 import cases from 'jest-in-case';
 
-import { getHTML, shouldTransform } from '../CodePen';
+import { getHTML, shouldTransform } from '../../transformers/CodePen';
 
 cases(
   'url validation',

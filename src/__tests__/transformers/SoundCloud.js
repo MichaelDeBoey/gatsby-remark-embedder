@@ -1,6 +1,6 @@
 import cases from 'jest-in-case';
 
-import { getHTML, shouldTransform } from '../SoundCloud';
+import { getHTML, shouldTransform } from '../../transformers/SoundCloud';
 
 cases(
   'url validation',

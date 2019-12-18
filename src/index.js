@@ -1,22 +1,6 @@
 import visit from 'unist-util-visit';
 
-import * as CodePenTransformer from './CodePen';
-import * as CodeSandboxTransformer from './CodeSandbox';
-import * as SlidesTransformer from './Slides';
-import * as SoundCloudTransformer from './SoundCloud';
-import * as SpotifyTransformer from './Spotify';
-import * as TwitterTransformer from './Twitter';
-import * as YouTubeTransformer from './YouTube';
-
-const defaultTransformers = [
-  CodePenTransformer,
-  CodeSandboxTransformer,
-  SlidesTransformer,
-  SpotifyTransformer,
-  SoundCloudTransformer,
-  TwitterTransformer,
-  YouTubeTransformer,
-];
+import { defaultTransformers } from './transformers';
 
 const getUrlString = url => {
   const urlString = url.startsWith('http') ? url : `https://${url}`;

@@ -1,6 +1,10 @@
 import cases from 'jest-in-case';
 
-import { getHTML, getSlidesIFrameSrc, shouldTransform } from '../Slides';
+import {
+  getHTML,
+  getSlidesIFrameSrc,
+  shouldTransform,
+} from '../../transformers/Slides';
 
 cases(
   'url validation',

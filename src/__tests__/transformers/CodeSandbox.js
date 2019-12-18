@@ -1,6 +1,6 @@
 import cases from 'jest-in-case';
 
-import { getHTML, shouldTransform } from '../CodeSandbox';
+import { getHTML, shouldTransform } from '../../transformers/CodeSandbox';
 
 cases(
   'url validation',

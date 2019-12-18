@@ -1,6 +1,10 @@
 import cases from 'jest-in-case';
 
-import { getHTML, getSpotifyIFrameSrc, shouldTransform } from '../Spotify';
+import {
+  getHTML,
+  getSpotifyIFrameSrc,
+  shouldTransform,
+} from '../../transformers/Spotify';
 
 cases(
   'url validation',
