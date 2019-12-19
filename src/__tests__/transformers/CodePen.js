@@ -1,5 +1,8 @@
+import { readFileSync } from 'fs';
 import cases from 'jest-in-case';
+import remark from 'remark';
 
+import plugin from '../..';
 import { getHTML, shouldTransform } from '../../transformers/CodePen';
 
 cases(
@@ -81,4 +84,20 @@ test('Gets the correct CodePen iframe', () => {
   expect(html).toMatchInlineSnapshot(
     `"<iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>"`
   );
+});
+
+const readMarkdownFile = fileName =>
+  readFileSync(`${__dirname}/__fixtures__/${fileName}.md`, 'utf8');
+const getMarkdownASTForFile = filename =>
+  remark.parse(readMarkdownFile(filename));
+const cache = {
+  get: jest.fn(),
+  set: jest.fn(),
+};
+test('can transform CodePen links', async () => {
+  const markdownAST = getMarkdownASTForFile('CodePen');
+
+  const processedAST = await plugin({ cache, markdownAST });
+
+  expect(remark.stringify(processedAST)).toMatchSnapshot();
 });
