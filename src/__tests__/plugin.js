@@ -97,17 +97,6 @@ describe('gatsby-remark-embedder', () => {
     `);
   });
 
-  it('can transform YouTube links', async () => {
-    const markdownAST = getMarkdownASTForFile('YouTube');
-
-    const processedAST = await plugin({ cache, markdownAST });
-
-    expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
-      "<iframe width=\\"100%\\" height=\\"315\\" src=\\"https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe>
-      "
-    `);
-  });
-
   it('can execute custom transformers', async () => {
     const markdownAST = getMarkdownASTForFile('CustomTransformer');
 
