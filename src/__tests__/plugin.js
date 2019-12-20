@@ -71,35 +71,4 @@ describe('gatsby-remark-embedder', () => {
       "
     `);
   });
-
-  it('can execute custom transformers', async () => {
-    const markdownAST = getMarkdownASTForFile('CustomTransformer');
-
-    const transformer = {
-      shouldTransform: jest.fn(url => url.startsWith('https://some-site.com')),
-      getHTML: jest.fn(url => `<iframe src="${url}"></iframe>`),
-    };
-
-    const processedAST = await plugin(
-      { cache, markdownAST },
-      { customTransformers: [transformer] }
-    );
-
-    expect(transformer.shouldTransform).toHaveBeenCalledTimes(2);
-    expect(transformer.shouldTransform).toHaveBeenCalledWith(
-      'https://some-site.com/id/abc'
-    );
-    expect(transformer.shouldTransform).toHaveBeenCalledWith(
-      'https://some-other-site.com/id/abc'
-    );
-
-    expect(transformer.getHTML).toHaveBeenCalledTimes(1);
-
-    expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
-      "<iframe src=\\"https://some-site.com/id/abc\\"></iframe>
-
-      <https://some-other-site.com/id/abc>
-      "
-    `);
-  });
 });
