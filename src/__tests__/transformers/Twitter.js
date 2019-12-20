@@ -1,7 +1,10 @@
 import cases from 'jest-in-case';
 import fetchMock from 'node-fetch';
 
+import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/Twitter';
+
+import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
 jest.mock('node-fetch', () => jest.fn());
 
@@ -57,4 +60,18 @@ test('Gets the correct Twitter iframe', async () => {
   expect(html).toMatchInlineSnapshot(
     `"<blockquote class=\\"twitter-tweet-mocked-fetch-transformer\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>"`
   );
+});
+
+test('Plugin can transform Twitter links', async () => {
+  mockFetch(
+    `<blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>`
+  );
+  const markdownAST = getMarkdownASTForFile('Twitter');
+
+  const processedAST = await plugin({ cache, markdownAST });
+
+  expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
+    "<blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
+    "
+  `);
 });
