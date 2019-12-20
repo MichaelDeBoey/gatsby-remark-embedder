@@ -78,17 +78,6 @@ describe('gatsby-remark-embedder', () => {
     `);
   });
 
-  it('can transform Spotify links', async () => {
-    const markdownAST = getMarkdownASTForFile('Spotify');
-
-    const processedAST = await plugin({ cache, markdownAST });
-
-    expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
-      "<iframe src=\\"https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L\\" width=\\"100%\\" height=\\"380\\" frameborder=\\"0\\" allowtransparency=\\"true\\" allow=\\"encrypted-media\\"></iframe>
-      "
-    `);
-  });
-
   it('can transform Twitter links', async () => {
     fetchMock.mockResolvedValue({
       json: () =>

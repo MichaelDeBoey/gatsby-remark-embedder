@@ -1,10 +1,13 @@
 import cases from 'jest-in-case';
 
+import plugin from '../../';
 import {
   getHTML,
   getSpotifyIFrameSrc,
   shouldTransform,
 } from '../../transformers/Spotify';
+
+import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
 cases(
   'url validation',
@@ -117,4 +120,15 @@ test('Gets the correct Spotify iframe', () => {
   expect(html).toMatchInlineSnapshot(
     `"<iframe src=\\"https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L\\" width=\\"100%\\" height=\\"380\\" frameborder=\\"0\\" allowtransparency=\\"true\\" allow=\\"encrypted-media\\"></iframe>"`
   );
+});
+
+test('Plugin can transform Spotify links', async () => {
+  const markdownAST = getMarkdownASTForFile('Spotify');
+
+  const processedAST = await plugin({ cache, markdownAST });
+
+  expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
+    "<iframe src=\\"https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L\\" width=\\"100%\\" height=\\"380\\" frameborder=\\"0\\" allowtransparency=\\"true\\" allow=\\"encrypted-media\\"></iframe>
+    "
+  `);
 });
