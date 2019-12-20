@@ -1,43 +1,26 @@
-import { readFileSync } from 'fs';
-import remark from 'remark';
+import plugin from '../';
 
-import plugin from '..';
-
-const readMarkdownFile = fileName =>
-  readFileSync(`${__dirname}/__fixtures__/${fileName}.md`, 'utf8');
-const getMarkdownASTForFile = filename =>
-  remark.parse(readMarkdownFile(filename));
-
-const mockCacheGet = ({ urlToMock, returnValue }) => urlString => {
-  if (urlString === urlToMock) {
-    return returnValue;
-  }
-
-  return undefined;
-};
-
-const cache = {
-  get: jest.fn(),
-  set: jest.fn(),
-};
+import {
+  cache,
+  getMarkdownASTForFile,
+  mockCache,
+  parseASTToMarkdown,
+} from './helpers';
 
 describe('gatsby-remark-embedder', () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
 
-  it('can transform all supported links (kitchensink)', async () => {
-    cache.get.mockImplementation(
-      mockCacheGet({
-        urlToMock: 'https://twitter.com/kentcdodds/status/1078755736455278592',
-        returnValue: `<blockquote class="twitter-tweet-from-cache"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>`,
-      })
-    );
-    const markdownAST = getMarkdownASTForFile('kitchensink');
+  test('can transform all supported links (kitchensink)', async () => {
+    mockCache({
+      'https://twitter.com/kentcdodds/status/1078755736455278592': `<blockquote class="twitter-tweet-from-cache"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>`,
+    });
+    const markdownAST = getMarkdownASTForFile('kitchensink', true);
 
     const processedAST = await plugin({ cache, markdownAST });
 
-    expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
+    expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
       "# Heading 1
 
       ## Heading2
