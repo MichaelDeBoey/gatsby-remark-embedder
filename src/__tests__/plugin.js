@@ -24,6 +24,9 @@ const cache = {
 
 jest.mock('node-fetch', () => jest.fn());
 
+const mockFetch = html =>
+  fetchMock.mockResolvedValue({ json: () => Promise.resolve({ html }) });
+
 describe('gatsby-remark-embedder', () => {
   beforeEach(() => {
     fetchMock.mockClear();
@@ -79,20 +82,15 @@ describe('gatsby-remark-embedder', () => {
   });
 
   it('can transform Twitter links', async () => {
-    fetchMock.mockResolvedValue({
-      json: () =>
-        Promise.resolve({
-          html: `
-          <blockquote class="twitter-tweet-mocked-fetch"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>
-        `.trim(),
-        }),
-    });
+    mockFetch(
+      `<blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>`
+    );
     const markdownAST = getMarkdownASTForFile('Twitter');
 
     const processedAST = await plugin({ cache, markdownAST });
 
     expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
-      "<blockquote class=\\"twitter-tweet-mocked-fetch\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
+      "<blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
       "
     `);
   });

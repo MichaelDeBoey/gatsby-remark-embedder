@@ -3,16 +3,10 @@ import fetchMock from 'node-fetch';
 
 import { getHTML, shouldTransform } from '../../transformers/Twitter';
 
-jest.mock('node-fetch', () =>
-  jest.fn().mockResolvedValue({
-    json: () =>
-      Promise.resolve({
-        html: `
-          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>
-        `.trim(),
-      }),
-  })
-);
+jest.mock('node-fetch', () => jest.fn());
+
+const mockFetch = html =>
+  fetchMock.mockResolvedValue({ json: () => Promise.resolve({ html }) });
 
 beforeEach(() => {
   fetchMock.mockClear();
@@ -52,11 +46,15 @@ cases(
 );
 
 test('Gets the correct Twitter iframe', async () => {
+  mockFetch(
+    `<blockquote class="twitter-tweet-mocked-fetch-transformer"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>`
+  );
+
   const html = await getHTML(
     'https://twitter.com/kentcdodds/status/1078755736455278592'
   );
 
   expect(html).toMatchInlineSnapshot(
-    `"<blockquote class=\\"twitter-tweet\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>"`
+    `"<blockquote class=\\"twitter-tweet-mocked-fetch-transformer\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>"`
   );
 });
