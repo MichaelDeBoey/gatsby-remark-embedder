@@ -94,10 +94,13 @@ const cache = {
   get: jest.fn(),
   set: jest.fn(),
 };
-test('can transform CodePen links', async () => {
+test('Plugin can transform CodePen links', async () => {
   const markdownAST = getMarkdownASTForFile('CodePen');
 
   const processedAST = await plugin({ cache, markdownAST });
 
-  expect(remark.stringify(processedAST)).toMatchSnapshot();
+  expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
+    "<iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>
+    "
+  `);
 });

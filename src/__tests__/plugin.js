@@ -43,7 +43,6 @@ describe('gatsby-remark-embedder', () => {
 
     const processedAST = await plugin({ cache, markdownAST });
 
-    expect(remark.stringify(processedAST)).toMatchSnapshot();
     expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
       "# Heading 1
 
@@ -84,7 +83,6 @@ describe('gatsby-remark-embedder', () => {
 
     const processedAST = await plugin({ cache, markdownAST });
 
-    expect(remark.stringify(processedAST)).toMatchSnapshot();
     expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
       "<iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb\\" sandbox=\\"allow-modals allow-forms allow-popups allow-scripts allow-same-origin\\"></iframe>
       "
@@ -96,7 +94,6 @@ describe('gatsby-remark-embedder', () => {
 
     const processedAST = await plugin({ cache, markdownAST });
 
-    expect(remark.stringify(processedAST)).toMatchSnapshot();
     expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
       "<iframe src=\\"https://slides.com/kentcdodds/oss-we-want/embed\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       "
@@ -108,7 +105,6 @@ describe('gatsby-remark-embedder', () => {
 
     const processedAST = await plugin({ cache, markdownAST });
 
-    expect(remark.stringify(processedAST)).toMatchSnapshot();
     expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
       "<iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true></iframe>
       "
@@ -120,7 +116,6 @@ describe('gatsby-remark-embedder', () => {
 
     const processedAST = await plugin({ cache, markdownAST });
 
-    expect(remark.stringify(processedAST)).toMatchSnapshot();
     expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
       "<iframe src=\\"https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L\\" width=\\"100%\\" height=\\"380\\" frameborder=\\"0\\" allowtransparency=\\"true\\" allow=\\"encrypted-media\\"></iframe>
       "
@@ -140,7 +135,6 @@ describe('gatsby-remark-embedder', () => {
 
     const processedAST = await plugin({ cache, markdownAST });
 
-    expect(remark.stringify(processedAST)).toMatchSnapshot();
     expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
       "<blockquote class=\\"twitter-tweet-mocked-fetch\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
       "
@@ -152,7 +146,6 @@ describe('gatsby-remark-embedder', () => {
 
     const processedAST = await plugin({ cache, markdownAST });
 
-    expect(remark.stringify(processedAST)).toMatchSnapshot();
     expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
       "<iframe width=\\"100%\\" height=\\"315\\" src=\\"https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe>
       "
@@ -182,7 +175,6 @@ describe('gatsby-remark-embedder', () => {
 
     expect(transformer.getHTML).toHaveBeenCalledTimes(1);
 
-    expect(remark.stringify(processedAST)).toMatchSnapshot();
     expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
       "<iframe src=\\"https://some-site.com/id/abc\\"></iframe>
 
