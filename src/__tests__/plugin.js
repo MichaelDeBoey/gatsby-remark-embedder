@@ -78,17 +78,6 @@ describe('gatsby-remark-embedder', () => {
     `);
   });
 
-  it('can transform Slides links', async () => {
-    const markdownAST = getMarkdownASTForFile('Slides');
-
-    const processedAST = await plugin({ cache, markdownAST });
-
-    expect(remark.stringify(processedAST)).toMatchInlineSnapshot(`
-      "<iframe src=\\"https://slides.com/kentcdodds/oss-we-want/embed\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-      "
-    `);
-  });
-
   it('can transform SoundCloud links', async () => {
     const markdownAST = getMarkdownASTForFile('SoundCloud');
 

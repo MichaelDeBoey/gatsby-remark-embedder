@@ -1,10 +1,13 @@
 import cases from 'jest-in-case';
 
+import plugin from '../../';
 import {
   getHTML,
   getSlidesIFrameSrc,
   shouldTransform,
 } from '../../transformers/Slides';
+
+import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
 cases(
   'url validation',
@@ -210,4 +213,15 @@ test('Gets the correct Slides iframe', () => {
   expect(html).toMatchInlineSnapshot(
     `"<iframe src=\\"https://slides.com/kentcdodds/oss-we-want/embed\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"`
   );
+});
+
+test('Plugin can transform Slides links', async () => {
+  const markdownAST = getMarkdownASTForFile('Slides');
+
+  const processedAST = await plugin({ cache, markdownAST });
+
+  expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
+    "<iframe src=\\"https://slides.com/kentcdodds/oss-we-want/embed\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    "
+  `);
 });
