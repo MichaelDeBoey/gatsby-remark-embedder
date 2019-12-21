@@ -92,7 +92,37 @@ test('Plugin can transform CodePen links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-    "<iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>
+    "<https://not-a-codepen-url.com>
+
+    <https://this-is-not-codepen.io>
+
+    <https://this-is-not-codepen.io/user/embed/123456>
+
+    <https://this-is-not-codepen.io/user/pen/123456>
+
+    <https://codepen.io/team/codepen>
+
+    <https://codepen.io/MichaelDeBoey>
+
+    <https://codepen.io/random-page>
+
+    <https://blog.codepen.io>
+
+    <https://blog.codepen.io/user/embed/123456>
+
+    <https://blog.codepen.io/user/pen/123456>
+
+    <https://codepen.io/team/codepen/embed/PNaGbb>
+
+    <https://codepen.io/team/codepen/embed/PNaGbb?default-tab=js>
+
+    <iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>
+
+    <iframe src=\\"https://www.codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>
+
+    <iframe src=\\"https://codepen.io/chriscoyier/embed/preview/owBwKM\\" style=\\"width:100%; height:300px;\\"></iframe>
+
+    <iframe src=\\"https://www.codepen.io/chriscoyier/embed/preview/owBwKM\\" style=\\"width:100%; height:300px;\\"></iframe>
     "
   `);
 });
