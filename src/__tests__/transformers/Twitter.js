@@ -38,11 +38,11 @@ cases(
       valid: false,
     },
     'status url': {
-      url: 'https://twitter.com/foobar/status/123',
+      url: 'https://twitter.com/kentcdodds/status/1078755736455278592',
       valid: true,
     },
     "status url having 'www' subdomain": {
-      url: 'https://www.twitter.com/foobar/status/123',
+      url: 'https://www.twitter.com/kentcdodds/status/1078755736455278592',
       valid: true,
     },
   }
@@ -71,7 +71,17 @@ test('Plugin can transform Twitter links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-    "<blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
+    "<https://not-a-twitter-url.com>
+
+    <https://this-is-not-twitter.com>
+
+    <https://this-is-not-twitter.com/foobar/status/123>
+
+    <https://twitter.com/MichaelDeBoey93>
+
+    <blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
+
+    <blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
     "
   `);
 });
