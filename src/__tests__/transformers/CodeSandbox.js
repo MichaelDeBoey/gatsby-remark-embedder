@@ -31,6 +31,10 @@ cases(
       url: 'https://codesandbox.io/s/ynn88nx9x',
       valid: true,
     },
+    'Sandbox url with parameters': {
+      url: 'https://codesandbox.io/s/ynn88nx9x?view=split',
+      valid: true,
+    },
     "Sandbox url having 'www' subdomain": {
       url: 'https://www.codesandbox.io/s/ynn88nx9x',
       valid: true,
@@ -52,7 +56,19 @@ test('Plugin can transform CodeSandbox links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-    "<iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb\\" sandbox=\\"allow-modals allow-forms allow-popups allow-scripts allow-same-origin\\"></iframe>
+    "<https://not-a-codesandbox-url.com>
+
+    <https://this-is-not-codesandbox.io>
+
+    <https://this-is-not-codesandbox.io/s/ynn88nx9x>
+
+    <https://codesandbox.io/embed/ynn88nx9x>
+
+    <iframe src=\\"https://codesandbox.io/embed/ynn88nx9x\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb\\" sandbox=\\"allow-modals allow-forms allow-popups allow-scripts allow-same-origin\\"></iframe>
+
+    <iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb\\" sandbox=\\"allow-modals allow-forms allow-popups allow-scripts allow-same-origin\\"></iframe>
+
+    <iframe src=\\"https://www.codesandbox.io/embed/ynn88nx9x\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb\\" sandbox=\\"allow-modals allow-forms allow-popups allow-scripts allow-same-origin\\"></iframe>
     "
   `);
 });
