@@ -57,7 +57,19 @@ test('Plugin can transform SoundCloud links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-    "<iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true></iframe>
+    "<https://not-a-soundcloud-url.com>
+
+    <https://this-is-not-soundcloud.com>
+
+    <https://api.soundcloud.com/tracks/151129490>
+
+    <https://api.soundcloud.com/playlists/703823211>
+
+    <https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa>
+
+    <iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true></iframe>
+
+    <iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=https://w.soundcloud.com/player?url=http://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true></iframe>
     "
   `);
 });
