@@ -1,6 +1,9 @@
 import cases from 'jest-in-case';
 
+import plugin from '../..';
 import { getHTML, shouldTransform } from '../../transformers/CodePen';
+
+import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
 cases(
   'url validation',
@@ -81,4 +84,15 @@ test('Gets the correct CodePen iframe', () => {
   expect(html).toMatchInlineSnapshot(
     `"<iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>"`
   );
+});
+
+test('Plugin can transform CodePen links', async () => {
+  const markdownAST = getMarkdownASTForFile('CodePen');
+
+  const processedAST = await plugin({ cache, markdownAST });
+
+  expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
+    "<iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>
+    "
+  `);
 });

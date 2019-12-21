@@ -1,11 +1,14 @@
 import cases from 'jest-in-case';
 
+import plugin from '../../';
 import {
   getHTML,
   getTimeValueInSeconds,
   getYouTubeIFrameSrc,
   shouldTransform,
 } from '../../transformers/YouTube';
+
+import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
 cases(
   'url validation',
@@ -140,4 +143,15 @@ test('Gets the correct YouTube iframe', async () => {
   expect(html).toMatchInlineSnapshot(
     `"<iframe width=\\"100%\\" height=\\"315\\" src=\\"https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe>"`
   );
+});
+
+test('Plugin can transform YouTube links', async () => {
+  const markdownAST = getMarkdownASTForFile('YouTube');
+
+  const processedAST = await plugin({ cache, markdownAST });
+
+  expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
+    "<iframe width=\\"100%\\" height=\\"315\\" src=\\"https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe>
+    "
+  `);
 });

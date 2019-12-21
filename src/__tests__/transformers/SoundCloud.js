@@ -1,6 +1,9 @@
 import cases from 'jest-in-case';
 
+import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/SoundCloud';
+
+import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
 cases(
   'url validation',
@@ -46,4 +49,15 @@ test('Gets the correct SoundCloud iframe', async () => {
   expect(html).toMatchInlineSnapshot(
     `"<iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true></iframe>"`
   );
+});
+
+test('Plugin can transform SoundCloud links', async () => {
+  const markdownAST = getMarkdownASTForFile('SoundCloud');
+
+  const processedAST = await plugin({ cache, markdownAST });
+
+  expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
+    "<iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true></iframe>
+    "
+  `);
 });
