@@ -26,9 +26,9 @@ test('Plugin can transform CustomTransformer links', async () => {
   expect(transformer.getHTML).toHaveBeenCalledTimes(1);
 
   expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-    "<iframe src=\\"https://some-site.com/id/abc\\"></iframe>
-
-    <https://some-other-site.com/id/abc>
+    "<https://some-other-site.com/id/abc>
+    
+    <iframe src=\\"https://some-site.com/id/abc\\"></iframe>
     "
   `);
 });
