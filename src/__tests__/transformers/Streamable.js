@@ -40,7 +40,7 @@ cases(
   }
 );
 
-test('Builds the correct Streamable wrapper and iframe', async () => {
+test('Gets the correct Streamable iframe', async () => {
   const html = await getHTML('https://streamable.com/bx960');
 
   expect(html).toEqual(
