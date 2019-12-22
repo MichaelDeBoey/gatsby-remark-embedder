@@ -1,17 +1,18 @@
 import cases from 'jest-in-case';
+import fetchMock from 'node-fetch';
 
 import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/Streamable';
-import {
-  cache,
-  getMarkdownASTForFile,
-  mockFetch,
-  parseASTToMarkdown,
-} from '../helpers';
+import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
 jest.mock('node-fetch', () => jest.fn());
 
-const expectedHtmlResult = `<iframe class="streamable-embed" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`;
+const mockFetch = html =>
+  fetchMock.mockResolvedValue({ json: () => Promise.resolve({ html }) });
+
+beforeEach(() => {
+  fetchMock.mockClear();
+});
 
 cases(
   'url validation',
@@ -43,16 +44,20 @@ cases(
 );
 
 test('Gets the correct Streamable iframe', async () => {
-  mockFetch(expectedHtmlResult);
+  mockFetch(
+    `<iframe class="mocked-response" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`
+  );
   const html = await getHTML('https://streamable.com/bx960');
 
   expect(html).toMatchInlineSnapshot(
-    `"<iframe class=\\"streamable-embed\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>"`
+    `"<iframe class=\\"mocked-response\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>"`
   );
 });
 
 test('Plugin correctly transforms Streamable links', async () => {
-  mockFetch(expectedHtmlResult);
+  mockFetch(
+    `<iframe class="mocked-response" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`
+  );
   const markdownAST = getMarkdownASTForFile('Streamable');
 
   const processedAST = await plugin({ cache, markdownAST });
@@ -60,13 +65,13 @@ test('Plugin correctly transforms Streamable links', async () => {
   expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
     "<https://no-streamable-url-here.com>
 
-    <iframe class=\\"streamable-embed\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+    <iframe class=\\"mocked-response\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
 
-    <iframe class=\\"streamable-embed\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+    <iframe class=\\"mocked-response\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
 
-    <iframe class=\\"streamable-embed\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+    <iframe class=\\"mocked-response\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
 
-    <iframe class=\\"streamable-embed\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+    <iframe class=\\"mocked-response\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
     "
   `);
 });
