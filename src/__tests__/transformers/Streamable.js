@@ -45,7 +45,7 @@ cases(
 
 test('Gets the correct Streamable iframe', async () => {
   mockFetch(
-    `<iframe class="mocked-response" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`
+    `<iframe class="streamable-embed-mocked-fetch-transformer" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`
   );
   const html = await getHTML('https://streamable.com/bx960');
 
@@ -56,7 +56,7 @@ test('Gets the correct Streamable iframe', async () => {
 
 test('Plugin correctly transforms Streamable links', async () => {
   mockFetch(
-    `<iframe class="mocked-response" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`
+    `<iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`
   );
   const markdownAST = getMarkdownASTForFile('Streamable');
 

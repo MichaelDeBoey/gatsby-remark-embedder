@@ -5,5 +5,5 @@ export const shouldTransform = url =>
 
 export const getHTML = url =>
   fetch(`https://api.streamable.com/oembed.json?url=${url}`)
-    .then(res => res.json())
+    .then(({ json }) => json())
     .then(({ html }) => html);

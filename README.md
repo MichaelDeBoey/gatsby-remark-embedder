@@ -190,7 +190,7 @@ https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
 #### Usage
 
 ```md
-https://streamable.com/yourShortCodeHere
+https://streamable.com/s/bx960
 ```
 
 Or you can use one of the three other valid Streamable link formats:
@@ -206,11 +206,11 @@ https://streamable.com/s/yourShortCodeHere/anotherUrlSectionStreamableSometimesI
 ```html
 <iframe
   class="streamable-embed"
-  src="https://streamable.com/s/some/embed-code-video-here"
+  src="https://streamable.com/o/bx960"
   frameborder="0"
   scrolling="no"
-  width="your width here%"
-  height="your height here"
+  width="1920"
+  height="1080"
   allowfullscreen
 ></iframe>
 ```
