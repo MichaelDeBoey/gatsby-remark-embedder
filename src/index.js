@@ -16,10 +16,9 @@ export default async (
   { cache, markdownAST },
   { customTransformers = [] } = {}
 ) => {
-  const transformers = defaultTransformers.concat(customTransformers);
+  const transformers = [...defaultTransformers, ...customTransformers];
 
   const transformations = [];
-
   visit(markdownAST, 'paragraph', paragraphNode => {
     if (paragraphNode.children.length !== 1) {
       return;
