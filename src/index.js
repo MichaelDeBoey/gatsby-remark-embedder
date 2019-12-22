@@ -43,13 +43,14 @@ export default async (
       return;
     }
 
-    transformers.forEach(transformer => {
-      if (transformer.shouldTransform(urlString)) {
+    transformers
+      .filter(({ shouldTransform }) => shouldTransform(urlString))
+      .forEach(({ getHTML }) => {
         transformations.push(async () => {
           let html = await cache.get(urlString);
 
           if (!html) {
-            html = await transformer.getHTML(urlString);
+            html = await getHTML(urlString);
             await cache.set(urlString, html);
           }
 
@@ -57,8 +58,7 @@ export default async (
           node.value = html;
           node.children = undefined;
         });
-      }
-    });
+      });
   });
 
   await Promise.all(transformations.map(t => t()));
