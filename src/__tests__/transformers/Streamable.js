@@ -1,15 +1,17 @@
 import cases from 'jest-in-case';
 
+import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/Streamable';
+import {
+  cache,
+  getMarkdownASTForFile,
+  mockFetch,
+  parseASTToMarkdown,
+} from '../helpers';
 
-jest.mock('node-fetch', () =>
-  jest.fn().mockResolvedValue({
-    json: () =>
-      Promise.resolve({
-        html: `<iframe class="streamable-embed" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`.trim(),
-      }),
-  })
-);
+jest.mock('node-fetch', () => jest.fn());
+
+const expectedHtmlResult = `<iframe class="streamable-embed" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`;
 
 cases(
   'url validation',
@@ -41,9 +43,30 @@ cases(
 );
 
 test('Gets the correct Streamable iframe', async () => {
+  mockFetch(expectedHtmlResult);
   const html = await getHTML('https://streamable.com/bx960');
 
-  expect(html).toEqual(
-    `<iframe class="streamable-embed" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`
+  expect(html).toMatchInlineSnapshot(
+    `"<iframe class=\\"streamable-embed\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>"`
   );
+});
+
+test('Plugin correctly transforms Streamable links', async () => {
+  mockFetch(expectedHtmlResult);
+  const markdownAST = getMarkdownASTForFile('Streamable');
+
+  const processedAST = await plugin({ cache, markdownAST });
+
+  expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
+    "<https://no-streamable-url-here.com>
+
+    <iframe class=\\"streamable-embed\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+    "
+  `);
 });

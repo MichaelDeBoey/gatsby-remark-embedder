@@ -1,19 +1,16 @@
 import cases from 'jest-in-case';
-import fetchMock from 'node-fetch';
 
 import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/Twitter';
 
-import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
+import {
+  cache,
+  getMarkdownASTForFile,
+  mockFetch,
+  parseASTToMarkdown,
+} from '../helpers';
 
 jest.mock('node-fetch', () => jest.fn());
-
-const mockFetch = html =>
-  fetchMock.mockResolvedValue({ json: () => Promise.resolve({ html }) });
-
-beforeEach(() => {
-  fetchMock.mockClear();
-});
 
 cases(
   'url validation',

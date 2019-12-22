@@ -13,13 +13,9 @@ describe('gatsby-remark-embedder', () => {
   });
 
   test('can transform all supported links (kitchensink)', async () => {
-    const streamableEmbed = `<iframe class="streamable-embed" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`;
     mockCache({
       'https://twitter.com/kentcdodds/status/1078755736455278592': `<blockquote class="twitter-tweet-from-cache"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>`,
-      'https://streamable.com/s/bx960/hcobuo': streamableEmbed,
-      'https://streamable.com/o/bx960': streamableEmbed,
-      'https://streamable.com/s/bx960': streamableEmbed,
-      'https://streamable.com/bx960': streamableEmbed,
+      'https://streamable.com/bx960': `<iframe class="streamable-embed" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`,
     });
     const markdownAST = getMarkdownASTForFile('kitchensink', true);
 
