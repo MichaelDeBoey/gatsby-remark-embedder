@@ -190,7 +190,7 @@ https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
 #### Usage
 
 ```md
-https://streamable.com/s/bx960
+https://streamable.com/moo
 ```
 
 #### Result
@@ -198,7 +198,7 @@ https://streamable.com/s/bx960
 ```html
 <iframe
   class="streamable-embed"
-  src="https://streamable.com/o/bx960"
+  src="https://streamable.com/o/moo"
   frameborder="0"
   scrolling="no"
   width="1920"
@@ -396,7 +396,6 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
