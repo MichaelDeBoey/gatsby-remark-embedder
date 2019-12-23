@@ -40,6 +40,10 @@ cases(
       url: 'https://streamable.com/s/bx960/hcobuo',
       valid: true,
     },
+    'streamable-url-with-invalid-ending': {
+      url: 'https://streamable.com/s/bx960/hcubuo/bla',
+      valid: false,
+    },
   }
 );
 

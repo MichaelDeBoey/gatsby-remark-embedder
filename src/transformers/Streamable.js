@@ -1,5 +1,6 @@
-import fetch from 'node-fetch';
 import { URL } from 'url';
+
+import fetch from 'node-fetch';
 
 const includesSomeOfArray = (string, array) =>
   array.some(item => string.includes(item));
