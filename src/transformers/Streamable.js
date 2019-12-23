@@ -11,18 +11,14 @@ export const shouldTransform = url => {
   const trimmedPathName = getTrimmedPathName(pathname).split('/');
 
   return (
-    ['streamable.com', 'www.streamable.com'].includes(host) &&
-    !includesSomeOfArray(pathname, [
-      'documentation',
-      'login',
-      'recover',
-      'settings',
-      'signup',
-    ]) &&
-    trimmedPathName.length > 0 &&
-    trimmedPathName.length <= 3 &&
-    (trimmedPathName.length === 1 ||
-      includesSomeOfArray(pathname, ['/e/', '/g/', '/o/', '/s/', '/t/']))
+    (['streamable.com', 'www.streamable.com'].includes(host) &&
+      trimmedPathName.length === 1 &&
+        !['documentation', 'login', 'recover', 'settings', 'signup'].includes(
+          trimmedPathName[0]
+        )) ||
+    (trimmedPathName.length > 1 &&
+      trimmedPathName.length <= 3 &&
+      includesSomeOfArray(trimmedPathName[0], ['e', 'g', 'o', 's', 't']))
   );
 };
 
