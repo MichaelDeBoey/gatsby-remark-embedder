@@ -2,7 +2,11 @@ import cases from 'jest-in-case';
 import fetchMock from 'node-fetch';
 
 import plugin from '../../';
-import { getHTML, shouldTransform } from '../../transformers/Streamable';
+import {
+  getHTML,
+  getNormalizedStreamableUrl,
+  shouldTransform,
+} from '../../transformers/Streamable';
 
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
@@ -14,6 +18,59 @@ const mockFetch = html =>
 beforeEach(() => {
   fetchMock.mockClear();
 });
+
+cases(
+  'normalized streamable path validation',
+  ({ url, shortCode }) => {
+    expect(getNormalizedStreamableUrl(url)).toBe(shortCode);
+  },
+  {
+    'basic short url': {
+      url: 'https://streamable.com/moo',
+      shortCode: 'moo',
+    },
+    'basic e url': {
+      url: 'https://streamable.com/e/moo',
+      shortCode: 'moo',
+    },
+    'e url with username': {
+      url: 'https://streamable.com/e/moo/username',
+      shortCode: 'moo',
+    },
+    'basic g url': {
+      url: 'https://streamable.com/g/moo',
+      shortCode: 'moo',
+    },
+    'g url with username': {
+      url: 'https://streamable.com/g/moo/username',
+      shortCode: 'moo',
+    },
+    'basic o url': {
+      url: 'https://streamable.com/o/moo',
+      shortCode: 'moo',
+    },
+    'o url with username': {
+      url: 'https://streamable.com/o/moo/username',
+      shortCode: 'moo',
+    },
+    'basic s url': {
+      url: 'https://streamable.com/s/moo',
+      shortCode: 'moo',
+    },
+    's url with username': {
+      url: 'https://streamable.com/s/moo/username',
+      shortCode: 'moo',
+    },
+    'basic t url': {
+      url: 'https://streamable.com/t/moo',
+      shortCode: 'moo',
+    },
+    't url with username': {
+      url: 'https://streamable.com/t/moo/username',
+      shortCode: 'moo',
+    },
+  }
+);
 
 cases(
   'url validation',

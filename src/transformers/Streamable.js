@@ -1,6 +1,13 @@
 import { URL } from 'url';
 import fetch from 'node-fetch';
 
+export const getNormalizedStreamableUrl = url => {
+  const splitUrlSegments = url.split('/');
+  return splitUrlSegments.length > 4
+    ? splitUrlSegments[4]
+    : splitUrlSegments[3];
+};
+
 const getTrimmedPathName = pathname => pathname.replace(/^\/|\/+$/g, '');
 
 export const shouldTransform = url => {
@@ -24,6 +31,10 @@ export const shouldTransform = url => {
 };
 
 export const getHTML = url =>
-  fetch(`https://api.streamable.com/oembed.json?url=${url}`)
+  fetch(
+    `https://api.streamable.com/oembed.json?url=${getNormalizedStreamableUrl(
+      url
+    )}`
+  )
     .then(({ json }) => json())
     .then(({ html }) => html);
