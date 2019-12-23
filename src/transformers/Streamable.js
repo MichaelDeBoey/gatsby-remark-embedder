@@ -12,10 +12,17 @@ export const shouldTransform = url => {
 
   return (
     ['streamable.com', 'www.streamable.com'].includes(host) &&
+    !includesSomeOfArray(pathname, [
+      'documentation',
+      'login',
+      'recover',
+      'settings',
+      'signup',
+    ]) &&
     trimmedPathName.length > 0 &&
     trimmedPathName.length <= 3 &&
     (trimmedPathName.length === 1 ||
-      includesSomeOfArray(pathname, ['/o/', '/s/']))
+      includesSomeOfArray(pathname, ['/e/', '/g/', '/o/', '/s/', '/t/']))
   );
 };
 
