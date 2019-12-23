@@ -2,23 +2,22 @@ import { URL } from 'url';
 
 import fetch from 'node-fetch';
 
+const getTrimmedPathName = pathname => pathname.replace(/^\/|\/+$/g, '');
+
 const includesSomeOfArray = (string, array) =>
   array.some(item => string.includes(item));
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
-  if (!includesSomeOfArray(host, ['streamable.com', 'www.streamable.com'])) {
-    return false;
-  }
-  const pathSections = pathname
-    .split('/')
-    .filter(pathSection => pathSection !== '');
-  if (pathSections.length === 1) {
-    return true;
-  } else if (pathSections.length === 2 || pathSections.length === 3) {
-    return includesSomeOfArray(pathname, ['/s/', '/o/']);
-  }
-  return false;
+  const trimmedPathName = getTrimmedPathName(pathname).split('/');
+
+  return (
+    ['streamable.com', 'www.streamable.com'].includes(host) &&
+    trimmedPathName.length > 0 &&
+    trimmedPathName.length <= 3 &&
+    (trimmedPathName.length === 1 ||
+      includesSomeOfArray(pathname, ['/o/', '/s/']))
+  );
 };
 
 export const getHTML = url =>
