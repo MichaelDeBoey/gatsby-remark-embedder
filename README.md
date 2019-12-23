@@ -193,14 +193,6 @@ https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
 https://streamable.com/s/bx960
 ```
 
-Or you can use one of the three other valid Streamable link formats:
-
-```md
-https://streamable.com/s/yourShortCodeHere
-https://streamable.com/o/yourShortCodeHere
-https://streamable.com/s/yourShortCodeHere/anotherUrlSectionStreamableSometimesIncludes
-```
-
 #### Result
 
 ```html
