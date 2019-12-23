@@ -8,13 +8,17 @@ export const shouldTransform = url => {
   const trimmedPathName = getTrimmedPathName(pathname).split('/');
 
   return (
-    (['streamable.com', 'www.streamable.com'].includes(host) &&
-      trimmedPathName.length === 1 &&
-      !['documentation', 'login', 'recover', 'settings', 'signup'].includes(
-        trimmedPathName[0]
-      )) ||
-    (trimmedPathName.length > 1 &&
-      trimmedPathName.length <= 3 &&
+    ['streamable.com', 'www.streamable.com'].includes(host) &&
+    trimmedPathName.length > 0 &&
+    trimmedPathName.length <= 3 &&
+    ((trimmedPathName.length === 1 &&
+      ![
+        '/documentation',
+        '/login',
+        '/recover',
+        '/settings',
+        '/signup',
+      ].includes(pathname)) ||
       ['e', 'g', 'o', 's', 't'].includes(trimmedPathName[0]))
   );
 };
