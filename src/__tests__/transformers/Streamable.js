@@ -3,6 +3,7 @@ import fetchMock from 'node-fetch';
 
 import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/Streamable';
+
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
 jest.mock('node-fetch', () => jest.fn());
@@ -20,29 +21,97 @@ cases(
     expect(shouldTransform(url)).toBe(valid);
   },
   {
-    'non-streamable url': {
-      url: 'https://no-streamable-url-here.com',
+    'non-Streamable url': {
+      url: 'https://not-a-streamable-url.com',
       valid: false,
     },
-    'streamable-url-with-valid-embed-ending': {
-      url: 'https://streamable.com/bx960',
-      valid: true,
-    },
-    'streamable-url-with-s-valid-embed-ending': {
-      url: 'https://streamable.com/s/bx960',
-      valid: true,
-    },
-    'streamable-url-with-o-valid-embed-ending': {
-      url: 'https://streamable.com/s/bx960',
-      valid: true,
-    },
-    'streamable-url-with-long-embed-ending': {
-      url: 'https://streamable.com/s/bx960/hcobuo',
-      valid: true,
-    },
-    'streamable-url-with-invalid-ending': {
-      url: 'https://streamable.com/s/bx960/hcubuo/bla',
+    "non-Streamable url ending with 'streamable.com'": {
+      url: 'https://this-is-not-streamable.com',
       valid: false,
+    },
+    'documentation page': {
+      url: 'https://streamable.com/documentation',
+      valid: false,
+    },
+    'login page': {
+      url: 'https://streamable.com/login',
+      valid: false,
+    },
+    'recover page': {
+      url: 'https://streamable.com/recover',
+      valid: false,
+    },
+    'settings page': {
+      url: 'https://streamable.com/settings',
+      valid: false,
+    },
+    'signup page': {
+      url: 'https://streamable.com/signup',
+      valid: false,
+    },
+    "video url having '/e/' path & username & extra path": {
+      url: 'https://streamable.com/e/moo/username/extra',
+      valid: false,
+    },
+    "video url having '/g/' path & username & extra path": {
+      url: 'https://streamable.com/g/moo/username/extra',
+      valid: false,
+    },
+    "video url having '/o/' path & username & extra path": {
+      url: 'https://streamable.com/o/moo/username/extra',
+      valid: false,
+    },
+    "video url having '/s/' path & username & extra path": {
+      url: 'https://streamable.com/s/moo/username/extra',
+      valid: false,
+    },
+    "video url having '/t/' path & username & extra path": {
+      url: 'https://streamable.com/t/moo/username/extra',
+      valid: false,
+    },
+    'video url': {
+      url: 'https://streamable.com/moo',
+      valid: true,
+    },
+    "video url having '/e/' path": {
+      url: 'https://streamable.com/e/moo',
+      valid: true,
+    },
+    "video url having '/e/' path & username": {
+      url: 'https://streamable.com/e/moo/username',
+      valid: true,
+    },
+    "video url having '/g/' path": {
+      url: 'https://streamable.com/g/moo',
+      valid: true,
+    },
+    "video url having '/g/' path & username": {
+      url: 'https://streamable.com/g/moo/username',
+      valid: true,
+    },
+    "video url having '/o/' path": {
+      url: 'https://streamable.com/o/moo',
+      valid: true,
+    },
+    "video url having '/o/' path & username": {
+      url: 'https://streamable.com/o/moo/username',
+      valid: true,
+    },
+    "video url having '/s/' path": {
+      url: 'https://streamable.com/s/moo',
+      valid: true,
+    },
+    "video url having '/s/' path & username": {
+      url: 'https://streamable.com/s/moo/username',
+      valid: true,
+    },
+    "video url having '/t/' path": {
+      url: 'https://streamable.com/t/moo',
+      valid: true,
+    },
+    "video url having '/t/' path & username": {
+      url: 'https://streamable.com/t/moo/username',
+      valid: true,
     },
   }
 );
@@ -60,22 +129,58 @@ test('Gets the correct Streamable iframe', async () => {
 
 test('Plugin correctly transforms Streamable links', async () => {
   mockFetch(
-    `<iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/bx960" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`
+    `<iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`
   );
   const markdownAST = getMarkdownASTForFile('Streamable');
 
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-    "<https://no-streamable-url-here.com>
+    "<https://not-a-streamable-url.com>
 
-    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+    <https://this-is-not-streamable.com>
 
-    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+    <https://streamable.com/documentation>
 
-    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+    <https://streamable.com/login>
 
-    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/bx960\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+    <https://streamable.com/recover>
+
+    <https://streamable.com/settings>
+
+    <https://streamable.com/signup>
+
+    <https://streamable.com/e/moo/username/extra>
+
+    <https://streamable.com/g/moo/username/extra>
+
+    <https://streamable.com/o/moo/username/extra>
+
+    <https://streamable.com/s/moo/username/extra>
+
+    <https://streamable.com/t/moo/username/extra>
+
+    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
+
+    <iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
     "
   `);
 });

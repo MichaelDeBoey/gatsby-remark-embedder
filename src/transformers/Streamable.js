@@ -1,5 +1,4 @@
 import { URL } from 'url';
-
 import fetch from 'node-fetch';
 
 const getTrimmedPathName = pathname => pathname.replace(/^\/|\/+$/g, '');
