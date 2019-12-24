@@ -21,53 +21,64 @@ beforeEach(() => {
 
 cases(
   'normalized streamable path validation',
-  ({ url, shortCode }) => {
-    expect(getNormalizedStreamableUrl(url)).toBe(shortCode);
+  ({ url, normalizedUrl }) => {
+    expect(getNormalizedStreamableUrl(url)).toBe(normalizedUrl);
   },
   {
     'basic short url': {
       url: 'https://streamable.com/moo',
-      shortCode: 'moo',
+      normalizedUrl:
+        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
     },
     'basic e url': {
       url: 'https://streamable.com/e/moo',
-      shortCode: 'moo',
+      normalizedUrl:
+        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
     },
     'e url with username': {
       url: 'https://streamable.com/e/moo/username',
-      shortCode: 'moo',
+      normalizedUrl:
+        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
     },
     'basic g url': {
       url: 'https://streamable.com/g/moo',
-      shortCode: 'moo',
+      normalizedUrl:
+        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
     },
     'g url with username': {
       url: 'https://streamable.com/g/moo/username',
-      shortCode: 'moo',
+      normalizedUrl:
+        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
     },
     'basic o url': {
       url: 'https://streamable.com/o/moo',
-      shortCode: 'moo',
+      normalizedUrl:
+        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
     },
     'o url with username': {
       url: 'https://streamable.com/o/moo/username',
-      shortCode: 'moo',
+      normalizedUrl:
+        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
     },
     'basic s url': {
       url: 'https://streamable.com/s/moo',
-      shortCode: 'moo',
+      normalizedUrl:
+        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
     },
     's url with username': {
       url: 'https://streamable.com/s/moo/username',
-      shortCode: 'moo',
+      normalizedUrl:
+        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
     },
     'basic t url': {
       url: 'https://streamable.com/t/moo',
-      shortCode: 'moo',
+      normalizedUrl:
+        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
     },
     't url with username': {
       url: 'https://streamable.com/t/moo/username',
-      shortCode: 'moo',
+      normalizedUrl:
+        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
     },
   }
 );

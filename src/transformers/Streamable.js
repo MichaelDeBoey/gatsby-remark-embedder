@@ -2,13 +2,28 @@ import { URL } from 'url';
 import fetch from 'node-fetch';
 
 export const getNormalizedStreamableUrl = url => {
-  const splitUrlSegments = url.split('/');
-  return splitUrlSegments.length > 4
-    ? splitUrlSegments[4]
-    : splitUrlSegments[3];
+  const { pathname } = new URL(url);
+  const streamableEmbedUrl = 'https://api.streamable.com/oembed.json?url=';
+  const trimmedPathName = getTrimmedPathName(pathname).split('/');
+
+  if (trimmedPathName.length === 1) {
+    return `${streamableEmbedUrl}${url}`;
+  }
+
+  return `${streamableEmbedUrl}https://streamable.com/${trimmedPathName[1]}`;
 };
 
 const getTrimmedPathName = pathname => pathname.replace(/^\/|\/+$/g, '');
+
+const ignoredPaths = [
+  '/documentation',
+  '/login',
+  '/recover',
+  '/settings',
+  '/signup',
+];
+
+const possibleCachePaths = ['e', 'g', 'o', 's', 't'];
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
@@ -18,23 +33,12 @@ export const shouldTransform = url => {
     ['streamable.com', 'www.streamable.com'].includes(host) &&
     trimmedPathName.length > 0 &&
     trimmedPathName.length <= 3 &&
-    ((trimmedPathName.length === 1 &&
-      ![
-        '/documentation',
-        '/login',
-        '/recover',
-        '/settings',
-        '/signup',
-      ].includes(pathname)) ||
-      ['e', 'g', 'o', 's', 't'].includes(trimmedPathName[0]))
+    ((trimmedPathName.length === 1 && !ignoredPaths.includes(pathname)) ||
+      possibleCachePaths.includes(trimmedPathName[0]))
   );
 };
 
 export const getHTML = url =>
-  fetch(
-    `https://api.streamable.com/oembed.json?url=${getNormalizedStreamableUrl(
-      url
-    )}`
-  )
+  fetch(`${getNormalizedStreamableUrl(url)}`)
     .then(({ json }) => json())
     .then(({ html }) => html);
