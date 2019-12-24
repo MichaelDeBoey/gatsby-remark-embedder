@@ -37,11 +37,11 @@ export const shouldTransform = url => {
   );
 };
 
-export const getHTML = url =>
-  fetch(
-    `https://api.streamable.com/oembed.json?url=${getNormalizedStreamableUrl(
-      url
-    )}`
+export const getHTML = url => {
+  const normalizedStreamableUrl = getNormalizedStreamableUrl(url);
+  return fetch(
+    `https://api.streamable.com/oembed.json?url=${normalizedStreamableUrl}`
   )
     .then(({ json }) => json())
     .then(({ html }) => html);
+};
