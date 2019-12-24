@@ -1,8 +1,6 @@
 import { URL } from 'url';
 
-const getTrimmedPathName = pathname =>
-  // Trim leading and trailing slashes
-  pathname.replace(/^\/|\/+$/g, '');
+import { getTrimmedPathName } from './utils';
 
 const isSubDomain = host => /^([a-zA-Z0-9-_]{2,}\.)?slides\.com$/.test(host);
 
