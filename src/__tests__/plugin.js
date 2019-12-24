@@ -14,6 +14,7 @@ describe('gatsby-remark-embedder', () => {
 
   test('can transform all supported links (kitchensink)', async () => {
     mockCache({
+      'https://streamable.com/moo': `<iframe class="streamable-embed-from-cache" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`,
       'https://twitter.com/kentcdodds/status/1078755736455278592': `<blockquote class="twitter-tweet-from-cache"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>`,
     });
     const markdownAST = getMarkdownASTForFile('kitchensink', true);
@@ -47,6 +48,8 @@ describe('gatsby-remark-embedder', () => {
       <iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true></iframe>
 
       <iframe src=\\"https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L\\" width=\\"100%\\" height=\\"380\\" frameborder=\\"0\\" allowtransparency=\\"true\\" allow=\\"encrypted-media\\"></iframe>
+
+      <iframe class=\\"streamable-embed-from-cache\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
 
       <blockquote class=\\"twitter-tweet-from-cache\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw\\">December 28, 2018</a></blockquote>
 

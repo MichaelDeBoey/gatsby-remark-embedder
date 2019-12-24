@@ -20,9 +20,9 @@
 
 Trying to embed well known services (like [CodePen][codepen],
 [CodeSandbox][codesandbox], [Slides][slides], [SoundCloud][soundcloud],
-[Spotify][spotify], [Twitter][twitter] or [YouTube][youtube]) into your
-[Gatsby][gatsby] website can be hard, since you have to know how this needs to
-be done for all of these different services.
+[Spotify][spotify], [Streamable][streamable], [Twitter][twitter] or
+[YouTube][youtube]) into your [Gatsby][gatsby] website can be hard, since you
+have to know how this needs to be done for all of these different services.
 
 ## This solution
 
@@ -44,6 +44,7 @@ and replace it with the proper embed-code.
   - [Slides](#slides)
   - [SoundCloud](#soundcloud)
   - [Spotify](#spotify)
+  - [Streamable](#streamable)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
 - [Custom Transformers](#custom-transformers)
@@ -181,6 +182,28 @@ https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
   frameborder="0"
   allowtransparency="true"
   allow="encrypted-media"
+></iframe>
+```
+
+### Streamable
+
+#### Usage
+
+```md
+https://streamable.com/moo
+```
+
+#### Result
+
+```html
+<iframe
+  class="streamable-embed"
+  src="https://streamable.com/o/moo"
+  frameborder="0"
+  scrolling="no"
+  width="1920"
+  height="1080"
+  allowfullscreen
 ></iframe>
 ```
 
@@ -414,6 +437,7 @@ MIT
 [slides]: https://slides.com
 [soundcloud]: https://soundcloud.com
 [spotify]: https://spotify.com
+[streamable]: https://streamable.com
 [twitter]: https://twitter.com
 [twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
 [youtube]: https://youtube.com
