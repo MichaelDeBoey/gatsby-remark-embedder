@@ -20,59 +20,6 @@ beforeEach(() => {
 });
 
 cases(
-  'normalized streamable path validation',
-  ({ url, normalizedUrl }) => {
-    expect(getNormalizedStreamableUrl(url)).toBe(normalizedUrl);
-  },
-  {
-    'basic short url': {
-      url: 'https://streamable.com/moo',
-      normalizedUrl: 'https://streamable.com/moo',
-    },
-    'basic e url': {
-      url: 'https://streamable.com/e/moo',
-      normalizedUrl: 'https://streamable.com/moo',
-    },
-    'e url with username': {
-      url: 'https://streamable.com/e/moo/username',
-      normalizedUrl: 'https://streamable.com/moo',
-    },
-    'basic g url': {
-      url: 'https://streamable.com/g/moo',
-      normalizedUrl: 'https://streamable.com/moo',
-    },
-    'g url with username': {
-      url: 'https://streamable.com/g/moo/username',
-      normalizedUrl: 'https://streamable.com/moo',
-    },
-    'basic o url': {
-      url: 'https://streamable.com/o/moo',
-      normalizedUrl: 'https://streamable.com/moo',
-    },
-    'o url with username': {
-      url: 'https://streamable.com/o/moo/username',
-      normalizedUrl: 'https://streamable.com/moo',
-    },
-    'basic s url': {
-      url: 'https://streamable.com/s/moo',
-      normalizedUrl: 'https://streamable.com/moo',
-    },
-    's url with username': {
-      url: 'https://streamable.com/s/moo/username',
-      normalizedUrl: 'https://streamable.com/moo',
-    },
-    'basic t url': {
-      url: 'https://streamable.com/t/moo',
-      normalizedUrl: 'https://streamable.com/moo',
-    },
-    't url with username': {
-      url: 'https://streamable.com/t/moo/username',
-      normalizedUrl: 'https://streamable.com/moo',
-    },
-  }
-);
-
-cases(
   'url validation',
   ({ url, valid }) => {
     expect(shouldTransform(url)).toBe(valid);
@@ -169,6 +116,59 @@ cases(
     "video url having '/t/' path & username": {
       url: 'https://streamable.com/t/moo/username',
       valid: true,
+    },
+  }
+);
+
+cases(
+  'getNormalizedStreamableUrl',
+  ({ url, normalizedUrl }) => {
+    expect(getNormalizedStreamableUrl(url)).toBe(normalizedUrl);
+  },
+  {
+    'video url': {
+      url: 'https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
+    },
+    "video url having '/e/' path": {
+      url: 'https://streamable.com/e/moo',
+      normalizedUrl: 'https://streamable.com/moo',
+    },
+    "video url having '/e/' path & username": {
+      url: 'https://streamable.com/e/moo/username',
+      normalizedUrl: 'https://streamable.com/moo',
+    },
+    "video url having '/g/' path": {
+      url: 'https://streamable.com/g/moo',
+      normalizedUrl: 'https://streamable.com/moo',
+    },
+    "video url having '/g/' path & username": {
+      url: 'https://streamable.com/g/moo/username',
+      normalizedUrl: 'https://streamable.com/moo',
+    },
+    "video url having '/o/' path": {
+      url: 'https://streamable.com/o/moo',
+      normalizedUrl: 'https://streamable.com/moo',
+    },
+    "video url having '/o/' path & username": {
+      url: 'https://streamable.com/o/moo/username',
+      normalizedUrl: 'https://streamable.com/moo',
+    },
+    "video url having '/s/' path": {
+      url: 'https://streamable.com/s/moo',
+      normalizedUrl: 'https://streamable.com/moo',
+    },
+    "video url having '/s/' path & username": {
+      url: 'https://streamable.com/s/moo/username',
+      normalizedUrl: 'https://streamable.com/moo',
+    },
+    "video url having '/t/' path": {
+      url: 'https://streamable.com/t/moo',
+      normalizedUrl: 'https://streamable.com/moo',
+    },
+    "video url having '/t/' path & username": {
+      url: 'https://streamable.com/t/moo/username',
+      normalizedUrl: 'https://streamable.com/moo',
     },
   }
 );
