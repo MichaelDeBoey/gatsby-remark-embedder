@@ -1,6 +1,8 @@
 import { URL } from 'url';
 import fetch from 'node-fetch';
 
+const getTrimmedPathName = pathname => pathname.replace(/^\/|\/+$/g, '');
+
 export const getNormalizedStreamableUrl = url => {
   const { pathname } = new URL(url);
   const streamableEmbedUrl = 'https://api.streamable.com/oembed.json?url=';
@@ -12,8 +14,6 @@ export const getNormalizedStreamableUrl = url => {
 
   return `${streamableEmbedUrl}https://streamable.com/${trimmedPathName[1]}`;
 };
-
-const getTrimmedPathName = pathname => pathname.replace(/^\/|\/+$/g, '');
 
 const ignoredPaths = [
   '/documentation',
