@@ -5,14 +5,13 @@ const getTrimmedPathName = pathname => pathname.replace(/^\/|\/+$/g, '');
 
 export const getNormalizedStreamableUrl = url => {
   const { pathname } = new URL(url);
-  const streamableEmbedUrl = 'https://api.streamable.com/oembed.json?url=';
   const trimmedPathName = getTrimmedPathName(pathname).split('/');
 
   if (trimmedPathName.length === 1) {
-    return `${streamableEmbedUrl}${url}`;
+    return `${url}`;
   }
 
-  return `${streamableEmbedUrl}https://streamable.com/${trimmedPathName[1]}`;
+  return `https://streamable.com/${trimmedPathName[1]}`;
 };
 
 const ignoredPaths = [
@@ -39,6 +38,10 @@ export const shouldTransform = url => {
 };
 
 export const getHTML = url =>
-  fetch(`${getNormalizedStreamableUrl(url)}`)
+  fetch(
+    `https://api.streamable.com/oembed.json?url=${getNormalizedStreamableUrl(
+      url
+    )}`
+  )
     .then(({ json }) => json())
     .then(({ html }) => html);

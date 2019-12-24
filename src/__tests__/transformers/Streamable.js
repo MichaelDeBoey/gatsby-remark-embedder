@@ -27,58 +27,47 @@ cases(
   {
     'basic short url': {
       url: 'https://streamable.com/moo',
-      normalizedUrl:
-        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
     },
     'basic e url': {
       url: 'https://streamable.com/e/moo',
-      normalizedUrl:
-        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
     },
     'e url with username': {
       url: 'https://streamable.com/e/moo/username',
-      normalizedUrl:
-        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
     },
     'basic g url': {
       url: 'https://streamable.com/g/moo',
-      normalizedUrl:
-        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
     },
     'g url with username': {
       url: 'https://streamable.com/g/moo/username',
-      normalizedUrl:
-        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
     },
     'basic o url': {
       url: 'https://streamable.com/o/moo',
-      normalizedUrl:
-        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
     },
     'o url with username': {
       url: 'https://streamable.com/o/moo/username',
-      normalizedUrl:
-        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
     },
     'basic s url': {
       url: 'https://streamable.com/s/moo',
-      normalizedUrl:
-        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
     },
     's url with username': {
       url: 'https://streamable.com/s/moo/username',
-      normalizedUrl:
-        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
     },
     'basic t url': {
       url: 'https://streamable.com/t/moo',
-      normalizedUrl:
-        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
     },
     't url with username': {
       url: 'https://streamable.com/t/moo/username',
-      normalizedUrl:
-        'https://api.streamable.com/oembed.json?url=https://streamable.com/moo',
+      normalizedUrl: 'https://streamable.com/moo',
     },
   }
 );
