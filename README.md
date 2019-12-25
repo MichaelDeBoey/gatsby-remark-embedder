@@ -19,7 +19,7 @@
 ## The problem
 
 Trying to embed well known services (like [CodePen][codepen],
-[CodeSandbox][codesandbox], [Instagram][instagram], [Lichess][lichess],
+[CodeSandbox][codesandbox], [Giphy][giphy] [Instagram][instagram], [Lichess][lichess],
 [Slides][slides], [SoundCloud][soundcloud], [Spotify][spotify],
 [Streamable][streamable], [Twitter][twitter] or [YouTube][youtube]) into your
 [Gatsby][gatsby] website can be hard, since you have to know how this needs to
@@ -42,6 +42,7 @@ and replace it with the proper embed-code.
 - [Supported services](#supported-services)
   - [CodePen](#codepen)
   - [CodeSandbox](#codesandbox)
+  - [Giphy](#giphy)
   - [Instagram](#instagram)
   - [Lichess](#lichess)
   - [Slides](#slides)
@@ -122,6 +123,31 @@ https://codesandbox.io/s/ynn88nx9x?view=split
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
 ></iframe>
+```
+
+### Giphy
+
+#### Usage
+
+```md
+https://giphy.com/gifs/cute-aww-wholesome-4ZrZm6LoXmDZ7Pux3m
+```
+
+#### Result
+
+```html
+<div style="width:100%;height:0;padding-bottom:90%;position:relative;">
+  <iframe
+    src="https://giphy.com/embed/4ZrZm6LoXmDZ7Pux3m"
+    width="100%"
+    height="100%"
+    style="position:absolute"
+    frameborder="0"
+    class="giphy-embed"
+    allowfullscreen
+  ></iframe>
+</div>
+<p><a href="https://giphy.com/gifs/4ZrZm6LoXmDZ7Pux3m">via GIPHY</a></p>
 ```
 
 ### Instagram
@@ -583,6 +609,7 @@ MIT
 
 [codepen]: https://codepen.io
 [codesandbox]: https://codesandbox.io
+[giphy]: https://giphy.com
 [embedded-tweet-docs]: https://developer.twitter.com/web/embedded-tweets
 [gatsby]: https://github.com/gatsbyjs/gatsby
 [gatsby-plugin-instagram-embed]: https://github.com/jlengstorf/gatsby-plugin-instagram-embed

@@ -44,6 +44,8 @@ describe('gatsby-remark-embedder', () => {
 
       <iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb\\" sandbox=\\"allow-modals allow-forms allow-popups allow-scripts allow-same-origin\\"></iframe>
 
+      <div style=\\"width:100%;height:0;padding-bottom:90%;position:relative;\\"><iframe src=\\"https://giphy.com/embed/4ZrZm6LoXmDZ7Pux3m\\" width=\\"100%\\" height=\\"100%\\" style=\\"position:absolute\\" frameBorder=\\"0\\" class=\\"giphy-embed\\" allowFullScreen></iframe></div><p><a href=\\"https://giphy.com/gifs/4ZrZm6LoXmDZ7Pux3m\\">via GIPHY</a></p>
+
       <blockquote class=\\"instagram-media-from-cache\\"><div><a href=\\"https://instagram.com/p/B60jPE6J8U-\\"><p>example</p></a><p>A post shared by <a href=\\"https://instagram.com/michaeldeboey\\">Michaël De Boey</a> (@michaeldeboey) on<timedatetime=\\"2020-01-02T14:45:30+00:00\\">Jan 2, 2020 at 6:45am PST</time></p></div></blockquote>
 
       <iframe src=\\"https://lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
