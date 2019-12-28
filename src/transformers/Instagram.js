@@ -5,12 +5,8 @@ export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
   return (
-    [
-      'http://instagr.am/',
-      'instagr.am/',
-      'www.instagram.com',
-      'instagram.com',
-    ].includes(host) && pathname.includes('/p/')
+    ['instagr.am', 'www.instagram.com', 'instagram.com'].includes(host) &&
+    pathname.includes('/p/')
   );
 };
 
