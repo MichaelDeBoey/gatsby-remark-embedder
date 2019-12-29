@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import cases from 'jest-in-case';
 import fetchMock from 'node-fetch';
 
