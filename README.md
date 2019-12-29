@@ -231,6 +231,11 @@ https://streamable.com/moo
 
 ### Instagram
 
+The returned HTML snipped from the Instagram transformer will contain a huge
+number of style rules, these rules aim to keep the look of the instagram
+Embedded widget. You can add rules to your CSS to change the look of the likes,
+comments and bookmark icons.
+
 #### Usage
 
 ```md
@@ -240,15 +245,45 @@ https://www.instagram.com/p/B39qQ_GJ_kE/
 #### Result
 
 ```html
-<iframe
-  src="https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L"
-  width="100%"
-  height="380"
-  frameborder="0"
-  allowtransparency="true"
-  allow="encrypted-media"
-></iframe>
+<blockquote class="instagram-media">
+  <div>
+    <a href="link">
+      <div>
+        <img src="image-src" alt="title" />
+      </div>
+      <div>
+        <div class="likes">
+          <div />
+          <div />
+          <div />
+        </div>
+        <div class="comments">
+          <div />
+          <div />
+        </div>
+        <div class="bookmark">
+          <div />
+          <div />
+          <div />
+        </div>
+      </div>
+    </a>
+    <p>
+      <a href="link" target="_blank" rel="noopener noreferrer">
+        post title
+      </a>
+    </p>
+    <p>
+      A post shared by
+      <a href="link" target="_blank" rel="noopener noreferrer">
+        fabiorosado
+      </a>
+    </p>
+  </div>
+</blockquote>
 ```
+
+_Note: The style rules were removed to keep the snipper small._
 
 ### Twitter
 
