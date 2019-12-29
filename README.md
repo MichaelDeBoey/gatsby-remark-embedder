@@ -21,9 +21,9 @@
 Trying to embed well known services (like [CodePen][codepen],
 [CodeSandbox][codesandbox], [Lichess][lichess], [Slides][slides],
 [SoundCloud][soundcloud], [Spotify][spotify], [Streamable][streamable],
-[Twitter][twitter] or [YouTube][youtube]) into your [Gatsby][gatsby] website can
-be hard, since you have to know how this needs to be done for all of these
-different services.
+[Instagram](instagram), [Twitter][twitter] or [YouTube][youtube]) into your
+[Gatsby][gatsby] website can be hard, since you have to know how this needs to
+be done for all of these different services.
 
 ## This solution
 
@@ -47,6 +47,7 @@ and replace it with the proper embed-code.
   - [SoundCloud](#soundcloud)
   - [Spotify](#spotify)
   - [Streamable](#streamable)
+  - [Instagram](#instagram)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
 - [Custom Transformers](#custom-transformers)
@@ -228,6 +229,27 @@ https://streamable.com/moo
 ></iframe>
 ```
 
+### Instagram
+
+#### Usage
+
+```md
+https://www.instagram.com/p/B39qQ_GJ_kE/
+```
+
+#### Result
+
+```html
+<iframe
+  src="https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L"
+  width="100%"
+  height="380"
+  frameborder="0"
+  allowtransparency="true"
+  allow="encrypted-media"
+></iframe>
+```
+
 ### Twitter
 
 The returned HTML snippet from the Twitter transformer will only be
@@ -403,6 +425,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
