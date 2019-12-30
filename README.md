@@ -21,7 +21,7 @@
 Trying to embed well known services (like [CodePen][codepen],
 [CodeSandbox][codesandbox], [Lichess][lichess], [Slides][slides],
 [SoundCloud][soundcloud], [Spotify][spotify], [Streamable][streamable],
-[Instagram](instagram), [Twitter][twitter] or [YouTube][youtube]) into your
+[Instagram][instagram], [Twitter][twitter] or [YouTube][youtube]) into your
 [Gatsby][gatsby] website can be hard, since you have to know how this needs to
 be done for all of these different services.
 
@@ -231,11 +231,6 @@ https://streamable.com/moo
 
 ### Instagram
 
-The returned HTML snipped from the Instagram transformer will contain a huge
-number of style rules, these rules aim to keep the look of the instagram
-Embedded widget. You can add rules to your CSS to change the look of the likes,
-comments and bookmark icons.
-
 #### Usage
 
 ```md
@@ -245,45 +240,76 @@ https://www.instagram.com/p/B39qQ_GJ_kE/
 #### Result
 
 ```html
-<blockquote class="instagram-media">
+<blockquote
+  class="instagram-media"
+  data-instgrm-captioned
+  data-instgrm-permalink=""
+  data-instgrm-version="12"
+>
   <div>
-    <a href="link">
+    <a href="" target="_blank">
       <div>
-        <img src="image-src" alt="title" />
+        <div></div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div></div>
+      <div>
+        <svg
+          width="50px"
+          height="50px"
+          viewBox="0 0 60 60"
+          version="1.1"
+          xmlns="https://www.w3.org/2000/svg"
+          xmlns:xlink="https://www.w3.org/1999/xlink"
+        >
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+              <g><path d=""></path></g>
+            </g>
+          </g>
+        </svg>
       </div>
       <div>
-        <div class="likes">
-          <div />
-          <div />
-          <div />
+        <div>
+          View this post on Instagram
         </div>
-        <div class="comments">
-          <div />
-          <div />
+      </div>
+      <div></div>
+      <div>
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-        <div class="bookmark">
-          <div />
-          <div />
-          <div />
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
       </div>
     </a>
     <p>
-      <a href="link" target="_blank" rel="noopener noreferrer">
-        post title
+      <a href="" target="_blank">
+        Description
       </a>
     </p>
     <p>
-      A post shared by
-      <a href="link" target="_blank" rel="noopener noreferrer">
-        fabiorosado
-      </a>
+      A post shared by <a href="" target="_blank"> Name</a> (@username) on
+      <time datetime="">date at time</time>
     </p>
   </div>
 </blockquote>
+<script async src="//www.instagram.com/embed.js"></script>
 ```
 
-_Note: The style rules were removed to keep the snipper small._
+_Note: The style rules were removed to keep the snippet small._
 
 ### Twitter
 
@@ -504,6 +530,7 @@ MIT
 [soundcloud]: https://soundcloud.com
 [spotify]: https://spotify.com
 [streamable]: https://streamable.com
+[instagram]: https://instagram.com
 [twitter]: https://twitter.com
 [twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
 [youtube]: https://youtube.com

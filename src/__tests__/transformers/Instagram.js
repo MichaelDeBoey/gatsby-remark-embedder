@@ -50,7 +50,7 @@ cases(
       valid: true,
     },
     "image url with 'instagr.am'": {
-      url: 'https://instagram.com/p/B39qQ_GJ_kE/',
+      url: 'https://instagr.am/p/B39qQ_GJ_kE/',
       valid: true,
     },
   }
