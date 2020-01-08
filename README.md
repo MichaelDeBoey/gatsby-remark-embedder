@@ -231,6 +231,16 @@ https://streamable.com/moo
 
 ### Instagram
 
+The returned HTML snippet from the Instagram transformer is a mock up of the
+html returned by the instagram api with a few modifications - mostly we removed
+the svg and included the picture.
+
+Since the Instagram transformer doesn't include the instagram script (because,
+like the Twitter one we don't want to include it multiple times on a page when
+having multiple embeds), you should include it yourself. The recommented way of
+including it is by using
+[`gatsby-plugin-instagram-embed`][gatsby-plugin-instagram-embed]
+
 #### Usage
 
 ```md
@@ -243,11 +253,11 @@ https://www.instagram.com/p/B39qQ_GJ_kE/
 <blockquote
   class="instagram-media"
   data-instgrm-captioned
-  data-instgrm-permalink=""
-  data-instgrm-version="12"
+  data-instgrm-permalink="embedded_url"
 >
-  <div>
-    <a href="" target="_blank">
+  <div style="padding:16px;">
+    <a href="embedded_url" target="_blank" rel="”noopener" noreferrer”>
+      <!-- These divs are used to draw the icons for profile picture, fake text -->
       <div>
         <div></div>
         <div>
@@ -255,29 +265,10 @@ https://www.instagram.com/p/B39qQ_GJ_kE/
           <div></div>
         </div>
       </div>
-      <div></div>
       <div>
-        <svg
-          width="50px"
-          height="50px"
-          viewBox="0 0 60 60"
-          version="1.1"
-          xmlns="https://www.w3.org/2000/svg"
-          xmlns:xlink="https://www.w3.org/1999/xlink"
-        >
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g transform="translate(-511.000000, -20.000000)" fill="#000000">
-              <g><path d=""></path></g>
-            </g>
-          </g>
-        </svg>
+        <img src="thumbail_url_returned_by_instagram_api" />
       </div>
-      <div>
-        <div>
-          View this post on Instagram
-        </div>
-      </div>
-      <div></div>
+      <!-- These divs are used to draw the icons (likes, comment, bookmark) - style has been removed -->
       <div>
         <div>
           <div></div>
@@ -296,17 +287,18 @@ https://www.instagram.com/p/B39qQ_GJ_kE/
       </div>
     </a>
     <p>
-      <a href="" target="_blank">
-        Description
+      <a href="embeded_url" target="_blank" rel="”noopener" noreferrer”>
+        instagram photo description - 'title' returned by instagram api
       </a>
     </p>
     <p>
-      A post shared by <a href="" target="_blank"> Name</a> (@username) on
-      <time datetime="">date at time</time>
+      A post shared by
+      <a href="embeded_url" target="_blank" rel="”noopener" noreferrer”>
+        @username - 'author_name' returned by instagram api
+      </a>
     </p>
   </div>
 </blockquote>
-<script async src="//www.instagram.com/embed.js"></script>
 ```
 
 _Note: The style rules were removed to keep the snippet small._
@@ -524,6 +516,7 @@ MIT
 [embedded-tweet-docs]: https://developer.twitter.com/web/embedded-tweets
 [gatsby]: https://github.com/gatsbyjs/gatsby
 [gatsby-plugin-twitter]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-twitter
+[gatsby-plugin-instagram-embed]: https://github.com/jlengstorf/gatsby-plugin-instagram-embed
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
 [lichess]: https://lichess.org
 [slides]: https://slides.com
