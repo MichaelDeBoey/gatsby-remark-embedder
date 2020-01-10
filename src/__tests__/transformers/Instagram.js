@@ -2,7 +2,11 @@ import cases from 'jest-in-case';
 import fetchMock from 'node-fetch';
 
 import plugin from '../../';
-import { getHTML, shouldTransform } from '../../transformers/Instagram';
+import {
+  getHTML,
+  shouldTransform,
+  buildUrl,
+} from '../../transformers/Instagram';
 
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
@@ -157,4 +161,14 @@ test('Plugin can transform Instagram links', async () => {
     <blockquote class=\\"instagram-media-mocked-fetch-plugin\\"><div><a href=\\"https://instagram.com/p/B60jPE6J8U-\\"><p>example</p></a><p>A post shared by <a href=\\"https://instagram.com/michaeldeboey\\">Michaël De Boey</a> (@michaeldeboey) on<timedatetime=\\"2020-01-02T14:45:30+00:00\\">Jan 2, 2020 at 6:45am PST</time></p></div></blockquote>
     "
   `);
+});
+
+test('Applies plugin options to Instagram links correctly', () => {
+  const options = {
+    hidecaption: true,
+  };
+  const url = 'https://instagram.com/p/B60jPE6J8U-';
+  expect(buildUrl(url, options)).toBe(
+    'https://api.instagram.com/oembed?url=https%3A%2F%2Finstagram.com%2Fp%2FB60jPE6J8U-&omitscript=true&hidecaption=true'
+  );
 });

@@ -13,10 +13,9 @@ const getUrlString = url => {
   }
 };
 
-export default async (
-  { cache, markdownAST },
-  { customTransformers = [] } = {}
-) => {
+export default async ({ cache, markdownAST }, pluginOptions = {}) => {
+  const { customTransformers = [] } = pluginOptions;
+
   const transformers = [...defaultTransformers, ...customTransformers];
 
   const transformations = [];
@@ -52,7 +51,10 @@ export default async (
             let html = await cache.get(urlString);
 
             if (!html) {
-              html = await getHTML(urlString);
+              html = await getHTML(
+                urlString,
+                (pluginOptions = { twitter: { proofOfConcept: true } })
+              );
               await cache.set(urlString, html);
             }
 

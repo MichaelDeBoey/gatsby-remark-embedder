@@ -1,10 +1,9 @@
-import { URL } from 'url';
-
 import { fetchOEmbedData } from './utils';
+
+export const name = 'instagram';
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
-
   return (
     [
       'instagr.am',
@@ -15,7 +14,18 @@ export const shouldTransform = url => {
   );
 };
 
-export const getHTML = url =>
-  fetchOEmbedData(
-    `https://api.instagram.com/oembed?url=${url}&omitscript=true`
-  ).then(({ html }) => html);
+export const buildUrl = (url, options = {}) => {
+  // https://www.instagram.com/developer/embedding/#oembed
+  const urlObj = new URL(`https://api.instagram.com/oembed`);
+  urlObj.search = new URLSearchParams({
+    url,
+    omitscript: true,
+    ...options,
+  });
+  return urlObj.toString();
+};
+
+export const getHTML = (url, options) => {
+  const oEmbedUrl = buildUrl(url, options);
+  return fetchOEmbedData(oEmbedUrl).then(({ html }) => html);
+};

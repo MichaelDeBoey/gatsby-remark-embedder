@@ -2,9 +2,10 @@ import { URL } from 'url';
 
 import { fetchOEmbedData, includesSomeOfArray } from './utils';
 
+export const name = 'twitter';
+
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
-
   return (
     ['twitter.com', 'www.twitter.com'].includes(host) &&
     (pathname.includes('/status/') ||
@@ -13,16 +14,21 @@ export const shouldTransform = url => {
   );
 };
 
-export const getHTML = url => {
-  /**
-   * For moments, Twitter oembed doesn't work with urls using 'events', they should
-   * use 'moments', even though they redirect from 'moments' to 'events' on the browser.
-   */
-  const twitterUrl = url.replace('events', 'moments');
+export const buildUrl = (url, options = {}) => {
+  // https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed
+  const urlObj = new URL(`https://publish.twitter.com/oembed`);
+  urlObj.search = new URLSearchParams({
+    url,
+    dnt: true,
+    omit_script: true,
+    ...options,
+  });
+  return urlObj.toString();
+};
 
-  return fetchOEmbedData(
-    `https://publish.twitter.com/oembed?url=${twitterUrl}&dnt=true&omit_script=true`
-  ).then(({ html }) =>
+export const getHTML = (url, options) => {
+  const oEmbedUrl = buildUrl(url, options);
+  return fetchOEmbedData(oEmbedUrl).then(({ html }) =>
     [html]
       .map(s => s.replace(/\?ref_src=twsrc.*?fw/g, ''))
       .map(s => s.replace(/<br>/g, '<br />'))
