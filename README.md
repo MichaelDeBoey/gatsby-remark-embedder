@@ -286,7 +286,7 @@ executed additionally to the default ones.
 
 ```js
 // In your gatsby-config.js
-import someSiteTransformer from './src/some-site-transformer';
+const someSiteTransformer = require('./some-site-transformer');
 
 plugins: [
   {
@@ -324,27 +324,11 @@ marking it as `async` or by manually returning a `Promise` object.
 // some-site-transformer.js
 const regex = /^https?:\/\/some-site\.com\//;
 
-export default {
-  shouldTransform(url) {
-    return regex.test(url);
-  },
-  getHTML(url) {
-    return `<iframe src="${url}"></iframe>`;
-  },
-};
-```
+const shouldTransform = url => regex.test(url);
 
-You can also export the two functions separately:
+const getHTML = url => `<iframe src="${url}"></iframe>`;
 
-```js
-// some-site-transformer.js
-export const shouldTransform = url => {
-  // ...
-};
-
-export const getHTML = async url => {
-  // ...
-};
+module.exports = { getHTML, shouldTransform };
 ```
 
 ## Inspiration
@@ -397,6 +381,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
