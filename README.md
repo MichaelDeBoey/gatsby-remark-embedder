@@ -41,6 +41,7 @@ and replace it with the proper embed-code.
 - [Supported services](#supported-services)
   - [CodePen](#codepen)
   - [CodeSandbox](#codesandbox)
+  - [Lichess](#lichess)
   - [Slides](#slides)
   - [SoundCloud](#soundcloud)
   - [Spotify](#spotify)
@@ -118,6 +119,25 @@ https://codesandbox.io/s/ynn88nx9x?view=split
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+></iframe>
+```
+
+### Lichess
+
+#### Usage
+
+```md
+https://lichess.org/p4auwhl8/
+```
+
+#### Result
+
+```html
+<iframe
+  src="https://lichess.org/embed/p4auwhl8/"
+  width="600"
+  height="397"
+  frameborder="0"
 ></iframe>
 ```
 
