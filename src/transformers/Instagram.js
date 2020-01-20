@@ -3,8 +3,9 @@ import fetch from 'node-fetch';
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
+
   return (
-    ['instagr.am', 'www.instagram.com', 'instagram.com'].includes(host) &&
+    ['instagr.am', 'instagram.com', 'www.instagram.com'].includes(host) &&
     pathname.includes('/p/')
   );
 };
