@@ -14,9 +14,9 @@ describe('gatsby-remark-embedder', () => {
 
   test('can transform all supported links (kitchensink)', async () => {
     mockCache({
+      'https://instagram.com/p/B60jPE6J8U-': `<blockquote class="instagram-media-from-cache"><div><a href="https://instagram.com/p/B60jPE6J8U-"><p>example</p></a><p>A post shared by <a href="https://instagram.com/michaeldeboey">Michaël De Boey</a> (@michaeldeboey) on<timedatetime="2020-01-02T14:45:30+00:00">Jan 2, 2020 at 6:45am PST</time></p></div></blockquote>`,
       'https://streamable.com/moo': `<iframe class="streamable-embed-from-cache" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`,
       'https://twitter.com/kentcdodds/status/1078755736455278592': `<blockquote class="twitter-tweet-from-cache"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw">December 28, 2018</a></blockquote>`,
-      'https://instagram.com/p/B39qQ_GJ_kE/': `<blockquote class="instagram-media" ><div> <a href="link"> <div> <img src="image-src" alt="title" /></div><div><div class="likes"> <div /><div /><div /></div><div class="comments"> <div/><div /></div><div class="bookmark"> <div /><div/><div /></div></div></a> <p> <a href="link" target="_blank" rel="noopener noreferrer">title</a></p><p>A post shared by <a href="link" target="_blank" rel="noopener noreferrer">fabiorosado</a></p></div></blockquote>`,
     });
     const markdownAST = getMarkdownASTForFile('kitchensink', true);
 
@@ -44,6 +44,8 @@ describe('gatsby-remark-embedder', () => {
 
       <iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb\\" sandbox=\\"allow-modals allow-forms allow-popups allow-scripts allow-same-origin\\"></iframe>
 
+      <blockquote class=\\"instagram-media-from-cache\\"><div><a href=\\"https://instagram.com/p/B60jPE6J8U-\\"><p>example</p></a><p>A post shared by <a href=\\"https://instagram.com/michaeldeboey\\">Michaël De Boey</a> (@michaeldeboey) on<timedatetime=\\"2020-01-02T14:45:30+00:00\\">Jan 2, 2020 at 6:45am PST</time></p></div></blockquote>
+
       <iframe src=\\"https://lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
 
       <iframe src=\\"https://slides.com/kentcdodds/oss-we-want/embed\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -57,9 +59,7 @@ describe('gatsby-remark-embedder', () => {
       <blockquote class=\\"twitter-tweet-from-cache\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592?ref_src=twsrc%5Etfw\\">December 28, 2018</a></blockquote>
 
       <iframe width=\\"100%\\" height=\\"315\\" src=\\"https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe>
-
-      <blockquote class=\\"instagram-media\\" ><div> <a href=\\"link\\"> <div> <img src=\\"image-src\\" alt=\\"title\\" /></div><div><div class=\\"likes\\"> <div /><div /><div /></div><div class=\\"comments\\"> <div/><div /></div><div class=\\"bookmark\\"> <div /><div/><div /></div></div></a> <p> <a href=\\"link\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">title</a></p><p>A post shared by <a href=\\"link\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">fabiorosado</a></p></div></blockquote>
       "
-      `);
+    `);
   });
 });
