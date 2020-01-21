@@ -103,6 +103,16 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "acagastya",
+      "name": "Agastya Chandrakant",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5466083?v=4",
+      "profile": "https://hanabi.in",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
