@@ -7,7 +7,7 @@ export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
   return (
-    (host == 'lichess.org' || host == 'www.lichess.org') &&
+    ['lichess.org', 'www.lichess.org'].includes(host) &&
     !includesSomeOfArray(pathname, [
       '/embed/',
       '/learn',

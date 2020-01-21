@@ -71,6 +71,10 @@ cases(
       url: 'https://www.lichess.org/MPJcy1JW?theme=auto&bg=auto',
       valid: true,
     },
+    "game url which contains '/tv'": {
+      url: 'https://www.lichess.org/tv123abc56de',
+      valid: true,
+    },
   }
 );
 
@@ -117,6 +121,8 @@ test('Plugin can transform Lichess links', async () => {
     <iframe src=\\"https://lichess.org/embed/MPJcy1JW?theme=auto&bg=auto\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
 
     <iframe src=\\"https://www.lichess.org/embed/MPJcy1JW?theme=auto&bg=auto\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
+
+    <iframe src=\\"https://www.lichess.org/embed/tv123abc56de\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
     "
   `);
 });
