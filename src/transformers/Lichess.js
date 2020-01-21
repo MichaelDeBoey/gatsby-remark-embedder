@@ -16,7 +16,7 @@ export const shouldTransform = url => {
       '/training',
       '/tv/',
     ]) &&
-    !pathname.endsWith('/tv') // it is possible to have a game of URL: https://lichess.org/tv1342Jy
+    !pathname.endsWith('/tv')
   );
 };
 
