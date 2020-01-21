@@ -11,50 +11,74 @@ cases(
     expect(shouldTransform(url)).toBe(valid);
   },
   {
-    'non-lichess url': {
+    'non-Lichess url': {
       url: 'https://not-a-lichess-url.org',
       valid: false,
     },
-    "non-lichess url ending with 'lichess.org'": {
+    "non-Lichess url ending with 'lichess.org'": {
       url: 'https://this-is-not-lichess.org',
       valid: false,
     },
-    "non-lichess url ending with 'lichess.org' having '/embed/'": {
-      url: 'https://this-is-not-lichess.org/embed/p4auwhl8',
+    "non-Lichess url ending with 'lichess.org' having '/embed/' path": {
+      url: 'https://this-is-not-lichess.org/embed/MPJcy1JW',
       valid: false,
     },
-    'embed url': {
-      url: 'https://lichess.org/embed/p4auwhl8',
+    'embed game url': {
+      url: 'https://lichess.org/embed/MPJcy1JW',
+      valid: false,
+    },
+    'learn url': {
+      url: 'https://lichess.org/learn',
+      valid: false,
+    },
+    'practice url': {
+      url: 'https://lichess.org/practice',
+      valid: false,
+    },
+    'study list url': {
+      url: 'https://lichess.org/study',
       valid: false,
     },
     'study url': {
-      url: 'https://lichess.org/study/F1EGw5B7',
+      url: 'https://lichess.org/study/XtFCFYlM',
+      valid: false,
+    },
+    'training url': {
+      url: 'https://lichess.org/training/12345',
+      valid: false,
+    },
+    'tv list url': {
+      url: 'https://lichess.org/tv',
       valid: false,
     },
     'tv url': {
-      url: 'https://lichess.org/tv/',
+      url: 'https://lichess.org/tv/best',
       valid: false,
     },
-    'Normal match url without parameters': {
-      url: 'https://lichess.org/p4auwhl8',
+    'game url': {
+      url: 'https://lichess.org/MPJcy1JW',
       valid: true,
     },
-    'Normal match url with parameters': {
-      url: 'https://lichess.org/p4auwhl8?theme=auto&bg=auto',
+    "game url having 'www' subdomain": {
+      url: 'https://www.lichess.org/MPJcy1JW',
       valid: true,
     },
-    "Match url having 'www' subdomain": {
-      url: 'https://www.lichess.org/p4auwhl8?theme=auto&bg=auto',
+    'game url with parameters': {
+      url: 'https://lichess.org/MPJcy1JW?theme=auto&bg=auto',
+      valid: true,
+    },
+    "game url with parameters having 'www' subdomain": {
+      url: 'https://www.lichess.org/MPJcy1JW?theme=auto&bg=auto',
       valid: true,
     },
   }
 );
 
 test('Gets the correct Lichess iframe', () => {
-  const html = getHTML('https://lichess.org/p4auwhl8?theme=auto&bg=auto');
+  const html = getHTML('https://lichess.org/MPJcy1JW');
 
   expect(html).toMatchInlineSnapshot(
-    `"<iframe src=\\"https://lichess.org/embed/p4auwhl8?theme=auto&bg=auto\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>"`
+    `"<iframe src=\\"https://lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>"`
   );
 });
 
@@ -68,19 +92,31 @@ test('Plugin can transform Lichess links', async () => {
 
     <https://this-is-not-lichess.org>
 
-    <https://this-is-not-lichess.org/embed/p4auwhl8>
+    <https://this-is-not-lichess.org/embed/MPJcy1JW>
 
-    <https://lichess.org/embed/p4auwhl8>
+    <https://lichess.org/embed/MPJcy1JW>
 
-    <https://lichess.org/study/F1EGw5B7>
+    <https://lichess.org/learn>
 
-    <https://lichess.org/tv/>
+    <https://lichess.org/practice>
 
-    <iframe src=\\"https://lichess.org/embed/p4auwhl8\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
+    <https://lichess.org/study>
 
-    <iframe src=\\"https://lichess.org/embed/p4auwhl8?theme=auto&bg=auto\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
+    <https://lichess.org/study/XtFCFYlM>
 
-    <iframe src=\\"https://www.lichess.org/embed/p4auwhl8?theme=auto&bg=auto\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
+    <https://lichess.org/training/12345>
+
+    <https://lichess.org/tv>
+
+    <https://lichess.org/tv/best>
+
+    <iframe src=\\"https://lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
+
+    <iframe src=\\"https://www.lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
+
+    <iframe src=\\"https://lichess.org/embed/MPJcy1JW?theme=auto&bg=auto\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
+
+    <iframe src=\\"https://www.lichess.org/embed/MPJcy1JW?theme=auto&bg=auto\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
     "
   `);
 });
