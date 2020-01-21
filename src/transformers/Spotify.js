@@ -1,7 +1,6 @@
 import { URL } from 'url';
 
-const includesSomeOfArray = (string, array) =>
-  array.some(item => string.includes(item));
+import { includesSomeOfArray } from './utils';
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
