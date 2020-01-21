@@ -1,14 +1,22 @@
 const { URL } = require('url');
 
+const includesSomeOfArray = (string, array) =>
+  array.some(item => string.includes(item));
+
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 
   return (
-    ['lichess.org', 'www.lichess.org'].includes(host) &&
-    !pathname.includes('/embed/') &&
-    !pathname.includes('/study/') &&
-    !pathname.includes('/training/') &&
-    !pathname.includes('/tv/')
+    (host == 'lichess.org' || host == 'www.lichess.org') &&
+    !includesSomeOfArray(pathname, [
+      '/embed/',
+      '/learn',
+      '/practice',
+      '/study',
+      '/training',
+      '/tv/',
+    ]) &&
+    !pathname.endsWith('/tv') // it is possible to have a game of URL: https://lichess.org/tv1342Jy
   );
 };
 
