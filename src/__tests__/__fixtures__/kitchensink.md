@@ -19,6 +19,8 @@ https://codepen.io/team/codepen/pen/PNaGbb
 
 https://codesandbox.io/s/ynn88nx9x?view=split
 
+https://lichess.org/MPJcy1JW
+
 https://slides.com/kentcdodds/oss-we-want
 
 https://soundcloud.com/clemenswenners/africa
