@@ -19,10 +19,11 @@
 ## The problem
 
 Trying to embed well known services (like [CodePen][codepen],
-[CodeSandbox][codesandbox], [Slides][slides], [SoundCloud][soundcloud],
-[Spotify][spotify], [Streamable][streamable], [Twitter][twitter] or
-[YouTube][youtube]) into your [Gatsby][gatsby] website can be hard, since you
-have to know how this needs to be done for all of these different services.
+[CodeSandbox][codesandbox], [Lichess][lichess], [Slides][slides],
+[SoundCloud][soundcloud], [Spotify][spotify], [Streamable][streamable],
+[Twitter][twitter] or [YouTube][youtube]) into your [Gatsby][gatsby] website can
+be hard, since you have to know how this needs to be done for all of these
+different services.
 
 ## This solution
 
@@ -127,14 +128,14 @@ https://codesandbox.io/s/ynn88nx9x?view=split
 #### Usage
 
 ```md
-https://lichess.org/p4auwhl8/
+https://lichess.org/MPJcy1JW
 ```
 
 #### Result
 
 ```html
 <iframe
-  src="https://lichess.org/embed/p4auwhl8/"
+  src="https://lichess.org/embed/MPJcy1JW"
   width="600"
   height="397"
   frameborder="0"
@@ -440,6 +441,7 @@ MIT
 [gatsby]: https://github.com/gatsbyjs/gatsby
 [gatsby-plugin-twitter]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-twitter
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
+[lichess]: https://lichess.org
 [slides]: https://slides.com
 [soundcloud]: https://soundcloud.com
 [spotify]: https://spotify.com
