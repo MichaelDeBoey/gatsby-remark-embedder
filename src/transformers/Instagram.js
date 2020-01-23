@@ -14,5 +14,4 @@ export const getHTML = url =>
   fetch(`https://api.instagram.com/oembed?url=${url}&omitscript=true`)
     .then(({ json }) => json())
     .then(({ html }) => html);
-      r =>
     );
