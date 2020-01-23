@@ -542,12 +542,12 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://cms.gt"><img src="https://avatars2.githubusercontent.com/u/130128?v=4" width="100px;" alt=""/><br /><sub><b>Christian C. Salvadó</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=cms" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=cms" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://www.jamessimone.net"><img src="https://avatars2.githubusercontent.com/u/16430727?v=4" width="100px;" alt=""/><br /><sub><b>James Simone</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=jamessimone" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=jamessimone" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://hanabi.in"><img src="https://avatars3.githubusercontent.com/u/5466083?v=4" width="100px;" alt=""/><br /><sub><b>Agastya Chandrakant</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=acagastya" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=acagastya" title="Tests">⚠️</a></td>
+    <td align="center"><a href="http://fabiorosado.co.uk"><img src="https://avatars0.githubusercontent.com/u/3131401?v=4" width="100px;" alt=""/><br /><sub><b>Fábio Rosado</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=FabioRosado" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=FabioRosado" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
