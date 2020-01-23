@@ -1,6 +1,8 @@
+const prettier = require('kcd-scripts/prettier');
+
 module.exports = {
-  endOfLine: 'lf',
-  proseWrap: 'always',
-  singleQuote: true,
+  ...prettier,
+  bracketSpacing: true,
+  semi: true,
   trailingComma: 'es5',
 };
