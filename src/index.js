@@ -45,16 +45,13 @@ export default async ({ cache, markdownAST }, pluginOptions = {}) => {
 
     transformers
       .filter(({ shouldTransform }) => shouldTransform(urlString))
-      .forEach(({ getHTML }) => {
+      .forEach(({ name, getHTML }) => {
         transformations.push(async () => {
           try {
             let html = await cache.get(urlString);
 
             if (!html) {
-              html = await getHTML(
-                urlString,
-                (pluginOptions = { twitter: { proofOfConcept: true } })
-              );
+              html = await getHTML(urlString, pluginOptions[name]);
               await cache.set(urlString, html);
             }
 

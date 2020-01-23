@@ -103,6 +103,11 @@ test('Gets the correct Twitter moment link', async () => {
   );
 });
 
+test('Applies plugin options to Twitter links', async () => {
+  // not concerned about what comes back, just that the correct URL parameters are sent along in the request
+  expect(true).toBe(false);
+});
+
 test('Plugin can transform Twitter links', async () => {
   mockFetch(
     `<blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote>`,
