@@ -50,7 +50,7 @@ test('Gets the correct Twitch iframe', () => {
   const html = getHTML('https://twitch.tv/testLink');
 
   expect(html).toMatchInlineSnapshot(
-    `"<iframe src=\\"https://player.twitch.tv/?channel=testLink"\\ height=\\"600"\\ width=\\"400"\\ frameborder=\\"0"\\ scrolling=\\"no"\\ allowfullscreen=\\"true"\\></iframe>"`
+    `"<iframe src=https://player.twitch.tv/?channel=testLink height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>"`
   );
 });
 
@@ -66,13 +66,13 @@ test('Plugin can transform Twitch links', async () => {
 
     <https://this-is-not-twitch.tv/?channel=testChannel>
 
-    <iframe src=\\"https://player.twitch.tv/?channel=FabioRosado"\\ height=\\"600"\\ width=\\"400"\\ frameborder=\\"0"\\ scrolling=\\"no"\\ allowfullscreen=\\"true"\\></iframe>
+    <iframe src=https://player.twitch.tv/?channel=FabioRosado height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>
 
-    <iframe src=\\"https://player.twitch.tv/?channel=TestChannel"\\ height=\\"600"\\ width=\\"400"\\ frameborder=\\"0"\\ scrolling=\\"no"\\ allowfullscreen=\\"true"\\></iframe>
+    <iframe src=https://player.twitch.tv/?channel=TestChannel height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>
 
-    <iframe src=\\"https://player.twitch.tv/?collection=testCollection"\\ height=\\"600"\\ width=\\"400"\\ frameborder=\\"0"\\ scrolling=\\"no"\\ allowfullscreen=\\"true"\\></iframe>
+    <iframe src=https://player.twitch.tv/?collection=testCollection height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>
 
-    <iframe src=\\"https://player.twitch.tv/?video=testVideo"\\ height=\\"600"\\ width=\\"400"\\ frameborder=\\"0"\\ scrolling=\\"no"\\ allowfullscreen=\\"true"\\></iframe>
+    <iframe src=https://player.twitch.tv/?video=testVideo height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>
     "
   `);
 });
