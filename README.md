@@ -328,6 +328,8 @@ https://instagram.com/p/B60jPE6J8U-
 
 #### Options
 
+Information needed to use [Service-specific options](#service-specific-options)
+
 - name: "instagram"
 
 | key         | type   | value                                                                               |
