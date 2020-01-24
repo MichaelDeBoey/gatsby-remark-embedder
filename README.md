@@ -328,11 +328,15 @@ https://instagram.com/p/B60jPE6J8U-
 
 #### Options
 
-Information needed to use [Service-specific options](#service-specific-options)
+- name: "instagram"
 
-| name        | options                                                                 |
-| ----------- | ----------------------------------------------------------------------- |
-| "instagram" | [url parameters](https://www.instagram.com/developer/embedding/#oembed) |
+| key         | type   | value                                                                               |
+| ----------- | ------ | ----------------------------------------------------------------------------------- |
+| queryParams | object | object with [url parameters](https://www.instagram.com/developer/embedding/#oembed) |
+
+Valid options for the `queryParams` object are listed at Instagram's official
+[url parameters](https://www.instagram.com/developer/embedding/#oembed)
+documentation.
 
 ### Lichess
 
@@ -565,9 +569,15 @@ https://twitter.com/i/moments/994601867987619840
 
 Information needed to use [Service-specific options](#service-specific-options)
 
-| name      | options                                                                                                          |
-| --------- | ---------------------------------------------------------------------------------------------------------------- |
-| "twitter" | [url parameters](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed) |
+- name: "twitter"
+
+| key         | type   | value                                                                                                                        |
+| ----------- | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| queryParams | object | object with [url parameters](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed) |
+
+Valid options for the `queryParams` object are listed at Twitter's official
+[url parameters](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed)
+documentation.
 
 ### YouTube
 
@@ -617,8 +627,10 @@ plugins: [
           resolve: `gatsby-remark-embedder`,
           options: {
             twitter: {
-              theme: 'dark',
-              hide_thread: true,
+              queryParams: {
+                theme: 'dark',
+                hide_thread: true,
+              },
             },
           },
         },

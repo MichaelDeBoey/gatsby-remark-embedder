@@ -117,7 +117,9 @@ test('Gets the correct Instagram iframe', async () => {
 
 test('Applies plugin options to Instagram links correctly', () => {
   const options = {
-    hidecaption: true,
+    queryParams: {
+      hidecaption: true,
+    },
   };
   const url = 'https://instagram.com/p/B60jPE6J8U-';
   expect(buildUrl(url, options)).toBe(

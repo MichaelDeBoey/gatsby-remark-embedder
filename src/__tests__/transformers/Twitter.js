@@ -105,8 +105,10 @@ test('Gets the correct Twitter moment link', async () => {
 
 test('Applies plugin options to Twitter links correctly', () => {
   const options = {
-    theme: 'dark',
-    hide_media: true,
+    queryParams: {
+      theme: 'dark',
+      hide_media: true,
+    },
   };
   const url = 'https://twitter.com/kentcdodds/status/1078755736455278592';
   expect(buildUrl(url, options)).toBe(
