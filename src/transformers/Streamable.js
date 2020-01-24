@@ -1,7 +1,6 @@
 import { URL } from 'url';
-import fetch from 'node-fetch';
 
-import { getTrimmedPathName } from './utils';
+import { fetchOEmbedData, getTrimmedPathName } from './utils';
 
 const ignoredPaths = [
   '/documentation',
@@ -38,7 +37,7 @@ export const getNormalizedStreamableUrl = url => {
 export const getHTML = url => {
   const normalizedUrl = getNormalizedStreamableUrl(url);
 
-  return fetch(`https://api.streamable.com/oembed.json?url=${normalizedUrl}`)
-    .then(({ json }) => json())
-    .then(({ html }) => html);
+  return fetchOEmbedData(
+    `https://api.streamable.com/oembed.json?url=${normalizedUrl}`
+  ).then(({ html }) => html);
 };

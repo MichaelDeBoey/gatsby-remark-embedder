@@ -1,5 +1,6 @@
 import { URL } from 'url';
-import fetch from 'node-fetch';
+
+import { fetchOEmbedData } from './utils';
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
@@ -15,6 +16,6 @@ export const shouldTransform = url => {
 };
 
 export const getHTML = url =>
-  fetch(`https://api.instagram.com/oembed?url=${url}&omitscript=true`)
-    .then(({ json }) => json())
-    .then(({ html }) => html);
+  fetchOEmbedData(
+    `https://api.instagram.com/oembed?url=${url}&omitscript=true`
+  ).then(({ html }) => html);

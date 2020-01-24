@@ -1,5 +1,6 @@
 import { URL } from 'url';
-import fetch from 'node-fetch';
+
+import { fetchOEmbedData } from './utils';
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
@@ -11,14 +12,12 @@ export const shouldTransform = url => {
 };
 
 export const getHTML = url =>
-  fetch(
+  fetchOEmbedData(
     `https://publish.twitter.com/oembed?url=${url}&dnt=true&omit_script=true`
-  )
-    .then(({ json }) => json())
-    .then(({ html }) =>
-      [html]
-        .map(s => s.replace(/\?ref_src=twsrc.*?fw/g, ''))
-        .map(s => s.replace(/<br>/g, '<br />'))
-        .join('')
-        .trim()
-    );
+  ).then(({ html }) =>
+    [html]
+      .map(s => s.replace(/\?ref_src=twsrc.*?fw/g, ''))
+      .map(s => s.replace(/<br>/g, '<br />'))
+      .join('')
+      .trim()
+  );
