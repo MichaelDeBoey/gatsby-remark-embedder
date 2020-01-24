@@ -454,6 +454,41 @@ https://streamable.com/moo
 
 </details>
 
+### Twitch
+
+There are many ways you can embed a Twitch link, the simplest way would be to
+link your channel directly using `https://twitch.tv/<your channel link>` and the
+link will be transformed into `https://player.twitch.tv/?channel=testLink` and
+passed into an iframe.
+
+Alternatively, you can also link a single saved video or a collection using the
+respective url which will look something like
+`https://player.twitch.tv/?video=<video id>` or
+`https://player.twitch.tv/?collection=<collection id>`.
+
+If you don't pass a `/?video=`, `/?channel=` or a `/?collection=` param to your
+url, the transformer will assume you tried to pass your channel and do the
+appropriate transformation for a channel.
+
+#### Usage
+
+```md
+https://twitch.tv/testLink
+```
+
+#### Result
+
+```html
+<iframe
+  src=https://player.twitch.tv/?channel=testLink
+  height="600"
+  width="400"
+  frameborder="0"
+  scrolling="no"
+  allowfullscreen="true">
+</iframe>
+```
+
 ### Twitter
 
 The returned HTML snippet from the Twitter transformer will only be
