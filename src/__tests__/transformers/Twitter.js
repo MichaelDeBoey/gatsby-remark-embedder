@@ -103,9 +103,15 @@ test('Gets the correct Twitter moment link', async () => {
   );
 });
 
-test('Applies plugin options to Twitter links', async () => {
-  // not concerned about what comes back, just that the correct URL parameters are sent along in the request
-  expect(true).toBe(false);
+test('Applies plugin options to Twitter links correctly', () => {
+  const options = {
+    theme: 'dark',
+    hide_media: true,
+  };
+  const url = 'https://twitter.com/kentcdodds/status/1078755736455278592';
+  expect(buildUrl(url, options)).toBe(
+    'https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2Fkentcdodds%2Fstatus%2F1078755736455278592&dnt=true&omit_script=true&theme=dark&hide_media=true'
+  );
 });
 
 test('Plugin can transform Twitter links', async () => {
