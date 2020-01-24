@@ -123,6 +123,15 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "arryanggaputra",
+      "name": "Arryangga Aliev Pratamaputra",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/4743772?v=4",
+      "profile": "http://www.kopi.dev",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
