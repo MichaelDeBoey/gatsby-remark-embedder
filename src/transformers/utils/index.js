@@ -1,6 +1,15 @@
 import fetch from 'node-fetch';
+import wrapFetch from 'fetch-retry';
 
-export const fetchOEmbedData = url => fetch(url).then(data => data.json());
+const fetchWithRetries = wrapFetch(fetch);
+
+export const fetchOEmbedData = url =>
+  fetchWithRetries(url, {
+    retries: 3,
+    retryDelay: attempt => {
+      return 2 ** attempt * 1000; // 1000, 2000, 4000
+    },
+  }).then(data => data.json());
 
 export const getTrimmedPathName = pathname =>
   // Trim leading and trailing slashes

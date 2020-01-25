@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.7.6",
+    "fetch-retry": "^3.0.0",
     "node-fetch": "^2.6.0",
     "unist-util-visit": "^2.0.1"
   },
