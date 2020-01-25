@@ -3,6 +3,7 @@ import * as CodeSandboxTransformer from './CodeSandbox';
 import * as GIPHYTransformer from './GIPHY';
 import * as InstagramTransformer from './Instagram';
 import * as LichessTransformer from './Lichess';
+import * as PinterestTransformer from './Pinterest';
 import * as SlidesTransformer from './Slides';
 import * as SoundCloudTransformer from './SoundCloud';
 import * as SpotifyTransformer from './Spotify';
@@ -16,6 +17,7 @@ export const defaultTransformers = [
   GIPHYTransformer,
   InstagramTransformer,
   LichessTransformer,
+  PinterestTransformer,
   SlidesTransformer,
   SoundCloudTransformer,
   SpotifyTransformer,

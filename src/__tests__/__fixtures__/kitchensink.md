@@ -27,6 +27,8 @@ https://instagram.com/p/B60jPE6J8U-
 
 https://lichess.org/MPJcy1JW
 
+https://www.pinterest.com/pin/99360735500167749/
+
 https://slides.com/kentcdodds/oss-we-want
 
 https://soundcloud.com/clemenswenners/africa
