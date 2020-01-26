@@ -6,9 +6,7 @@ const fetchWithRetries = wrapFetch(fetch);
 export const fetchOEmbedData = url =>
   fetchWithRetries(url, {
     retries: 3,
-    retryDelay: attempt => {
-      return 2 ** attempt * 1000; // 1000, 2000, 4000
-    },
+    retryDelay: attempt => 2 ** attempt * 1000,
   }).then(data => data.json());
 
 export const getTrimmedPathName = pathname =>
