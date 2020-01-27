@@ -629,10 +629,8 @@ plugins: [
           resolve: `gatsby-remark-embedder`,
           options: {
             twitter: {
-              queryParams: {
-                theme: 'dark',
-                hide_thread: true,
-              },
+              theme: 'dark',
+              hide_thread: true,
             },
           },
         },
