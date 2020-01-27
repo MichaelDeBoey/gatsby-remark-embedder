@@ -10,7 +10,7 @@ export const shouldTransform = url => {
   return (
     (['www.giphy.com', 'giphy.com'].includes(host) &&
       pathname.includes('gifs/')) ||
-    (isMediaSubDomain(host) && pathname.includes('media/'))
+    (isMediaSubDomain(host) && pathname.includes('/media/'))
   );
 };
 
