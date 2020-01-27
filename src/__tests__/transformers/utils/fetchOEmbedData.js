@@ -1,14 +1,11 @@
 import fetch from 'node-fetch';
+
 import { fetchOEmbedData } from '../../../transformers/utils';
 
 const { Response } = jest.requireActual('node-fetch');
-
 jest.mock(`node-fetch`);
-
 // make timeouts quicker
-global.setTimeout = jest.fn(cb => {
-  setImmediate(cb);
-});
+global.setTimeout = jest.fn(cb => setImmediate(cb));
 
 describe(`fetchOEmbedData`, () => {
   const URL = 'https://google.com';

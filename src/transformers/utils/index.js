@@ -1,8 +1,7 @@
-import fetch from 'node-fetch';
 import wrapFetch from 'fetch-retry';
+import fetch from 'node-fetch';
 
 const fetchWithRetries = wrapFetch(fetch);
-
 export const fetchOEmbedData = url =>
   fetchWithRetries(url, {
     retries: 3,
