@@ -105,10 +105,8 @@ test('Gets the correct Twitter moment link', async () => {
 
 test('Applies plugin options to Twitter links correctly', () => {
   const options = {
-    queryParams: {
-      theme: 'dark',
-      hide_media: true,
-    },
+    theme: 'dark',
+    hide_media: true,
   };
   const url = 'https://twitter.com/kentcdodds/status/1078755736455278592';
   expect(buildUrl(url, options)).toBe(
@@ -149,15 +147,4 @@ test('Plugin can transform Twitter links', async () => {
     <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
     "
   `);
-});
-
-test('Applies plugin options to Twitter links correctly', () => {
-  const options = {
-    theme: 'dark',
-    hide_media: true,
-  };
-  const url = 'https://twitter.com/kentcdodds/status/1078755736455278592';
-  expect(buildUrl(url, options)).toBe(
-    'https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2Fkentcdodds%2Fstatus%2F1078755736455278592&dnt=true&omit_script=true&theme=dark&hide_media=true'
-  );
 });

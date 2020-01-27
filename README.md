@@ -332,11 +332,11 @@ Information needed to use [Service-specific options](#service-specific-options)
 
 - name: "instagram"
 
-| key         | type   | value                                                                               |
-| ----------- | ------ | ----------------------------------------------------------------------------------- |
-| queryParams | object | object with [url parameters](https://www.instagram.com/developer/embedding/#oembed) |
+| type   | value                                                                   |
+| ------ | ----------------------------------------------------------------------- |
+| object | [url parameters](https://www.instagram.com/developer/embedding/#oembed) |
 
-Valid options for the `queryParams` object are listed at Instagram's official
+Valid options for the object are listed at Instagram's official
 [url parameters](https://www.instagram.com/developer/embedding/#oembed)
 documentation.
 
@@ -573,11 +573,11 @@ Information needed to use [Service-specific options](#service-specific-options)
 
 - name: "twitter"
 
-| key         | type   | value                                                                                                                        |
-| ----------- | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| queryParams | object | object with [url parameters](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed) |
+| type   | value                                                                                                            |
+| ------ | ---------------------------------------------------------------------------------------------------------------- |
+| object | [url parameters](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed) |
 
-Valid options for the `queryParams` object are listed at Twitter's official
+Valid options for the object are listed at Twitter's official
 [url parameters](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed)
 documentation.
 
