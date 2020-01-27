@@ -3,11 +3,11 @@ import fetchMock from 'node-fetch';
 
 import plugin from '../../';
 import {
+  getGIPHYId,
+  getGIPHYResponsivePadding,
   getHTML,
-  getGiphyId,
-  getGiphyResponsivePadding,
   shouldTransform,
-} from '../../transformers/Giphy';
+} from '../../transformers/GIPHY';
 
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
@@ -62,9 +62,9 @@ cases(
 );
 
 cases(
-  'getGiphyId',
+  'getGIPHYId',
   ({ url, id }) => {
-    expect(getGiphyId(url)).toBe(id);
+    expect(getGIPHYId(url)).toBe(id);
   },
   {
     'video url': {
@@ -88,9 +88,9 @@ cases(
 );
 
 cases(
-  'getGiphyResponsivePadding',
+  'getGIPHYResponsivePadding',
   ({ width, height, padding }) => {
-    expect(getGiphyResponsivePadding(width, height)).toBe(padding);
+    expect(getGIPHYResponsivePadding({ height, width })).toBe(padding);
   },
   [
     {
