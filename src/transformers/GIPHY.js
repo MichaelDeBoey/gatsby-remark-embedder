@@ -2,7 +2,7 @@ import { URL } from 'url';
 
 import { fetchOEmbedData } from './utils';
 
-const isMediaSubDomain = host => /^(media([0-9]{1,})?\.)giphy\.com$/.test(host);
+const isMediaSubDomain = host => /^(media([0-9]+)?\.)giphy\.com$/.test(host);
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
@@ -33,6 +33,6 @@ export const getHTML = url =>
       const GIPHYId = getGIPHYId(url);
       const padding = getGIPHYResponsivePadding({ height, width });
 
-      return `<div style="width:100%;height:0;padding-bottom:${padding}%;position:relative;"><iframe src="https://giphy.com/embed/${GIPHYId}" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>`;
+      return `<div style="width:100%;height:0;padding-bottom:${padding}%;position:relative;"><iframe src="https://giphy.com/embed/${GIPHYId}" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div>`;
     }
   );
