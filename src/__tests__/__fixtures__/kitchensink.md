@@ -19,6 +19,8 @@ https://codepen.io/team/codepen/pen/PNaGbb
 
 https://codesandbox.io/s/ynn88nx9x?view=split
 
+https://giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO
+
 https://instagram.com/p/B60jPE6J8U-
 
 https://lichess.org/MPJcy1JW

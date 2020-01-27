@@ -19,11 +19,11 @@
 ## The problem
 
 Trying to embed well known services (like [CodePen][codepen],
-[CodeSandbox][codesandbox], [Instagram][instagram], [Lichess][lichess],
-[Slides][slides], [SoundCloud][soundcloud], [Spotify][spotify],
-[Streamable][streamable], [Twitter][twitter] or [YouTube][youtube]) into your
-[Gatsby][gatsby] website can be hard, since you have to know how this needs to
-be done for all of these different services.
+[CodeSandbox][codesandbox], [GIPHY][giphy], [Instagram][instagram],
+[Lichess][lichess], [Slides][slides], [SoundCloud][soundcloud],
+[Spotify][spotify], [Streamable][streamable], [Twitter][twitter] or
+[YouTube][youtube]) into your [Gatsby][gatsby] website can be hard, since you
+have to know how this needs to be done for all of these different services.
 
 ## This solution
 
@@ -42,6 +42,7 @@ and replace it with the proper embed-code.
 - [Supported services](#supported-services)
   - [CodePen](#codepen)
   - [CodeSandbox](#codesandbox)
+  - [GIPHY](#giphy)
   - [Instagram](#instagram)
   - [Lichess](#lichess)
   - [Slides](#slides)
@@ -122,6 +123,30 @@ https://codesandbox.io/s/ynn88nx9x?view=split
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
 ></iframe>
+```
+
+### GIPHY
+
+#### Usage
+
+```md
+https://giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO
+```
+
+#### Result
+
+```html
+<div style="width:100%;height:0;padding-bottom:63%;position:relative;">
+  <iframe
+    src="https://giphy.com/embed/XatG8bioEwwVO"
+    width="100%"
+    height="100%"
+    style="position:absolute"
+    frameborder="0"
+    class="giphy-embed"
+    allowfullscreen
+  ></iframe>
+</div>
 ```
 
 ### Instagram
@@ -549,6 +574,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
@@ -587,6 +613,7 @@ MIT
 [gatsby]: https://github.com/gatsbyjs/gatsby
 [gatsby-plugin-instagram-embed]: https://github.com/jlengstorf/gatsby-plugin-instagram-embed
 [gatsby-plugin-twitter]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-twitter
+[giphy]: https://giphy.com
 [instagram]: https://instagram.com
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
 [lichess]: https://lichess.org

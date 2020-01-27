@@ -1,5 +1,6 @@
 import * as CodePenTransformer from './CodePen';
 import * as CodeSandboxTransformer from './CodeSandbox';
+import * as GIPHYTransformer from './GIPHY';
 import * as InstagramTransformer from './Instagram';
 import * as LichessTransformer from './Lichess';
 import * as SlidesTransformer from './Slides';
@@ -12,6 +13,7 @@ import * as YouTubeTransformer from './YouTube';
 export const defaultTransformers = [
   CodePenTransformer,
   CodeSandboxTransformer,
+  GIPHYTransformer,
   InstagramTransformer,
   LichessTransformer,
   SlidesTransformer,
