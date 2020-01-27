@@ -75,7 +75,7 @@ cases(
 
 cases(
   'getGIPHYId',
-  ({ url, id }) => {
+  ({ id, url }) => {
     expect(getGIPHYId(url)).toBe(id);
   },
   {
@@ -96,7 +96,7 @@ cases(
 
 cases(
   'getGIPHYResponsivePadding',
-  ({ width, height, padding }) => {
+  ({ height, width, padding }) => {
     expect(getGIPHYResponsivePadding({ height, width })).toBe(padding);
   },
   [
