@@ -132,6 +132,16 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "osiux",
+      "name": "Eduardo Reveles",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/204463?v=4",
+      "profile": "https://www.osiux.ws",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
