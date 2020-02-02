@@ -1,3 +1,4 @@
+import { URL } from 'url';
 import visit from 'unist-util-visit';
 
 import { defaultTransformers } from './transformers';
@@ -8,7 +9,11 @@ const getUrlString = url => {
   try {
     return new URL(urlString).toString();
   } catch (error) {
-    return null;
+    // if the error comes from an invalid link, suppress it
+    if (error instanceof TypeError) {
+      return null;
+    }
+    throw error;
   }
 };
 
