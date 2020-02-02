@@ -161,6 +161,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "ilyamkin",
+      "name": "Ilya Lyamkin",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3854930?v=4",
+      "profile": "https://lyamkin.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
