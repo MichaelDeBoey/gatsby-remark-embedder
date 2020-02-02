@@ -572,6 +572,9 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://www.osiux.ws"><img src="https://avatars2.githubusercontent.com/u/204463?v=4" width="100px;" alt=""/><br /><sub><b>Eduardo Reveles</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=osiux" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=osiux" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/pieh"><img src="https://avatars1.githubusercontent.com/u/419821?v=4" width="100px;" alt=""/><br /><sub><b>Michal Piechowiak</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=pieh" title="Code">💻</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=pieh" title="Tests">⚠️</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://bradgarropy.com"><img src="https://avatars2.githubusercontent.com/u/11336745?v=4" width="100px;" alt=""/><br /><sub><b>Brad Garropy</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?q=author%3Abradgarropy" title="Bug reports">🐛</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
