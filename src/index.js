@@ -9,11 +9,7 @@ const getUrlString = url => {
   try {
     return new URL(urlString).toString();
   } catch (error) {
-    // if the error comes from an invalid link, suppress it
-    if (error.code === 'ERR_INVALID_URL') {
-      return null;
-    }
-    throw error;
+    return null;
   }
 };
 
