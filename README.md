@@ -98,9 +98,7 @@ https://codepen.io/team/codepen/pen/PNaGbb
 ```
 
 <details>
-  <summary>
-  Output
-  </summary>
+  <summary><b>Result</b></summary>
 
 ```html
 <iframe
@@ -120,9 +118,7 @@ https://codesandbox.io/s/ynn88nx9x?view=split
 ```
 
 <details>
-  <summary>
-  Output
-  </summary>
+  <summary><b>Result</b></summary>
 
 ```html
 <iframe
@@ -144,9 +140,7 @@ https://giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO
 ```
 
 <details>
-  <summary>
-  Output
-  </summary>
+  <summary><b>Result</b></summary>
 
 ```html
 <div style="width:100%;height:0;padding-bottom:63%;position:relative;">
@@ -181,9 +175,7 @@ https://instagram.com/p/B60jPE6J8U-
 ```
 
 <details>
-  <summary>
-  Output
-  </summary>
+  <summary><b>Result</b></summary>
 
 ```html
 <blockquote
@@ -321,9 +313,7 @@ https://lichess.org/MPJcy1JW
 ```
 
 <details>
-  <summary>
-  Output
-  </summary>
+  <summary><b>Result</b></summary>
 
 ```html
 <iframe
@@ -345,9 +335,7 @@ https://slides.com/kentcdodds/oss-we-want
 ```
 
 <details>
-  <summary>
-  Output
-  </summary>
+  <summary><b>Result</b></summary>
 
 ```html
 <iframe
@@ -373,9 +361,7 @@ https://soundcloud.com/clemenswenners/africa
 ```
 
 <details>
-  <summary>
-  Output
-  </summary>
+  <summary><b>Result</b></summary>
 
 ```html
 <iframe
@@ -398,9 +384,7 @@ https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
 ```
 
 <details>
-  <summary>
-  Output
-  </summary>
+  <summary><b>Result</b></summary>
 
 ```html
 <iframe
@@ -424,9 +408,7 @@ https://streamable.com/moo
 ```
 
 <details>
-  <summary>
-  Output
-  </summary>
+  <summary><b>Result</b></summary>
 
 ```html
 <iframe
@@ -460,9 +442,7 @@ https://twitter.com/MichaelDeBoey93/status/1152991421789548546
 ```
 
 <details>
-  <summary>
-  Output
-  </summary>
+  <summary><b>Result</b></summary>
 
 ```html
 <blockquote class="twitter-tweet" data-dnt="true">
@@ -505,9 +485,7 @@ https://youtu.be/dQw4w9WgXcQ
 ```
 
 <details>
-  <summary>
-  Output
-  </summary>
+  <summary><b>Result</b></summary>
 
 ```html
 <iframe
