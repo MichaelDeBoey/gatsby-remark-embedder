@@ -97,7 +97,10 @@ plugins: [
 https://codepen.io/team/codepen/pen/PNaGbb
 ```
 
-#### Result
+<details>
+  <summary>
+  Output
+  </summary>
 
 ```html
 <iframe
@@ -105,6 +108,8 @@ https://codepen.io/team/codepen/pen/PNaGbb
   style="width:100%; height:300px;"
 ></iframe>
 ```
+
+</details>
 
 ### CodeSandbox
 
@@ -114,7 +119,10 @@ https://codepen.io/team/codepen/pen/PNaGbb
 https://codesandbox.io/s/ynn88nx9x?view=split
 ```
 
-#### Result
+<details>
+  <summary>
+  Output
+  </summary>
 
 ```html
 <iframe
@@ -125,6 +133,8 @@ https://codesandbox.io/s/ynn88nx9x?view=split
 ></iframe>
 ```
 
+</details>
+
 ### GIPHY
 
 #### Usage
@@ -133,7 +143,10 @@ https://codesandbox.io/s/ynn88nx9x?view=split
 https://giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO
 ```
 
-#### Result
+<details>
+  <summary>
+  Output
+  </summary>
 
 ```html
 <div style="width:100%;height:0;padding-bottom:63%;position:relative;">
@@ -148,6 +161,8 @@ https://giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO
   ></iframe>
 </div>
 ```
+
+</details>
 
 ### Instagram
 
@@ -165,7 +180,10 @@ you have to include it yourself. The recommended way of including it is by using
 https://instagram.com/p/B60jPE6J8U-
 ```
 
-#### Result
+<details>
+  <summary>
+  Output
+  </summary>
 
 ```html
 <blockquote
@@ -292,6 +310,8 @@ https://instagram.com/p/B60jPE6J8U-
 </blockquote>
 ```
 
+</details>
+
 ### Lichess
 
 #### Usage
@@ -300,7 +320,10 @@ https://instagram.com/p/B60jPE6J8U-
 https://lichess.org/MPJcy1JW
 ```
 
-#### Result
+<details>
+  <summary>
+  Output
+  </summary>
 
 ```html
 <iframe
@@ -311,6 +334,8 @@ https://lichess.org/MPJcy1JW
 ></iframe>
 ```
 
+</details>
+
 ### Slides
 
 #### Usage
@@ -319,7 +344,10 @@ https://lichess.org/MPJcy1JW
 https://slides.com/kentcdodds/oss-we-want
 ```
 
-#### Result
+<details>
+  <summary>
+  Output
+  </summary>
 
 ```html
 <iframe
@@ -334,6 +362,8 @@ https://slides.com/kentcdodds/oss-we-want
 ></iframe>
 ```
 
+</details>
+
 ### SoundCloud
 
 #### Usage
@@ -342,7 +372,10 @@ https://slides.com/kentcdodds/oss-we-want
 https://soundcloud.com/clemenswenners/africa
 ```
 
-#### Result
+<details>
+  <summary>
+  Output
+  </summary>
 
 ```html
 <iframe
@@ -354,6 +387,8 @@ https://soundcloud.com/clemenswenners/africa
 ></iframe>
 ```
 
+</details>
+
 ### Spotify
 
 #### Usage
@@ -362,7 +397,10 @@ https://soundcloud.com/clemenswenners/africa
 https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
 ```
 
-#### Result
+<details>
+  <summary>
+  Output
+  </summary>
 
 ```html
 <iframe
@@ -375,6 +413,8 @@ https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
 ></iframe>
 ```
 
+</details>
+
 ### Streamable
 
 #### Usage
@@ -383,7 +423,10 @@ https://open.spotify.com/track/0It2bnTdLl2vyymzOkBI3L
 https://streamable.com/moo
 ```
 
-#### Result
+<details>
+  <summary>
+  Output
+  </summary>
 
 ```html
 <iframe
@@ -396,6 +439,8 @@ https://streamable.com/moo
   allowfullscreen
 ></iframe>
 ```
+
+</details>
 
 ### Twitter
 
@@ -414,7 +459,10 @@ have to include it yourself. The recommended way of including it is by using
 https://twitter.com/MichaelDeBoey93/status/1152991421789548546
 ```
 
-#### Result
+<details>
+  <summary>
+  Output
+  </summary>
 
 ```html
 <blockquote class="twitter-tweet" data-dnt="true">
@@ -440,6 +488,8 @@ https://twitter.com/MichaelDeBoey93/status/1152991421789548546
 </blockquote>
 ```
 
+</details>
+
 ### YouTube
 
 The YouTube transformer (currently) only supports videos in the following
@@ -454,7 +504,10 @@ formats:
 https://youtu.be/dQw4w9WgXcQ
 ```
 
-#### Result
+<details>
+  <summary>
+  Output
+  </summary>
 
 ```html
 <iframe
@@ -466,6 +519,8 @@ https://youtu.be/dQw4w9WgXcQ
   allowfullscreen
 ></iframe>
 ```
+
+</details>
 
 ## Custom Transformers
 
@@ -580,6 +635,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
