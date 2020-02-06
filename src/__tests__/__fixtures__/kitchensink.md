@@ -4,8 +4,7 @@
 
 This is a normal paragraph.
 
-This is the first line of a multi-line paragraph.  
-And this is the second line.
+This is the first line of a multi-line paragraph. And this is the second line.
 
 This is a paragraph with a [link](https://example.com).
 
