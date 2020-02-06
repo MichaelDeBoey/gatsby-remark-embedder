@@ -4,7 +4,8 @@
 
 This is a normal paragraph.
 
-This is the first line of a multi-line paragraph. And this is the second line.
+This is the first line of a multi-line paragraph.  
+And this is the second line.
 
 This is a paragraph with a [link](https://example.com).
 
@@ -13,6 +14,8 @@ This is a paragraph with a [link](https://example.com).
 [https://example.com](https://example.com 'A link to example.com')
 
 <https://example.com>
+
+[](https://example.com)
 
 https://codepen.io/team/codepen/pen/PNaGbb
 

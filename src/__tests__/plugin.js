@@ -30,7 +30,7 @@ describe('gatsby-remark-embedder', () => {
 
       This is a normal paragraph.
 
-      This is the first line of a multi-line paragraph.
+      This is the first line of a multi-line paragraph.  
       And this is the second line.
 
       This is a paragraph with a [link](https://example.com).
@@ -40,6 +40,8 @@ describe('gatsby-remark-embedder', () => {
       [https://example.com](https://example.com \\"A link to example.com\\")
 
       <https://example.com>
+
+      [](https://example.com)
 
       <iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>
 
@@ -62,23 +64,6 @@ describe('gatsby-remark-embedder', () => {
       <blockquote class=\\"twitter-tweet-from-cache\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
 
       <iframe width=\\"100%\\" height=\\"315\\" src=\\"https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe>
-      "
-    `);
-  });
-
-  test('can transform a link with no label (emptylink)', async () => {
-    const markdownAST = getMarkdownASTForFile('emptylink', true);
-
-    const processedAST = await plugin({ cache, markdownAST });
-
-    expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-      "# Heading 1
-
-      ## Heading2
-
-      This is a normal paragraph.
-
-      [](https://example.com)
       "
     `);
   });

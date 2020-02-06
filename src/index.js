@@ -31,7 +31,7 @@ export default async (
     const isValidLink =
       node.type === 'link' &&
       node.title === null &&
-      node.children[0] &&
+      node.children.length === 1 &&
       node.children[0].value === node.url;
     if (!isText && !isValidLink) {
       return;
