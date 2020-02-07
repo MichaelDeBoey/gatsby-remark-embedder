@@ -15,6 +15,8 @@ This is a paragraph with a [link](https://example.com).
 
 <https://example.com>
 
+[](https://example.com)
+
 https://codepen.io/team/codepen/pen/PNaGbb
 
 https://codesandbox.io/s/ynn88nx9x?view=split
