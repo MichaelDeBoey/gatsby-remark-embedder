@@ -177,7 +177,9 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/353180?v=4",
       "profile": "http://simonmacdonald.com",
       "contributions": [
-        "bug"
+        "bug",
+        "code",
+        "test"
       ]
     }
   ],
