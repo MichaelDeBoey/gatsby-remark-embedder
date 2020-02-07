@@ -608,12 +608,12 @@ Thanks goes to these people ([emoji key][emojis]):
   <tr>
     <td align="center"><a href="https://bradgarropy.com"><img src="https://avatars2.githubusercontent.com/u/11336745?v=4" width="100px;" alt=""/><br /><sub><b>Brad Garropy</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?q=author%3Abradgarropy" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://lyamkin.com"><img src="https://avatars2.githubusercontent.com/u/3854930?v=4" width="100px;" alt=""/><br /><sub><b>Ilya Lyamkin</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=ilyamkin" title="Code">💻</a></td>
+    <td align="center"><a href="http://simonmacdonald.com"><img src="https://avatars1.githubusercontent.com/u/353180?v=4" width="100px;" alt=""/><br /><sub><b>Simon MacDonald</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?q=author%3Amacdonst" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
