@@ -2,14 +2,42 @@ https://not-a-twitch-url.tv
 
 https://this-is-not-twitch.tv
 
-https://this-is-not-twitch.tv/?channel=testChannel
+https://blog.twitch.tv
 
-https://twitch.tv/FabioRosado
+https://twitch.tv/jlengstorf/followers
 
-https://www.twitch.tv/?channel=TestChannel
+https://twitch.tv
 
-https://player.twitch.tv/?collection=testCollection
+https://twitch.tv/settings/profile
 
-https://player.twitch.tv/?video=testVideo
+https://twitch.tv/jlengstorf/videos
 
-https://player.twitch.tv/?channel=sacriel&enableExtensions=true&player=popout&volume=0.5
+https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame
+
+https://twitch.tv/jlengstorf
+
+https://www.twitch.tv/jlengstorf
+
+https://player.twitch.tv?channel=jlengstorf
+
+https://twitch.tv/jlengstorf/clip/PeacefulAbstrusePorcupineDansGame
+
+https://clips.twitch.tv/PeacefulAbstrusePorcupineDansGame
+
+https://www.twitch.tv/jlengstorf/clip/PeacefulAbstrusePorcupineDansGame
+
+https://twitch.tv/collections/DHetedhyqBSVMg
+
+https://www.twitch.tv/collections/DHetedhyqBSVMg
+
+https://player.twitch.tv?collection=DHetedhyqBSVMg
+
+https://twitch.tv/kaypikefashion/collection/DHetedhyqBSVMg
+
+https://www.twitch.tv/kaypikefashion/collection/DHetedhyqBSVMg
+
+https://twitch.tv/videos/546761743
+
+https://www.twitch.tv/videos/546761743
+
+https://player.twitch.tv?video=546761743

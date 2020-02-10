@@ -19,43 +19,97 @@ cases(
       url: 'https://this-is-not-twitch.tv',
       valid: false,
     },
-    'Twitch url': {
-      url: 'https://twitch.tv/FabioRosado',
-      valid: true,
+    blog: {
+      url: 'https://blog.twitch.tv',
+      valid: false,
     },
-    "Twitch url having 'www' subdomain": {
-      url: 'https://www.twitch.tv/FabioRosado',
-      valid: true,
+    'followers page': {
+      url: 'https://twitch.tv/jlengstorf/followers',
+      valid: false,
     },
-    'Twitch url with channel': {
-      url: 'https://twitch.tv/channel=TheFlyingDev',
-      valid: true,
+    homepage: {
+      url: 'https://twitch.tv',
+      valid: false,
     },
-    "Twitch url with channel having 'www' subdomain": {
-      url: 'https://www.twitch.tv/channel=TheFlyingDev',
-      valid: true,
+    'settings page': {
+      url: 'https://twitch.tv/settings/profile',
+      valid: false,
     },
-    'Twitch url with video having': {
-      url: 'https://www.twitch.tv/video=1204jfh',
-      valid: true,
+    'videos page': {
+      url: 'https://twitch.tv/jlengstorf/videos',
+      valid: false,
     },
-    'Twitch url with collection having subdomain': {
-      url: 'https://www.twitch.tv/collection=130kJIt',
-      valid: true,
-    },
-    'Twitch url got from popup': {
+    "clip url having 'clips' subdomain & '/embed' path": {
       url:
-        'https://player.twitch.tv/?channel=sacriel&enableExtensions=true&player=popout&volume=0.5',
+        'https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame',
+      valid: false,
+    },
+    'channel url': {
+      url: 'https://twitch.tv/jlengstorf',
+      valid: true,
+    },
+    "channel url having 'www' subdomain": {
+      url: 'https://www.twitch.tv/jlengstorf',
+      valid: true,
+    },
+    "channel url having 'player' subdomain": {
+      url: 'https://player.twitch.tv?channel=jlengstorf',
+      valid: true,
+    },
+    'clip url': {
+      url:
+        'https://twitch.tv/jlengstorf/clip/PeacefulAbstrusePorcupineDansGame',
+      valid: true,
+    },
+    "clip url having 'clips' subdomain": {
+      url: 'https://clips.twitch.tv/PeacefulAbstrusePorcupineDansGame',
+      valid: true,
+    },
+    "clip url having 'www' subdomain": {
+      url:
+        'https://www.twitch.tv/jlengstorf/clip/PeacefulAbstrusePorcupineDansGame',
+      valid: true,
+    },
+    'collection url': {
+      url: 'https://twitch.tv/collections/DHetedhyqBSVMg',
+      valid: true,
+    },
+    "collection url having 'www' subdomain": {
+      url: 'https://www.twitch.tv/collections/DHetedhyqBSVMg',
+      valid: true,
+    },
+    "collection url having 'player' subdomain": {
+      url: 'https://player.twitch.tv?collection=DHetedhyqBSVMg',
+      valid: true,
+    },
+    "collection url having '[CHANNELNAME]/collections/' path": {
+      url: 'https://twitch.tv/kaypikefashion/collection/DHetedhyqBSVMg',
+      valid: true,
+    },
+    "collection url having '[CHANNELNAME]/collections/' path & 'www' subdomain": {
+      url: 'https://www.twitch.tv/kaypikefashion/collection/DHetedhyqBSVMg',
+      valid: true,
+    },
+    'video url': {
+      url: 'https://twitch.tv/videos/546761743',
+      valid: true,
+    },
+    "video url having 'www' subdomain": {
+      url: 'https://www.twitch.tv/videos/546761743',
+      valid: true,
+    },
+    "video url having 'player' subdomain": {
+      url: 'https://player.twitch.tv?video=546761743',
       valid: true,
     },
   }
 );
 
 test('Gets the correct Twitch iframe', () => {
-  const html = getHTML('https://twitch.tv/testLink');
+  const html = getHTML('https://twitch.tv/videos/546761743');
 
   expect(html).toMatchInlineSnapshot(
-    `"<iframe src=https://player.twitch.tv/?channel=testLink height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>"`
+    `"<iframe src=\\"https://player.twitch.tv?video=546761743\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>"`
   );
 });
 
@@ -69,17 +123,45 @@ test('Plugin can transform Twitch links', async () => {
 
     <https://this-is-not-twitch.tv>
 
-    <https://this-is-not-twitch.tv/?channel=testChannel>
+    <https://blog.twitch.tv>
 
-    <iframe src=https://player.twitch.tv/?channel=FabioRosado height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>
+    <https://twitch.tv/jlengstorf/followers>
 
-    <iframe src=https://player.twitch.tv/?channel=TestChannel height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>
+    <https://twitch.tv>
 
-    <iframe src=https://player.twitch.tv/?collection=testCollection height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>
+    <https://twitch.tv/settings/profile>
 
-    <iframe src=https://player.twitch.tv/?video=testVideo height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>
-    
-    <iframe src=https://player.twitch.tv/?channel=sacriel&enableExtensions=true&player=popout&volume=0.5 height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>
+    <https://twitch.tv/jlengstorf/videos>
+
+    <https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame>
+
+    <iframe src=\\"https://player.twitch.tv?channel=jlengstorf\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://player.twitch.tv?channel=jlengstorf\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://player.twitch.tv?channel=jlengstorf\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://player.twitch.tv?video=546761743\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://player.twitch.tv?video=546761743\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+
+    <iframe src=\\"https://player.twitch.tv?video=546761743\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
     "
   `);
 });

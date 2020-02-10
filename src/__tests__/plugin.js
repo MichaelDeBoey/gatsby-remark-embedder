@@ -63,7 +63,7 @@ describe('gatsby-remark-embedder', () => {
 
       <iframe class=\\"streamable-embed-from-cache\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
 
-      <iframe src=https://player.twitch.tv/?channel=fabiorosado height=\\"600\\" width=\\"400\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen=\\"true\\"></iframe>
+      <iframe src=\\"https://player.twitch.tv?video=546761743\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
       <blockquote class=\\"twitter-tweet-from-cache\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
 
