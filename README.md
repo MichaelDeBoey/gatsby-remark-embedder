@@ -22,9 +22,9 @@ Trying to embed well known services (like [CodePen][codepen],
 [CodeSandbox][codesandbox], [GIPHY][giphy], [Instagram][instagram],
 [Lichess][lichess], [Pinterest][pinterest], [Slides][slides],
 [SoundCloud][soundcloud], [Spotify][spotify], [Streamable][streamable],
-[Twitter][twitter] or [YouTube][youtube]) into your [Gatsby][gatsby] website can
-be hard, since you have to know how this needs to be done for all of these
-different services.
+[Twitch][twitch], [Twitter][twitter] or [YouTube][youtube]) into your
+[Gatsby][gatsby] website can be hard, since you have to know how this needs to
+be done for all of these different services.
 
 ## This solution
 
@@ -51,6 +51,7 @@ and replace it with the proper embed-code.
   - [SoundCloud](#soundcloud)
   - [Spotify](#spotify)
   - [Streamable](#streamable)
+  - [Twitch](#twitch)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
 - [Custom Transformers](#custom-transformers)
@@ -456,38 +457,27 @@ https://streamable.com/moo
 
 ### Twitch
 
-There are many ways you can embed a Twitch link, the simplest way would be to
-link your channel directly using `https://twitch.tv/<your channel link>` and the
-link will be transformed into `https://player.twitch.tv/?channel=testLink` and
-passed into an iframe.
-
-Alternatively, you can also link a single saved video or a collection using the
-respective url which will look something like
-`https://player.twitch.tv/?video=<video id>` or
-`https://player.twitch.tv/?collection=<collection id>`.
-
-If you don't pass a `/?video=`, `/?channel=` or a `/?collection=` param to your
-url, the transformer will assume you tried to pass your channel and do the
-appropriate transformation for a channel.
-
 #### Usage
 
 ```md
-https://twitch.tv/testLink
+https://twitch.tv/videos/546761743
 ```
 
-#### Result
+<details>
+<summary><b>Result</b></summary>
 
 ```html
 <iframe
-  src=https://player.twitch.tv/?channel=testLink
-  height="600"
-  width="400"
+  src="https://player.twitch.tv/?video=546761743"
+  height="300"
+  width="100%"
   frameborder="0"
   scrolling="no"
-  allowfullscreen="true">
-</iframe>
+  allowfullscreen
+></iframe>
 ```
+
+</details>
 
 ### Twitter
 
@@ -737,6 +727,7 @@ MIT
 [soundcloud]: https://soundcloud.com
 [spotify]: https://spotify.com
 [streamable]: https://streamable.com
+[twitch]: https://twitch.tv
 [twitter]: https://twitter.com
 [twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
 [youtube]: https://youtube.com
