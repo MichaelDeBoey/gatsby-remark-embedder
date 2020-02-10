@@ -1,7 +1,11 @@
 import cases from 'jest-in-case';
 
 import plugin from '../..';
-import { getHTML, shouldTransform } from '../../transformers/Twitch';
+import {
+  getHTML,
+  getTwitchIFrameSrc,
+  shouldTransform,
+} from '../../transformers/Twitch';
 
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
@@ -101,6 +105,76 @@ cases(
     "video url having 'player' subdomain": {
       url: 'https://player.twitch.tv?video=546761743',
       valid: true,
+    },
+  }
+);
+
+cases(
+  'getTwitchIFrameSrc',
+  ({ iframe, url }) => {
+    expect(getTwitchIFrameSrc(url)).toBe(iframe);
+  },
+  {
+    'channel url': {
+      url: 'https://twitch.tv/jlengstorf',
+      iframe: 'https://player.twitch.tv?channel=jlengstorf',
+    },
+    "channel url having 'www' subdomain": {
+      url: 'https://www.twitch.tv/jlengstorf',
+      iframe: 'https://player.twitch.tv?channel=jlengstorf',
+    },
+    "channel url having 'player' subdomain": {
+      url: 'https://player.twitch.tv?channel=jlengstorf',
+      iframe: 'https://player.twitch.tv?channel=jlengstorf',
+    },
+    'clip url': {
+      url:
+        'https://twitch.tv/jlengstorf/clip/PeacefulAbstrusePorcupineDansGame',
+      iframe:
+        'https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame',
+    },
+    "clip url having 'clips' subdomain": {
+      url: 'https://clips.twitch.tv/PeacefulAbstrusePorcupineDansGame',
+      iframe:
+        'https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame',
+    },
+    "clip url having 'www' subdomain": {
+      url:
+        'https://www.twitch.tv/jlengstorf/clip/PeacefulAbstrusePorcupineDansGame',
+      iframe:
+        'https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame',
+    },
+    'collection url': {
+      url: 'https://twitch.tv/collections/DHetedhyqBSVMg',
+      iframe: 'https://player.twitch.tv?collection=DHetedhyqBSVMg',
+    },
+    "collection url having 'www' subdomain": {
+      url: 'https://www.twitch.tv/collections/DHetedhyqBSVMg',
+      iframe: 'https://player.twitch.tv?collection=DHetedhyqBSVMg',
+    },
+    "collection url having 'player' subdomain": {
+      url: 'https://player.twitch.tv?collection=DHetedhyqBSVMg',
+      iframe: 'https://player.twitch.tv?collection=DHetedhyqBSVMg',
+    },
+    "collection url having '[CHANNELNAME]/collections/' path": {
+      url: 'https://twitch.tv/kaypikefashion/collection/DHetedhyqBSVMg',
+      iframe: 'https://player.twitch.tv?collection=DHetedhyqBSVMg',
+    },
+    "collection url having '[CHANNELNAME]/collections/' path & 'www' subdomain": {
+      url: 'https://www.twitch.tv/kaypikefashion/collection/DHetedhyqBSVMg',
+      iframe: 'https://player.twitch.tv?collection=DHetedhyqBSVMg',
+    },
+    'video url': {
+      url: 'https://twitch.tv/videos/546761743',
+      iframe: 'https://player.twitch.tv?video=546761743',
+    },
+    "video url having 'www' subdomain": {
+      url: 'https://www.twitch.tv/videos/546761743',
+      iframe: 'https://player.twitch.tv?video=546761743',
+    },
+    "video url having 'player' subdomain": {
+      url: 'https://player.twitch.tv?video=546761743',
+      iframe: 'https://player.twitch.tv?video=546761743',
     },
   }
 );
