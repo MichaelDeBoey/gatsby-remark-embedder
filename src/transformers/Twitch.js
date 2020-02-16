@@ -19,11 +19,9 @@ export const shouldTransform = url => {
 };
 
 export const getTwitchIFrameSrc = urlString => {
-  const url = new URL(urlString);
-  const location = url.href
-    .split('/')
-    .pop()
-    .replace(/(?:embed)?\?\w+=(\w+)/g, '$1');
+  const { href } = new URL(urlString);
+
+  const location = href.match(/([^/=]*)\/*$/g)[0];
 
   if (urlString.match(/clip/g)) {
     return `https://clips.twitch.tv/embed?clip=${location}`;
