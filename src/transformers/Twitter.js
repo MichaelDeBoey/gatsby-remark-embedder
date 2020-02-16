@@ -1,4 +1,4 @@
-import { URL } from 'url';
+import { URL, URLSearchParams } from 'url';
 
 import { fetchOEmbedData, includesSomeOfArray } from './utils';
 
