@@ -107,7 +107,8 @@ test('Applies plugin options to Twitter links correctly', () => {
   const options = {
     params: {
       theme: 'dark',
-      hide_media: true,
+      // prettier-ignore
+      'hide_media': true
     },
   };
   const url = 'https://twitter.com/kentcdodds/status/1078755736455278592';

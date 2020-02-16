@@ -20,7 +20,8 @@ export const buildUrl = (url, options = {}) => {
   urlObj.search = new URLSearchParams({
     url,
     dnt: true,
-    omit_script: true,
+    // prettier-ignore
+    'omit_script': true,
     ...options.params,
   });
   return urlObj.toString();
