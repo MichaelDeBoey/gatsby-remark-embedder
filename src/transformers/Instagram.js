@@ -1,3 +1,4 @@
+import { URL } from 'url';
 import { fetchOEmbedData } from './utils';
 
 export const name = 'instagram';
