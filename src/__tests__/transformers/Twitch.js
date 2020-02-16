@@ -31,10 +31,6 @@ cases(
       url: 'https://twitch.tv/jlengstorf/followers',
       valid: false,
     },
-    homepage: {
-      url: 'https://twitch.tv',
-      valid: false,
-    },
     'settings page': {
       url: 'https://twitch.tv/settings/profile',
       valid: false,
@@ -46,7 +42,7 @@ cases(
     "clip url having 'clips' subdomain & '/embed' path": {
       url:
         'https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame',
-      valid: false,
+      valid: true,
     },
     'channel url': {
       url: 'https://twitch.tv/jlengstorf',
@@ -201,13 +197,9 @@ test('Plugin can transform Twitch links', async () => {
 
     <https://twitch.tv/jlengstorf/followers>
 
-    <https://twitch.tv>
-
     <https://twitch.tv/settings/profile>
 
     <https://twitch.tv/jlengstorf/videos>
-
-    <https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame>
 
     <iframe src=\\"https://player.twitch.tv?channel=jlengstorf\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 

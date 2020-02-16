@@ -6,13 +6,9 @@ https://blog.twitch.tv
 
 https://twitch.tv/jlengstorf/followers
 
-https://twitch.tv
-
 https://twitch.tv/settings/profile
 
 https://twitch.tv/jlengstorf/videos
-
-https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame
 
 https://twitch.tv/jlengstorf
 
