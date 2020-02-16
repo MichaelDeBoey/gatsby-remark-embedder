@@ -21,7 +21,7 @@ export const buildUrl = (url, options = {}) => {
     url,
     dnt: true,
     omit_script: true,
-    ...options,
+    ...options.params,
   });
   return urlObj.toString();
 };

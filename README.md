@@ -332,9 +332,9 @@ Information needed to use [Service-specific options](#service-specific-options)
 
 - name: "instagram"
 
-| type   | value                                                                   |
-| ------ | ----------------------------------------------------------------------- |
-| object | [url parameters](https://www.instagram.com/developer/embedding/#oembed) |
+| name     | type   | value                                                                   |
+| -------- | ------ | ----------------------------------------------------------------------- |
+| `params` | object | [url parameters](https://www.instagram.com/developer/embedding/#oembed) |
 
 Valid options for the object are listed at Instagram's official
 [url parameters](https://www.instagram.com/developer/embedding/#oembed)
@@ -573,9 +573,9 @@ Information needed to use [Service-specific options](#service-specific-options)
 
 - name: "twitter"
 
-| type   | value                                                                                                            |
-| ------ | ---------------------------------------------------------------------------------------------------------------- |
-| object | [url parameters](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed) |
+| name     | type   | value                                                                                                            |
+| -------- | ------ | ---------------------------------------------------------------------------------------------------------------- |
+| `params` | object | [url parameters](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed) |
 
 Valid options for the object are listed at Twitter's official
 [url parameters](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed)
@@ -629,8 +629,10 @@ plugins: [
           resolve: `gatsby-remark-embedder`,
           options: {
             twitter: {
-              theme: 'dark',
-              hide_thread: true,
+              params: {
+                theme: 'dark',
+                hide_thread: true,
+              },
             },
           },
         },

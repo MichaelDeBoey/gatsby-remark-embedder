@@ -21,7 +21,7 @@ export const buildUrl = (url, options = {}) => {
   urlObj.search = new URLSearchParams({
     url,
     omitscript: true,
-    ...options,
+    ...options.params,
   });
   return urlObj.toString();
 };
