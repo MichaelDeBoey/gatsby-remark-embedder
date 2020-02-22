@@ -53,7 +53,7 @@ describe('gatsby-remark-embedder', () => {
 
       <iframe src=\\"https://lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
 
-      <a data-pin-do=\\"embedPin\\" href=\\"https://www.pinterest.com/pin/99360735500167749/\\"></a>
+      <a data-pin-do=\\"embedPin\\" href=\\"https://pinterest.com/pin/99360735500167749\\"></a>
 
       <iframe src=\\"https://slides.com/kentcdodds/oss-we-want/embed\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 

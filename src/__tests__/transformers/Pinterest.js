@@ -15,34 +15,62 @@ cases(
       url: 'https://not-a-pinterest-url.com',
       valid: false,
     },
-    "non-Pinterest url ending with 'twitter.com'": {
+    "non-Pinterest url ending with 'pinterest.com'": {
       url: 'https://this-is-not-pinterest.com',
       valid: false,
     },
-    "non-Pinterest url ending with 'twitter.com' and having '/pin/'": {
-      url: 'https://this-is-not-pinterest.com/pin/123',
+    "non-Pinterest url ending with 'pinterest.com' and having '/pin/' in the url": {
+      url: 'https://this-is-not-pinterest.com/pin/99360735500167749',
       valid: false,
     },
-    'pin url': {
-      url: 'https://www.pinterest.com/pin/99360735500167749/',
+    'board url': {
+      url: 'https://pinterest.com/pinterest/official-news',
       valid: true,
     },
-    'board url': {
-      url: 'https://www.pinterest.com/pinterest/official-news/',
+    "board url having 'www' subdomain": {
+      url: 'https://www.pinterest.com/pinterest/official-news',
+      valid: true,
+    },
+    'pin url': {
+      url: 'https://pinterest.com/pin/99360735500167749',
+      valid: true,
+    },
+    "pin url having 'www' subdomain": {
+      url: 'https://www.pinterest.com/pin/99360735500167749',
       valid: true,
     },
     'profile url': {
-      url: 'https://www.pinterest.com/pinterest/',
+      url: 'https://pinterest.com/pinterest',
+      valid: true,
+    },
+    "profile url having 'www' subdomain": {
+      url: 'https://www.pinterest.com/pinterest',
       valid: true,
     },
   }
 );
 
-test('Gets the correct Pinterest html code', () => {
-  const html = getHTML('https://www.pinterest.com/pin/99360735500167749/');
+test('Gets the correct Pinterest board link', () => {
+  const html = getHTML('https://pinterest.com/pinterest/official-news');
 
   expect(html).toMatchInlineSnapshot(
-    `"<a data-pin-do=\\"embedPin\\" href=\\"https://www.pinterest.com/pin/99360735500167749/\\"></a>"`
+    `"<a data-pin-do=\\"embedBoard\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://pinterest.com/pinterest/official-news\\"></a>"`
+  );
+});
+
+test('Gets the correct Pinterest pin link', () => {
+  const html = getHTML('https://pinterest.com/pin/99360735500167749');
+
+  expect(html).toMatchInlineSnapshot(
+    `"<a data-pin-do=\\"embedPin\\" href=\\"https://pinterest.com/pin/99360735500167749\\"></a>"`
+  );
+});
+
+test('Gets the correct Pinterest profile link', () => {
+  const html = getHTML('https://pinterest.com/pinterest');
+
+  expect(html).toMatchInlineSnapshot(
+    `"<a data-pin-do=\\"embedUser\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://pinterest.com/pinterest\\"></a>"`
   );
 });
 
@@ -56,13 +84,19 @@ test('Plugin can transform Pinterest links', async () => {
 
     <https://this-is-not-pinterest.com>
 
-    <https://this-is-not-pinterest.com/pin/123>
+    <https://this-is-not-pinterest.com/pin/99360735500167749>
 
-    <a data-pin-do=\\"embedPin\\" href=\\"https://www.pinterest.com/pin/99360735500167749/\\"></a>
+    <a data-pin-do=\\"embedBoard\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://pinterest.com/pinterest/official-news\\"></a>
 
-    <a data-pin-do=\\"embedBoard\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://www.pinterest.com/pinterest/official-news/\\"></a>
+    <a data-pin-do=\\"embedBoard\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://www.pinterest.com/pinterest/official-news\\"></a>
 
-    <a data-pin-do=\\"embedUser\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://www.pinterest.com/pinterest/\\"></a>
+    <a data-pin-do=\\"embedPin\\" href=\\"https://pinterest.com/pin/99360735500167749\\"></a>
+
+    <a data-pin-do=\\"embedPin\\" href=\\"https://www.pinterest.com/pin/99360735500167749\\"></a>
+
+    <a data-pin-do=\\"embedUser\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://pinterest.com/pinterest\\"></a>
+
+    <a data-pin-do=\\"embedUser\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://www.pinterest.com/pinterest\\"></a>
     "
   `);
 });
