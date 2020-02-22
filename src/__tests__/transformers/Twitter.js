@@ -12,6 +12,9 @@ const mockFetch = (status, moment) =>
   fetchMock
     .mockResolvedValueOnce({ json: () => Promise.resolve({ html: status }) })
     .mockResolvedValueOnce({ json: () => Promise.resolve({ html: status }) })
+    .mockResolvedValueOnce({ json: () => Promise.resolve({ html: moment }) })
+    .mockResolvedValueOnce({ json: () => Promise.resolve({ html: moment }) })
+    .mockResolvedValueOnce({ json: () => Promise.resolve({ html: moment }) })
     .mockResolvedValueOnce({ json: () => Promise.resolve({ html: moment }) });
 
 beforeEach(() => {
@@ -40,6 +43,10 @@ cases(
       url: 'https://twitter.com/MichaelDeBoey93',
       valid: false,
     },
+    'moment edit url': {
+      url: 'https://twitter.com/i/moments/edit/994601867987619840',
+      valid: false,
+    },
     'status url': {
       url: 'https://twitter.com/kentcdodds/status/1078755736455278592',
       valid: true,
@@ -49,17 +56,25 @@ cases(
       valid: true,
     },
     'moment url': {
-      url: 'https://twitter.com/i/moments/650667182356082688',
+      url: 'https://twitter.com/i/moments/994601867987619840',
       valid: true,
     },
-    'moment edit url': {
-      url: 'https://twitter.com/i/moments/edit/650667182356082688',
-      valid: false,
+    "moment url having 'www' subdomain": {
+      url: 'https://www.twitter.com/i/moments/994601867987619840',
+      valid: true,
+    },
+    "moment url having '/events/' path": {
+      url: 'https://twitter.com/i/events/994601867987619840',
+      valid: true,
+    },
+    "moment url having 'www' subdomain & '/events/' path": {
+      url: 'https://www.twitter.com/i/events/994601867987619840',
+      valid: true,
     },
   }
 );
 
-test('Gets the correct Twitter iframe for a status', async () => {
+test('Gets the correct Twitter status iframe', async () => {
   mockFetch(
     `<blockquote class="twitter-tweet-mocked-fetch-transformer"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote>`
   );
@@ -73,24 +88,24 @@ test('Gets the correct Twitter iframe for a status', async () => {
   );
 });
 
-test('Gets the correct Twitter iframe for a moment', async () => {
+test('Gets the correct Twitter moment link', async () => {
   mockFetch(
-    `<a class="twitter-moment-mocked-fetch-transformer" href="https://twitter.com/i/moments/650667182356082688">The Obamas&#39; wedding anniversary</a>`
+    `<a class="twitter-moment-mocked-fetch-transformer" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a>`
   );
 
   const html = await getHTML(
-    'https://twitter.com/i/moments/650667182356082688'
+    'https://twitter.com/i/moments/994601867987619840'
   );
 
   expect(html).toMatchInlineSnapshot(
-    `"<a class=\\"twitter-moment-mocked-fetch-transformer\\" href=\\"https://twitter.com/i/moments/650667182356082688\\">The Obamas&#39; wedding anniversary</a>"`
+    `"<a class=\\"twitter-moment-mocked-fetch-transformer\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>"`
   );
 });
 
 test('Plugin can transform Twitter links', async () => {
   mockFetch(
     `<blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote>`,
-    `<a class="twitter-moment-mocked-fetch-transformer" href="https://twitter.com/i/moments/650667182356082688">The Obamas&#39; wedding anniversary</a>`
+    `<a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a>`
   );
   const markdownAST = getMarkdownASTForFile('Twitter');
 
@@ -104,14 +119,20 @@ test('Plugin can transform Twitter links', async () => {
     <https://this-is-not-twitter.com/foobar/status/123>
 
     <https://twitter.com/MichaelDeBoey93>
+    
+    <https://twitter.com/i/moments/edit/994601867987619840>
 
     <blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
 
     <blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
+    
+    <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
 
-    <a class=\\"twitter-moment-mocked-fetch-transformer\\" href=\\"https://twitter.com/i/moments/650667182356082688\\">The Obamas&#39; wedding anniversary</a>
-
-    <https://twitter.com/i/moments/edit/650667182356082688>
+    <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
+    
+    <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
+    
+    <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
     "
   `);
 });

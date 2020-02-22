@@ -37,6 +37,4 @@ https://streamable.com/moo
 
 https://twitter.com/kentcdodds/status/1078755736455278592
 
-https://twitter.com/i/moments/650667182356082688
-
 https://youtu.be/dQw4w9WgXcQ
