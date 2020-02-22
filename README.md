@@ -435,12 +435,12 @@ want to include it multiple times on a page when having multiple embeds), you
 have to include it yourself. The recommended way of including it is by using
 [`gatsby-plugin-twitter`][gatsby-plugin-twitter].
 
-#### Statuses
-
-##### Usage
+#### Usage
 
 ```md
 https://twitter.com/MichaelDeBoey93/status/1152991421789548546
+
+https://twitter.com/i/moments/994601867987619840
 ```
 
 <details>
@@ -468,27 +468,12 @@ https://twitter.com/MichaelDeBoey93/status/1152991421789548546
     July 21, 2019
   </a>
 </blockquote>
-```
 
-</details>
-
-#### Moments
-
-##### Usage
-
-```md
-https://twitter.com/i/moments/650667182356082688
-```
-
-<details>
-<summary><b>Result</b></summary>
-
-```html
 <a
   class="twitter-moment"
-  href="https://twitter.com/i/moments/650667182356082688"
+  href="https://twitter.com/i/moments/994601867987619840"
 >
-  The Obamas&#39; wedding anniversary
+  🔥 Design Tips
 </a>
 ```
 
