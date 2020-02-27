@@ -1,6 +1,6 @@
 import { URL } from 'url';
 
-import { fetchOEmbedData } from './utils';
+import { fetchOEmbedData, includesSomeOfArray } from './utils';
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
@@ -8,7 +8,7 @@ export const shouldTransform = url => {
   return (
     ['twitter.com', 'www.twitter.com'].includes(host) &&
     (pathname.includes('/status/') ||
-      ((pathname.includes('/moments/') || pathname.includes('/events/')) &&
+      (includesSomeOfArray(pathname, ['/events/', '/moments/']) &&
         !pathname.includes('/edit/')))
   );
 };
