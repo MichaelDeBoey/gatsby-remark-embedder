@@ -1,5 +1,7 @@
 import { URL } from 'url';
 
+export const serviceName = 'streamable';
+
 export const shouldTransform = url => {
   const { host, pathname, searchParams } = new URL(url);
 

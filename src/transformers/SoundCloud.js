@@ -1,5 +1,7 @@
 import { URL } from 'url';
 
+export const serviceName = 'soundcloud';
+
 export const shouldTransform = url => new URL(url).host === 'soundcloud.com';
 
 const getSoundCloudIFrameSrc = url =>

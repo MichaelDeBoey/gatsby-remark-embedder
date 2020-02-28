@@ -103,20 +103,6 @@ test('Gets the correct Twitter moment link', async () => {
   );
 });
 
-test('Applies plugin options to Twitter links correctly', () => {
-  const options = {
-    params: {
-      theme: 'dark',
-      // prettier-ignore
-      'hide_media': true
-    },
-  };
-  const url = 'https://twitter.com/kentcdodds/status/1078755736455278592';
-  expect(buildUrl(url, options)).toBe(
-    'https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2Fkentcdodds%2Fstatus%2F1078755736455278592&dnt=true&omit_script=true&theme=dark&hide_media=true'
-  );
-});
-
 test('Plugin can transform Twitter links', async () => {
   mockFetch(
     `<blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote>`,

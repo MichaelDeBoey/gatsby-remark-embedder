@@ -115,18 +115,6 @@ test('Gets the correct Instagram iframe', async () => {
   );
 });
 
-test('Applies plugin options to Instagram links correctly', () => {
-  const options = {
-    params: {
-      hidecaption: true,
-    },
-  };
-  const url = 'https://instagram.com/p/B60jPE6J8U-';
-  expect(buildUrl(url, options)).toBe(
-    'https://api.instagram.com/oembed?url=https%3A%2F%2Finstagram.com%2Fp%2FB60jPE6J8U-&omitscript=true&hidecaption=true'
-  );
-});
-
 test('Plugin can transform Instagram links', async () => {
   mockFetch(
     `<blockquote class="instagram-media-mocked-fetch-plugin"><div><a href="https://instagram.com/p/B60jPE6J8U-"><p>example</p></a><p>A post shared by <a href="https://instagram.com/michaeldeboey">Michaël De Boey</a> (@michaeldeboey) on<timedatetime="2020-01-02T14:45:30+00:00">Jan 2, 2020 at 6:45am PST</time></p></div></blockquote>`

@@ -1,5 +1,7 @@
 import { URL } from 'url';
 
+export const serviceName = 'codesandbox';
+
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
 

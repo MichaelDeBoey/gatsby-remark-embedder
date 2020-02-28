@@ -1,6 +1,7 @@
 import { URL } from 'url';
-
 import { getTrimmedPathName } from './utils';
+
+export const serviceName = 'slides';
 
 const isSubDomain = host => /^([a-zA-Z0-9-_]{2,}\.)?slides\.com$/.test(host);
 

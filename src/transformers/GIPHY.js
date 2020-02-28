@@ -1,6 +1,7 @@
 import { URL } from 'url';
-
 import { fetchOEmbedData } from './utils';
+
+export const serviceName = 'giphy';
 
 const isMediaSubDomain = host => /^(media([0-9]+)?\.)giphy\.com$/.test(host);
 

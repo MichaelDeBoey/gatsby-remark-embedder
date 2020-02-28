@@ -2,7 +2,7 @@ import { URL, URLSearchParams } from 'url';
 
 import { fetchOEmbedData, includesSomeOfArray } from './utils';
 
-export const name = 'twitter';
+export const serviceName = 'twitter';
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
@@ -14,17 +14,8 @@ export const shouldTransform = url => {
   );
 };
 
-export const buildUrl = (url, options = {}) => {
-  // https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed
-  const urlObj = new URL(`https://publish.twitter.com/oembed`);
-  urlObj.search = new URLSearchParams({
-    url,
-    dnt: true,
-    // prettier-ignore
-    'omit_script': true,
-    ...options.params,
-  });
-  return urlObj.toString();
+export const buildUrl = url => {
+  return `https://publish.twitter.com/oembed?url=${url}&dnt=true&omit_script=true`;
 };
 
 export const getHTML = (url, options) => {

@@ -90,4 +90,6 @@ describe('gatsby-remark-embedder', () => {
 An error occurred in ErrorTransformer]
 `);
   });
+
+  test.todo('passes service-specific options to the transformers');
 });
