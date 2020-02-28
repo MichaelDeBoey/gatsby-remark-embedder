@@ -2,7 +2,7 @@ import cases from 'jest-in-case';
 import fetchMock from 'node-fetch';
 
 import plugin from '../../';
-import { getHTML, shouldTransform, buildUrl } from '../../transformers/Twitter';
+import { getHTML, shouldTransform } from '../../transformers/Twitter';
 
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 

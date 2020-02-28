@@ -2,11 +2,7 @@ import cases from 'jest-in-case';
 import fetchMock from 'node-fetch';
 
 import plugin from '../../';
-import {
-  getHTML,
-  shouldTransform,
-  buildUrl,
-} from '../../transformers/Instagram';
+import { getHTML, shouldTransform } from '../../transformers/Instagram';
 
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
