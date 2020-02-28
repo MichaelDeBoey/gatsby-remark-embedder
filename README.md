@@ -45,32 +45,31 @@ and replace it with the proper embed-code.
 - [Usage](#usage)
 - [Supported services](#supported-services)
   - [CodePen](#codepen)
-  - [Usage](#usage-1)
+    - [Usage](#usage-1)
   - [CodeSandbox](#codesandbox)
-  - [Usage](#usage-2)
+    - [Usage](#usage-2)
   - [GIPHY](#giphy)
-  - [Usage](#usage-3)
+    - [Usage](#usage-3)
   - [Instagram](#instagram)
-  - [Usage](#usage-4)
+    - [Usage](#usage-4)
   - [Lichess](#lichess)
-  - [Usage](#usage-5)
+    - [Usage](#usage-5)
   - [Pinterest](#pinterest)
-  - [Usage](#usage-6)
+    - [Usage](#usage-6)
   - [Slides](#slides)
-  - [Usage](#usage-7)
+    - [Usage](#usage-7)
   - [SoundCloud](#soundcloud)
-  - [Usage](#usage-8)
+    - [Usage](#usage-8)
   - [Spotify](#spotify)
-  - [Usage](#usage-9)
+    - [Usage](#usage-9)
   - [Streamable](#streamable)
-  - [Usage](#usage-10)
+    - [Usage](#usage-10)
   - [Twitch](#twitch)
-  - [Usage](#usage-11)
+    - [Usage](#usage-11)
   - [Twitter](#twitter)
-  - [Usage](#usage-12)
+    - [Usage](#usage-12)
   - [YouTube](#youtube)
-  - [Usage](#usage-13)
-- [Service-specific options](#service-specific-options)
+    - [Usage](#usage-13)
 - [Custom Transformers](#custom-transformers)
   - [Usage](#usage-13)
   - [Example transformer object](#example-transformer-object)
@@ -326,20 +325,6 @@ https://instagram.com/p/B60jPE6J8U-
 
 </details>
 
-#### Options
-
-Information needed to use [Service-specific options](#service-specific-options)
-
-- name: "instagram"
-
-| name     | type   | value                                                                   |
-| -------- | ------ | ----------------------------------------------------------------------- |
-| `params` | object | [url parameters](https://www.instagram.com/developer/embedding/#oembed) |
-
-Valid options for the object are listed at Instagram's official
-[url parameters](https://www.instagram.com/developer/embedding/#oembed)
-documentation.
-
 ### Lichess
 
 #### Usage
@@ -567,20 +552,6 @@ https://twitter.com/i/moments/994601867987619840
 
 </details>
 
-#### Options
-
-Information needed to use [Service-specific options](#service-specific-options)
-
-- name: "twitter"
-
-| name     | type   | value                                                                                                            |
-| -------- | ------ | ---------------------------------------------------------------------------------------------------------------- |
-| `params` | object | [url parameters](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed) |
-
-Valid options for the object are listed at Twitter's official
-[url parameters](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed)
-documentation.
-
 ### YouTube
 
 The YouTube transformer (currently) only supports videos in the following
@@ -610,37 +581,6 @@ https://youtu.be/dQw4w9WgXcQ
 ```
 
 </details>
-
-## Service-specific options
-
-Some services optionally accept extra configuration, passed via an object under
-that service's name. The name and the supported options are listed per service.
-
-Example of passing extra configuration for [Twitter](#twitter)
-
-```js
-// In your gatsby-config.js
-plugins: [
-  {
-    resolve: `gatsby-transformer-remark`,
-    options: {
-      plugins: [
-        {
-          resolve: `gatsby-remark-embedder`,
-          options: {
-            twitter: {
-              params: {
-                theme: 'dark',
-                hide_thread: true,
-              },
-            },
-          },
-        },
-      ],
-    },
-  },
-];
-```
 
 ## Custom Transformers
 
