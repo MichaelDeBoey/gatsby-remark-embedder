@@ -306,6 +306,28 @@ https://instagram.com/p/B60jPE6J8U-
 
 </details>
 
+### Lichess
+
+#### Usage
+
+```md
+https://lichess.org/MPJcy1JW
+```
+
+<details>
+<summary><b>Result</b></summary>
+
+```html
+<iframe
+  src="https://lichess.org/embed/MPJcy1JW"
+  width="600"
+  height="397"
+  frameborder="0"
+></iframe>
+```
+
+</details>
+
 ### Pinterest
 
 The returned HTML snippet from the Pinterest transformer will only be
@@ -330,28 +352,6 @@ https://pinterest.com/pin/99360735500167749
   data-pin-do="embedPin"
   href="https://pinterest.com/pin/99360735500167749"
 ></a>
-```
-
-</details>
-
-### Lichess
-
-#### Usage
-
-```md
-https://lichess.org/MPJcy1JW
-```
-
-<details>
-<summary><b>Result</b></summary>
-
-```html
-<iframe
-  src="https://lichess.org/embed/MPJcy1JW"
-  width="600"
-  height="397"
-  frameborder="0"
-></iframe>
 ```
 
 </details>
