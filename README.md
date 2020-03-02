@@ -439,6 +439,8 @@ have to include it yourself. The recommended way of including it is by using
 
 ```md
 https://twitter.com/MichaelDeBoey93/status/1152991421789548546
+
+https://twitter.com/i/moments/994601867987619840
 ```
 
 <details>
@@ -466,6 +468,13 @@ https://twitter.com/MichaelDeBoey93/status/1152991421789548546
     July 21, 2019
   </a>
 </blockquote>
+
+<a
+  class="twitter-moment"
+  href="https://twitter.com/i/moments/994601867987619840"
+>
+  🔥 Design Tips
+</a>
 ```
 
 </details>
@@ -614,6 +623,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
