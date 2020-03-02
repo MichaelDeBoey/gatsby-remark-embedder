@@ -20,10 +20,11 @@
 
 Trying to embed well known services (like [CodePen][codepen],
 [CodeSandbox][codesandbox], [GIPHY][giphy], [Instagram][instagram],
-[Lichess][lichess], [Slides][slides], [SoundCloud][soundcloud],
-[Spotify][spotify], [Streamable][streamable], [Twitter][twitter] or
-[YouTube][youtube]) into your [Gatsby][gatsby] website can be hard, since you
-have to know how this needs to be done for all of these different services.
+[Lichess][lichess], [Pinterest][pinterest], [Slides][slides],
+[SoundCloud][soundcloud], [Spotify][spotify], [Streamable][streamable],
+[Twitter][twitter] or [YouTube][youtube]) into your [Gatsby][gatsby] website can
+be hard, since you have to know how this needs to be done for all of these
+different services.
 
 ## This solution
 
@@ -45,6 +46,7 @@ and replace it with the proper embed-code.
   - [GIPHY](#giphy)
   - [Instagram](#instagram)
   - [Lichess](#lichess)
+  - [Pinterest](#pinterest)
   - [Slides](#slides)
   - [SoundCloud](#soundcloud)
   - [Spotify](#spotify)
@@ -300,6 +302,34 @@ https://instagram.com/p/B60jPE6J8U-
     </p>
   </div>
 </blockquote>
+```
+
+</details>
+
+### Pinterest
+
+The returned HTML snippet from the Pinterest transformer will only be
+automatically recognized as an embedded pin when Pinterest's embed JavaScript is
+included on the page.  
+Since the Pinterest transformer doesn't include this JavaScript (because we
+don't want to include it multiple times on a page when having multiple embeds),
+you have to include it yourself. The recommended way of including it is by using
+[`gatsby-plugin-pinterest`][gatsby-plugin-pinterest].
+
+#### Usage
+
+```md
+https://pinterest.com/pin/99360735500167749
+```
+
+<details>
+<summary><b>Result</b></summary>
+
+```html
+<a
+  data-pin-do="embedPin"
+  href="https://pinterest.com/pin/99360735500167749"
+></a>
 ```
 
 </details>
@@ -661,11 +691,13 @@ MIT
 [embedded-tweet-docs]: https://developer.twitter.com/web/embedded-tweets
 [gatsby]: https://github.com/gatsbyjs/gatsby
 [gatsby-plugin-instagram-embed]: https://github.com/jlengstorf/gatsby-plugin-instagram-embed
+[gatsby-plugin-pinterest]: https://github.com/robinmetral/gatsby-plugin-pinterest
 [gatsby-plugin-twitter]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-twitter
 [giphy]: https://giphy.com
 [instagram]: https://instagram.com
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
 [lichess]: https://lichess.org
+[pinterest]: https://pinterest.com
 [slides]: https://slides.com
 [soundcloud]: https://soundcloud.com
 [spotify]: https://spotify.com
