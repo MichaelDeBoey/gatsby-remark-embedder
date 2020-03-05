@@ -13,12 +13,10 @@ const getUrlString = url => {
   }
 };
 
-export default async ({ cache, markdownAST }, pluginOptions = {}) => {
-  const {
-    customTransformers = [],
-    services: serviceOptions = {},
-  } = pluginOptions;
-
+export default async (
+  { cache, markdownAST },
+  { customTransformers = [], services = {} } = {}
+) => {
   const transformers = [...defaultTransformers, ...customTransformers];
 
   const transformations = [];
@@ -48,13 +46,13 @@ export default async ({ cache, markdownAST }, pluginOptions = {}) => {
 
     transformers
       .filter(({ shouldTransform }) => shouldTransform(urlString))
-      .forEach(({ serviceName, getHTML }) => {
+      .forEach(({ getHTML, name }) => {
         transformations.push(async () => {
           try {
             let html = await cache.get(urlString);
 
             if (!html) {
-              html = await getHTML(urlString, serviceOptions[serviceName]);
+              html = await getHTML(urlString, services[name]);
               await cache.set(urlString, html);
             }
 
