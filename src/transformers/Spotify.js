@@ -1,7 +1,6 @@
 import { URL } from 'url';
-import { includesSomeOfArray } from './utils';
 
-export const serviceName = 'spotify';
+import { includesSomeOfArray } from './utils';
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);

@@ -1,7 +1,6 @@
 import { URL } from 'url';
-import { fetchOEmbedData, getTrimmedPathName } from './utils';
 
-export const serviceName = 'streamable';
+import { fetchOEmbedData, getTrimmedPathName } from './utils';
 
 const ignoredPaths = [
   '/documentation',
