@@ -108,7 +108,7 @@ An error occurred in ErrorTransformer]
         { cache, markdownAST },
         {
           customTransformers: [transformer],
-          services: { ServiceTransformer: passedOptions },
+          services: { [name]: passedOptions },
         }
       );
 
@@ -118,13 +118,14 @@ An error occurred in ErrorTransformer]
       );
     },
     {
-      'transformer with name': {
+      'transformer with name and options': {
         name: 'ServiceTransformer',
         passedOptions: { like: 'turtles' },
       },
-      'transformer without name': {
-        passedOptions: undefined,
+      'transformer without options': {
+        name: 'SomeTransformer',
       },
+      'transformer without name or options': {},
     }
   );
 });
