@@ -52,7 +52,7 @@ export default async (
             let html = await cache.get(urlString);
 
             if (!html) {
-              html = await getHTML(urlString, services[name]);
+              html = await getHTML(urlString, services[name] || {});
               await cache.set(urlString, html);
             }
 
