@@ -118,9 +118,9 @@ An error occurred in ErrorTransformer]
       );
     },
     {
-      'transformer with name and options': {
-        name: 'ServiceTransformer',
-        passedOptions: { like: 'turtles' },
+      'transformer with name': {
+        name: 'serviceTransformer',
+        passedOptions: { service: 'transformer' },
       },
       'transformer without name': {
         passedOptions: {},
