@@ -108,7 +108,7 @@ An error occurred in ErrorTransformer]
         { cache, markdownAST },
         {
           customTransformers: [transformer],
-          services: { [name]: passedOptions },
+          services: { serviceTransformer: { service: 'transformer' } },
         }
       );
 
