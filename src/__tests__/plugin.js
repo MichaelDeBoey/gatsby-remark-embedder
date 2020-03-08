@@ -125,7 +125,6 @@ An error occurred in ErrorTransformer]
       'transformer without options': {
         name: 'SomeTransformer',
       },
-      'transformer without name or options': {},
     }
   );
 });
