@@ -122,8 +122,8 @@ An error occurred in ErrorTransformer]
         name: 'ServiceTransformer',
         passedOptions: { like: 'turtles' },
       },
-      'transformer without options': {
-        name: 'SomeTransformer',
+      'transformer without name': {
+        passedOptions: {},
       },
     }
   );
