@@ -46,7 +46,7 @@ export default async (
 
     transformers
       .filter(({ shouldTransform }) => shouldTransform(urlString))
-      .forEach(({ getHTML, name }) => {
+      .forEach(({ getHTML, name = '' }) => {
         transformations.push(async () => {
           try {
             let html = await cache.get(urlString);
