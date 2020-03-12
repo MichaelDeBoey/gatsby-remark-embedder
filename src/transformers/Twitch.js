@@ -4,9 +4,15 @@ import { getTrimmedPathName } from './utils';
 const getUrlConfig = url => {
   const { host, pathname, searchParams } = new URL(url);
   const splittedTrimmedPathName = getTrimmedPathName(pathname).split('/');
-  const urlConfig = { host, pathname, searchParams, splittedTrimmedPathName };
 
-  return urlConfig;
+  return { host, pathname, searchParams, splittedTrimmedPathName };
+};
+
+const getIdFromUrl = (urlConfig, param) => {
+  return (
+    urlConfig.searchParams.get(param) ||
+    urlConfig.splittedTrimmedPathName.slice(-1)[0]
+  );
 };
 
 const isFromPlayerDomainWithParam = ({ host, searchParams }, param) =>
@@ -56,21 +62,20 @@ export const shouldTransform = url => {
 
 export const getTwitchIFrameSrc = urlString => {
   const urlConfig = getUrlConfig(urlString);
-  const location =
-    urlConfig.searchParams.get('video') ||
-    urlConfig.searchParams.get('collection') ||
-    urlConfig.searchParams.get('channel') ||
-    urlConfig.splittedTrimmedPathName.slice(-1)[0];
+  let location = getIdFromUrl(urlConfig, 'channel');
 
   if (isClip(urlConfig)) {
+    location = getIdFromUrl(urlConfig, 'clip');
     return `https://clips.twitch.tv/embed?clip=${location}`;
   }
 
   if (isVideo(urlConfig)) {
+    location = getIdFromUrl(urlConfig, 'video');
     return `https://player.twitch.tv?video=${location}`;
   }
 
   if (isCollection(urlConfig)) {
+    location = getIdFromUrl(urlConfig, 'collection');
     return `https://player.twitch.tv?collection=${location}`;
   }
 
