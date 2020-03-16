@@ -60,7 +60,9 @@ export default async (
             node.value = html;
             node.children = undefined;
           } catch (error) {
+            // eslint-disable-next-line no-console
             console.error(`The following error appeared while processing: ${urlString}`);
+            
             throw error
           }
         });
