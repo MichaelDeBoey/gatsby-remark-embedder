@@ -34,6 +34,25 @@ describe(`fetchOEmbedData`, () => {
     });
   });
 
+  test(`throws on non-ok status`, () => {
+    // make sure we make our result assertion
+    expect.assertions(1);
+
+    fetch.mockResolvedValue(
+      new Response(JSON.stringify(MockedResponseResult), {
+        // non-ok status is one outside of 200-299 range
+        // ( https://developer.mozilla.org/en-US/docs/Web/API/Response/ok )
+        status: 403,
+      })
+    );
+
+    return fetchOEmbedData(URL).catch(err => {
+      expect(err).toMatchInlineSnapshot(
+        `[Error: Request to https://google.com returned non-OK status (403)]`
+      );
+    });
+  });
+
   describe(`network resilience`, () => {
     test(`retries requests if there was network error`, () => {
       // make sure we make our result assertion
