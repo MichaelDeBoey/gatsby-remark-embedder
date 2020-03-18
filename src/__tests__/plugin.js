@@ -69,4 +69,25 @@ describe('gatsby-remark-embedder', () => {
       "
     `);
   });
+
+  test('logs when a transformer errors', async () => {
+    const consoleErrorMock = jest
+      .spyOn(console, 'error')
+      .mockImplementation(() => undefined);
+    const errorTransformer = {
+      getHTML: () => {
+        throw new Error('ErrorTransformer');
+      },
+      shouldTransform: () => true,
+    };
+
+    const markdownAST = getMarkdownASTForFile('ErrorTransformer', true);
+
+    await expect(
+      plugin({ cache, markdownAST }, { customTransformers: [errorTransformer] })
+    ).rejects.toMatchInlineSnapshot(`[Error: ErrorTransformer]`);
+    expect(consoleErrorMock).toHaveBeenCalledWith(
+      'The following error appeared while processing: https://error-site.com/'
+    );
+  });
 });
