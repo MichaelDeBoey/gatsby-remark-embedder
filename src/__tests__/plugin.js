@@ -71,12 +71,9 @@ describe('gatsby-remark-embedder', () => {
   });
 
   test('logs when a transformer errors', async () => {
-    const consoleErrorMock = jest
-      .spyOn(console, 'error')
-      .mockImplementation(() => undefined);
     const errorTransformer = {
       getHTML: () => {
-        throw new Error('ErrorTransformer');
+        throw new Error('An error occurred in ErrorTransformer');
       },
       shouldTransform: () => true,
     };
@@ -85,9 +82,10 @@ describe('gatsby-remark-embedder', () => {
 
     await expect(
       plugin({ cache, markdownAST }, { customTransformers: [errorTransformer] })
-    ).rejects.toMatchInlineSnapshot(`[Error: ErrorTransformer]`);
-    expect(consoleErrorMock).toHaveBeenCalledWith(
-      'The following error appeared while processing: https://error-site.com/'
-    );
+    ).rejects.toMatchInlineSnapshot(`
+[Error: The following error appeared while processing 'https://error-site.com/':
+
+An error occurred in ErrorTransformer]
+`);
   });
 });
