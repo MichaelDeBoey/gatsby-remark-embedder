@@ -6,10 +6,13 @@ import { getHTML, shouldTransform } from '../../transformers/Instagram';
 
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
+const { Response } = jest.requireActual('node-fetch');
 jest.mock('node-fetch', () => jest.fn());
 
 const mockFetch = html =>
-  fetchMock.mockResolvedValue({ json: () => Promise.resolve({ html }) });
+  fetchMock.mockImplementation(() =>
+    Promise.resolve(new Response(JSON.stringify({ html })))
+  );
 
 beforeEach(() => {
   fetchMock.mockClear();
