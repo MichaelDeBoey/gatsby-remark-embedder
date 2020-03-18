@@ -60,7 +60,8 @@ export default async (
             node.value = html;
             node.children = undefined;
           } catch (error) {
-            error.message = `The following error appeared while processing: ${urlString}\n\n${error.message}`
+            error.message = `The following error appeared while processing: ${urlString}\n\n${error.message}`;
+            
             throw error
           }
         });
