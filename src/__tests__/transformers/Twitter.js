@@ -6,16 +6,17 @@ import { getHTML, shouldTransform } from '../../transformers/Twitter';
 
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
+const { Response } = jest.requireActual('node-fetch');
 jest.mock('node-fetch', () => jest.fn());
 
 const mockFetch = (status, moment) =>
   fetchMock
-    .mockResolvedValueOnce({ json: () => Promise.resolve({ html: status }) })
-    .mockResolvedValueOnce({ json: () => Promise.resolve({ html: status }) })
-    .mockResolvedValueOnce({ json: () => Promise.resolve({ html: moment }) })
-    .mockResolvedValueOnce({ json: () => Promise.resolve({ html: moment }) })
-    .mockResolvedValueOnce({ json: () => Promise.resolve({ html: moment }) })
-    .mockResolvedValueOnce({ json: () => Promise.resolve({ html: moment }) });
+    .mockResolvedValueOnce(new Response(JSON.stringify({ html: status })))
+    .mockResolvedValueOnce(new Response(JSON.stringify({ html: status })))
+    .mockResolvedValueOnce(new Response(JSON.stringify({ html: moment })))
+    .mockResolvedValueOnce(new Response(JSON.stringify({ html: moment })))
+    .mockResolvedValueOnce(new Response(JSON.stringify({ html: moment })))
+    .mockResolvedValueOnce(new Response(JSON.stringify({ html: moment })));
 
 beforeEach(() => {
   fetchMock.mockReset();

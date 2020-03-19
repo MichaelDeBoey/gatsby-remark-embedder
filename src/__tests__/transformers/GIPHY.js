@@ -11,12 +11,13 @@ import {
 
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 
+const { Response } = jest.requireActual('node-fetch');
 jest.mock('node-fetch', () => jest.fn());
 
 const mockFetch = ({ height, width }) =>
-  fetchMock.mockResolvedValue({
-    json: () => Promise.resolve({ height, width }),
-  });
+  fetchMock.mockImplementation(() =>
+    Promise.resolve(new Response(JSON.stringify({ height, width })))
+  );
 
 beforeEach(() => {
   fetchMock.mockClear();
