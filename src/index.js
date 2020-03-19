@@ -48,16 +48,22 @@ export default async (
       .filter(({ shouldTransform }) => shouldTransform(urlString))
       .forEach(({ getHTML }) => {
         transformations.push(async () => {
-          let html = await cache.get(urlString);
+          try {
+            let html = await cache.get(urlString);
 
-          if (!html) {
-            html = await getHTML(urlString);
-            await cache.set(urlString, html);
+            if (!html) {
+              html = await getHTML(urlString);
+              await cache.set(urlString, html);
+            }
+
+            node.type = `html`;
+            node.value = html;
+            node.children = undefined;
+          } catch (error) {
+            error.message = `The following error appeared while processing '${urlString}':\n\n${error.message}`;
+
+            throw error;
           }
-
-          node.type = `html`;
-          node.value = html;
-          node.children = undefined;
         });
       });
   });

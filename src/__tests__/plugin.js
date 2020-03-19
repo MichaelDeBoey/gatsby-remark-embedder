@@ -69,4 +69,23 @@ describe('gatsby-remark-embedder', () => {
       "
     `);
   });
+
+  test('logs when a transformer errors', async () => {
+    const errorTransformer = {
+      getHTML: () => {
+        throw new Error('An error occurred in ErrorTransformer');
+      },
+      shouldTransform: () => true,
+    };
+
+    const markdownAST = getMarkdownASTForFile('ErrorTransformer', true);
+
+    await expect(
+      plugin({ cache, markdownAST }, { customTransformers: [errorTransformer] })
+    ).rejects.toMatchInlineSnapshot(`
+[Error: The following error appeared while processing 'https://error-site.com/':
+
+An error occurred in ErrorTransformer]
+`);
+  });
 });
