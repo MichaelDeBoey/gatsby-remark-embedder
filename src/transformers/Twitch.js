@@ -8,12 +8,9 @@ const getUrlConfig = url => {
   return { host, pathname, searchParams, splittedTrimmedPathName };
 };
 
-const getIdFromUrl = (urlConfig, param) => {
-  return (
-    urlConfig.searchParams.get(param) ||
-    urlConfig.splittedTrimmedPathName.slice(-1)[0]
-  );
-};
+const getIdFromUrl = (urlConfig, param) =>
+  urlConfig.searchParams.get(param) ||
+  urlConfig.splittedTrimmedPathName.slice(-1)[0];
 
 const isFromPlayerDomainWithParam = ({ host, searchParams }, param) =>
   host === 'player.twitch.tv' && Boolean(searchParams.get(param));
@@ -62,24 +59,29 @@ export const shouldTransform = url => {
 
 export const getTwitchIFrameSrc = urlString => {
   const urlConfig = getUrlConfig(urlString);
-  let location = getIdFromUrl(urlConfig, 'channel');
 
   if (isClip(urlConfig)) {
-    location = getIdFromUrl(urlConfig, 'clip');
-    return `https://clips.twitch.tv/embed?clip=${location}`;
+    return `https://clips.twitch.tv/embed?clip=${getIdFromUrl(
+      urlConfig,
+      'clip'
+    )}`;
   }
 
   if (isVideo(urlConfig)) {
-    location = getIdFromUrl(urlConfig, 'video');
-    return `https://player.twitch.tv?video=${location}`;
+    return `https://player.twitch.tv?video=${getIdFromUrl(urlConfig, 'video')}`;
   }
 
   if (isCollection(urlConfig)) {
-    location = getIdFromUrl(urlConfig, 'collection');
-    return `https://player.twitch.tv?collection=${location}`;
+    return `https://player.twitch.tv?collection=${getIdFromUrl(
+      urlConfig,
+      'collection'
+    )}`;
   }
 
-  return `https://player.twitch.tv?channel=${location}`;
+  return `https://player.twitch.tv?channel=${getIdFromUrl(
+    urlConfig,
+    'channel'
+  )}`;
 };
 
 export const getHTML = url => {
