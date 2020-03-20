@@ -22,9 +22,9 @@ Trying to embed well known services (like [CodePen][codepen],
 [CodeSandbox][codesandbox], [GIPHY][giphy], [Instagram][instagram],
 [Lichess][lichess], [Pinterest][pinterest], [Slides][slides],
 [SoundCloud][soundcloud], [Spotify][spotify], [Streamable][streamable],
-[Twitter][twitter] or [YouTube][youtube]) into your [Gatsby][gatsby] website can
-be hard, since you have to know how this needs to be done for all of these
-different services.
+[Twitch][twitch], [Twitter][twitter] or [YouTube][youtube]) into your
+[Gatsby][gatsby] website can be hard, since you have to know how this needs to
+be done for all of these different services.
 
 ## This solution
 
@@ -51,6 +51,7 @@ and replace it with the proper embed-code.
   - [SoundCloud](#soundcloud)
   - [Spotify](#spotify)
   - [Streamable](#streamable)
+  - [Twitch](#twitch)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
 - [Custom Transformers](#custom-transformers)
@@ -454,6 +455,30 @@ https://streamable.com/moo
 
 </details>
 
+### Twitch
+
+#### Usage
+
+```md
+https://twitch.tv/videos/546761743
+```
+
+<details>
+<summary><b>Result</b></summary>
+
+```html
+<iframe
+  src="https://player.twitch.tv/?video=546761743"
+  height="300"
+  width="100%"
+  frameborder="0"
+  scrolling="no"
+  allowfullscreen
+></iframe>
+```
+
+</details>
+
 ### Twitter
 
 The returned HTML snippet from the Twitter transformer will only be
@@ -701,6 +726,7 @@ MIT
 [soundcloud]: https://soundcloud.com
 [spotify]: https://spotify.com
 [streamable]: https://streamable.com
+[twitch]: https://twitch.tv
 [twitter]: https://twitter.com
 [twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
 [youtube]: https://youtube.com
