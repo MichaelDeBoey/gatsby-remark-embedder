@@ -1,3 +1,5 @@
+import cases from 'jest-in-case';
+
 import plugin from '../';
 
 import {
@@ -90,4 +92,39 @@ describe('gatsby-remark-embedder', () => {
 An error occurred in ErrorTransformer]
 `);
   });
+
+  cases(
+    'passes service-specific options to the transformers',
+    async ({ name, passedOptions }) => {
+      const transformer = {
+        getHTML: jest.fn(),
+        name,
+        shouldTransform: () => true,
+      };
+
+      const markdownAST = getMarkdownASTForFile('ServiceTransformer', true);
+
+      await plugin(
+        { cache, markdownAST },
+        {
+          customTransformers: [transformer],
+          services: { serviceTransformer: { service: 'transformer' } },
+        }
+      );
+
+      expect(transformer.getHTML).toHaveBeenCalledWith(
+        'https://some-site.com/id/abc',
+        passedOptions
+      );
+    },
+    {
+      'transformer with name': {
+        name: 'serviceTransformer',
+        passedOptions: { service: 'transformer' },
+      },
+      'transformer without name': {
+        passedOptions: {},
+      },
+    }
+  );
 });

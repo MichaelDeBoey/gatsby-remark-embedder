@@ -596,7 +596,7 @@ Each element of the array should be an object with two methods that receive the
 URL argument:
 
 - `shouldTransform(url)`
-- `getHTML(url)`
+- `getHTML(url, options)`
 
 The `shouldTransform` method should check if the URL matches the one intended to
 transform; it should to return a boolean value.
@@ -678,6 +678,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.

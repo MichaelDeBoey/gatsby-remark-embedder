@@ -15,7 +15,7 @@ const getUrlString = url => {
 
 export default async (
   { cache, markdownAST },
-  { customTransformers = [] } = {}
+  { customTransformers = [], services = {} } = {}
 ) => {
   const transformers = [...defaultTransformers, ...customTransformers];
 
@@ -46,13 +46,13 @@ export default async (
 
     transformers
       .filter(({ shouldTransform }) => shouldTransform(urlString))
-      .forEach(({ getHTML }) => {
+      .forEach(({ getHTML, name = '' }) => {
         transformations.push(async () => {
           try {
             let html = await cache.get(urlString);
 
             if (!html) {
-              html = await getHTML(urlString);
+              html = await getHTML(urlString, services[name] || {});
               await cache.set(urlString, html);
             }
 
