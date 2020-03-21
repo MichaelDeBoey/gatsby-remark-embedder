@@ -1,6 +1,6 @@
 import cases from 'jest-in-case';
 
-import plugin from '../..';
+import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/CodePen';
 
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
