@@ -2,9 +2,9 @@ import { URL } from 'url';
 
 import { getTrimmedPathName } from './utils';
 
-const isPin = pathname => pathname.includes('pin/');
-const isProfile = pathname => pathname.split('/').length === 1;
-const isBoard = pathname => pathname.split('/').length === 2;
+const isBoard = trimmedPathName => trimmedPathName.split('/').length === 2;
+const isPin = trimmedPathName => trimmedPathName.includes('pin/');
+const isProfile = trimmedPathName => trimmedPathName.split('/').length === 1;
 
 export const shouldTransform = url => {
   const { host, pathname } = new URL(url);
@@ -13,8 +13,8 @@ export const shouldTransform = url => {
   return (
     ['pinterest.com', 'www.pinterest.com'].includes(host) &&
     (isPin(trimmedPathName) ||
-      isProfile(trimmedPathName) ||
-      isBoard(trimmedPathName))
+      isBoard(trimmedPathName) ||
+      isProfile(trimmedPathName))
   );
 };
 
