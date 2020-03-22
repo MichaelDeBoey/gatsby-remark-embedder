@@ -1,5 +1,3 @@
-import { URL } from 'url';
-
 import { includesSomeOfArray } from './utils';
 
 export const shouldTransform = (url) => {

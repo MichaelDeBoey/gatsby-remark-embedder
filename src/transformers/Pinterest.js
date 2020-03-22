@@ -1,5 +1,3 @@
-import { URL } from 'url';
-
 import { getTrimmedPathName } from './utils';
 
 const isBoard = (trimmedPathName) => trimmedPathName.split('/').length === 2;
