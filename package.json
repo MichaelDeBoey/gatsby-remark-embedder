@@ -40,8 +40,6 @@
   ],
   "scripts": {
     "build": "kcd-scripts build",
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate",
     "lint": "kcd-scripts lint",
     "setup": "npm install && npm run validate -s",
     "test": "kcd-scripts test",
@@ -49,23 +47,22 @@
     "validate": "kcd-scripts validate"
   },
   "dependencies": {
-    "@babel/runtime": "^7.7.6",
-    "fetch-retry": "^3.0.1",
+    "@babel/runtime": "^7.9.2",
+    "fetch-retry": "^3.1.0",
     "node-fetch": "^2.6.0",
-    "unist-util-visit": "^2.0.1"
+    "unist-util-visit": "^2.0.2"
   },
   "devDependencies": {
-    "all-contributors-cli": "^6.11.2",
     "jest-in-case": "^1.0.2",
-    "kcd-scripts": "^3.1.0",
+    "kcd-scripts": "^5.6.1",
     "pretty-quick": "^2.0.1",
-    "remark": "^11.0.2"
+    "remark": "^12.0.0"
   },
   "peerDependencies": {
-    "gatsby": "^2.0.0"
+    "gatsby": "^2.20.0"
   },
   "engines": {
-    "node": ">=8",
+    "node": ">=10.13.0",
     "npm": ">=6",
     "yarn": ">=1"
   }
