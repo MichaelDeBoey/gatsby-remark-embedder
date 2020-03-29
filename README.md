@@ -8,13 +8,19 @@
 
 ---
 
+<!-- prettier-ignore-start -->
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
-[![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
+[![version][version-badge]][package]
+[![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
-[![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![PRs Welcome][prs-badge]][prs]
+[![Code of Conduct][coc-badge]][coc]
+<!-- prettier-ignore-end -->
 
 ## The problem
 
@@ -29,9 +35,9 @@ be done for all of these different services.
 ## This solution
 
 `gatsby-remark-embedder` tries to solve this problem for you by letting you just
-copy-paste the link to the pen/player/sandbox/tweet/video you want to embed
-right from within your browser onto a separate line (surrounded by empty lines)
-and replace it with the proper embed-code.
+copy-paste the link to the gif/pen/pin/player/post/sandbox/tweet/video you want
+to embed right from within your browser onto a separate line (surrounded by
+empty lines) and replace it with the proper embed-code.
 
 ## Table of Contents
 
@@ -54,12 +60,19 @@ and replace it with the proper embed-code.
   - [Twitch](#twitch)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
-- [Custom Transformers](#custom-transformers)
+- [Options](#options)
+  - [customTransformers](#customtransformers)
+    - [Properties](#properties)
+      - [`getHTML(url, options)`](#gethtmlurl-options)
+      - [`name`](#name)
+      - [`shouldTransform(url)`](#shouldtransformurl)
+    - [Example transformer](#example-transformer)
+  - [services](#services)
 - [Inspiration](#inspiration)
 - [Issues](#issues)
   - [🐛 Bugs](#-bugs)
   - [💡 Feature Requests](#-feature-requests)
-- [Contributors](#contributors)
+- [Contributors ✨](#contributors-)
 - [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -70,24 +83,86 @@ This module is distributed via [npm][npm] which is bundled with [node][node] and
 should be installed as one of your project's `dependencies`:
 
 ```sh
-npm install --save gatsby-remark-embedder
+npm install gatsby-remark-embedder
 ```
 
-This library has `peerDependencies` listings for [`gatsby`][gatsby].
+or
+
+```sh
+yarn add gatsby-remark-embedder
+```
+
+This library has a required `peerDependencies` listing for [`gatsby`][gatsby]
+and should be used as a plugin for
+[`gatsby-transformer-remark`][gatsby-transformer-remark] or
+[`gatsby-plugin-mdx`][gatsby-plugin-mdx].  
+Depending on the [services](#supported-services) you want to embed, you should
+also install [`gatsby-plugin-instagram-embed`][gatsby-plugin-instagram-embed],
+[`gatsby-plugin-pinterest`][gatsby-plugin-pinterest] and/or
+[`gatsby-plugin-twitter`][gatsby-plugin-twitter].
 
 ## Usage
 
 ```js
 // In your gatsby-config.js
 
-plugins: [
-  {
-    resolve: `gatsby-transformer-remark`,
-    options: {
-      plugins: [`gatsby-remark-embedder`],
+module.exports = {
+  // Find the 'plugins' array
+  plugins: [
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-embedder`,
+            options: {
+              customTransformers: [
+                // Your custom transformers
+              ],
+              services: {
+                // The service-specific options by the name of the service
+              },
+            },
+          },
+
+          // Other plugins here...
+        ],
+      },
     },
-  },
-];
+  ],
+};
+```
+
+or
+
+```js
+// In your gatsby-config.js
+
+module.exports = {
+  // Find the 'plugins' array
+  plugins: [
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-embedder`,
+            options: {
+              customTransformers: [
+                // Your custom transformers
+              ],
+              services: {
+                // The service-specific options by the name of the service
+              },
+            },
+          },
+
+          // Other plugins here...
+        ],
+      },
+    },
+  ],
+};
 ```
 
 ## Supported services
@@ -564,63 +639,58 @@ https://youtu.be/dQw4w9WgXcQ
 
 </details>
 
-## Custom Transformers
+## Options
+
+### customTransformers
 
 The plugin allows you to pass an array of custom transformers that will be
 executed additionally to the default ones.
 
-### Usage
+#### Properties
 
-```js
-// In your gatsby-config.js
-const someSiteTransformer = require('./some-site-transformer');
+Each transformer should be an object which has the following properties:
 
-plugins: [
-  {
-    resolve: `gatsby-transformer-remark`,
-    options: {
-      plugins: [
-        {
-          resolve: `gatsby-remark-embedder`,
-          options: {
-            customTransformers: [someSiteTransformer],
-          },
-        },
-      ],
-    },
-  },
-];
-```
+##### `getHTML(url, options)`
 
-Each element of the array should be an object with two methods that receive the
-URL argument:
+The `getHTML` method is executed when the given URL has been matched to
+transform. It should return the transformed HTML.  
+This asynchronous function receives the URL to transform together with an
+options object to take into account when transforming.
 
-- `shouldTransform(url)`
-- `getHTML(url, options)`
+##### `name`
 
-The `shouldTransform` method should check if the URL matches the one intended to
-transform; it should to return a boolean value.
+The `name` is the value that needs to be used as a key in the
+[`services` plugin option](#services). The value for this key will be provided
+as the second argument to [`getHTML`](#gethtmlurl-options).
 
-The `getHTML` method is executed when the URL has been matched to transform. It
-should return the transformed HTML. This function can be asynchronous, either by
-marking it as `async` or by manually returning a `Promise` object.
+##### `shouldTransform(url)`
 
-### Example transformer object
+The `shouldTransform` method should check if the given URL matches the one
+intended to transform. It should return a boolean value.
+
+#### Example transformer
 
 ```js
 // some-site-transformer.js
-const regex = /^https?:\/\/some-site\.com\//;
-
-const shouldTransform = url => regex.test(url);
-
 const getHTML = url => `<iframe src="${url}"></iframe>`;
 
-module.exports = { getHTML, shouldTransform };
+const name = 'someSite';
+
+const regex = /^https?:\/\/some-site\.com\//;
+const shouldTransform = url => regex.test(url);
+
+module.exports = { getHTML, name, shouldTransform };
 ```
+
+### services
+
+The plugin also allows you to pass an object which keys that represent the name
+of the [service](#supported-services) to transform and the value that's an
+object with options for that specific service.
 
 ## Inspiration
 
-This whole library was extracted out of Kent C. Dodds' [personal
+This whole plugin was extracted out of Kent C. Dodds' [personal
 website][kentcdodds.com-repo].
 
 The intention is to make this available to be used independently.
@@ -643,7 +713,7 @@ a 👍. This helps maintainers prioritize what to work on.
 
 [**See Feature Requests**][requests]
 
-## Contributors
+## Contributors ✨
 
 Thanks goes to these people ([emoji key][emojis]):
 
@@ -679,6 +749,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
@@ -691,8 +762,8 @@ MIT
 <!-- prettier-ignore-start -->
 [npm]: https://npmjs.com
 [node]: https://nodejs.org
-[build-badge]: https://img.shields.io/travis/MichaelDeBoey/gatsby-remark-embedder.svg?style=flat-square
-[build]: https://travis-ci.org/MichaelDeBoey/gatsby-remark-embedder
+[build-badge]: https://img.shields.io/travis/com/MichaelDeBoey/gatsby-remark-embedder.svg?style=flat-square
+[build]: https://travis-ci.com/MichaelDeBoey/gatsby-remark-embedder
 [coverage-badge]: https://img.shields.io/codecov/c/github/MichaelDeBoey/gatsby-remark-embedder.svg?style=flat-square
 [coverage]: https://codecov.io/github/MichaelDeBoey/gatsby-remark-embedder
 [version-badge]: https://img.shields.io/npm/v/gatsby-remark-embedder.svg?style=flat-square
@@ -709,15 +780,17 @@ MIT
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [bugs]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%90%9B+Bug%22+sort%3Acreated-desc
 [requests]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement
-[good-first-issue]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement+label%3A%22good+first+issue%22
+[good-first-issue]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3A%22good+first+issue%22
 
 [codepen]: https://codepen.io
 [codesandbox]: https://codesandbox.io
 [embedded-tweet-docs]: https://developer.twitter.com/web/embedded-tweets
 [gatsby]: https://github.com/gatsbyjs/gatsby
 [gatsby-plugin-instagram-embed]: https://github.com/jlengstorf/gatsby-plugin-instagram-embed
+[gatsby-plugin-mdx]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-mdx
 [gatsby-plugin-pinterest]: https://github.com/robinmetral/gatsby-plugin-pinterest
 [gatsby-plugin-twitter]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-twitter
+[gatsby-transformer-remark]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-remark
 [giphy]: https://giphy.com
 [instagram]: https://instagram.com
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
