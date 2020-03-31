@@ -2,7 +2,7 @@ import { URL } from 'url';
 
 import { includesSomeOfArray } from './utils';
 
-export const shouldTransform = url => {
+export const shouldTransform = (url) => {
   const { host, pathname } = new URL(url);
 
   return (
@@ -19,7 +19,7 @@ export const shouldTransform = url => {
   );
 };
 
-export const getSpotifyIFrameSrc = urlString => {
+export const getSpotifyIFrameSrc = (urlString) => {
   const { pathname } = new URL(urlString);
   const type = pathname.split('/')[1].toLowerCase();
 
@@ -31,7 +31,7 @@ export const getSpotifyIFrameSrc = urlString => {
   return urlString.replace(type, `embed/${type}`);
 };
 
-export const getHTML = url => {
+export const getHTML = (url) => {
   const iframeSrc = getSpotifyIFrameSrc(url);
 
   return `<iframe src="${iframeSrc}" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;

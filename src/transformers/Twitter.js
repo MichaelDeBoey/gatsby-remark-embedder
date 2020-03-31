@@ -2,7 +2,7 @@ import { URL } from 'url';
 
 import { fetchOEmbedData, includesSomeOfArray } from './utils';
 
-export const shouldTransform = url => {
+export const shouldTransform = (url) => {
   const { host, pathname } = new URL(url);
 
   return (
@@ -13,7 +13,7 @@ export const shouldTransform = url => {
   );
 };
 
-export const getHTML = url => {
+export const getHTML = (url) => {
   /**
    * For moments, Twitter oembed doesn't work with urls using 'events', they should
    * use 'moments', even though they redirect from 'moments' to 'events' on the browser.
@@ -24,8 +24,8 @@ export const getHTML = url => {
     `https://publish.twitter.com/oembed?url=${twitterUrl}&dnt=true&omit_script=true`
   ).then(({ html }) =>
     [html]
-      .map(s => s.replace(/\?ref_src=twsrc.*?fw/g, ''))
-      .map(s => s.replace(/<br>/g, '<br />'))
+      .map((s) => s.replace(/\?ref_src=twsrc.*?fw/g, ''))
+      .map((s) => s.replace(/<br>/g, '<br />'))
       .join('')
       .trim()
   );

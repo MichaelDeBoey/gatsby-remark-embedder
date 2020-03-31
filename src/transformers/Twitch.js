@@ -1,7 +1,7 @@
 import { URL } from 'url';
 import { getTrimmedPathName } from './utils';
 
-const getUrlConfig = url => {
+const getUrlConfig = (url) => {
   const { host, pathname, searchParams } = new URL(url);
   const splittedTrimmedPathName = getTrimmedPathName(pathname).split('/');
 
@@ -15,7 +15,7 @@ const getIdFromUrl = (urlConfig, param) =>
 const isFromPlayerDomainWithParam = ({ host, searchParams }, param) =>
   host === 'player.twitch.tv' && Boolean(searchParams.get(param));
 
-const isFromTwitchDomain = host =>
+const isFromTwitchDomain = (host) =>
   ['twitch.tv', 'www.twitch.tv'].includes(host);
 
 const isChannel = ({ host, searchParams, splittedTrimmedPathName }) =>
@@ -46,7 +46,7 @@ const isVideo = ({ host, searchParams, splittedTrimmedPathName }) =>
     splittedTrimmedPathName.length === 2 &&
     splittedTrimmedPathName[0] === 'videos');
 
-export const shouldTransform = url => {
+export const shouldTransform = (url) => {
   const urlConfig = getUrlConfig(url);
 
   return (
@@ -57,7 +57,7 @@ export const shouldTransform = url => {
   );
 };
 
-export const getTwitchIFrameSrc = urlString => {
+export const getTwitchIFrameSrc = (urlString) => {
   const urlConfig = getUrlConfig(urlString);
 
   if (isClip(urlConfig)) {
@@ -84,7 +84,7 @@ export const getTwitchIFrameSrc = urlString => {
   )}`;
 };
 
-export const getHTML = url => {
+export const getHTML = (url) => {
   const iframeUrl = getTwitchIFrameSrc(url);
 
   return `<iframe src="${iframeUrl}" height="300" width="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>`;

@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import remark from 'remark';
 
-const getFixturesPath = isCustomTransformer =>
+const getFixturesPath = (isCustomTransformer) =>
   `${__dirname}/../${isCustomTransformer ? '' : 'transformers/'}__fixtures__`;
 
 const readMarkdownFile = (fileName, isCustomTransformer) =>

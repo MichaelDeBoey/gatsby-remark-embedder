@@ -2,7 +2,7 @@ import { URL } from 'url';
 
 import { fetchOEmbedData } from './utils';
 
-export const shouldTransform = url => {
+export const shouldTransform = (url) => {
   const { host, pathname } = new URL(url);
 
   return (
@@ -15,7 +15,7 @@ export const shouldTransform = url => {
   );
 };
 
-export const getHTML = url =>
+export const getHTML = (url) =>
   fetchOEmbedData(
     `https://api.instagram.com/oembed?url=${url}&omitscript=true`
   ).then(({ html }) => html);

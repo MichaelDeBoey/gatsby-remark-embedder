@@ -2,11 +2,11 @@ import { URL } from 'url';
 
 import { getTrimmedPathName } from './utils';
 
-const isBoard = trimmedPathName => trimmedPathName.split('/').length === 2;
-const isPin = trimmedPathName => trimmedPathName.includes('pin/');
-const isProfile = trimmedPathName => trimmedPathName.split('/').length === 1;
+const isBoard = (trimmedPathName) => trimmedPathName.split('/').length === 2;
+const isPin = (trimmedPathName) => trimmedPathName.includes('pin/');
+const isProfile = (trimmedPathName) => trimmedPathName.split('/').length === 1;
 
-export const shouldTransform = url => {
+export const shouldTransform = (url) => {
   const { host, pathname } = new URL(url);
   const trimmedPathName = getTrimmedPathName(pathname);
 
@@ -18,7 +18,7 @@ export const shouldTransform = url => {
   );
 };
 
-export const getHTML = url => {
+export const getHTML = (url) => {
   const { pathname } = new URL(url);
   const trimmedPathName = getTrimmedPathName(pathname);
 

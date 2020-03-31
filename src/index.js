@@ -3,7 +3,7 @@ import visit from 'unist-util-visit';
 
 import { defaultTransformers } from './transformers';
 
-const getUrlString = url => {
+const getUrlString = (url) => {
   const urlString = url.startsWith('http') ? url : `https://${url}`;
 
   try {
@@ -20,7 +20,7 @@ export default async (
   const transformers = [...defaultTransformers, ...customTransformers];
 
   const transformations = [];
-  visit(markdownAST, 'paragraph', paragraphNode => {
+  visit(markdownAST, 'paragraph', (paragraphNode) => {
     if (paragraphNode.children.length !== 1) {
       return;
     }
@@ -68,7 +68,7 @@ export default async (
       });
   });
 
-  await Promise.all(transformations.map(t => t()));
+  await Promise.all(transformations.map((t) => t()));
 
   return markdownAST;
 };

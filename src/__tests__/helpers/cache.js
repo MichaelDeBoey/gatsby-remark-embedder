@@ -3,5 +3,5 @@ export const cache = {
   set: jest.fn(),
 };
 
-export const mockCache = mockedCache =>
-  cache.get.mockImplementation(urlString => mockedCache[urlString]);
+export const mockCache = (mockedCache) =>
+  cache.get.mockImplementation((urlString) => mockedCache[urlString]);

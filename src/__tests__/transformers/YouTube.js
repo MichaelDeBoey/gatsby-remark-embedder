@@ -131,7 +131,7 @@ cases(
     { value: '2m1s', seconds: '121' },
     { value: '1h', seconds: '3600' },
     { value: '1h1m1s', seconds: '3661' },
-  ].map(opts => ({
+  ].map((opts) => ({
     ...opts,
     name: `${opts.value} -> ${opts.seconds}`,
   }))

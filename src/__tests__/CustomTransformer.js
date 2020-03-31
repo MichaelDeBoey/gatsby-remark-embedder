@@ -3,8 +3,8 @@ import plugin from '../';
 import { cache, getMarkdownASTForFile, parseASTToMarkdown } from './helpers';
 
 const transformer = {
-  shouldTransform: jest.fn(url => url.startsWith('https://some-site.com')),
-  getHTML: jest.fn(url => `<iframe src="${url}"></iframe>`),
+  shouldTransform: jest.fn((url) => url.startsWith('https://some-site.com')),
+  getHTML: jest.fn((url) => `<iframe src="${url}"></iframe>`),
 };
 
 test('Plugin can transform CustomTransformer links', async () => {

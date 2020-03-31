@@ -672,12 +672,12 @@ intended to transform. It should return a boolean value.
 
 ```js
 // some-site-transformer.js
-const getHTML = url => `<iframe src="${url}"></iframe>`;
+const getHTML = (url) => `<iframe src="${url}"></iframe>`;
 
 const name = 'someSite';
 
 const regex = /^https?:\/\/some-site\.com\//;
-const shouldTransform = url => regex.test(url);
+const shouldTransform = (url) => regex.test(url);
 
 module.exports = { getHTML, name, shouldTransform };
 ```

@@ -9,7 +9,7 @@ import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 const { Response } = jest.requireActual('node-fetch');
 jest.mock('node-fetch', () => jest.fn());
 
-const mockFetch = html =>
+const mockFetch = (html) =>
   fetchMock.mockImplementation(() =>
     Promise.resolve(new Response(JSON.stringify({ html })))
   );

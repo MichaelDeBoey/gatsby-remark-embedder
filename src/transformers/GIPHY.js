@@ -2,9 +2,9 @@ import { URL } from 'url';
 
 import { fetchOEmbedData } from './utils';
 
-const isMediaSubDomain = host => /^(media([0-9]+)?\.)giphy\.com$/.test(host);
+const isMediaSubDomain = (host) => /^(media([0-9]+)?\.)giphy\.com$/.test(host);
 
-export const shouldTransform = url => {
+export const shouldTransform = (url) => {
   const { host, pathname } = new URL(url);
 
   return (
@@ -14,7 +14,7 @@ export const shouldTransform = url => {
   );
 };
 
-export const getGIPHYId = url => {
+export const getGIPHYId = (url) => {
   const { host, pathname } = new URL(url);
 
   if (isMediaSubDomain(host)) {
@@ -27,7 +27,7 @@ export const getGIPHYId = url => {
 export const getGIPHYResponsivePadding = ({ height, width }) =>
   Math.round((height / width) * 100);
 
-export const getHTML = url =>
+export const getHTML = (url) =>
   fetchOEmbedData(`https://giphy.com/services/oembed?url=${url}`).then(
     ({ height, width }) => {
       const GIPHYId = getGIPHYId(url);

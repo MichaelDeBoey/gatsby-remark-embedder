@@ -5,7 +5,7 @@ import { fetchOEmbedData } from '../../../transformers/utils';
 const { Response } = jest.requireActual('node-fetch');
 jest.mock(`node-fetch`);
 // make timeouts quicker
-global.setTimeout = jest.fn(cb => setImmediate(cb));
+global.setTimeout = jest.fn((cb) => setImmediate(cb));
 
 describe(`fetchOEmbedData`, () => {
   const URL = 'https://google.com';
@@ -22,7 +22,7 @@ describe(`fetchOEmbedData`, () => {
 
     fetch.mockResolvedValue(new Response(JSON.stringify(MockedResponseResult)));
 
-    return fetchOEmbedData(URL).then(res => {
+    return fetchOEmbedData(URL).then((res) => {
       // assert some internal logic (that fetch was actually called)
       expect(fetch).toBeCalledTimes(1);
       expect(fetch).nthCalledWith(1, URL, expect.anything());
@@ -46,7 +46,7 @@ describe(`fetchOEmbedData`, () => {
       })
     );
 
-    return fetchOEmbedData(URL).catch(err => {
+    return fetchOEmbedData(URL).catch((err) => {
       expect(err).toMatchInlineSnapshot(
         `[Error: Request to https://google.com returned non-OK status (403)]`
       );
@@ -67,7 +67,7 @@ describe(`fetchOEmbedData`, () => {
           new Response(JSON.stringify(MockedResponseResult))
         );
 
-      return fetchOEmbedData(URL).then(async res => {
+      return fetchOEmbedData(URL).then(async (res) => {
         // assert some internal logic (that fetch was actually called 3 times)
         expect(fetch).toBeCalledTimes(3);
         expect(fetch).nthCalledWith(1, URL, expect.anything());
@@ -92,7 +92,7 @@ describe(`fetchOEmbedData`, () => {
       const socketError = new Error('socket hang up');
       fetch.mockRejectedValue(socketError);
 
-      return fetchOEmbedData(URL).catch(error => {
+      return fetchOEmbedData(URL).catch((error) => {
         // original request + 3 retries
         expect(fetch).toBeCalledTimes(4);
 

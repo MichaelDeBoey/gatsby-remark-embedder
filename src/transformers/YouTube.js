@@ -1,6 +1,6 @@
 import { URL } from 'url';
 
-export const shouldTransform = url => {
+export const shouldTransform = (url) => {
   const { host, pathname, searchParams } = new URL(url);
 
   return (
@@ -11,7 +11,7 @@ export const shouldTransform = url => {
   );
 };
 
-export const getTimeValueInSeconds = timeValue => {
+export const getTimeValueInSeconds = (timeValue) => {
   if (Number(timeValue).toString() === timeValue) {
     return timeValue;
   }
@@ -24,7 +24,7 @@ export const getTimeValueInSeconds = timeValue => {
 
   return String((Number(hours) * 60 + Number(minutes)) * 60 + Number(seconds));
 };
-export const getYouTubeIFrameSrc = urlString => {
+export const getYouTubeIFrameSrc = (urlString) => {
   const url = new URL(urlString);
   let id = url.searchParams.get('v');
   if (url.host === 'youtu.be') {
@@ -47,7 +47,7 @@ export const getYouTubeIFrameSrc = urlString => {
 
   return embedUrl.toString();
 };
-export const getHTML = url => {
+export const getHTML = (url) => {
   const iframeSrc = getYouTubeIFrameSrc(url);
 
   return `<iframe width="100%" height="315" src="${iframeSrc}" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>`;

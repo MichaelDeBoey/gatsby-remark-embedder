@@ -10,7 +10,7 @@ const ignoredPaths = [
   '/signup',
 ];
 const possibleCachePaths = ['e', 'g', 'o', 's', 't'];
-export const shouldTransform = url => {
+export const shouldTransform = (url) => {
   const { host, pathname } = new URL(url);
   const trimmedPathName = getTrimmedPathName(pathname).split('/');
 
@@ -23,7 +23,7 @@ export const shouldTransform = url => {
   );
 };
 
-export const getNormalizedStreamableUrl = url => {
+export const getNormalizedStreamableUrl = (url) => {
   const { pathname } = new URL(url);
   const trimmedPathName = getTrimmedPathName(pathname).split('/');
 
@@ -34,7 +34,7 @@ export const getNormalizedStreamableUrl = url => {
   return `https://streamable.com/${trimmedPathName[1]}`;
 };
 
-export const getHTML = url => {
+export const getHTML = (url) => {
   const normalizedUrl = getNormalizedStreamableUrl(url);
 
   return fetchOEmbedData(
