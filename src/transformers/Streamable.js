@@ -1,5 +1,3 @@
-import { URL } from 'url';
-
 import { fetchOEmbedData, getTrimmedPathName } from './utils';
 
 const ignoredPaths = [

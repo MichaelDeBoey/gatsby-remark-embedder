@@ -1,4 +1,3 @@
-import { URL } from 'url';
 import visit from 'unist-util-visit';
 
 import { defaultTransformers } from './transformers';

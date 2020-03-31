@@ -1,5 +1,3 @@
-import { URL } from 'url';
-
 export const shouldTransform = (url) => {
   const { host, pathname } = new URL(url);
 
