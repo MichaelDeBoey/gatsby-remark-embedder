@@ -42,3 +42,5 @@ https://twitch.tv/videos/546761743
 https://twitter.com/kentcdodds/status/1078755736455278592
 
 https://youtu.be/dQw4w9WgXcQ
+
+https://docs.google.com/presentation/d/e/2PACX-1vR8apkUGyfetdVcF226v6fLMrPspWUlrOYFBFRceHjD_pVgXFFp1Ee1lfsOlUYeMnvMh5DrRT-InOE5/pub?start=false&loop=false&delayms=3000
