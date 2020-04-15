@@ -47,7 +47,7 @@ describe('gatsby-remark-embedder', () => {
 
       <iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>
 
-      <iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb\\" sandbox=\\"allow-modals allow-forms allow-popups allow-scripts allow-same-origin\\"></iframe>
+      <iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr\\" sandbox=\\"allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts\\"></iframe>
 
       <div style=\\"width:100%;height:0;padding-bottom:63%;position:relative;\\"><iframe src=\\"https://giphy.com/embed/XatG8bioEwwVO\\" width=\\"100%\\" height=\\"100%\\" style=\\"position:absolute\\" frameborder=\\"0\\" class=\\"giphy-embed-from-cache\\" allowfullscreen></iframe></div>
 
