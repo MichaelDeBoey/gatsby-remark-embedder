@@ -11,6 +11,5 @@ export const shouldTransform = (url) => {
 };
 
 export const getHTML = (url) => {
-  console.log(`${url}/embed`);
   return `<iframe src="${url}/embed" width="100%" allowFullScreen></iframe>`;
 };
