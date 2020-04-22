@@ -72,9 +72,9 @@ test('Plugin can transform Google Slides links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-    "<https://docs.google.com/presentation/d/e/pub?start=false&loop=false&delayms=3000>
+    "<iframe src=\\"https://docs.google.com/presentation/d/e/e/embed?start=false&loop=false&delayms=3000\\" frameborder=\\"0\\" width=\\"960\\" height=\\"569\\" allowfullscreen=\\"true\\" mozallowfullscreen=\\"true\\" webkitallowfullscreen=\\"true\\"></iframe>
 
-    <https://docs.google.com/presentation/d/e/2PACX-1vR8apkUGyfetdVcF226v6fLMrPspWUlrOYFBFRceHjD_pVgXFFp1Ee1lfsOlUYeMnvMh5DrRT-InOE5/pub?start=false&loop=false&delayms=3000>
+    <iframe src=\\"https://docs.google.com/presentation/d/e/2PACX-1vR8apkUGyfetdVcF226v6fLMrPspWUlrOYFBFRceHjD_pVgXFFp1Ee1lfsOlUYeMnvMh5DrRT-InOE5/embed?start=false&loop=false&delayms=3000\\" frameborder=\\"0\\" width=\\"960\\" height=\\"569\\" allowfullscreen=\\"true\\" mozallowfullscreen=\\"true\\" webkitallowfullscreen=\\"true\\"></iframe>
     "
   `);
 });

@@ -60,6 +60,7 @@ empty lines) and replace it with the proper embed-code.
   - [Twitch](#twitch)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
+  - [GoogleSlides](#google-slides)
 - [Options](#options)
   - [customTransformers](#customtransformers)
     - [Properties](#properties)
@@ -635,6 +636,32 @@ https://youtu.be/dQw4w9WgXcQ
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe>
+```
+
+</details>
+
+### Google slides
+
+#### Usage
+
+```md
+https://docs.google.com/presentation/d/e/2PACX-1vQfksLBuIJX8qNyFEQh54SgB2_9x4xulcUaHtnXoTpP55NAMFIOqnK-5lFhbhQJPrnIZfgqeSg3ssNu/pub?start=false&loop=false&delayms=3000
+```
+
+<details>
+<summary><b>Result</b></summary>
+
+```html
+<iframe
+  src="https://docs.google.com/presentation/d/e/2PACX-1vQfksLBuIJX8qNyFEQh54SgB2_9x4xulcUaHtnXoTpP55NAMFIOqnK-5lFhbhQJPrnIZfgqeSg3ssNu/embed?start=false&loop=false&delayms=3000"
+  frameborder="0"
+  width="960"
+  height="569"
+  allowfullscreen="true"
+  mozallowfullscreen="true"
+  webkitallowfullscreen="true"
+>
+</iframe>
 ```
 
 </details>

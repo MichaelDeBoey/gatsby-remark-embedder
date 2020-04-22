@@ -72,7 +72,7 @@ describe('gatsby-remark-embedder', () => {
 
       <iframe width=\\"100%\\" height=\\"315\\" src=\\"https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe>
 
-      <https://docs.google.com/presentation/d/e/2PACX-1vR8apkUGyfetdVcF226v6fLMrPspWUlrOYFBFRceHjD_pVgXFFp1Ee1lfsOlUYeMnvMh5DrRT-InOE5/pub?start=false&loop=false&delayms=3000>
+      <iframe src=\\"https://docs.google.com/presentation/d/e/2PACX-1vR8apkUGyfetdVcF226v6fLMrPspWUlrOYFBFRceHjD_pVgXFFp1Ee1lfsOlUYeMnvMh5DrRT-InOE5/embed?start=false&loop=false&delayms=3000\\" frameborder=\\"0\\" width=\\"960\\" height=\\"569\\" allowfullscreen=\\"true\\" mozallowfullscreen=\\"true\\" webkitallowfullscreen=\\"true\\"></iframe>
       "
     `);
   });

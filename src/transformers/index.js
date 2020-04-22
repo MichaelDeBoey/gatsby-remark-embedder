@@ -11,6 +11,7 @@ import * as StreamableTransformer from './Streamable';
 import * as TwitchTransformer from './Twitch';
 import * as TwitterTransformer from './Twitter';
 import * as YouTubeTransformer from './YouTube';
+import * as GoogleSlideTransformer from './GoogleSlides';
 
 export const defaultTransformers = [
   CodePenTransformer,
@@ -26,4 +27,5 @@ export const defaultTransformers = [
   TwitchTransformer,
   TwitterTransformer,
   YouTubeTransformer,
+  GoogleSlideTransformer,
 ];
