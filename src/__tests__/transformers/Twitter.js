@@ -166,8 +166,6 @@ test('Plugin can transform Twitter links', async () => {
 
     <https://twitter.com/i/moments/edit/994601867987619840>
 
-    <https://twitter.com/wesbos/timelines/edit/1189618481672667136>
-
     <blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
 
     <blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
