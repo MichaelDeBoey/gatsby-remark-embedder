@@ -62,10 +62,6 @@ cases(
       url: 'https://twitter.com/i/moments/edit/994601867987619840',
       valid: false,
     },
-    'timeline edit url': {
-      url: 'https://twitter.com/wesbos/timelines/edit/1189618481672667136',
-      valid: false,
-    },
     'status url': {
       url: 'https://twitter.com/kentcdodds/status/1078755736455278592',
       valid: true,
