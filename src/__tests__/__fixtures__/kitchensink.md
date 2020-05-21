@@ -41,4 +41,6 @@ https://twitch.tv/videos/546761743
 
 https://twitter.com/kentcdodds/status/1078755736455278592
 
+https://twitter.com/wesbos/timelines/1189618481672667136
+
 https://youtu.be/dQw4w9WgXcQ
