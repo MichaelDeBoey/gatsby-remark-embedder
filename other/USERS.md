@@ -12,5 +12,7 @@ we may have a website to showcase these (wanna build it!?)
   [his personal website](https://github.com/kentcdodds/kentcdodds.com)
 - [Maggie Appleton](https://maggieappleton.com) uses it in
   [her personal website](https://github.com/MaggieAppleton/maggieappleton.com)
+- [Wes Bos](https://wesbos.com) uses it in
+  [his personal website](https://github.com/wesbos/wesbos)
 - [Anurag Hazra](https://anuraghazra.github.io) uses it in
   [his personal website](https://github.com/anuraghazra/anuraghazra.github.io)
