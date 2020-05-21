@@ -25,12 +25,12 @@
 ## The problem
 
 Trying to embed well known services (like [CodePen][codepen],
-[CodeSandbox][codesandbox], [GIPHY][giphy], [Instagram][instagram],
-[Lichess][lichess], [Pinterest][pinterest], [Slides][slides],
-[SoundCloud][soundcloud], [Spotify][spotify], [Streamable][streamable],
-[Twitch][twitch], [Twitter][twitter] or [YouTube][youtube]) into your
-[Gatsby][gatsby] website can be hard, since you have to know how this needs to
-be done for all of these different services.
+[CodeSandbox][codesandbox], [Excalidraw][codesandbox], [GIPHY][giphy],
+[Instagram][instagram], [Lichess][lichess], [Pinterest][pinterest],
+[Slides][slides], [SoundCloud][soundcloud], [Spotify][spotify],
+[Streamable][streamable], [Twitch][twitch], [Twitter][twitter] or
+[YouTube][youtube]) into your [Gatsby][gatsby] website can be hard, since you
+have to know how this needs to be done for all of these different services.
 
 ## This solution
 
@@ -837,6 +837,7 @@ MIT
 
 [codepen]: https://codepen.io
 [codesandbox]: https://codesandbox.io
+[excalidraw]: https://excalidraw.com
 [embedded-tweet-docs]: https://developer.twitter.com/web/embedded-tweets
 [gatsby]: https://github.com/gatsbyjs/gatsby
 [gatsby-plugin-instagram-embed]: https://github.com/MichaelDeBoey/gatsby-plugin-instagram-embed
