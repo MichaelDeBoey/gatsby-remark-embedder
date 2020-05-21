@@ -25,7 +25,7 @@
 ## The problem
 
 Trying to embed well known services (like [CodePen][codepen],
-[CodeSandbox][codesandbox], [Excalidraw][codesandbox], [GIPHY][giphy],
+[CodeSandbox][codesandbox], [Excalidraw][excalidraw], [GIPHY][giphy],
 [Instagram][instagram], [Lichess][lichess], [Pinterest][pinterest],
 [Slides][slides], [SoundCloud][soundcloud], [Spotify][spotify],
 [Streamable][streamable], [Twitch][twitch], [Twitter][twitter] or
