@@ -2,6 +2,10 @@ https://not-a-twitter-url.com
 
 https://this-is-not-twitter.com
 
+https://this-is-not-twitter.com/i/events/123
+
+https://this-is-not-twitter.com/i/moments/123
+
 https://this-is-not-twitter.com/foobar/status/123
 
 https://twitter.com/MichaelDeBoey93

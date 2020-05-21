@@ -36,6 +36,14 @@ cases(
       url: 'https://this-is-not-twitter.com',
       valid: false,
     },
+    "non-Twitter url ending with 'twitter.com' and having '/events/'": {
+      url: 'https://this-is-not-twitter.com/i/events/123',
+      valid: false,
+    },
+    "non-Twitter url ending with 'twitter.com' and having '/moments/'": {
+      url: 'https://this-is-not-twitter.com/i/moments/123',
+      valid: false,
+    },
     "non-Twitter url ending with 'twitter.com' and having '/status/'": {
       url: 'https://this-is-not-twitter.com/foobar/status/123',
       valid: false,
@@ -117,22 +125,26 @@ test('Plugin can transform Twitter links', async () => {
 
     <https://this-is-not-twitter.com>
 
+    <https://this-is-not-twitter.com/i/events/123>
+
+    <https://this-is-not-twitter.com/i/moments/123>
+
     <https://this-is-not-twitter.com/foobar/status/123>
 
     <https://twitter.com/MichaelDeBoey93>
-    
+
     <https://twitter.com/i/moments/edit/994601867987619840>
 
     <blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
 
     <blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
-    
+
     <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
 
     <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
-    
+
     <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
-    
+
     <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
     "
   `);
