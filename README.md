@@ -593,6 +593,8 @@ have to include it yourself. The recommended way of including it is by using
 https://twitter.com/MichaelDeBoey93/status/1152991421789548546
 
 https://twitter.com/i/moments/994601867987619840
+
+https://twitter.com/wesbos/timelines/1189618481672667136
 ```
 
 <details>
@@ -626,6 +628,13 @@ https://twitter.com/i/moments/994601867987619840
   href="https://twitter.com/i/moments/994601867987619840"
 >
   🔥 Design Tips
+</a>
+
+<a
+  class="twitter-timeline"
+  href="https://twitter.com/wesbos/timelines/1189618481672667136"
+>
+  🔥 Hot Tips from Wes Bos - Curated tweets by wesbos
 </a>
 ```
 
