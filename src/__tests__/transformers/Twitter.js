@@ -9,14 +9,16 @@ import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
 const { Response } = jest.requireActual('node-fetch');
 jest.mock('node-fetch', () => jest.fn());
 
-const mockFetch = (status, moment) =>
+const mockFetch = (status, moment, timeline) =>
   fetchMock
     .mockResolvedValueOnce(new Response(JSON.stringify({ html: status })))
     .mockResolvedValueOnce(new Response(JSON.stringify({ html: status })))
     .mockResolvedValueOnce(new Response(JSON.stringify({ html: moment })))
     .mockResolvedValueOnce(new Response(JSON.stringify({ html: moment })))
     .mockResolvedValueOnce(new Response(JSON.stringify({ html: moment })))
-    .mockResolvedValueOnce(new Response(JSON.stringify({ html: moment })));
+    .mockResolvedValueOnce(new Response(JSON.stringify({ html: moment })))
+    .mockResolvedValueOnce(new Response(JSON.stringify({ html: timeline })))
+    .mockResolvedValueOnce(new Response(JSON.stringify({ html: timeline })));
 
 beforeEach(() => {
   fetchMock.mockReset();
@@ -46,6 +48,10 @@ cases(
     },
     "non-Twitter url ending with 'twitter.com' and having '/status/'": {
       url: 'https://this-is-not-twitter.com/foobar/status/123',
+      valid: false,
+    },
+    "non-Twitter url ending with 'twitter.com' and having '/timelines/'": {
+      url: 'https://this-is-not-twitter.com/foobar/timelines/123',
       valid: false,
     },
     'profile url': {
@@ -80,6 +86,14 @@ cases(
       url: 'https://www.twitter.com/i/events/994601867987619840',
       valid: true,
     },
+    'timelines url': {
+      url: 'https://twitter.com/wesbos/timelines/1189618481672667136',
+      valid: true,
+    },
+    "timelines url having 'www' subdomain": {
+      url: 'https://www.twitter.com/wesbos/timelines/1189618481672667136',
+      valid: true,
+    },
   }
 );
 
@@ -111,10 +125,25 @@ test('Gets the correct Twitter moment link', async () => {
   );
 });
 
+test('Gets the correct Twitter timeline link', async () => {
+  mockFetch(
+    `<a class="twitter-timeline-mocked-fetch-transformer" href="https://twitter.com/wesbos/timelines/1189618481672667136">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a>`
+  );
+
+  const html = await getHTML(
+    'https://twitter.com/wesbos/timelines/1189618481672667136'
+  );
+
+  expect(html).toMatchInlineSnapshot(
+    `"<a class=\\"twitter-timeline-mocked-fetch-transformer\\" href=\\"https://twitter.com/wesbos/timelines/1189618481672667136\\">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a>"`
+  );
+});
+
 test('Plugin can transform Twitter links', async () => {
   mockFetch(
     `<blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote>`,
-    `<a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a>`
+    `<a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a>`,
+    `<a class="twitter-timeline-mocked-fetch-plugin" href="https://twitter.com/wesbos/timelines/1189618481672667136">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a>`
   );
   const markdownAST = getMarkdownASTForFile('Twitter');
 
@@ -131,6 +160,8 @@ test('Plugin can transform Twitter links', async () => {
 
     <https://this-is-not-twitter.com/foobar/status/123>
 
+    <https://this-is-not-twitter.com/foobar/timelines/123>
+
     <https://twitter.com/MichaelDeBoey93>
 
     <https://twitter.com/i/moments/edit/994601867987619840>
@@ -146,6 +177,10 @@ test('Plugin can transform Twitter links', async () => {
     <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
 
     <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
+
+    <a class=\\"twitter-timeline-mocked-fetch-plugin\\" href=\\"https://twitter.com/wesbos/timelines/1189618481672667136\\">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a>
+
+    <a class=\\"twitter-timeline-mocked-fetch-plugin\\" href=\\"https://twitter.com/wesbos/timelines/1189618481672667136\\">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a>
     "
   `);
 });
