@@ -77,6 +77,8 @@ describe('gatsby-remark-embedder', () => {
 
       <iframe class=\\"streamable-embed-from-cache\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
 
+      <iframe src=\\"https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a?panes=query,preview\\" height=\\"450\\" width=\\"100%\\" scrolling=\\"no\\" frameBorder=\\"0\\" allowTransparency=\\"true\\" style=\\"overflow: hidden; display: block; width: 100%\\"></iframe>
+
       <iframe src=\\"https://player.twitch.tv?video=546761743&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
       <blockquote class=\\"twitter-tweet-from-cache\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>

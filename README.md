@@ -27,17 +27,18 @@
 Trying to embed well known services (like [CodePen][codepen],
 [CodeSandbox][codesandbox], [GIPHY][giphy], [Instagram][instagram],
 [Lichess][lichess], [Pinterest][pinterest], [Slides][slides],
-[SoundCloud][soundcloud], [Spotify][spotify], [Streamable][streamable],
-[Twitch][twitch], [Twitter][twitter] or [YouTube][youtube]) into your
-[Gatsby][gatsby] website can be hard, since you have to know how this needs to
-be done for all of these different services.
+[SoundCloud][soundcloud], [Spotify][spotify], [Streamable][streamable], [Testing
+Playground][testing-playground], [Twitch][twitch], [Twitter][twitter] or
+[YouTube][youtube]) into your [Gatsby][gatsby] website can be hard, since you
+have to know how this needs to be done for all of these different services.
 
 ## This solution
 
 `gatsby-remark-embedder` tries to solve this problem for you by letting you just
-copy-paste the link to the gif/pen/pin/player/post/sandbox/tweet/video you want
-to embed right from within your browser onto a separate line (surrounded by
-empty lines) and replace it with the proper embed-code.
+copy-paste the link to the
+gif/pen/pin/player/playground/post/sandbox/tweet/video you want to embed right
+from within your browser onto a separate line (surrounded by empty lines) and
+replace it with the proper embed-code.
 
 ## Table of Contents
 
@@ -176,7 +177,7 @@ https://codepen.io/team/codepen/pen/PNaGbb
 ```
 
 <details>
-  <summary><b>Result</b></summary>
+<summary><b>Result</b></summary>
 
 ```html
 <iframe
@@ -563,6 +564,31 @@ https://streamable.com/moo
 
 </details>
 
+### Testing Playground
+
+#### Usage
+
+```md
+https://testing-playground.com/gist/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a
+```
+
+<details>
+<summary><b>Result</b></summary>
+
+```html
+<iframe
+  src="https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a?panes=query,preview"
+  height="450"
+  width="100%"
+  scrolling="no"
+  frameborder="0"
+  allowTransparency="true"
+  style="overflow: hidden; display: block; width: 100%"
+></iframe>
+```
+
+</details>
+
 ### Twitch
 
 Twitch embeds can only be embedded on HTTPS websites. Check out [the Gatsby
@@ -860,6 +886,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
@@ -915,6 +942,7 @@ MIT
 [soundcloud]: https://soundcloud.com
 [spotify]: https://spotify.com
 [streamable]: https://streamable.com
+[testing-playground]: https://testing-playground.com
 [twitch]: https://twitch.tv
 [twitter]: https://twitter.com
 [twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
