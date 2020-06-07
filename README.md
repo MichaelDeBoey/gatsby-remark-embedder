@@ -215,7 +215,7 @@ https://codesandbox.io/s/ynn88nx9x?view=split
 #### Usage
 
 ```md
-https://www.facebook.com/23859431504/videos/688096388646012
+https://facebook.com/23859431504/videos/688096388646012
 ```
 
 <details>
@@ -223,7 +223,7 @@ https://www.facebook.com/23859431504/videos/688096388646012
 
 ```html
 <iframe
-  src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/23859431504/videos/688096388646012"
+  src="https://facebook.com/plugins/video.php?href=https://facebook.com/23859431504/videos/688096388646012"
   width="560"
   height="315"
   style="border:none;overflow:hidden"
