@@ -8,6 +8,6 @@ export const shouldTransform = (url) => {
 };
 
 export const getHTML = (string) => {
-  const src = `https://www.facebook.com/plugins/video.php?href=${string}`;
+  const src = `https://facebook.com/plugins/video.php?href=${string}`;
   return `<iframe src="${src}" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>`;
 };
