@@ -25,12 +25,12 @@
 ## The problem
 
 Trying to embed well known services (like [CodePen][codepen],
-[CodeSandbox][codesandbox], [GIPHY][giphy], [Instagram][instagram],
-[Lichess][lichess], [Pinterest][pinterest], [Slides][slides],
-[SoundCloud][soundcloud], [Spotify][spotify], [Streamable][streamable],
-[Twitch][twitch], [Twitter][twitter] or [YouTube][youtube]) into your
-[Gatsby][gatsby] website can be hard, since you have to know how this needs to
-be done for all of these different services.
+[CodeSandbox][codesandbox], [Facebook][facebook], [GIPHY][giphy],
+[Instagram][instagram], [Lichess][lichess], [Pinterest][pinterest],
+[Slides][slides], [SoundCloud][soundcloud], [Spotify][spotify],
+[Streamable][streamable], [Twitch][twitch], [Twitter][twitter] or
+[YouTube][youtube]) into your [Gatsby][gatsby] website can be hard, since you
+have to know how this needs to be done for all of these different services.
 
 ## This solution
 
@@ -49,6 +49,7 @@ empty lines) and replace it with the proper embed-code.
 - [Supported services](#supported-services)
   - [CodePen](#codepen)
   - [CodeSandbox](#codesandbox)
+  - [Facebook](#facebook)
   - [GIPHY](#giphy)
   - [Instagram](#instagram)
   - [Lichess](#lichess)
@@ -204,6 +205,32 @@ https://codesandbox.io/s/ynn88nx9x?view=split
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+></iframe>
+```
+
+</details>
+
+### Facebook
+
+#### Usage
+
+```md
+https://www.facebook.com/23859431504/videos/688096388646012
+```
+
+<details>
+<summary><b>Result</b></summary>
+
+```html
+<iframe
+  src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/23859431504/videos/688096388646012"
+  width="560"
+  height="315"
+  style="border:none;overflow:hidden"
+  scrolling="no"
+  frameborder="0"
+  allowtransparency="true"
+  allowfullscreen="true"
 ></iframe>
 ```
 
