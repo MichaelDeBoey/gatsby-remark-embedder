@@ -1,4 +1,5 @@
 import { getTrimmedPathName } from './utils';
+
 export const shouldTransform = (url) => {
   const { host, pathname } = new URL(url);
   const trimmedPathName = getTrimmedPathName(pathname).split('/');

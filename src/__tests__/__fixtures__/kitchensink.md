@@ -21,7 +21,7 @@ https://codepen.io/team/codepen/pen/PNaGbb
 
 https://codesandbox.io/s/ynn88nx9x?view=split
 
-https://egghead.io/lessons/gatsby-build-a-page-layout-in-gatsby/
+https://egghead.io/lessons/gatsby-build-a-page-layout-in-gatsby
 
 https://giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO
 
