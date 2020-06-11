@@ -49,6 +49,7 @@ empty lines) and replace it with the proper embed-code.
 - [Supported services](#supported-services)
   - [CodePen](#codepen)
   - [CodeSandbox](#codesandbox)
+  - [Egghead](#egghead)
   - [GIPHY](#giphy)
   - [Instagram](#instagram)
   - [Lichess](#lichess)
@@ -204,6 +205,27 @@ https://codesandbox.io/s/ynn88nx9x?view=split
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+></iframe>
+```
+
+</details>
+
+### Egghead
+
+#### Usage
+
+```md
+https://egghead.io/lessons/gatsby-build-a-page-layout-in-gatsby
+```
+
+<details>
+<summary><b>Result</b></summary>
+
+```html
+<iframe
+  src="https://egghead.io/lessons/gatsby-build-a-page-layout-in-gatsby/embed"
+  width="100%"
+  allowfullscreen
 ></iframe>
 ```
 
