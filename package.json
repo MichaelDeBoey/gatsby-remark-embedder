@@ -22,7 +22,8 @@
     "streamable",
     "twitch",
     "twitter",
-    "youtube"
+    "youtube",
+    "excalidraw"
   ],
   "author": "Michaël De Boey <info@michaeldeboey.be> (https://michaeldeboey.be)",
   "license": "MIT",
@@ -50,6 +51,7 @@
     "@babel/runtime": "^7.10.4",
     "fetch-retry": "^4.0.1",
     "node-fetch": "^2.6.0",
+    "puppeteer": "^2.1.1",
     "unist-util-visit": "^2.0.2"
   },
   "devDependencies": {
