@@ -47,16 +47,16 @@
     "validate": "kcd-scripts validate"
   },
   "dependencies": {
-    "@babel/runtime": "^7.10.4",
+    "@babel/runtime": "^7.10.5",
     "fetch-retry": "^4.0.1",
     "node-fetch": "^2.6.0",
-    "unist-util-visit": "^2.0.2"
+    "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
     "jest-in-case": "^1.0.2",
     "kcd-scripts": "^6.2.4",
     "pretty-quick": "^2.0.1",
-    "remark": "^12.0.0"
+    "remark": "^12.0.1"
   },
   "peerDependencies": {
     "gatsby": "^2.20.0"
