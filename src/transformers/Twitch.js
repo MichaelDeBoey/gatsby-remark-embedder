@@ -83,8 +83,20 @@ export const getTwitchIFrameSrc = (urlString) => {
   )}`;
 };
 
-export const getHTML = (url) => {
-  const iframeUrl = getTwitchIFrameSrc(url);
+export const normalizeParent = (parent) => {
+  if (Array.isArray(parent)) {
+    return parent.join('&parent=');
+  }
+
+  return parent;
+};
+
+export const getHTML = (url, { parent }) => {
+  const iframeUrl = `${getTwitchIFrameSrc(url)}&parent=${normalizeParent(
+    parent
+  )}`;
 
   return `<iframe src="${iframeUrl}" height="300" width="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>`;
 };
+
+export const name = 'Twitch';

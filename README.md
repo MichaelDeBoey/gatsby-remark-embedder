@@ -532,6 +532,9 @@ https://streamable.com/moo
 
 ### Twitch
 
+Twitch embeds can only be embedded on HTTPS websites. Check out [the Gatsby
+docs][gatsby-https-docs] for setting this up when developing locally.
+
 #### Usage
 
 ```md
@@ -550,6 +553,70 @@ https://twitch.tv/videos/546761743
   scrolling="no"
   allowfullscreen
 ></iframe>
+```
+
+</details>
+
+#### Options
+
+All options should go under the `Twitch` namespace.
+
+| name   | Type                  | Required | Default | Description                                                                                           |
+| ------ | --------------------- | -------- | ------- | ----------------------------------------------------------------------------------------------------- |
+| parent | `string` / `string[]` | ✅       |         | Domain(s) that will be embedding Twitch. You must have one parent key for each domain your site uses. |
+
+##### parent
+
+You could either put in (a) hardcoded value(s) _or_ you could use environment
+variables that are available during the build process.
+
+###### Netlify
+
+Netlify has the `URL`, `DEPLOY_URL` and `DEPLOY_PRIME_URL` environment
+variables. Take a look at [the Netlify docs][netlify-environment-variables-docs]
+for more info.
+
+<details>
+<summary><b>Example</b></summary>
+
+```js
+const GatsbyRemarkEmbedderOptions = {
+  services: {
+    Twitch: {
+      parent: [
+        env.process.URL,
+        env.process.DEPLOY_URL,
+        env.process.DEPLOY_PRIME_URL,
+
+        // Other domains here...
+      ],
+    },
+  },
+};
+```
+
+</details>
+
+###### Vercel
+
+Vercel has the `VERCEL_URL` environment variable. Take a look at [the Vercel
+docs][vercel-environment-variables-docs] for more info.
+
+<details>
+<summary><b>Example</b></summary>
+
+```js
+const GatsbyRemarkEmbedderOptions = {
+  services: {
+    Twitch: {
+      parent: [
+        env.process.VERCEL_URL,
+
+        // Other domains here...
+      ],
+    },
+  },
+};
 ```
 
 </details>
@@ -796,6 +863,7 @@ MIT
 [codesandbox]: https://codesandbox.io
 [embedded-tweet-docs]: https://developer.twitter.com/web/embedded-tweets
 [gatsby]: https://github.com/gatsbyjs/gatsby
+[gatsby-https-docs]: https://gatsbyjs.org/docs/local-https
 [gatsby-plugin-instagram-embed]: https://github.com/MichaelDeBoey/gatsby-plugin-instagram-embed
 [gatsby-plugin-mdx]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-mdx
 [gatsby-plugin-pinterest]: https://github.com/robinmetral/gatsby-plugin-pinterest
@@ -805,6 +873,7 @@ MIT
 [instagram]: https://instagram.com
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
 [lichess]: https://lichess.org
+[netlify-environment-variable-docs]: https://docs.netlify.com/configure-builds/environment-variables/#deploy-urls-and-metadata
 [pinterest]: https://pinterest.com
 [slides]: https://slides.com
 [soundcloud]: https://soundcloud.com
@@ -813,5 +882,6 @@ MIT
 [twitch]: https://twitch.tv
 [twitter]: https://twitter.com
 [twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
+[vercel-environment-variable-docs]: https://vercel.com/docs/v2/build-step?query=Build#system-environment-variables
 [youtube]: https://youtube.com
 <!-- prettier-ignore-end -->
