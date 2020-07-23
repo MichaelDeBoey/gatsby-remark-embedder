@@ -22,7 +22,8 @@
     "streamable",
     "twitch",
     "twitter",
-    "youtube"
+    "youtube",
+    "google-slides"
   ],
   "author": "Michaël De Boey <info@michaeldeboey.be> (https://michaeldeboey.be)",
   "license": "MIT",
