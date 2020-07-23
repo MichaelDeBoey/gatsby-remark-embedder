@@ -4,6 +4,7 @@ import plugin from '../..';
 import {
   getHTML,
   getTwitchIFrameSrc,
+  normalizeParent,
   shouldTransform,
 } from '../../transformers/Twitch';
 
@@ -179,18 +180,44 @@ cases(
   }
 );
 
+cases(
+  'normalizeParent',
+  ({ normalizedParent, parent }) => {
+    expect(normalizeParent(parent)).toBe(normalizedParent);
+  },
+  [
+    { parent: 'embed.example.com', normalizedParent: 'embed.example.com' },
+    { parent: ['embed.example.com'], normalizedParent: 'embed.example.com' },
+    {
+      parent: ['embed.example.com', 'streamernews.example.com'],
+      normalizedParent: 'embed.example.com&parent=streamernews.example.com',
+    },
+  ]
+);
+
 test('Gets the correct Twitch iframe', () => {
-  const html = getHTML('https://twitch.tv/videos/546761743');
+  const html = getHTML('https://twitch.tv/videos/546761743', {
+    parent: 'embed.example.com',
+  });
 
   expect(html).toMatchInlineSnapshot(
-    `"<iframe src=\\"https://player.twitch.tv?video=546761743\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>"`
+    `"<iframe src=\\"https://player.twitch.tv?video=546761743&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>"`
   );
 });
 
 test('Plugin can transform Twitch links', async () => {
   const markdownAST = getMarkdownASTForFile('Twitch');
 
-  const processedAST = await plugin({ cache, markdownAST });
+  const processedAST = await plugin(
+    { cache, markdownAST },
+    {
+      services: {
+        Twitch: {
+          parent: 'embed.example.com',
+        },
+      },
+    }
+  );
 
   expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
     "<https://not-a-twitch-url.tv>
@@ -209,33 +236,33 @@ test('Plugin can transform Twitch links', async () => {
 
     <https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame>
 
-    <iframe src=\\"https://player.twitch.tv?channel=jlengstorf\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://player.twitch.tv?channel=jlengstorf&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://player.twitch.tv?channel=jlengstorf\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://player.twitch.tv?channel=jlengstorf&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://player.twitch.tv?channel=jlengstorf\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://player.twitch.tv?channel=jlengstorf&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://player.twitch.tv?collection=DHetedhyqBSVMg&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://player.twitch.tv?video=546761743\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://player.twitch.tv?video=546761743&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://player.twitch.tv?video=546761743\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://player.twitch.tv?video=546761743&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
 
-    <iframe src=\\"https://player.twitch.tv?video=546761743\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
+    <iframe src=\\"https://player.twitch.tv?video=546761743&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
     "
   `);
 });
