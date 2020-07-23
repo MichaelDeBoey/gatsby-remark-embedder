@@ -873,7 +873,7 @@ MIT
 [instagram]: https://instagram.com
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
 [lichess]: https://lichess.org
-[netlify-environment-variable-docs]: https://docs.netlify.com/configure-builds/environment-variables/#deploy-urls-and-metadata
+[netlify-environment-variables-docs]: https://docs.netlify.com/configure-builds/environment-variables/#deploy-urls-and-metadata
 [pinterest]: https://pinterest.com
 [slides]: https://slides.com
 [soundcloud]: https://soundcloud.com
@@ -882,6 +882,6 @@ MIT
 [twitch]: https://twitch.tv
 [twitter]: https://twitter.com
 [twitter-widget-javascript-docs]: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview
-[vercel-environment-variable-docs]: https://vercel.com/docs/v2/build-step?query=Build#system-environment-variables
+[vercel-environment-variables-docs]: https://vercel.com/docs/v2/build-step?query=Build#system-environment-variables
 [youtube]: https://youtube.com
 <!-- prettier-ignore-end -->
