@@ -60,7 +60,7 @@ empty lines) and replace it with the proper embed-code.
   - [Twitch](#twitch)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
-- [Options](#options)
+- [Options](#options-1)
   - [customTransformers](#customtransformers)
     - [Properties](#properties)
       - [`getHTML(url, options)`](#gethtmlurl-options)
