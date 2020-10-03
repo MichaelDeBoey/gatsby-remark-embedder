@@ -57,7 +57,7 @@ cases(
       valid: false,
     },
     'channel short url': {
-      url: 'https://youtube.com/c/ReactRally',
+      url: 'https://youtube.com/c/KentCDodds-vids',
       valid: false,
     },
     'playlist url': {
