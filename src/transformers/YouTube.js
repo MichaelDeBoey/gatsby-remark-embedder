@@ -24,13 +24,13 @@ export const getTimeValueInSeconds = (timeValue) => {
 };
 export const getYouTubeIFrameSrc = (urlString) => {
   const url = new URL(urlString);
-  let id = url.searchParams.get('v');
-  if (url.host === 'youtu.be') {
-    id = url.pathname.slice(1);
-  }
+  const id =
+    url.host === 'youtu.be' ? url.pathname.slice(1) : url.searchParams.get('v');
+
   const embedUrl = new URL(
     `https://www.youtube-nocookie.com/embed/${id}?rel=0`
   );
+
   url.searchParams.forEach((value, name) => {
     if (name === 'v') {
       return;
