@@ -12,3 +12,5 @@ export const getHTML = (url) => {
 
   return `<iframe src="${iframeUrl}" style="width:100%; height:300px;"></iframe>`;
 };
+
+export const name = 'CodePen';

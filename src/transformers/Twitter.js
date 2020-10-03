@@ -6,7 +6,11 @@ export const shouldTransform = (url) => {
   return (
     ['twitter.com', 'www.twitter.com'].includes(host) &&
     (pathname.includes('/status/') ||
-      (includesSomeOfArray(pathname, ['/events/', '/moments/', '/timelines/']) &&
+      (includesSomeOfArray(pathname, [
+        '/events/',
+        '/moments/',
+        '/timelines/',
+      ]) &&
         !pathname.includes('/edit/')))
   );
 };
@@ -28,3 +32,5 @@ export const getHTML = (url) => {
       .trim()
   );
 };
+
+export const name = 'Twitter';

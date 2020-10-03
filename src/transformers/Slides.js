@@ -23,3 +23,5 @@ export const getHTML = (url) => {
 
   return `<iframe src="${iframeSrc}" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`;
 };
+
+export const name = 'Slides';

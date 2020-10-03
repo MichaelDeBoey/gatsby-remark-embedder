@@ -34,3 +34,5 @@ export const getHTML = (url) => {
 
   return `<iframe src="${iframeSrc}" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
 };
+
+export const name = 'Spotify';

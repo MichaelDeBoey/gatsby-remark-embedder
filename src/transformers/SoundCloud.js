@@ -8,3 +8,5 @@ export const getHTML = (url) => {
 
   return `<iframe width="100%" height="300" scrolling="no" frameborder="no" src=${iframeUrl}></iframe>`;
 };
+
+export const name = 'SoundCloud';

@@ -16,7 +16,15 @@ export default async (
   { cache, markdownAST },
   { customTransformers = [], services = {} } = {}
 ) => {
-  const transformers = [...defaultTransformers, ...customTransformers];
+  const customTransformerNames = customTransformers
+    .map(({ name }) => name?.toLowerCase())
+    .filter(Boolean);
+
+  const filteredDefaultTransformers = defaultTransformers.filter(
+    ({ name }) => !customTransformerNames.includes(name?.toLowerCase())
+  );
+
+  const transformers = [...filteredDefaultTransformers, ...customTransformers];
 
   const transformations = [];
   visit(markdownAST, 'paragraph', (paragraphNode) => {

@@ -22,3 +22,5 @@ export const getHTML = (url) => {
 
   return `<iframe src="${iframeUrl}" width="600" height="397" frameborder="0"></iframe>`;
 };
+
+export const name = 'Lichess';

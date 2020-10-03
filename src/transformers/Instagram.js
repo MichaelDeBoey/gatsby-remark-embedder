@@ -17,3 +17,5 @@ export const getHTML = (url) =>
   fetchOEmbedData(
     `https://api.instagram.com/oembed?url=${url}&omitscript=true`
   ).then(({ html }) => html);
+
+export const name = 'Instagram';

@@ -34,3 +34,5 @@ export const getHTML = (url) =>
       return `<div style="width:100%;height:0;padding-bottom:${padding}%;position:relative;"><iframe src="https://giphy.com/embed/${GIPHYId}" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div>`;
     }
   );
+
+export const name = 'GIPHY';

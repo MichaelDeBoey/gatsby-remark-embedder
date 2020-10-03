@@ -39,3 +39,5 @@ export const getHTML = (url) => {
     `https://api.streamable.com/oembed.json?url=${normalizedUrl}`
   ).then(({ html }) => html);
 };
+
+export const name = 'Streamable';
