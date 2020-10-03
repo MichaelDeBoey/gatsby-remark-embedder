@@ -4,8 +4,8 @@ export const shouldTransform = (url) => {
   return (
     host === 'youtu.be' ||
     (['youtube.com', 'www.youtube.com'].includes(host) &&
-      pathname.includes('/watch') &&
-      Boolean(searchParams.get('v')))
+      ((pathname.includes('/watch') && Boolean(searchParams.get('v'))) ||
+        pathname.includes('/user/')))
   );
 };
 
@@ -24,6 +24,13 @@ export const getTimeValueInSeconds = (timeValue) => {
 };
 export const getYouTubeIFrameSrc = (urlString) => {
   const url = new URL(urlString);
+  if (urlString.includes('/user/')) {
+    const channelID = urlString.split('/user/')[1];
+    const channelEmbed =
+      'https://www.youtube.com/embed?listType=user_uploads&list=';
+    return channelEmbed + channelID;
+  }
+
   let id = url.searchParams.get('v');
   if (url.host === 'youtu.be') {
     id = url.pathname.slice(1);

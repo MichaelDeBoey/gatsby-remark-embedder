@@ -687,11 +687,12 @@ https://twitter.com/wesbos/timelines/1189618481672667136
 
 ### YouTube
 
-The YouTube transformer (currently) only supports videos in the following
-formats:
+The YouTube transformer (currently) supports videos and channels in the
+following formats:
 
 - Full url (`https://youtube.com/watch?v=dQw4w9WgXcQ`)
 - Short url (`https://youtu.be/dQw4w9WgXcQ`)
+- Channel url (`https://youtube.com/user/kentdoddsfamily`)
 
 #### Usage
 

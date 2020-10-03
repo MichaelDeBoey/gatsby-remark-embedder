@@ -67,7 +67,7 @@ cases(
     },
     'user full url': {
       url: 'https://youtube.com/user/kentdoddsfamily',
-      valid: false,
+      valid: true,
     },
     'user short url': {
       url: 'https://youtube.com/kentdoddsfamily',
@@ -175,7 +175,7 @@ test('Plugin can transform YouTube links', async () => {
 
     <https://youtube.com/playlist?list=PLV5CVI1eNcJgCrPH_e6d57KRUTiDZgs0u>
 
-    <https://youtube.com/user/kentdoddsfamily>
+    <iframe width=\\"100%\\" height=\\"315\\" src=\\"https://www.youtube.com/embed?listType=user_uploads&list=kentdoddsfamily\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe>
 
     <https://youtube.com/kentdoddsfamily>
     "
