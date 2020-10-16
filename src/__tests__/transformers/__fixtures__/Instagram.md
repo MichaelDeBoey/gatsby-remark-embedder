@@ -4,7 +4,7 @@ https://this-is-not-instagr.am
 
 https://this-is-not-instagram.com
 
-'https://this-is-not-instagr.am/p/B60jPE6J8U-
+https://this-is-not-instagr.am/p/B60jPE6J8U-
 
 https://this-is-not-instagram.com/p/B60jPE6J8U-
 
