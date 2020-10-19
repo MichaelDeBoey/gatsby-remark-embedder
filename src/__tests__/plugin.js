@@ -27,6 +27,9 @@ describe('gatsby-remark-embedder', () => {
       { cache, markdownAST },
       {
         services: {
+          Instagram: {
+            accessToken: 'access-token',
+          },
           Twitch: {
             parent: 'embed.example.com',
           },

@@ -382,6 +382,39 @@ https://instagram.com/p/B60jPE6J8U-
 
 </details>
 
+#### Options
+
+All options should go under the `Instagram` namespace.
+
+| name        | Type     | Required | Default | Description                                              |
+| ----------- | -------- | -------- | ------- | -------------------------------------------------------- |
+| accessToken | `string` | ✅       |         | An App Access Token (recommended) or Client Access Token |
+
+##### accessToken
+
+To get an App Access Token (recommended) or Client Access Token for the
+Instagram embed, check out the [Instagram oEmbed access token
+docs][instagram-oembed-access-token-docs] and
+[requirements][instagram-oembed-requirements-docs].
+
+The safest way to enter your `accessToken` is to set is as an [environment
+variable][gatsby-environment-variables-docs].
+
+<details>
+<summary><b>Example</b></summary>
+
+```js
+const GatsbyRemarkEmbedderOptions = {
+  services: {
+    Instagram: {
+      accessToken: env.process.INSTAGRAM_ACCESS_TOKEN,
+    },
+  },
+};
+```
+
+</details>
+
 ### Lichess
 
 #### Usage
@@ -863,6 +896,7 @@ MIT
 [codesandbox]: https://codesandbox.io
 [embedded-tweet-docs]: https://developer.twitter.com/web/embedded-tweets
 [gatsby]: https://github.com/gatsbyjs/gatsby
+[gatsby-environment-variables-docs]: https://www.gatsbyjs.com/docs/environment-variables
 [gatsby-https-docs]: https://gatsbyjs.org/docs/local-https
 [gatsby-plugin-instagram-embed]: https://github.com/MichaelDeBoey/gatsby-plugin-instagram-embed
 [gatsby-plugin-mdx]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-mdx
@@ -871,6 +905,8 @@ MIT
 [gatsby-transformer-remark]: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-remark
 [giphy]: https://giphy.com
 [instagram]: https://instagram.com
+[instagram-oembed-access-token-docs]: https://developers.facebook.com/docs/instagram/oembed#access-tokens
+[instagram-oembed-requirements-docs]: https://developers.facebook.com/docs/instagram/oembed#requirements
 [kentcdodds.com-repo]: https://github.com/kentcdodds/kentcdodds.com
 [lichess]: https://lichess.org
 [netlify-environment-variables-docs]: https://docs.netlify.com/configure-builds/environment-variables/#deploy-urls-and-metadata
