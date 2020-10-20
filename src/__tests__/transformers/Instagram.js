@@ -104,7 +104,9 @@ test('Gets the correct Instagram iframe', async () => {
     `<blockquote class="instagram-media-mocked-fetch-transformer"><div><a href="https://instagram.com/p/B60jPE6J8U-"><p>example</p></a><p>A post shared by <a href="https://instagram.com/michaeldeboey">Michaël De Boey</a> (@michaeldeboey) on<timedatetime="2020-01-02T14:45:30+00:00">Jan 2, 2020 at 6:45am PST</time></p></div></blockquote>`
   );
 
-  const html = await getHTML('https://instagram.com/p/B60jPE6J8U-');
+  const html = await getHTML('https://instagram.com/p/B60jPE6J8U-', {
+    accessToken: 'access-token',
+  });
 
   expect(html).toMatchInlineSnapshot(
     `"<blockquote class=\\"instagram-media-mocked-fetch-transformer\\"><div><a href=\\"https://instagram.com/p/B60jPE6J8U-\\"><p>example</p></a><p>A post shared by <a href=\\"https://instagram.com/michaeldeboey\\">Michaël De Boey</a> (@michaeldeboey) on<timedatetime=\\"2020-01-02T14:45:30+00:00\\">Jan 2, 2020 at 6:45am PST</time></p></div></blockquote>"`
@@ -117,7 +119,16 @@ test('Plugin can transform Instagram links', async () => {
   );
   const markdownAST = getMarkdownASTForFile('Instagram');
 
-  const processedAST = await plugin({ cache, markdownAST });
+  const processedAST = await plugin(
+    { cache, markdownAST },
+    {
+      services: {
+        Instagram: {
+          accessToken: 'access-token',
+        },
+      },
+    }
+  );
 
   expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
     "<https://not-an-instagram-url.com>

@@ -13,7 +13,9 @@ export const shouldTransform = (url) => {
   );
 };
 
-export const getHTML = (url) =>
+export const getHTML = (url, { accessToken }) =>
   fetchOEmbedData(
-    `https://api.instagram.com/oembed?url=${url}&omitscript=true`
+    `https://graph.facebook.com/v8.0/instagram_oembed?url=${url}&access_token=${accessToken}&omitscript=true`
   ).then(({ html }) => html);
+
+export const name = 'Instagram';
