@@ -203,6 +203,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "teeaarbee",
+      "name": "TEEAARBEE",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/65780147?v=4",
+      "profile": "https://teeaarbee.com/",
+      "contributions": [
+        "bug"
+      ]
     }
   ]
 }
