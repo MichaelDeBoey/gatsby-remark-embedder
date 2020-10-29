@@ -45,8 +45,8 @@ export const getYouTubeIFrameSrc = (urlString) => {
 
   return embedUrl.toString();
 };
-export const getHTML = (url) => {
+export const getHTML = (url, { width = '100%', height = '315' }) => {
   const iframeSrc = getYouTubeIFrameSrc(url);
 
-  return `<iframe width="100%" height="315" src="${iframeSrc}" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>`;
+  return `<iframe width="${width}" height="${height}" src="${iframeSrc}" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>`;
 };
