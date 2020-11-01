@@ -8,6 +8,7 @@ import * as SlidesTransformer from './Slides';
 import * as SoundCloudTransformer from './SoundCloud';
 import * as SpotifyTransformer from './Spotify';
 import * as StreamableTransformer from './Streamable';
+import * as TestingPlaygroundTransformer from './TestingPlayground';
 import * as TwitchTransformer from './Twitch';
 import * as TwitterTransformer from './Twitter';
 import * as YouTubeTransformer from './YouTube';
@@ -23,6 +24,7 @@ export const defaultTransformers = [
   SoundCloudTransformer,
   SpotifyTransformer,
   StreamableTransformer,
+  TestingPlaygroundTransformer,
   TwitchTransformer,
   TwitterTransformer,
   YouTubeTransformer,
