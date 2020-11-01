@@ -58,6 +58,7 @@ replace it with the proper embed-code.
   - [SoundCloud](#soundcloud)
   - [Spotify](#spotify)
   - [Streamable](#streamable)
+  - [Testing Playground](#testing-playground)
   - [Twitch](#twitch)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
