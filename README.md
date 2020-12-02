@@ -16,7 +16,7 @@
 [![MIT License][license-badge]][license]
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-20-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![PRs Welcome][prs-badge]][prs]
 [![Code of Conduct][coc-badge]][coc]
@@ -882,12 +882,12 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://nickymeuleman.netlify.app/"><img src="https://avatars2.githubusercontent.com/u/30179461?v=4" width="100px;" alt=""/><br /><sub><b>Nicky Meuleman</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=NickyMeuleman" title="Code">💻</a></td>
     <td align="center"><a href="http://heyayush.dev"><img src="https://avatars3.githubusercontent.com/u/17379963?v=4" width="100px;" alt=""/><br /><sub><b>Ayush</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=heyAyushh" title="Code">💻</a></td>
     <td align="center"><a href="https://teeaarbee.com/"><img src="https://avatars1.githubusercontent.com/u/65780147?v=4" width="100px;" alt=""/><br /><sub><b>TEEAARBEE</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?q=author%3Ateeaarbee" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://trevorblades.com"><img src="https://avatars0.githubusercontent.com/u/1216917?v=4" width="100px;" alt=""/><br /><sub><b>Trevor Blades</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=trevorblades" title="Documentation">📖</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
