@@ -409,7 +409,7 @@ variable][gatsby-environment-variables-docs].
 const GatsbyRemarkEmbedderOptions = {
   services: {
     Instagram: {
-      accessToken: env.process.INSTAGRAM_ACCESS_TOKEN,
+      accessToken: process.env.INSTAGRAM_ACCESS_TOKEN,
     },
   },
 };
@@ -644,9 +644,9 @@ const GatsbyRemarkEmbedderOptions = {
   services: {
     Twitch: {
       parent: [
-        env.process.URL,
-        env.process.DEPLOY_URL,
-        env.process.DEPLOY_PRIME_URL,
+        process.env.URL,
+        process.env.DEPLOY_URL,
+        process.env.DEPLOY_PRIME_URL,
 
         // Other domains here...
       ],
@@ -670,7 +670,7 @@ const GatsbyRemarkEmbedderOptions = {
   services: {
     Twitch: {
       parent: [
-        env.process.VERCEL_URL,
+        process.env.VERCEL_URL,
 
         // Other domains here...
       ],
