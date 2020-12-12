@@ -61,9 +61,6 @@
     "remark": "^13.0.0",
     "remark-html": "^13.0.1"
   },
-  "peerDependencies": {
-    "gatsby": "^2.20.0"
-  },
   "engines": {
     "node": ">=10.13.0",
     "npm": ">=6",

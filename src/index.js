@@ -19,10 +19,14 @@ const getUrlString = (url) => {
   }
 };
 
-export default async (
-  { cache, markdownAST },
-  { customTransformers = [], services = {} } = {}
-) => {
+const defaultCache = new Map();
+
+async function remarkEmbedderBase({
+  cache = defaultCache,
+  markdownAST,
+  customTransformers = [],
+  services = {},
+}) {
   const transformers = [...defaultTransformers, ...customTransformers];
 
   const transformations = [];
@@ -86,4 +90,18 @@ export default async (
   await Promise.all(transformations.map((t) => t()));
 
   return markdownAST;
-};
+}
+
+function remarkEmbedder(options) {
+  return (tree) => remarkEmbedderBase({ markdownAST: tree, ...options });
+}
+
+function remarkEmbedderGatsby({ cache, markdownAST }, options) {
+  return remarkEmbedderBase({ cache, markdownAST, ...options });
+}
+
+export { remarkEmbedder, remarkEmbedderGatsby };
+
+// TODO: remove this. Will be a breaking change though...
+// would be best to rename the package and remove the default export
+export default remarkEmbedderGatsby;
