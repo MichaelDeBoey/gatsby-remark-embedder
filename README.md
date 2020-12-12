@@ -37,6 +37,8 @@ gif/pen/pin/player/playground/post/sandbox/tweet/video you want to embed right
 from within your browser onto a separate line (surrounded by empty lines) and
 replace it with the proper embed-code.
 
+It also exports a remark plugin directly. Read more about how to use that below.
+
 ## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -62,6 +64,7 @@ replace it with the proper embed-code.
 - [Options](#options)
   - [customTransformers](#customtransformers)
   - [services](#services)
+- [Remark plugin](#remark-plugin)
 - [Inspiration](#inspiration)
 - [Issues](#issues)
   - [🐛 Bugs](#-bugs)
@@ -816,6 +819,32 @@ The plugin also allows you to pass an object which keys that represent the name
 of the [service](#supported-services) to transform and the value that's an
 object with options for that specific service.
 
+## Remark plugin
+
+If you want to use this directly with remark (without gatsby), here's an example
+of doing that:
+
+```javascript
+const remark = require('remark');
+const { remarkEmbedder } = require('gatsby-remark-embedder');
+
+const exampleMarkdown = `
+This is a great video:
+
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+`;
+
+const result = await remark()
+  .use(remarkEmbedder, {
+    customTransformers: [
+      // Your custom transformers
+    ],
+  })
+  .process(exampleMarkdown);
+
+// result.toString() <-- that's got the embed HTML
+```
+
 ## Inspiration
 
 This whole plugin was extracted out of Kent C. Dodds' [personal
@@ -884,6 +913,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
