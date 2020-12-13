@@ -6,7 +6,7 @@ import { defaultTransformers } from './transformers';
 
 // results in an AST node of type "root" with a single "children" node of type "element"
 // so we return the first (and only) child "element" node
-const htmlToHast = (string) => fromParse5(parse5.parse(string)).children[0];
+const htmlToHast = (string) => fromParse5(parse5.parseFragment(string));
 
 const getUrlString = (url) => {
   const urlString = url.startsWith('http') ? url : `https://${url}`;
