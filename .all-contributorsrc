@@ -221,6 +221,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "wooorm",
+      "name": "Titus",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/944406?v=4",
+      "profile": "http://wooorm.com",
+      "contributions": [
+        "test"
+      ]
     }
   ]
 }
