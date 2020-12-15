@@ -104,9 +104,9 @@ test('Plugin can transform Testing Playground links', async () => {
     <p><a href="https://this-is-not-testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a">https://this-is-not-testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a</a></p>
     <p><a href="https://testing-playground.com/.well-known/dnt-policy.txt">https://testing-playground.com/.well-known/dnt-policy.txt</a></p>
     <p><a href="https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a">https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a</a></p>
-    <p><iframe src="https://testing-playground.com/embed?panes=query,preview" height="450" width="100%" scrolling="no" frameBorder="0" allowTransparency="true" style="overflow: hidden; display: block; width: 100%"></iframe></p>
-    <p><iframe src="https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a?panes=query,preview" height="450" width="100%" scrolling="no" frameBorder="0" allowTransparency="true" style="overflow: hidden; display: block; width: 100%"></iframe></p>
-    <p><iframe src="https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a?panes=query,preview" height="450" width="100%" scrolling="no" frameBorder="0" allowTransparency="true" style="overflow: hidden; display: block; width: 100%"></iframe></p>
+    <iframe src="https://testing-playground.com/embed?panes=query,preview" height="450" width="100%" scrolling="no" frameBorder="0" allowTransparency="true" style="overflow: hidden; display: block; width: 100%"></iframe>
+    <iframe src="https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a?panes=query,preview" height="450" width="100%" scrolling="no" frameBorder="0" allowTransparency="true" style="overflow: hidden; display: block; width: 100%"></iframe>
+    <iframe src="https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a?panes=query,preview" height="450" width="100%" scrolling="no" frameBorder="0" allowTransparency="true" style="overflow: hidden; display: block; width: 100%"></iframe>
 
   `);
 });

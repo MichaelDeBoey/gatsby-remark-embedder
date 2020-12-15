@@ -104,10 +104,10 @@ test('Plugin can transform CodePen links', async () => {
     <p><a href="https://blog.codepen.io/user/pen/123456">https://blog.codepen.io/user/pen/123456</a></p>
     <p><a href="https://codepen.io/team/codepen/embed/PNaGbb">https://codepen.io/team/codepen/embed/PNaGbb</a></p>
     <p><a href="https://codepen.io/team/codepen/embed/PNaGbb?default-tab=js">https://codepen.io/team/codepen/embed/PNaGbb?default-tab=js</a></p>
-    <p><iframe src="https://codepen.io/team/codepen/embed/preview/PNaGbb" style="width:100%; height:300px;"></iframe></p>
-    <p><iframe src="https://www.codepen.io/team/codepen/embed/preview/PNaGbb" style="width:100%; height:300px;"></iframe></p>
-    <p><iframe src="https://codepen.io/chriscoyier/embed/preview/owBwKM" style="width:100%; height:300px;"></iframe></p>
-    <p><iframe src="https://www.codepen.io/chriscoyier/embed/preview/owBwKM" style="width:100%; height:300px;"></iframe></p>
+    <iframe src="https://codepen.io/team/codepen/embed/preview/PNaGbb" style="width:100%; height:300px;"></iframe>
+    <iframe src="https://www.codepen.io/team/codepen/embed/preview/PNaGbb" style="width:100%; height:300px;"></iframe>
+    <iframe src="https://codepen.io/chriscoyier/embed/preview/owBwKM" style="width:100%; height:300px;"></iframe>
+    <iframe src="https://www.codepen.io/chriscoyier/embed/preview/owBwKM" style="width:100%; height:300px;"></iframe>
 
   `);
 });

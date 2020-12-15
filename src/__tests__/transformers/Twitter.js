@@ -158,14 +158,14 @@ test('Plugin can transform Twitter links', async () => {
     <p><a href="https://this-is-not-twitter.com/foobar/timelines/123">https://this-is-not-twitter.com/foobar/timelines/123</a></p>
     <p><a href="https://twitter.com/MichaelDeBoey93">https://twitter.com/MichaelDeBoey93</a></p>
     <p><a href="https://twitter.com/i/moments/edit/994601867987619840">https://twitter.com/i/moments/edit/994601867987619840</a></p>
-    <p><blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote></p>
-    <p><blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote></p>
-    <p><a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a></p>
-    <p><a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a></p>
-    <p><a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a></p>
-    <p><a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a></p>
-    <p><a class="twitter-timeline-mocked-fetch-plugin" href="https://twitter.com/wesbos/timelines/1189618481672667136">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a></p>
-    <p><a class="twitter-timeline-mocked-fetch-plugin" href="https://twitter.com/wesbos/timelines/1189618481672667136">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a></p>
+    <blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote>
+    <blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote>
+    <a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a>
+    <a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a>
+    <a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a>
+    <a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a>
+    <a class="twitter-timeline-mocked-fetch-plugin" href="https://twitter.com/wesbos/timelines/1189618481672667136">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a>
+    <a class="twitter-timeline-mocked-fetch-plugin" href="https://twitter.com/wesbos/timelines/1189618481672667136">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a>
 
   `);
 });

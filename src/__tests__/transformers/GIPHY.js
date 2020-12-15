@@ -149,11 +149,11 @@ test('Plugin can transform GIPHY links', async () => {
     <p><a href="https://this-is-not-giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO">https://this-is-not-giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO</a></p>
     <p><a href="https://giphy.com">https://giphy.com</a></p>
     <p><a href="https://giphy.com/videos/blesstheharts-wayne-bless-the-harts-ciwJyqlgAYkvguS2Nw">https://giphy.com/videos/blesstheharts-wayne-bless-the-harts-ciwJyqlgAYkvguS2Nw</a></p>
-    <p><div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/XatG8bioEwwVO" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div></p>
-    <p><div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/XatG8bioEwwVO" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div></p>
-    <p><div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/XatG8bioEwwVO" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div></p>
-    <p><div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/XatG8bioEwwVO" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div></p>
-    <p><div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/XatG8bioEwwVO" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div></p>
+    <div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/XatG8bioEwwVO" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div>
+    <div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/XatG8bioEwwVO" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div>
+    <div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/XatG8bioEwwVO" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div>
+    <div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/XatG8bioEwwVO" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div>
+    <div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/XatG8bioEwwVO" width="100%" height="100%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen></iframe></div>
 
   `);
 });

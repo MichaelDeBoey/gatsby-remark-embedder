@@ -83,12 +83,12 @@ test('Plugin can transform Pinterest links', async () => {
     <p><a href="https://not-a-pinterest-url.com">https://not-a-pinterest-url.com</a></p>
     <p><a href="https://this-is-not-pinterest.com">https://this-is-not-pinterest.com</a></p>
     <p><a href="https://this-is-not-pinterest.com/pin/99360735500167749">https://this-is-not-pinterest.com/pin/99360735500167749</a></p>
-    <p><a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://pinterest.com/pinterest/official-news"></a></p>
-    <p><a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/pinterest/official-news"></a></p>
-    <p><a data-pin-do="embedPin" href="https://pinterest.com/pin/99360735500167749"></a></p>
-    <p><a data-pin-do="embedPin" href="https://www.pinterest.com/pin/99360735500167749"></a></p>
-    <p><a data-pin-do="embedUser" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://pinterest.com/pinterest"></a></p>
-    <p><a data-pin-do="embedUser" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/pinterest"></a></p>
+    <a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://pinterest.com/pinterest/official-news"></a>
+    <a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/pinterest/official-news"></a>
+    <a data-pin-do="embedPin" href="https://pinterest.com/pin/99360735500167749"></a>
+    <a data-pin-do="embedPin" href="https://www.pinterest.com/pin/99360735500167749"></a>
+    <a data-pin-do="embedUser" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://pinterest.com/pinterest"></a>
+    <a data-pin-do="embedUser" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/pinterest"></a>
 
   `);
 });

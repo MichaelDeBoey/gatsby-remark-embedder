@@ -107,12 +107,12 @@ test('Plugin can transform Lichess links', async () => {
     <p><a href="https://lichess.org/training/12345">https://lichess.org/training/12345</a></p>
     <p><a href="https://lichess.org/tv">https://lichess.org/tv</a></p>
     <p><a href="https://lichess.org/tv/best">https://lichess.org/tv/best</a></p>
-    <p><iframe src="https://lichess.org/embed/MPJcy1JW" width="600" height="397" frameborder="0"></iframe></p>
-    <p><iframe src="https://www.lichess.org/embed/MPJcy1JW" width="600" height="397" frameborder="0"></iframe></p>
-    <p><iframe src="https://lichess.org/embed/MPJcy1JW?theme=auto&bg=auto" width="600" height="397" frameborder="0"></iframe></p>
-    <p><iframe src="https://www.lichess.org/embed/MPJcy1JW?theme=auto&bg=auto" width="600" height="397" frameborder="0"></iframe></p>
-    <p><iframe src="https://lichess.org/embed/tv123abc56de" width="600" height="397" frameborder="0"></iframe></p>
-    <p><iframe src="https://www.lichess.org/embed/tv123abc56de" width="600" height="397" frameborder="0"></iframe></p>
+    <iframe src="https://lichess.org/embed/MPJcy1JW" width="600" height="397" frameborder="0"></iframe>
+    <iframe src="https://www.lichess.org/embed/MPJcy1JW" width="600" height="397" frameborder="0"></iframe>
+    <iframe src="https://lichess.org/embed/MPJcy1JW?theme=auto&bg=auto" width="600" height="397" frameborder="0"></iframe>
+    <iframe src="https://www.lichess.org/embed/MPJcy1JW?theme=auto&bg=auto" width="600" height="397" frameborder="0"></iframe>
+    <iframe src="https://lichess.org/embed/tv123abc56de" width="600" height="397" frameborder="0"></iframe>
+    <iframe src="https://www.lichess.org/embed/tv123abc56de" width="600" height="397" frameborder="0"></iframe>
 
   `);
 });

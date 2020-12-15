@@ -55,9 +55,14 @@ export default async (
               await cache.set(urlString, html);
             }
 
-            node.type = `html`;
-            node.value = html;
-            node.children = undefined;
+            const preserve = ['position'];
+            for (const key of Object.keys(paragraphNode)) {
+              if (!preserve.includes(key)) {
+                delete paragraphNode[key];
+              }
+            }
+            paragraphNode.type = 'html';
+            paragraphNode.value = html;
           } catch (error) {
             error.message = `The following error appeared while processing '${urlString}':\n\n${error.message}`;
 
