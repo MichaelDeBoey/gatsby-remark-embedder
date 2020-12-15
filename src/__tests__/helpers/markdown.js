@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs';
 import remark from 'remark';
+import html from 'remark-html';
 
 const getFixturesPath = (isCustomTransformer) =>
   `${__dirname}/../${isCustomTransformer ? '' : 'transformers/'}__fixtures__`;
@@ -13,4 +14,4 @@ const readMarkdownFile = (fileName, isCustomTransformer) =>
 export const getMarkdownASTForFile = (fileName, isCustomTransformer = false) =>
   remark.parse(readMarkdownFile(fileName, isCustomTransformer));
 
-export const parseASTToMarkdown = remark.stringify;
+export const mdastToHtml = (ast) => remark().use(html).stringify(ast);

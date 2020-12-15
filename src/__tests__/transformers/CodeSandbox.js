@@ -3,7 +3,7 @@ import cases from 'jest-in-case';
 import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/CodeSandbox';
 
-import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
+import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 cases(
   'url validation',
@@ -55,20 +55,14 @@ test('Plugin can transform CodeSandbox links', async () => {
 
   const processedAST = await plugin({ cache, markdownAST });
 
-  expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-    "<https://not-a-codesandbox-url.com>
-
-    <https://this-is-not-codesandbox.io>
-
-    <https://this-is-not-codesandbox.io/s/ynn88nx9x>
-
-    <https://codesandbox.io/embed/ynn88nx9x>
-
-    <iframe src=\\"https://codesandbox.io/embed/ynn88nx9x\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking\\" sandbox=\\"allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts\\"></iframe>
-
-    <iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking\\" sandbox=\\"allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts\\"></iframe>
-
-    <iframe src=\\"https://www.codesandbox.io/embed/ynn88nx9x\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking\\" sandbox=\\"allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts\\"></iframe>
+  expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
+    "<p><a href=\\"https://not-a-codesandbox-url.com\\">https://not-a-codesandbox-url.com</a></p>
+    <p><a href=\\"https://this-is-not-codesandbox.io\\">https://this-is-not-codesandbox.io</a></p>
+    <p><a href=\\"https://this-is-not-codesandbox.io/s/ynn88nx9x\\">https://this-is-not-codesandbox.io/s/ynn88nx9x</a></p>
+    <p><a href=\\"https://codesandbox.io/embed/ynn88nx9x\\">https://codesandbox.io/embed/ynn88nx9x</a></p>
+    <p><iframe src=\\"https://codesandbox.io/embed/ynn88nx9x\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking\\" sandbox=\\"allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts\\"></iframe></p>
+    <p><iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking\\" sandbox=\\"allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts\\"></iframe></p>
+    <p><iframe src=\\"https://www.codesandbox.io/embed/ynn88nx9x\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking\\" sandbox=\\"allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts\\"></iframe></p>
     "
   `);
 });

@@ -4,7 +4,7 @@ import fetchMock from 'node-fetch';
 import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/Twitter';
 
-import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
+import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 const { Response } = jest.requireActual('node-fetch');
 jest.mock('node-fetch', () => jest.fn());
@@ -149,38 +149,23 @@ test('Plugin can transform Twitter links', async () => {
 
   const processedAST = await plugin({ cache, markdownAST });
 
-  expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-    "<https://not-a-twitter-url.com>
-
-    <https://this-is-not-twitter.com>
-
-    <https://this-is-not-twitter.com/i/events/123>
-
-    <https://this-is-not-twitter.com/i/moments/123>
-
-    <https://this-is-not-twitter.com/foobar/status/123>
-
-    <https://this-is-not-twitter.com/foobar/timelines/123>
-
-    <https://twitter.com/MichaelDeBoey93>
-
-    <https://twitter.com/i/moments/edit/994601867987619840>
-
-    <blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
-
-    <blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
-
-    <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
-
-    <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
-
-    <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
-
-    <a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>
-
-    <a class=\\"twitter-timeline-mocked-fetch-plugin\\" href=\\"https://twitter.com/wesbos/timelines/1189618481672667136\\">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a>
-
-    <a class=\\"twitter-timeline-mocked-fetch-plugin\\" href=\\"https://twitter.com/wesbos/timelines/1189618481672667136\\">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a>
+  expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
+    "<p><a href=\\"https://not-a-twitter-url.com\\">https://not-a-twitter-url.com</a></p>
+    <p><a href=\\"https://this-is-not-twitter.com\\">https://this-is-not-twitter.com</a></p>
+    <p><a href=\\"https://this-is-not-twitter.com/i/events/123\\">https://this-is-not-twitter.com/i/events/123</a></p>
+    <p><a href=\\"https://this-is-not-twitter.com/i/moments/123\\">https://this-is-not-twitter.com/i/moments/123</a></p>
+    <p><a href=\\"https://this-is-not-twitter.com/foobar/status/123\\">https://this-is-not-twitter.com/foobar/status/123</a></p>
+    <p><a href=\\"https://this-is-not-twitter.com/foobar/timelines/123\\">https://this-is-not-twitter.com/foobar/timelines/123</a></p>
+    <p><a href=\\"https://twitter.com/MichaelDeBoey93\\">https://twitter.com/MichaelDeBoey93</a></p>
+    <p><a href=\\"https://twitter.com/i/moments/edit/994601867987619840\\">https://twitter.com/i/moments/edit/994601867987619840</a></p>
+    <p><blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote></p>
+    <p><blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote></p>
+    <p><a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a></p>
+    <p><a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a></p>
+    <p><a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a></p>
+    <p><a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a></p>
+    <p><a class=\\"twitter-timeline-mocked-fetch-plugin\\" href=\\"https://twitter.com/wesbos/timelines/1189618481672667136\\">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a></p>
+    <p><a class=\\"twitter-timeline-mocked-fetch-plugin\\" href=\\"https://twitter.com/wesbos/timelines/1189618481672667136\\">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a></p>
     "
   `);
 });
