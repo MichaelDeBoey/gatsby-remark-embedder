@@ -2,7 +2,7 @@
   "name": "gatsby-remark-embedder",
   "version": "0.0.0-semantically-released",
   "description": "Gatsby Remark plugin to embed well known services by their URL.",
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "keywords": [
     "gatsby",
     "gatsby-plugin",
@@ -36,8 +36,7 @@
   },
   "homepage": "https://github.com/MichaelDeBoey/gatsby-remark-embedder#readme",
   "files": [
-    "dist",
-    "index.js"
+    "dist"
   ],
   "scripts": {
     "build": "kcd-scripts build",
