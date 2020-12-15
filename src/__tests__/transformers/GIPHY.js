@@ -9,7 +9,7 @@ import {
   shouldTransform,
 } from '../../transformers/GIPHY';
 
-import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
+import { getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 const { Response } = jest.requireActual('node-fetch');
 jest.mock('node-fetch', () => jest.fn());
@@ -141,7 +141,7 @@ test('Plugin can transform GIPHY links', async () => {
 
   const markdownAST = getMarkdownASTForFile('GIPHY');
 
-  const processedAST = await plugin({ cache, markdownAST });
+  const processedAST = await plugin()(markdownAST);
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
     <p>https://not-a-giphy-url.com</p>

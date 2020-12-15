@@ -4,7 +4,7 @@ import fetchMock from 'node-fetch';
 import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/Twitter';
 
-import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
+import { getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 const { Response } = jest.requireActual('node-fetch');
 jest.mock('node-fetch', () => jest.fn());
@@ -147,7 +147,7 @@ test('Plugin can transform Twitter links', async () => {
   );
   const markdownAST = getMarkdownASTForFile('Twitter');
 
-  const processedAST = await plugin({ cache, markdownAST });
+  const processedAST = await plugin()(markdownAST);
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
     <p>https://not-a-twitter-url.com</p>

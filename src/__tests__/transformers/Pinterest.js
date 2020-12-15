@@ -3,7 +3,7 @@ import cases from 'jest-in-case';
 import plugin from '../..';
 import { getHTML, shouldTransform } from '../../transformers/Pinterest';
 
-import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
+import { getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 cases(
   'url validation',
@@ -77,7 +77,7 @@ test('Gets the correct Pinterest profile link', () => {
 test('Plugin can transform Pinterest links', async () => {
   const markdownAST = getMarkdownASTForFile('Pinterest');
 
-  const processedAST = await plugin({ cache, markdownAST });
+  const processedAST = await plugin()(markdownAST);
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
     <p>https://not-a-pinterest-url.com</p>

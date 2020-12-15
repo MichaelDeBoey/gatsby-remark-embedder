@@ -3,7 +3,7 @@ import cases from 'jest-in-case';
 import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/CodeSandbox';
 
-import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
+import { getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 cases(
   'url validation',
@@ -53,7 +53,7 @@ test('Gets the correct CodeSandbox iframe', () => {
 test('Plugin can transform CodeSandbox links', async () => {
   const markdownAST = getMarkdownASTForFile('CodeSandbox');
 
-  const processedAST = await plugin({ cache, markdownAST });
+  const processedAST = await plugin()(markdownAST);
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
     <p>https://not-a-codesandbox-url.com</p>

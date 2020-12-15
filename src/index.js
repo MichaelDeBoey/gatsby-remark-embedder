@@ -21,42 +21,44 @@ const getUrlString = (url) => {
 
 const defaultCache = new Map();
 
-async function remarkEmbedderBase({
+function remarkEmbedder({
   cache = defaultCache,
-  markdownAST,
   customTransformers = [],
   services = {},
-}) {
+} = {}) {
   const transformers = [...defaultTransformers, ...customTransformers];
 
-  const transformations = [];
-  visit(markdownAST, 'paragraph', (paragraphNode) => {
-    if (paragraphNode.children.length !== 1) {
-      return;
-    }
+  return async function remarkEmbedderBase(tree) {
+    const transformations = [];
+    visit(tree, 'paragraph', (paragraphNode) => {
+      if (paragraphNode.children.length !== 1) {
+        return;
+      }
 
-    const [node] = paragraphNode.children;
-    const isText = node.type === 'text';
-    // it's a valid link if there's no title, and the value is the same as the URL
-    const isValidLink =
-      node.type === 'link' &&
-      node.title === null &&
-      node.children.length === 1 &&
-      node.children[0].value === node.url;
-    if (!isText && !isValidLink) {
-      return;
-    }
+      const [node] = paragraphNode.children;
+      const isText = node.type === 'text';
+      // it's a valid link if there's no title, and the value is the same as the URL
+      const isValidLink =
+        node.type === 'link' &&
+        node.title === null &&
+        node.children.length === 1 &&
+        node.children[0].value === node.url;
+      if (!isText && !isValidLink) {
+        return;
+      }
 
-    const { url, value = url } = node;
+      const { url, value = url } = node;
 
-    const urlString = getUrlString(value);
-    if (!urlString) {
-      return;
-    }
+      const urlString = getUrlString(value);
+      if (!urlString) {
+        return;
+      }
 
-    transformers
-      .filter(({ shouldTransform }) => shouldTransform(urlString))
-      .forEach(({ getHTML, name = '' }) => {
+      for (const { shouldTransform, getHTML, name = '' } of transformers) {
+        if (!shouldTransform(urlString)) {
+          continue;
+        }
+
         transformations.push(async () => {
           try {
             let html = await cache.get(urlString);
@@ -84,24 +86,18 @@ async function remarkEmbedderBase({
             throw error;
           }
         });
-      });
-  });
+      }
+    });
 
-  await Promise.all(transformations.map((t) => t()));
+    await Promise.all(transformations.map((t) => t()));
 
-  return markdownAST;
+    return tree;
+  };
 }
 
-function remarkEmbedder(options) {
-  return (tree) => remarkEmbedderBase({ markdownAST: tree, ...options });
-}
+export default remarkEmbedder;
 
-function remarkEmbedderGatsby({ cache, markdownAST }, options) {
-  return remarkEmbedderBase({ cache, markdownAST, ...options });
-}
-
-export { remarkEmbedder, remarkEmbedderGatsby };
-
-// TODO: remove this. Will be a breaking change though...
-// would be best to rename the package and remove the default export
-export default remarkEmbedderGatsby;
+/*
+eslint
+  no-continue: "off",
+*/

@@ -3,7 +3,7 @@ import cases from 'jest-in-case';
 import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/CodePen';
 
-import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
+import { getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 cases(
   'url validation',
@@ -89,7 +89,7 @@ test('Gets the correct CodePen iframe', () => {
 test('Plugin can transform CodePen links', async () => {
   const markdownAST = getMarkdownASTForFile('CodePen');
 
-  const processedAST = await plugin({ cache, markdownAST });
+  const processedAST = await plugin()(markdownAST);
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
     <p>https://not-a-codepen-url.com</p>

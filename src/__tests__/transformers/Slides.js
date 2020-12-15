@@ -7,7 +7,7 @@ import {
   shouldTransform,
 } from '../../transformers/Slides';
 
-import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
+import { getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 cases(
   'url validation',
@@ -218,7 +218,7 @@ test('Gets the correct Slides iframe', () => {
 test('Plugin can transform Slides links', async () => {
   const markdownAST = getMarkdownASTForFile('Slides');
 
-  const processedAST = await plugin({ cache, markdownAST });
+  const processedAST = await plugin()(markdownAST);
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
     <p>https://not-a-slides-url.com</p>

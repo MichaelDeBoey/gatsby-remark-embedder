@@ -36,7 +36,8 @@
   },
   "homepage": "https://github.com/MichaelDeBoey/gatsby-remark-embedder#readme",
   "files": [
-    "dist"
+    "dist",
+    "gatsby.js"
   ],
   "scripts": {
     "build": "kcd-scripts build",
@@ -52,6 +53,7 @@
     "hast-util-from-parse5": "^6.0.1",
     "node-fetch": "^2.6.1",
     "parse5": "^6.0.1",
+    "to-gatsby-remark-plugin": "^0.1.0",
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {

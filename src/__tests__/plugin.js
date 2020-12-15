@@ -23,19 +23,17 @@ describe('gatsby-remark-embedder', () => {
     });
     const markdownAST = getMarkdownASTForFile('kitchensink', true);
 
-    const processedAST = await plugin(
-      { cache, markdownAST },
-      {
-        services: {
-          Instagram: {
-            accessToken: 'access-token',
-          },
-          Twitch: {
-            parent: 'embed.example.com',
-          },
+    const processedAST = await plugin({
+      cache,
+      services: {
+        Instagram: {
+          accessToken: 'access-token',
         },
-      }
-    );
+        Twitch: {
+          parent: 'embed.example.com',
+        },
+      },
+    })(markdownAST);
 
     expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
       <h1>Heading 1</h1>
@@ -77,12 +75,12 @@ describe('gatsby-remark-embedder', () => {
     const markdownAST = getMarkdownASTForFile('ErrorTransformer', true);
 
     await expect(
-      plugin({ cache, markdownAST }, { customTransformers: [errorTransformer] })
+      plugin({ customTransformers: [errorTransformer] })(markdownAST)
     ).rejects.toMatchInlineSnapshot(`
-            [Error: The following error appeared while processing 'https://error-site.com/':
+      [Error: The following error appeared while processing 'https://error-site.com/':
 
-            An error occurred in ErrorTransformer]
-          `);
+      An error occurred in ErrorTransformer]
+    `);
   });
 
   cases(
@@ -96,13 +94,10 @@ describe('gatsby-remark-embedder', () => {
 
       const markdownAST = getMarkdownASTForFile('ServiceTransformer', true);
 
-      await plugin(
-        { cache, markdownAST },
-        {
-          customTransformers: [transformer],
-          services: { serviceTransformer: { service: 'transformer' } },
-        }
-      );
+      await plugin({
+        customTransformers: [transformer],
+        services: { serviceTransformer: { service: 'transformer' } },
+      })(markdownAST);
 
       expect(transformer.getHTML).toHaveBeenCalledWith(
         'https://some-site.com/id/abc',

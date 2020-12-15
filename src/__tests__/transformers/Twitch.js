@@ -8,7 +8,7 @@ import {
   shouldTransform,
 } from '../../transformers/Twitch';
 
-import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
+import { getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 cases(
   'url validation',
@@ -208,16 +208,13 @@ test('Gets the correct Twitch iframe', () => {
 test('Plugin can transform Twitch links', async () => {
   const markdownAST = getMarkdownASTForFile('Twitch');
 
-  const processedAST = await plugin(
-    { cache, markdownAST },
-    {
-      services: {
-        Twitch: {
-          parent: 'embed.example.com',
-        },
+  const processedAST = await plugin({
+    services: {
+      Twitch: {
+        parent: 'embed.example.com',
       },
-    }
-  );
+    },
+  })(markdownAST);
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
     <p>https://not-a-twitch-url.tv</p>

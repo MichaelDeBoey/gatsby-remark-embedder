@@ -10,10 +10,10 @@ const transformer = {
 test('Plugin can transform CustomTransformer links', async () => {
   const markdownAST = getMarkdownASTForFile('CustomTransformer', true);
 
-  const processedAST = await plugin(
-    { cache, markdownAST },
-    { customTransformers: [transformer] }
-  );
+  const processedAST = await plugin({
+    cache,
+    customTransformers: [transformer],
+  })(markdownAST);
 
   expect(transformer.shouldTransform).toHaveBeenCalledTimes(2);
   expect(transformer.shouldTransform).toHaveBeenCalledWith(

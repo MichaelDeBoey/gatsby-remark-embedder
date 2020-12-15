@@ -8,7 +8,7 @@ import {
   shouldTransform,
 } from '../../transformers/Streamable';
 
-import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
+import { getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 const { Response } = jest.requireActual('node-fetch');
 jest.mock('node-fetch', () => jest.fn());
@@ -193,7 +193,7 @@ test('Plugin correctly transforms Streamable links', async () => {
   );
   const markdownAST = getMarkdownASTForFile('Streamable');
 
-  const processedAST = await plugin({ cache, markdownAST });
+  const processedAST = await plugin()(markdownAST);
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
     <p>https://not-a-streamable-url.com</p>

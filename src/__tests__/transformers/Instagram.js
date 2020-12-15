@@ -4,7 +4,7 @@ import fetchMock from 'node-fetch';
 import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/Instagram';
 
-import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
+import { getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 const { Response } = jest.requireActual('node-fetch');
 jest.mock('node-fetch', () => jest.fn());
@@ -119,16 +119,13 @@ test('Plugin can transform Instagram links', async () => {
   );
   const markdownAST = getMarkdownASTForFile('Instagram');
 
-  const processedAST = await plugin(
-    { cache, markdownAST },
-    {
-      services: {
-        Instagram: {
-          accessToken: 'access-token',
-        },
+  const processedAST = await plugin({
+    services: {
+      Instagram: {
+        accessToken: 'access-token',
       },
-    }
-  );
+    },
+  })(markdownAST);
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
     <p>https://not-an-instagram-url.com</p>

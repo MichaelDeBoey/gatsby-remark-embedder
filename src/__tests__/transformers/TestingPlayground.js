@@ -7,7 +7,7 @@ import {
   shouldTransform,
 } from '../../transformers/TestingPlayground';
 
-import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
+import { getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 cases(
   'url validation',
@@ -95,7 +95,7 @@ test('Gets the correct Testing Playground iframe', () => {
 test('Plugin can transform Testing Playground links', async () => {
   const markdownAST = getMarkdownASTForFile('TestingPlayground');
 
-  const processedAST = await plugin({ cache, markdownAST });
+  const processedAST = await plugin()(markdownAST);
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
     <p>https://not-a-testing-playground-url.com</p>
