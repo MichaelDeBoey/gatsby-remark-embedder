@@ -878,6 +878,7 @@ Thanks goes to these people ([emoji key][emojis]):
   </tr>
   <tr>
     <td align="center"><a href="http://wooorm.com"><img src="https://avatars0.githubusercontent.com/u/944406?v=4" width="100px;" alt=""/><br /><sub><b>Titus</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=wooorm" title="Tests">⚠️</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/pulls?q=is%3Apr+reviewed-by%3Awooorm" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=wooorm" title="Code">💻</a></td>
+    <td align="center"><a href="https://joeprevite.com"><img src="https://avatars3.githubusercontent.com/u/3806031?v=4" width="100px;" alt=""/><br /><sub><b>Joe Previte</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?q=author%3Ajsjoeio" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
