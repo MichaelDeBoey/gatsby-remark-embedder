@@ -150,14 +150,14 @@ test('Plugin can transform Twitter links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
-    <p><a href="https://not-a-twitter-url.com">https://not-a-twitter-url.com</a></p>
-    <p><a href="https://this-is-not-twitter.com">https://this-is-not-twitter.com</a></p>
-    <p><a href="https://this-is-not-twitter.com/i/events/123">https://this-is-not-twitter.com/i/events/123</a></p>
-    <p><a href="https://this-is-not-twitter.com/i/moments/123">https://this-is-not-twitter.com/i/moments/123</a></p>
-    <p><a href="https://this-is-not-twitter.com/foobar/status/123">https://this-is-not-twitter.com/foobar/status/123</a></p>
-    <p><a href="https://this-is-not-twitter.com/foobar/timelines/123">https://this-is-not-twitter.com/foobar/timelines/123</a></p>
-    <p><a href="https://twitter.com/MichaelDeBoey93">https://twitter.com/MichaelDeBoey93</a></p>
-    <p><a href="https://twitter.com/i/moments/edit/994601867987619840">https://twitter.com/i/moments/edit/994601867987619840</a></p>
+    <p>https://not-a-twitter-url.com</p>
+    <p>https://this-is-not-twitter.com</p>
+    <p>https://this-is-not-twitter.com/i/events/123</p>
+    <p>https://this-is-not-twitter.com/i/moments/123</p>
+    <p>https://this-is-not-twitter.com/foobar/status/123</p>
+    <p>https://this-is-not-twitter.com/foobar/timelines/123</p>
+    <p>https://twitter.com/MichaelDeBoey93</p>
+    <p>https://twitter.com/i/moments/edit/994601867987619840</p>
     <blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>— Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote>
     <blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>— Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote>
     <a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a>

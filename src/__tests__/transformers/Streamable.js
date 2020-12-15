@@ -196,18 +196,18 @@ test('Plugin correctly transforms Streamable links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
-    <p><a href="https://not-a-streamable-url.com">https://not-a-streamable-url.com</a></p>
-    <p><a href="https://this-is-not-streamable.com">https://this-is-not-streamable.com</a></p>
-    <p><a href="https://streamable.com/documentation">https://streamable.com/documentation</a></p>
-    <p><a href="https://streamable.com/login">https://streamable.com/login</a></p>
-    <p><a href="https://streamable.com/recover">https://streamable.com/recover</a></p>
-    <p><a href="https://streamable.com/settings">https://streamable.com/settings</a></p>
-    <p><a href="https://streamable.com/signup">https://streamable.com/signup</a></p>
-    <p><a href="https://streamable.com/e/moo/username/extra">https://streamable.com/e/moo/username/extra</a></p>
-    <p><a href="https://streamable.com/g/moo/username/extra">https://streamable.com/g/moo/username/extra</a></p>
-    <p><a href="https://streamable.com/o/moo/username/extra">https://streamable.com/o/moo/username/extra</a></p>
-    <p><a href="https://streamable.com/s/moo/username/extra">https://streamable.com/s/moo/username/extra</a></p>
-    <p><a href="https://streamable.com/t/moo/username/extra">https://streamable.com/t/moo/username/extra</a></p>
+    <p>https://not-a-streamable-url.com</p>
+    <p>https://this-is-not-streamable.com</p>
+    <p>https://streamable.com/documentation</p>
+    <p>https://streamable.com/login</p>
+    <p>https://streamable.com/recover</p>
+    <p>https://streamable.com/settings</p>
+    <p>https://streamable.com/signup</p>
+    <p>https://streamable.com/e/moo/username/extra</p>
+    <p>https://streamable.com/g/moo/username/extra</p>
+    <p>https://streamable.com/o/moo/username/extra</p>
+    <p>https://streamable.com/s/moo/username/extra</p>
+    <p>https://streamable.com/t/moo/username/extra</p>
     <iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>
     <iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>
     <iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>

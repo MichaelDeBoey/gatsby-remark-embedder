@@ -220,14 +220,14 @@ test('Plugin can transform Twitch links', async () => {
   );
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
-    <p><a href="https://not-a-twitch-url.tv">https://not-a-twitch-url.tv</a></p>
-    <p><a href="https://this-is-not-twitch.tv">https://this-is-not-twitch.tv</a></p>
-    <p><a href="https://blog.twitch.tv">https://blog.twitch.tv</a></p>
-    <p><a href="https://twitch.tv/jlengstorf/followers">https://twitch.tv/jlengstorf/followers</a></p>
-    <p><a href="https://twitch.tv">https://twitch.tv</a></p>
-    <p><a href="https://twitch.tv/settings/profile">https://twitch.tv/settings/profile</a></p>
-    <p><a href="https://twitch.tv/jlengstorf/videos">https://twitch.tv/jlengstorf/videos</a></p>
-    <p><a href="https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame">https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame</a></p>
+    <p>https://not-a-twitch-url.tv</p>
+    <p>https://this-is-not-twitch.tv</p>
+    <p>https://blog.twitch.tv</p>
+    <p>https://twitch.tv/jlengstorf/followers</p>
+    <p>https://twitch.tv</p>
+    <p>https://twitch.tv/settings/profile</p>
+    <p>https://twitch.tv/jlengstorf/videos</p>
+    <p>https://clips.twitch.tv/embed?clip=PeacefulAbstrusePorcupineDansGame</p>
     <iframe src="https://player.twitch.tv?channel=jlengstorf&#x26;parent=embed.example.com" height="300" width="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
     <iframe src="https://player.twitch.tv?channel=jlengstorf&#x26;parent=embed.example.com" height="300" width="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
     <iframe src="https://player.twitch.tv?channel=jlengstorf&#x26;parent=embed.example.com" height="300" width="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>

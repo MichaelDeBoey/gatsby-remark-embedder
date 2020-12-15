@@ -128,15 +128,15 @@ test('Plugin can transform Spotify links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
-    <p><a href="https://not-a-spotify-url.com">https://not-a-spotify-url.com</a></p>
-    <p><a href="https://this-is-not-spotify.com">https://this-is-not-spotify.com</a></p>
-    <p><a href="https://api.spotify.com/album/1DFixLWuPkv3KT3TnV35m3">https://api.spotify.com/album/1DFixLWuPkv3KT3TnV35m3</a></p>
-    <p><a href="https://open.spotify.com/embed/album/254Y0CD07dB40q84db89EB">https://open.spotify.com/embed/album/254Y0CD07dB40q84db89EB</a></p>
-    <p><a href="https://open.spotify.com/embed/artist/0QaSiI5TLA4N7mcsdxShDO">https://open.spotify.com/embed/artist/0QaSiI5TLA4N7mcsdxShDO</a></p>
-    <p><a href="https://open.spotify.com/embed-podcast/episode/0j9RE1H47GSmBnRqOtf1dx">https://open.spotify.com/embed-podcast/episode/0j9RE1H47GSmBnRqOtf1dx</a></p>
-    <p><a href="https://open.spotify.com/embed/playlist/37i9dQZF1DX5wDmLW735Yd">https://open.spotify.com/embed/playlist/37i9dQZF1DX5wDmLW735Yd</a></p>
-    <p><a href="https://open.spotify.com/embed-podcast/show/7GkO2poedjbltWT5lduL5w">https://open.spotify.com/embed-podcast/show/7GkO2poedjbltWT5lduL5w</a></p>
-    <p><a href="https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L">https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L</a></p>
+    <p>https://not-a-spotify-url.com</p>
+    <p>https://this-is-not-spotify.com</p>
+    <p>https://api.spotify.com/album/1DFixLWuPkv3KT3TnV35m3</p>
+    <p>https://open.spotify.com/embed/album/254Y0CD07dB40q84db89EB</p>
+    <p>https://open.spotify.com/embed/artist/0QaSiI5TLA4N7mcsdxShDO</p>
+    <p>https://open.spotify.com/embed-podcast/episode/0j9RE1H47GSmBnRqOtf1dx</p>
+    <p>https://open.spotify.com/embed/playlist/37i9dQZF1DX5wDmLW735Yd</p>
+    <p>https://open.spotify.com/embed-podcast/show/7GkO2poedjbltWT5lduL5w</p>
+    <p>https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L</p>
     <iframe src="https://open.spotify.com/embed/album/254Y0CD07dB40q84db89EB" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     <iframe src="https://open.spotify.com/embed/artist/0QaSiI5TLA4N7mcsdxShDO" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     <iframe src="https://open.spotify.com/embed-podcast/episode/0j9RE1H47GSmBnRqOtf1dx" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>

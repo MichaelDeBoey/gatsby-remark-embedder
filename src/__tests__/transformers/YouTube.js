@@ -151,20 +151,20 @@ test('Plugin can transform YouTube links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
-    <p><a href="https://not-a-youtube-url.com">https://not-a-youtube-url.com</a></p>
-    <p><a href="https://this-is-not-youtu.be">https://this-is-not-youtu.be</a></p>
-    <p><a href="https://this-is-not-youtube.com">https://this-is-not-youtube.com</a></p>
-    <p><a href="https://this-is-not-youtube.com/watch?v=dQw4w9WgXcQ">https://this-is-not-youtube.com/watch?v=dQw4w9WgXcQ</a></p>
+    <p>https://not-a-youtube-url.com</p>
+    <p>https://this-is-not-youtu.be</p>
+    <p>https://this-is-not-youtube.com</p>
+    <p>https://this-is-not-youtube.com/watch?v=dQw4w9WgXcQ</p>
     <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <p><a href="https://youtube.com/channel/UCXBhQ05nu3L1abBUGeQ0ahw">https://youtube.com/channel/UCXBhQ05nu3L1abBUGeQ0ahw</a></p>
-    <p><a href="https://youtube.com/c/ReactRally">https://youtube.com/c/ReactRally</a></p>
-    <p><a href="https://youtube.com/playlist?list=PLV5CVI1eNcJgCrPH_e6d57KRUTiDZgs0u">https://youtube.com/playlist?list=PLV5CVI1eNcJgCrPH_e6d57KRUTiDZgs0u</a></p>
-    <p><a href="https://youtube.com/user/kentdoddsfamily">https://youtube.com/user/kentdoddsfamily</a></p>
-    <p><a href="https://youtube.com/kentdoddsfamily">https://youtube.com/kentdoddsfamily</a></p>
+    <p>https://youtube.com/channel/UCXBhQ05nu3L1abBUGeQ0ahw</p>
+    <p>https://youtube.com/c/ReactRally</p>
+    <p>https://youtube.com/playlist?list=PLV5CVI1eNcJgCrPH_e6d57KRUTiDZgs0u</p>
+    <p>https://youtube.com/user/kentdoddsfamily</p>
+    <p>https://youtube.com/kentdoddsfamily</p>
 
   `);
 });

@@ -96,17 +96,17 @@ test('Plugin can transform Lichess links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
-    <p><a href="https://not-a-lichess-url.org">https://not-a-lichess-url.org</a></p>
-    <p><a href="https://this-is-not-lichess.org">https://this-is-not-lichess.org</a></p>
-    <p><a href="https://this-is-not-lichess.org/embed/MPJcy1JW">https://this-is-not-lichess.org/embed/MPJcy1JW</a></p>
-    <p><a href="https://lichess.org/embed/MPJcy1JW">https://lichess.org/embed/MPJcy1JW</a></p>
-    <p><a href="https://lichess.org/learn">https://lichess.org/learn</a></p>
-    <p><a href="https://lichess.org/practice">https://lichess.org/practice</a></p>
-    <p><a href="https://lichess.org/study">https://lichess.org/study</a></p>
-    <p><a href="https://lichess.org/study/XtFCFYlM">https://lichess.org/study/XtFCFYlM</a></p>
-    <p><a href="https://lichess.org/training/12345">https://lichess.org/training/12345</a></p>
-    <p><a href="https://lichess.org/tv">https://lichess.org/tv</a></p>
-    <p><a href="https://lichess.org/tv/best">https://lichess.org/tv/best</a></p>
+    <p>https://not-a-lichess-url.org</p>
+    <p>https://this-is-not-lichess.org</p>
+    <p>https://this-is-not-lichess.org/embed/MPJcy1JW</p>
+    <p>https://lichess.org/embed/MPJcy1JW</p>
+    <p>https://lichess.org/learn</p>
+    <p>https://lichess.org/practice</p>
+    <p>https://lichess.org/study</p>
+    <p>https://lichess.org/study/XtFCFYlM</p>
+    <p>https://lichess.org/training/12345</p>
+    <p>https://lichess.org/tv</p>
+    <p>https://lichess.org/tv/best</p>
     <iframe src="https://lichess.org/embed/MPJcy1JW" width="600" height="397" frameborder="0"></iframe>
     <iframe src="https://www.lichess.org/embed/MPJcy1JW" width="600" height="397" frameborder="0"></iframe>
     <iframe src="https://lichess.org/embed/MPJcy1JW?theme=auto&#x26;bg=auto" width="600" height="397" frameborder="0"></iframe>
