@@ -877,7 +877,7 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://trevorblades.com"><img src="https://avatars0.githubusercontent.com/u/1216917?v=4" width="100px;" alt=""/><br /><sub><b>Trevor Blades</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=trevorblades" title="Documentation">📖</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="http://wooorm.com"><img src="https://avatars0.githubusercontent.com/u/944406?v=4" width="100px;" alt=""/><br /><sub><b>Titus</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=wooorm" title="Tests">⚠️</a></td>
+    <td align="center"><a href="http://wooorm.com"><img src="https://avatars0.githubusercontent.com/u/944406?v=4" width="100px;" alt=""/><br /><sub><b>Titus</b></sub></a><br /><a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=wooorm" title="Tests">⚠️</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/pulls?q=is%3Apr+reviewed-by%3Awooorm" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/MichaelDeBoey/gatsby-remark-embedder/commits?author=wooorm" title="Code">💻</a></td>
   </tr>
 </table>
 
