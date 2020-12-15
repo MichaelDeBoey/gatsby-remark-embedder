@@ -235,24 +235,24 @@ test('Plugin can transform Slides links', async () => {
     <p><a href="https://slides.com/kentcdodds/oss-we-want/embed">https://slides.com/kentcdodds/oss-we-want/embed</a></p>
     <p><a href="https://slides.com/kentcdodds/oss-we-want/fullscreen">https://slides.com/kentcdodds/oss-we-want/fullscreen</a></p>
     <p><a href="https://slides.com/kentcdodds/oss-we-want/live">https://slides.com/kentcdodds/oss-we-want/live</a></p>
-    <iframe src="https://team.slides.com/hakimel/finch/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://acme.slides.com/jack-k/sales-template/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://team-name.slides.com/username/deck-name/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://team_name.slides.com/username/deck-name/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://asdfdsa11232889asd.slides.com/username/deck-name/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://ab.slides.com/username/deck-name/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://team.slides.com/hakimel/finch/embed#/0" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://team.slides.com/hakimel/finch/embed#/0" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://team.slides.com/username/embed/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://team.slides.com/username/fullscreen/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://team.slides.com/username/live/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://slides.com/kentcdodds/oss-we-want/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://slides.com/kentcdodds/oss-we-want/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://slides.com/michaeldeboey/embed/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://slides.com/michaeldeboey/fullscreen/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://slides.com/michaeldeboey/live/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://slides.com/kentcdodds/oss-we-want/embed#/0" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <iframe src="https://slides.com/kentcdodds/oss-we-want/embed#/0" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <iframe src="https://team.slides.com/hakimel/finch/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://acme.slides.com/jack-k/sales-template/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://team-name.slides.com/username/deck-name/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://team_name.slides.com/username/deck-name/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://asdfdsa11232889asd.slides.com/username/deck-name/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://ab.slides.com/username/deck-name/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://team.slides.com/hakimel/finch/embed#/0" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://team.slides.com/hakimel/finch/embed#/0" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://team.slides.com/username/embed/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://team.slides.com/username/fullscreen/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://team.slides.com/username/live/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://slides.com/kentcdodds/oss-we-want/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://slides.com/kentcdodds/oss-we-want/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://slides.com/michaeldeboey/embed/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://slides.com/michaeldeboey/fullscreen/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://slides.com/michaeldeboey/live/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://slides.com/kentcdodds/oss-we-want/embed#/0" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+    <iframe src="https://slides.com/kentcdodds/oss-we-want/embed#/0" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
 
   `);
 });
