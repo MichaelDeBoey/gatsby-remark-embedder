@@ -107,7 +107,7 @@ test('Gets the correct Twitter status iframe', async () => {
   );
 
   expect(html).toMatchInlineSnapshot(
-    `"<blockquote class=\\"twitter-tweet-mocked-fetch-transformer\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>"`
+    `<blockquote class="twitter-tweet-mocked-fetch-transformer"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote>`
   );
 });
 
@@ -121,7 +121,7 @@ test('Gets the correct Twitter moment link', async () => {
   );
 
   expect(html).toMatchInlineSnapshot(
-    `"<a class=\\"twitter-moment-mocked-fetch-transformer\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a>"`
+    `<a class="twitter-moment-mocked-fetch-transformer" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a>`
   );
 });
 
@@ -135,7 +135,7 @@ test('Gets the correct Twitter timeline link', async () => {
   );
 
   expect(html).toMatchInlineSnapshot(
-    `"<a class=\\"twitter-timeline-mocked-fetch-transformer\\" href=\\"https://twitter.com/wesbos/timelines/1189618481672667136\\">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a>"`
+    `<a class="twitter-timeline-mocked-fetch-transformer" href="https://twitter.com/wesbos/timelines/1189618481672667136">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a>`
   );
 });
 
@@ -150,22 +150,22 @@ test('Plugin can transform Twitter links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
-    "<p><a href=\\"https://not-a-twitter-url.com\\">https://not-a-twitter-url.com</a></p>
-    <p><a href=\\"https://this-is-not-twitter.com\\">https://this-is-not-twitter.com</a></p>
-    <p><a href=\\"https://this-is-not-twitter.com/i/events/123\\">https://this-is-not-twitter.com/i/events/123</a></p>
-    <p><a href=\\"https://this-is-not-twitter.com/i/moments/123\\">https://this-is-not-twitter.com/i/moments/123</a></p>
-    <p><a href=\\"https://this-is-not-twitter.com/foobar/status/123\\">https://this-is-not-twitter.com/foobar/status/123</a></p>
-    <p><a href=\\"https://this-is-not-twitter.com/foobar/timelines/123\\">https://this-is-not-twitter.com/foobar/timelines/123</a></p>
-    <p><a href=\\"https://twitter.com/MichaelDeBoey93\\">https://twitter.com/MichaelDeBoey93</a></p>
-    <p><a href=\\"https://twitter.com/i/moments/edit/994601867987619840\\">https://twitter.com/i/moments/edit/994601867987619840</a></p>
-    <p><blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote></p>
-    <p><blockquote class=\\"twitter-tweet-mocked-fetch-plugin\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote></p>
-    <p><a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a></p>
-    <p><a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a></p>
-    <p><a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a></p>
-    <p><a class=\\"twitter-moment-mocked-fetch-plugin\\" href=\\"https://twitter.com/i/moments/994601867987619840\\">🔥 Design Tips</a></p>
-    <p><a class=\\"twitter-timeline-mocked-fetch-plugin\\" href=\\"https://twitter.com/wesbos/timelines/1189618481672667136\\">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a></p>
-    <p><a class=\\"twitter-timeline-mocked-fetch-plugin\\" href=\\"https://twitter.com/wesbos/timelines/1189618481672667136\\">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a></p>
-    "
+    <p><a href="https://not-a-twitter-url.com">https://not-a-twitter-url.com</a></p>
+    <p><a href="https://this-is-not-twitter.com">https://this-is-not-twitter.com</a></p>
+    <p><a href="https://this-is-not-twitter.com/i/events/123">https://this-is-not-twitter.com/i/events/123</a></p>
+    <p><a href="https://this-is-not-twitter.com/i/moments/123">https://this-is-not-twitter.com/i/moments/123</a></p>
+    <p><a href="https://this-is-not-twitter.com/foobar/status/123">https://this-is-not-twitter.com/foobar/status/123</a></p>
+    <p><a href="https://this-is-not-twitter.com/foobar/timelines/123">https://this-is-not-twitter.com/foobar/timelines/123</a></p>
+    <p><a href="https://twitter.com/MichaelDeBoey93">https://twitter.com/MichaelDeBoey93</a></p>
+    <p><a href="https://twitter.com/i/moments/edit/994601867987619840">https://twitter.com/i/moments/edit/994601867987619840</a></p>
+    <p><blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote></p>
+    <p><blockquote class="twitter-tweet-mocked-fetch-plugin"><p lang="en" dir="ltr">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote></p>
+    <p><a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a></p>
+    <p><a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a></p>
+    <p><a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a></p>
+    <p><a class="twitter-moment-mocked-fetch-plugin" href="https://twitter.com/i/moments/994601867987619840">🔥 Design Tips</a></p>
+    <p><a class="twitter-timeline-mocked-fetch-plugin" href="https://twitter.com/wesbos/timelines/1189618481672667136">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a></p>
+    <p><a class="twitter-timeline-mocked-fetch-plugin" href="https://twitter.com/wesbos/timelines/1189618481672667136">🔥 Hot Tips from Wes Bos - Curated tweets by wesbos</a></p>
+
   `);
 });

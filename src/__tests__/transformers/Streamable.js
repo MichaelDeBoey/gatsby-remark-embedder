@@ -183,7 +183,7 @@ test('Gets the correct Streamable iframe', async () => {
   const html = await getHTML('https://streamable.com/moo');
 
   expect(html).toMatchInlineSnapshot(
-    `"<iframe class=\\"streamable-embed-mocked-fetch-transformer\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>"`
+    `<iframe class="streamable-embed-mocked-fetch-transformer" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe>`
   );
 });
 
@@ -196,29 +196,29 @@ test('Plugin correctly transforms Streamable links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
-    "<p><a href=\\"https://not-a-streamable-url.com\\">https://not-a-streamable-url.com</a></p>
-    <p><a href=\\"https://this-is-not-streamable.com\\">https://this-is-not-streamable.com</a></p>
-    <p><a href=\\"https://streamable.com/documentation\\">https://streamable.com/documentation</a></p>
-    <p><a href=\\"https://streamable.com/login\\">https://streamable.com/login</a></p>
-    <p><a href=\\"https://streamable.com/recover\\">https://streamable.com/recover</a></p>
-    <p><a href=\\"https://streamable.com/settings\\">https://streamable.com/settings</a></p>
-    <p><a href=\\"https://streamable.com/signup\\">https://streamable.com/signup</a></p>
-    <p><a href=\\"https://streamable.com/e/moo/username/extra\\">https://streamable.com/e/moo/username/extra</a></p>
-    <p><a href=\\"https://streamable.com/g/moo/username/extra\\">https://streamable.com/g/moo/username/extra</a></p>
-    <p><a href=\\"https://streamable.com/o/moo/username/extra\\">https://streamable.com/o/moo/username/extra</a></p>
-    <p><a href=\\"https://streamable.com/s/moo/username/extra\\">https://streamable.com/s/moo/username/extra</a></p>
-    <p><a href=\\"https://streamable.com/t/moo/username/extra\\">https://streamable.com/t/moo/username/extra</a></p>
-    <p><iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
-    <p><iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
-    <p><iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
-    <p><iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
-    <p><iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
-    <p><iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
-    <p><iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
-    <p><iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
-    <p><iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
-    <p><iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
-    <p><iframe class=\\"streamable-embed-mocked-fetch-plugin\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
-    "
+    <p><a href="https://not-a-streamable-url.com">https://not-a-streamable-url.com</a></p>
+    <p><a href="https://this-is-not-streamable.com">https://this-is-not-streamable.com</a></p>
+    <p><a href="https://streamable.com/documentation">https://streamable.com/documentation</a></p>
+    <p><a href="https://streamable.com/login">https://streamable.com/login</a></p>
+    <p><a href="https://streamable.com/recover">https://streamable.com/recover</a></p>
+    <p><a href="https://streamable.com/settings">https://streamable.com/settings</a></p>
+    <p><a href="https://streamable.com/signup">https://streamable.com/signup</a></p>
+    <p><a href="https://streamable.com/e/moo/username/extra">https://streamable.com/e/moo/username/extra</a></p>
+    <p><a href="https://streamable.com/g/moo/username/extra">https://streamable.com/g/moo/username/extra</a></p>
+    <p><a href="https://streamable.com/o/moo/username/extra">https://streamable.com/o/moo/username/extra</a></p>
+    <p><a href="https://streamable.com/s/moo/username/extra">https://streamable.com/s/moo/username/extra</a></p>
+    <p><a href="https://streamable.com/t/moo/username/extra">https://streamable.com/t/moo/username/extra</a></p>
+    <p><iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe></p>
+    <p><iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe></p>
+    <p><iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe></p>
+    <p><iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe></p>
+    <p><iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe></p>
+    <p><iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe></p>
+    <p><iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe></p>
+    <p><iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe></p>
+    <p><iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe></p>
+    <p><iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe></p>
+    <p><iframe class="streamable-embed-mocked-fetch-plugin" src="https://streamable.com/o/moo" frameborder="0" scrolling="no" width="1920" height="1080" allowfullscreen></iframe></p>
+
   `);
 });

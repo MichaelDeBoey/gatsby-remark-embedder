@@ -54,7 +54,7 @@ test('Gets the correct Pinterest board link', () => {
   const html = getHTML('https://pinterest.com/pinterest/official-news');
 
   expect(html).toMatchInlineSnapshot(
-    `"<a data-pin-do=\\"embedBoard\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://pinterest.com/pinterest/official-news\\"></a>"`
+    `<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://pinterest.com/pinterest/official-news"></a>`
   );
 });
 
@@ -62,7 +62,7 @@ test('Gets the correct Pinterest pin link', () => {
   const html = getHTML('https://pinterest.com/pin/99360735500167749');
 
   expect(html).toMatchInlineSnapshot(
-    `"<a data-pin-do=\\"embedPin\\" href=\\"https://pinterest.com/pin/99360735500167749\\"></a>"`
+    `<a data-pin-do="embedPin" href="https://pinterest.com/pin/99360735500167749"></a>`
   );
 });
 
@@ -70,7 +70,7 @@ test('Gets the correct Pinterest profile link', () => {
   const html = getHTML('https://pinterest.com/pinterest');
 
   expect(html).toMatchInlineSnapshot(
-    `"<a data-pin-do=\\"embedUser\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://pinterest.com/pinterest\\"></a>"`
+    `<a data-pin-do="embedUser" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://pinterest.com/pinterest"></a>`
   );
 });
 
@@ -80,15 +80,15 @@ test('Plugin can transform Pinterest links', async () => {
   const processedAST = await plugin({ cache, markdownAST });
 
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
-    "<p><a href=\\"https://not-a-pinterest-url.com\\">https://not-a-pinterest-url.com</a></p>
-    <p><a href=\\"https://this-is-not-pinterest.com\\">https://this-is-not-pinterest.com</a></p>
-    <p><a href=\\"https://this-is-not-pinterest.com/pin/99360735500167749\\">https://this-is-not-pinterest.com/pin/99360735500167749</a></p>
-    <p><a data-pin-do=\\"embedBoard\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://pinterest.com/pinterest/official-news\\"></a></p>
-    <p><a data-pin-do=\\"embedBoard\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://www.pinterest.com/pinterest/official-news\\"></a></p>
-    <p><a data-pin-do=\\"embedPin\\" href=\\"https://pinterest.com/pin/99360735500167749\\"></a></p>
-    <p><a data-pin-do=\\"embedPin\\" href=\\"https://www.pinterest.com/pin/99360735500167749\\"></a></p>
-    <p><a data-pin-do=\\"embedUser\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://pinterest.com/pinterest\\"></a></p>
-    <p><a data-pin-do=\\"embedUser\\" data-pin-board-width=\\"400\\" data-pin-scale-height=\\"240\\" data-pin-scale-width=\\"80\\" href=\\"https://www.pinterest.com/pinterest\\"></a></p>
-    "
+    <p><a href="https://not-a-pinterest-url.com">https://not-a-pinterest-url.com</a></p>
+    <p><a href="https://this-is-not-pinterest.com">https://this-is-not-pinterest.com</a></p>
+    <p><a href="https://this-is-not-pinterest.com/pin/99360735500167749">https://this-is-not-pinterest.com/pin/99360735500167749</a></p>
+    <p><a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://pinterest.com/pinterest/official-news"></a></p>
+    <p><a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/pinterest/official-news"></a></p>
+    <p><a data-pin-do="embedPin" href="https://pinterest.com/pin/99360735500167749"></a></p>
+    <p><a data-pin-do="embedPin" href="https://www.pinterest.com/pin/99360735500167749"></a></p>
+    <p><a data-pin-do="embedUser" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://pinterest.com/pinterest"></a></p>
+    <p><a data-pin-do="embedUser" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/pinterest"></a></p>
+
   `);
 });
