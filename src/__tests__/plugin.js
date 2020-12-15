@@ -6,7 +6,7 @@ import {
   cache,
   getMarkdownASTForFile,
   mockCache,
-  parseASTToMarkdown,
+  mdastToHtml,
 } from './helpers';
 
 describe('gatsby-remark-embedder', () => {
@@ -37,53 +37,31 @@ describe('gatsby-remark-embedder', () => {
       }
     );
 
-    expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-      "# Heading 1
-
-      ## Heading2
-
-      This is a normal paragraph.
-
-      This is the first line of a multi-line paragraph.  
-      And this is the second line.
-
-      This is a paragraph with a [link](https://example.com).
-
-      [example.com](https://example.com)
-
-      [https://example.com](https://example.com \\"A link to example.com\\")
-
-      <https://example.com>
-
-      [](https://example.com)
-
-      <iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe>
-
-      <iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking\\" sandbox=\\"allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts\\"></iframe>
-
-      <div style=\\"width:100%;height:0;padding-bottom:63%;position:relative;\\"><iframe src=\\"https://giphy.com/embed/XatG8bioEwwVO\\" width=\\"100%\\" height=\\"100%\\" style=\\"position:absolute\\" frameborder=\\"0\\" class=\\"giphy-embed-from-cache\\" allowfullscreen></iframe></div>
-
-      <blockquote class=\\"instagram-media-from-cache\\"><div><a href=\\"https://instagram.com/p/B60jPE6J8U-\\"><p>example</p></a><p>A post shared by <a href=\\"https://instagram.com/michaeldeboey\\">Michaël De Boey</a> (@michaeldeboey) on<timedatetime=\\"2020-01-02T14:45:30+00:00\\">Jan 2, 2020 at 6:45am PST</time></p></div></blockquote>
-
-      <iframe src=\\"https://lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
-
-      <a data-pin-do=\\"embedPin\\" href=\\"https://pinterest.com/pin/99360735500167749\\"></a>
-
-      <iframe src=\\"https://slides.com/kentcdodds/oss-we-want/embed\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-      <iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true></iframe>
-
-      <iframe src=\\"https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L\\" width=\\"100%\\" height=\\"380\\" frameborder=\\"0\\" allowtransparency=\\"true\\" allow=\\"encrypted-media\\"></iframe>
-
-      <iframe class=\\"streamable-embed-from-cache\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe>
-
-      <iframe src=\\"https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a?panes=query,preview\\" height=\\"450\\" width=\\"100%\\" scrolling=\\"no\\" frameBorder=\\"0\\" allowTransparency=\\"true\\" style=\\"overflow: hidden; display: block; width: 100%\\"></iframe>
-
-      <iframe src=\\"https://player.twitch.tv?video=546761743&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe>
-
-      <blockquote class=\\"twitter-tweet-from-cache\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote>
-
-      <iframe width=\\"100%\\" height=\\"315\\" src=\\"https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe>
+    expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
+      "<h1>Heading 1</h1>
+      <h2>Heading2</h2>
+      <p>This is a normal paragraph.</p>
+      <p>This is the first line of a multi-line paragraph.<br>
+      And this is the second line.</p>
+      <p>This is a paragraph with a <a href=\\"https://example.com\\">link</a>.</p>
+      <p><a href=\\"https://example.com\\">example.com</a></p>
+      <p><a href=\\"https://example.com\\" title=\\"A link to example.com\\">https://example.com</a></p>
+      <p><a href=\\"https://example.com\\">https://example.com</a></p>
+      <p><a href=\\"https://example.com\\"></a></p>
+      <p><iframe src=\\"https://codepen.io/team/codepen/embed/preview/PNaGbb\\" style=\\"width:100%; height:300px;\\"></iframe></p>
+      <p><iframe src=\\"https://codesandbox.io/embed/ynn88nx9x?view=split\\" style=\\"width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;\\" allow=\\"accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking\\" sandbox=\\"allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts\\"></iframe></p>
+      <p><div style=\\"width:100%;height:0;padding-bottom:63%;position:relative;\\"><iframe src=\\"https://giphy.com/embed/XatG8bioEwwVO\\" width=\\"100%\\" height=\\"100%\\" style=\\"position:absolute\\" frameborder=\\"0\\" class=\\"giphy-embed-from-cache\\" allowfullscreen></iframe></div></p>
+      <p><blockquote class=\\"instagram-media-from-cache\\"><div><a href=\\"https://instagram.com/p/B60jPE6J8U-\\"><p>example</p></a><p>A post shared by <a href=\\"https://instagram.com/michaeldeboey\\">Michaël De Boey</a> (@michaeldeboey) on<timedatetime=\\"2020-01-02T14:45:30+00:00\\">Jan 2, 2020 at 6:45am PST</time></p></div></blockquote></p>
+      <p><iframe src=\\"https://lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe></p>
+      <p><a data-pin-do=\\"embedPin\\" href=\\"https://pinterest.com/pin/99360735500167749\\"></a></p>
+      <p><iframe src=\\"https://slides.com/kentcdodds/oss-we-want/embed\\" width=\\"576\\" height=\\"420\\" scrolling=\\"no\\" frameborder=\\"0\\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
+      <p><iframe width=\\"100%\\" height=\\"300\\" scrolling=\\"no\\" frameborder=\\"no\\" src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true></iframe></p>
+      <p><iframe src=\\"https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L\\" width=\\"100%\\" height=\\"380\\" frameborder=\\"0\\" allowtransparency=\\"true\\" allow=\\"encrypted-media\\"></iframe></p>
+      <p><iframe class=\\"streamable-embed-from-cache\\" src=\\"https://streamable.com/o/moo\\" frameborder=\\"0\\" scrolling=\\"no\\" width=\\"1920\\" height=\\"1080\\" allowfullscreen></iframe></p>
+      <p><iframe src=\\"https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a?panes=query,preview\\" height=\\"450\\" width=\\"100%\\" scrolling=\\"no\\" frameBorder=\\"0\\" allowTransparency=\\"true\\" style=\\"overflow: hidden; display: block; width: 100%\\"></iframe></p>
+      <p><iframe src=\\"https://player.twitch.tv?video=546761743&parent=embed.example.com\\" height=\\"300\\" width=\\"100%\\" frameborder=\\"0\\" scrolling=\\"no\\" allowfullscreen></iframe></p>
+      <p><blockquote class=\\"twitter-tweet-from-cache\\"><p lang=\\"en\\" dir=\\"ltr\\">example</p>&mdash; Kent C. Dodds (@kentcdodds) <a href=\\"https://twitter.com/kentcdodds/status/1078755736455278592\\">December 28, 2018</a></blockquote></p>
+      <p><iframe width=\\"100%\\" height=\\"315\\" src=\\"https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe></p>
       "
     `);
   });

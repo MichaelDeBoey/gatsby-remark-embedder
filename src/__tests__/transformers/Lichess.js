@@ -3,7 +3,7 @@ import cases from 'jest-in-case';
 import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/Lichess';
 
-import { cache, getMarkdownASTForFile, parseASTToMarkdown } from '../helpers';
+import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 cases(
   'url validation',
@@ -95,40 +95,24 @@ test('Plugin can transform Lichess links', async () => {
 
   const processedAST = await plugin({ cache, markdownAST });
 
-  expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-    "<https://not-a-lichess-url.org>
-
-    <https://this-is-not-lichess.org>
-
-    <https://this-is-not-lichess.org/embed/MPJcy1JW>
-
-    <https://lichess.org/embed/MPJcy1JW>
-
-    <https://lichess.org/learn>
-
-    <https://lichess.org/practice>
-
-    <https://lichess.org/study>
-
-    <https://lichess.org/study/XtFCFYlM>
-
-    <https://lichess.org/training/12345>
-
-    <https://lichess.org/tv>
-
-    <https://lichess.org/tv/best>
-
-    <iframe src=\\"https://lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
-
-    <iframe src=\\"https://www.lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
-
-    <iframe src=\\"https://lichess.org/embed/MPJcy1JW?theme=auto&bg=auto\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
-
-    <iframe src=\\"https://www.lichess.org/embed/MPJcy1JW?theme=auto&bg=auto\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
-
-    <iframe src=\\"https://lichess.org/embed/tv123abc56de\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
-
-    <iframe src=\\"https://www.lichess.org/embed/tv123abc56de\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe>
+  expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
+    "<p><a href=\\"https://not-a-lichess-url.org\\">https://not-a-lichess-url.org</a></p>
+    <p><a href=\\"https://this-is-not-lichess.org\\">https://this-is-not-lichess.org</a></p>
+    <p><a href=\\"https://this-is-not-lichess.org/embed/MPJcy1JW\\">https://this-is-not-lichess.org/embed/MPJcy1JW</a></p>
+    <p><a href=\\"https://lichess.org/embed/MPJcy1JW\\">https://lichess.org/embed/MPJcy1JW</a></p>
+    <p><a href=\\"https://lichess.org/learn\\">https://lichess.org/learn</a></p>
+    <p><a href=\\"https://lichess.org/practice\\">https://lichess.org/practice</a></p>
+    <p><a href=\\"https://lichess.org/study\\">https://lichess.org/study</a></p>
+    <p><a href=\\"https://lichess.org/study/XtFCFYlM\\">https://lichess.org/study/XtFCFYlM</a></p>
+    <p><a href=\\"https://lichess.org/training/12345\\">https://lichess.org/training/12345</a></p>
+    <p><a href=\\"https://lichess.org/tv\\">https://lichess.org/tv</a></p>
+    <p><a href=\\"https://lichess.org/tv/best\\">https://lichess.org/tv/best</a></p>
+    <p><iframe src=\\"https://lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe></p>
+    <p><iframe src=\\"https://www.lichess.org/embed/MPJcy1JW\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe></p>
+    <p><iframe src=\\"https://lichess.org/embed/MPJcy1JW?theme=auto&bg=auto\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe></p>
+    <p><iframe src=\\"https://www.lichess.org/embed/MPJcy1JW?theme=auto&bg=auto\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe></p>
+    <p><iframe src=\\"https://lichess.org/embed/tv123abc56de\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe></p>
+    <p><iframe src=\\"https://www.lichess.org/embed/tv123abc56de\\" width=\\"600\\" height=\\"397\\" frameborder=\\"0\\"></iframe></p>
     "
   `);
 });

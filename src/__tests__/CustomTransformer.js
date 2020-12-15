@@ -1,6 +1,6 @@
 import plugin from '../';
 
-import { cache, getMarkdownASTForFile, parseASTToMarkdown } from './helpers';
+import { cache, getMarkdownASTForFile, mdastToHtml } from './helpers';
 
 const transformer = {
   shouldTransform: jest.fn((url) => url.startsWith('https://some-site.com')),
@@ -25,10 +25,9 @@ test('Plugin can transform CustomTransformer links', async () => {
 
   expect(transformer.getHTML).toHaveBeenCalledTimes(1);
 
-  expect(parseASTToMarkdown(processedAST)).toMatchInlineSnapshot(`
-    "<https://some-other-site.com/id/abc>
-
-    <iframe src=\\"https://some-site.com/id/abc\\"></iframe>
+  expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
+    "<p><a href=\\"https://some-other-site.com/id/abc\\">https://some-other-site.com/id/abc</a></p>
+    <p><iframe src=\\"https://some-site.com/id/abc\\"></iframe></p>
     "
   `);
 });
