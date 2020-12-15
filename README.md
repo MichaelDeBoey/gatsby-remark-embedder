@@ -505,7 +505,7 @@ https://soundcloud.com/clemenswenners/africa
   height="300"
   scrolling="no"
   frameborder="no"
-  src=https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true
+  src="https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&color=ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true"
 ></iframe>
 ```
 
@@ -826,7 +826,8 @@ of doing that:
 
 ```javascript
 import remark from 'remark';
-import remarkEmbedder 'gatsby-remark-embedder';
+import remarkEmbedder from 'gatsby-remark-embedder';
+import remarkHtml from 'remark-html';
 
 const exampleMarkdown = `
 This is a great video:
@@ -840,6 +841,7 @@ const result = await remark()
       // Your custom transformers
     ],
   })
+  .use(remarkHtml)
   .process(exampleMarkdown);
 
 // result.toString() <-- that's got the embed HTML
