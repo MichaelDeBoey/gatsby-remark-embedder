@@ -14,10 +14,7 @@
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
-
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![All Contributors][all-contributors-badge]](#contributors-)
 [![PRs Welcome][prs-badge]][prs]
 [![Code of Conduct][coc-badge]][coc]
 <!-- prettier-ignore-end -->
@@ -62,13 +59,8 @@ replace it with the proper embed-code.
   - [Twitch](#twitch)
   - [Twitter](#twitter)
   - [YouTube](#youtube)
-- [Options](#options-1)
+- [Options](#options)
   - [customTransformers](#customtransformers)
-    - [Properties](#properties)
-      - [`getHTML(url, options)`](#gethtmlurl-options)
-      - [`name`](#name)
-      - [`shouldTransform(url)`](#shouldtransformurl)
-    - [Example transformer](#example-transformer)
   - [services](#services)
 - [Inspiration](#inspiration)
 - [Issues](#issues)
@@ -888,6 +880,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
@@ -898,25 +891,26 @@ Contributions of any kind welcome!
 MIT
 
 <!-- prettier-ignore-start -->
-[npm]: https://npmjs.com
+[npm]: https://www.npmjs.com
 [node]: https://nodejs.org
-[build-badge]: https://img.shields.io/travis/com/MichaelDeBoey/gatsby-remark-embedder.svg?style=flat-square
-[build]: https://travis-ci.com/MichaelDeBoey/gatsby-remark-embedder
+[build-badge]: https://img.shields.io/github/workflow/status/MichaelDeBoey/gatsby-remark-embedder/validate?logo=github&style=flat-square
+[build]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/actions?query=workflow%3Avalidate
 [coverage-badge]: https://img.shields.io/codecov/c/github/MichaelDeBoey/gatsby-remark-embedder.svg?style=flat-square
 [coverage]: https://codecov.io/github/MichaelDeBoey/gatsby-remark-embedder
 [version-badge]: https://img.shields.io/npm/v/gatsby-remark-embedder.svg?style=flat-square
 [package]: https://www.npmjs.com/package/gatsby-remark-embedder
 [downloads-badge]: https://img.shields.io/npm/dm/gatsby-remark-embedder.svg?style=flat-square
-[npmtrends]: http://www.npmtrends.com/gatsby-remark-embedder
+[npmtrends]: https://www.npmtrends.com/gatsby-remark-embedder
 [license-badge]: https://img.shields.io/npm/l/gatsby-remark-embedder.svg?style=flat-square
 [license]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
-[prs]: http://makeapullrequest.com
+[prs]: https://makeapullrequest.com
 [coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/blob/master/other/CODE_OF_CONDUCT.md
+[coc]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/blob/master/CODE_OF_CONDUCT.md
 [emojis]: https://allcontributors.org/docs/en/emoji-key
 [all-contributors]: https://github.com/all-contributors/all-contributors
-[bugs]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%90%9B+Bug%22+sort%3Acreated-desc
+[all-contributors-badge]: https://img.shields.io/github/all-contributors/MichaelDeBoey/gatsby-remark-embedder?color=orange&style=flat-square
+[bugs]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Acreated-desc+label%3Abug
 [requests]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement
 [good-first-issue]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3A%22good+first+issue%22
 
