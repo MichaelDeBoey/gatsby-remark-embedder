@@ -109,8 +109,8 @@ test('Plugin can transform Lichess links', async () => {
     <p><a href="https://lichess.org/tv/best">https://lichess.org/tv/best</a></p>
     <iframe src="https://lichess.org/embed/MPJcy1JW" width="600" height="397" frameborder="0"></iframe>
     <iframe src="https://www.lichess.org/embed/MPJcy1JW" width="600" height="397" frameborder="0"></iframe>
-    <iframe src="https://lichess.org/embed/MPJcy1JW?theme=auto&bg=auto" width="600" height="397" frameborder="0"></iframe>
-    <iframe src="https://www.lichess.org/embed/MPJcy1JW?theme=auto&bg=auto" width="600" height="397" frameborder="0"></iframe>
+    <iframe src="https://lichess.org/embed/MPJcy1JW?theme=auto&#x26;bg=auto" width="600" height="397" frameborder="0"></iframe>
+    <iframe src="https://www.lichess.org/embed/MPJcy1JW?theme=auto&#x26;bg=auto" width="600" height="397" frameborder="0"></iframe>
     <iframe src="https://lichess.org/embed/tv123abc56de" width="600" height="397" frameborder="0"></iframe>
     <iframe src="https://www.lichess.org/embed/tv123abc56de" width="600" height="397" frameborder="0"></iframe>
 
