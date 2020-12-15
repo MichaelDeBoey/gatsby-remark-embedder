@@ -111,7 +111,7 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-embedder`,
+            resolve: `gatsby-remark-embedder/gatsby`,
             options: {
               customTransformers: [
                 // Your custom transformers
@@ -143,7 +143,7 @@ module.exports = {
       options: {
         gatsbyRemarkPlugins: [
           {
-            resolve: `gatsby-remark-embedder`,
+            resolve: `gatsby-remark-embedder/gatsby`,
             options: {
               customTransformers: [
                 // Your custom transformers
@@ -825,8 +825,8 @@ If you want to use this directly with remark (without gatsby), here's an example
 of doing that:
 
 ```javascript
-const remark = require('remark');
-const { remarkEmbedder } = require('gatsby-remark-embedder');
+import remark from 'remark';
+import remarkEmbedder 'gatsby-remark-embedder';
 
 const exampleMarkdown = `
 This is a great video:
