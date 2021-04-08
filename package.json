@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "jest-in-case": "^1.0.2",
-    "kcd-scripts": "^7.5.3",
+    "kcd-scripts": "^8.2.1",
     "pretty-quick": "^3.1.0",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1"
