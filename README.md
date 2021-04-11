@@ -1,5 +1,5 @@
 <div align="center">
-<img width="450" height="76" src="https://raw.githubusercontent.com/MichaelDeBoey/gatsby-remark-embedder/master/art/logo.png" alt="gatsby-remark-embedder logo" />
+<img width="450" height="76" src="https://raw.githubusercontent.com/MichaelDeBoey/gatsby-remark-embedder/main/art/logo.png" alt="gatsby-remark-embedder logo" />
 
 <h1>gatsby-remark-embedder</h1>
 
@@ -884,6 +884,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
@@ -905,11 +906,11 @@ MIT
 [downloads-badge]: https://img.shields.io/npm/dm/gatsby-remark-embedder.svg?style=flat-square
 [npmtrends]: https://www.npmtrends.com/gatsby-remark-embedder
 [license-badge]: https://img.shields.io/npm/l/gatsby-remark-embedder.svg?style=flat-square
-[license]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/blob/master/LICENSE
+[license]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/blob/main/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: https://makeapullrequest.com
 [coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/blob/master/CODE_OF_CONDUCT.md
+[coc]: https://github.com/MichaelDeBoey/gatsby-remark-embedder/blob/main/CODE_OF_CONDUCT.md
 [emojis]: https://allcontributors.org/docs/en/emoji-key
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [all-contributors-badge]: https://img.shields.io/github/all-contributors/MichaelDeBoey/gatsby-remark-embedder?color=orange&style=flat-square
