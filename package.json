@@ -62,10 +62,10 @@
     "remark-html": "^13.0.1"
   },
   "peerDependencies": {
-    "gatsby": "^2.20.0"
+    "gatsby": "^3.0.0"
   },
   "engines": {
-    "node": ">=10.13.0",
+    "node": ">=12.13.0",
     "npm": ">=6",
     "yarn": ">=1"
   }
