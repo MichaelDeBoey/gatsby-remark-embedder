@@ -1,6 +1,6 @@
 // this removes the quotes around strings...
 const unquoteSerializer = {
-  print: (val) => val,
+  serialize: (val) => val.trim(),
   test: (val) => typeof val === 'string',
 };
 

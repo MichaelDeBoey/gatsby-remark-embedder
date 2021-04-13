@@ -28,6 +28,5 @@ test('Plugin can transform CustomTransformer links', async () => {
   expect(mdastToHtml(processedAST)).toMatchInlineSnapshot(`
     <p>https://some-other-site.com/id/abc</p>
     <iframe src="https://some-site.com/id/abc"></iframe>
-
   `);
 });

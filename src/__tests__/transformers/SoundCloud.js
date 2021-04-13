@@ -64,6 +64,5 @@ test('Plugin can transform SoundCloud links', async () => {
     <p>https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa</p>
     <iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player?url=https://soundcloud.com/clemenswenners/africa&#x26;color=ff5500&#x26;auto_play=false&#x26;hide_related=true&#x26;show_comments=true&#x26;show_user=true&#x26;show_reposts=false&#x26;show_teaser=false&#x26;visual=true"></iframe>
     <iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player?url=http://soundcloud.com/clemenswenners/africa&#x26;color=ff5500&#x26;auto_play=false&#x26;hide_related=true&#x26;show_comments=true&#x26;show_user=true&#x26;show_reposts=false&#x26;show_teaser=false&#x26;visual=true"></iframe>
-
   `);
 });

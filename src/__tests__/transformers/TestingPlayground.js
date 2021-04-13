@@ -107,6 +107,5 @@ test('Plugin can transform Testing Playground links', async () => {
     <iframe src="https://testing-playground.com/embed?panes=query,preview" height="450" width="100%" scrolling="no" frameborder="0" allowtransparency="true" style="overflow: hidden; display: block; width: 100%"></iframe>
     <iframe src="https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a?panes=query,preview" height="450" width="100%" scrolling="no" frameborder="0" allowtransparency="true" style="overflow: hidden; display: block; width: 100%"></iframe>
     <iframe src="https://testing-playground.com/embed/fb336c386145b235372a0f57d5c58205/6d13e4ee508301c8b42f9d2cc8584e70bb05fb4a?panes=query,preview" height="450" width="100%" scrolling="no" frameborder="0" allowtransparency="true" style="overflow: hidden; display: block; width: 100%"></iframe>
-
   `);
 });

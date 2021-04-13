@@ -63,7 +63,6 @@ describe('gatsby-remark-embedder', () => {
       <iframe src="https://player.twitch.tv?video=546761743&#x26;parent=embed.example.com" height="300" width="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
       <blockquote class="twitter-tweet-from-cache"><p lang="en" dir="ltr">example</p>— Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1078755736455278592">December 28, 2018</a></blockquote>
       <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
     `);
   });
 

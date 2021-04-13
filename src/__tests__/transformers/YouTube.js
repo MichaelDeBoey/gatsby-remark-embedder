@@ -165,6 +165,5 @@ test('Plugin can transform YouTube links', async () => {
     <p>https://youtube.com/playlist?list=PLV5CVI1eNcJgCrPH_e6d57KRUTiDZgs0u</p>
     <p>https://youtube.com/user/kentdoddsfamily</p>
     <p>https://youtube.com/kentdoddsfamily</p>
-
   `);
 });
