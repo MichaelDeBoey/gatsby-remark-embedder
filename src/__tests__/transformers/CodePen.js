@@ -1,8 +1,6 @@
 import cases from 'jest-in-case';
-
 import plugin from '../../';
 import { getHTML, shouldTransform } from '../../transformers/CodePen';
-
 import { cache, getMarkdownASTForFile, mdastToHtml } from '../helpers';
 
 cases(
@@ -79,10 +77,21 @@ cases(
 );
 
 test('Gets the correct CodePen iframe', () => {
-  const html = getHTML('https://codepen.io/team/codepen/pen/PNaGbb');
+  const html = getHTML('https://codepen.io/team/codepen/pen/PNaGbb', {});
 
   expect(html).toMatchInlineSnapshot(
     `<iframe src="https://codepen.io/team/codepen/embed/preview/PNaGbb" style="width:100%; height:300px;"></iframe>`
+  );
+});
+
+test('Gets the correct CodePen iframe with custom dimensions', () => {
+  const html = getHTML('https://codepen.io/team/codepen/pen/PNaGbb', {
+    width: '50%',
+    height: '50%',
+  });
+
+  expect(html).toMatchInlineSnapshot(
+    `<iframe src="https://codepen.io/team/codepen/embed/preview/PNaGbb" style="width:50%; height:50%;"></iframe>`
   );
 });
 

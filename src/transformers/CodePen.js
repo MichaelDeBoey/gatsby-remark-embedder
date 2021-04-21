@@ -7,8 +7,8 @@ export const shouldTransform = (url) => {
   );
 };
 
-export const getHTML = (url) => {
+export const getHTML = (url, { width = '100%', height = '300px' }) => {
   const iframeUrl = url.replace('/pen/', '/embed/preview/');
 
-  return `<iframe src="${iframeUrl}" style="width:100%; height:300px;"></iframe>`;
+  return `<iframe src="${iframeUrl}" style="width:${width}; height:${height};"></iframe>`;
 };
