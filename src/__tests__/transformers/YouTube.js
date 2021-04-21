@@ -138,10 +138,21 @@ cases(
 );
 
 test('Gets the correct YouTube iframe', async () => {
-  const html = await getHTML('https://youtu.be/dQw4w9WgXcQ');
+  const html = await getHTML('https://youtu.be/dQw4w9WgXcQ', {});
 
   expect(html).toMatchInlineSnapshot(
     `<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>`
+  );
+});
+
+test('Gets the correct YouTube iframe with custom dimensions', async () => {
+  const html = await getHTML('https://youtu.be/dQw4w9WgXcQ', {
+    width: '50%',
+    height: '50%',
+  });
+
+  expect(html).toMatchInlineSnapshot(
+    `"<iframe width=\\"50%\\" height=\\"50%\\" src=\\"https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0\\" frameBorder=\\"0\\" allow=\\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\\" allowFullScreen></iframe>"`
   );
 });
 

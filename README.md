@@ -767,6 +767,15 @@ https://youtu.be/dQw4w9WgXcQ
 
 </details>
 
+#### Options
+
+All options should go under the `YouTube` namespace.
+
+| name   | Type     | Required | Default | Description                  |
+| :----- | :------- | :------- | :------ | :--------------------------- |
+| height | `string` | ❌       | 100%    | Height of the YouTube iframe |
+| width  | `string` | ❌       | 315     | Width of the YouTube iframe  |
+
 ## Options
 
 ### customTransformers
