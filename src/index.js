@@ -23,7 +23,7 @@ export default async (
   { cache, markdownAST },
   { customTransformers = [], services = {} } = {}
 ) => {
-  const transformers = [...defaultTransformers, ...customTransformers];
+  const transformers = [...customTransformers, ...defaultTransformers];
 
   const transformations = [];
   visit(markdownAST, 'paragraph', (paragraphNode) => {
