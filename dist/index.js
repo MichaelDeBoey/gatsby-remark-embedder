@@ -62,36 +62,41 @@ var _default = async ({
       return;
     }
 
-    transformers.filter(({
+    const transformer = transformers.find(({
       shouldTransform
-    }) => shouldTransform(urlString)).forEach(({
+    }) => shouldTransform(urlString));
+
+    if (!transformer) {
+      return;
+    }
+
+    const {
       getHTML,
       name = ''
-    }) => {
-      transformations.push(async () => {
-        try {
-          let html = await cache.get(urlString);
+    } = transformer;
+    transformations.push(async () => {
+      try {
+        let html = await cache.get(urlString);
 
-          if (!html) {
-            html = await getHTML(urlString, services[name] || {});
-            await cache.set(urlString, html);
-          } // if nothing's returned from getHTML, then no modifications are needed
+        if (!html) {
+          html = await getHTML(urlString, services[name] || {});
+          await cache.set(urlString, html);
+        } // if nothing's returned from getHTML, then no modifications are needed
 
 
-          if (!html) return; // convert the HTML string into an AST
+        if (!html) return; // convert the HTML string into an AST
 
-          const htmlElement = htmlToHast(html); // set the paragraphNode.data with the necessary properties
+        const htmlElement = htmlToHast(html); // set the paragraphNode.data with the necessary properties
 
-          paragraphNode.data = {
-            hName: htmlElement.tagName,
-            hProperties: htmlElement.properties,
-            hChildren: htmlElement.children
-          };
-        } catch (error) {
-          error.message = `The following error appeared while processing '${urlString}':\n\n${error.message}`;
-          throw error;
-        }
-      });
+        paragraphNode.data = {
+          hName: htmlElement.tagName,
+          hProperties: htmlElement.properties,
+          hChildren: htmlElement.children
+        };
+      } catch (error) {
+        error.message = `The following error appeared while processing '${urlString}':\n\n${error.message}`;
+        throw error;
+      }
     });
   });
   await Promise.all(transformations.map(t => t()));

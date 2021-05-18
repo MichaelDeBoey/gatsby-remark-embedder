@@ -22,8 +22,9 @@ const getSpotifyIFrameSrc = urlString => {
     pathname
   } = new URL(urlString);
   const type = pathname.split('/')[1].toLowerCase();
+  const podcastTypes = ['episode', 'show'];
 
-  if (['episode', 'show'].includes(type)) {
+  if (podcastTypes.includes(type)) {
     return urlString.replace(type, `embed-podcast/${type}`);
   }
 
