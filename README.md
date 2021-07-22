@@ -616,6 +616,8 @@ All options should go under the `Twitch` namespace.
 | name   | Type                  | Required | Default | Description                                                                                           |
 | ------ | --------------------- | -------- | ------- | ----------------------------------------------------------------------------------------------------- |
 | parent | `string` / `string[]` | ✅       |         | Domain(s) that will be embedding Twitch. You must have one parent key for each domain your site uses. |
+| height | `string`              |          | 300     | The height of the containing iframe                                                                   |
+| width  | `string`              |          | 100%    | The width of the containing iframe                                                                    |
 
 ##### parent
 
