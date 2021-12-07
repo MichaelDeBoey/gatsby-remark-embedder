@@ -1,0 +1,8 @@
+{
+    "presets": [
+        "kcd-scripts/babel"
+    ],
+    "plugins": [
+        "add-module-exports"
+    ]
+}
