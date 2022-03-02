@@ -47,6 +47,7 @@ describe(`fetchOEmbedData`, () => {
     );
 
     return fetchOEmbedData(URL).catch((err) => {
+      // eslint-disable-next-line jest/no-conditional-expect
       expect(err).toMatchInlineSnapshot(
         `[Error: Request to https://google.com returned non-OK status (403)]`
       );
@@ -94,11 +95,14 @@ describe(`fetchOEmbedData`, () => {
 
       return fetchOEmbedData(URL).catch((error) => {
         // original request + 3 retries
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(fetch).toBeCalledTimes(4);
 
         // 3 retries
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(setTimeout).toBeCalledTimes(3);
 
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(error).toEqual(socketError);
       });
     });
