@@ -50,7 +50,7 @@
     "@babel/runtime": "^7.17.2",
     "fetch-retry": "^5.0.1",
     "hast-util-from-parse5": "^6.0.1",
-    "node-fetch": "^2.6.7",
+    "node-fetch": "^3.2.3",
     "parse5": "^6.0.1",
     "unist-util-visit": "^2.0.3"
   },
