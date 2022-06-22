@@ -47,7 +47,7 @@
     "validate": "kcd-scripts validate"
   },
   "dependencies": {
-    "@babel/runtime": "^7.17.9",
+    "@babel/runtime": "^7.18.3",
     "fetch-retry": "^5.0.2",
     "hast-util-from-parse5": "^6.0.1",
     "node-fetch": "^2.6.7",
