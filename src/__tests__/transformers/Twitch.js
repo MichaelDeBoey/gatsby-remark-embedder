@@ -242,5 +242,6 @@ test('Plugin can transform Twitch links', async () => {
     <iframe src="https://player.twitch.tv?video=546761743&#x26;parent=embed.example.com" height="300" width="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
     <iframe src="https://player.twitch.tv?video=546761743&#x26;parent=embed.example.com" height="300" width="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
     <iframe src="https://player.twitch.tv?video=546761743&#x26;parent=embed.example.com" height="300" width="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
+
   `);
 });

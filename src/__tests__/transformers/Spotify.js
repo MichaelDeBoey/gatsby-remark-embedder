@@ -143,5 +143,6 @@ test('Plugin can transform Spotify links', async () => {
     <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX5wDmLW735Yd" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     <iframe src="https://open.spotify.com/embed-podcast/show/7GkO2poedjbltWT5lduL5w" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     <iframe src="https://open.spotify.com/embed/track/0It2bnTdLl2vyymzOkBI3L" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
   `);
 });
