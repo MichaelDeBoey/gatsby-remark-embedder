@@ -2,11 +2,6 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
 var _parse = _interopRequireDefault(require("parse5"));
 
 var _hastUtilFromParse = _interopRequireDefault(require("hast-util-from-parse5"));
@@ -29,7 +24,7 @@ const getUrlString = url => {
   }
 };
 
-var _default = async ({
+module.exports = async ({
   cache,
   markdownAST
 }, {
@@ -102,5 +97,3 @@ var _default = async ({
   await Promise.all(transformations.map(t => t()));
   return markdownAST;
 };
-
-exports.default = _default;
