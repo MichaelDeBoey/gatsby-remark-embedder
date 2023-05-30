@@ -31,12 +31,12 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
+          cache: npm
+          cache-dependency-path: ./package.json
           node-version: ${{ matrix.node }}
 
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
-        with:
-          useLockFile: false
+      - name: 📥 Install deps
+        run: npm install
 
       - name: ▶️ Run validate script
         run: npm run validate
@@ -58,12 +58,12 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
+          cache: npm
+          cache-dependency-path: ./package.json
           node-version: 16
 
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
-        with:
-          useLockFile: false
+      - name: 📥 Install deps
+        run: npm install
 
       - name: 🏗 Run build script
         run: npm run build
