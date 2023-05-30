@@ -22,7 +22,7 @@ jobs:
     if: ${{ !contains(github.head_ref, 'all-contributors') }}
     strategy:
       matrix:
-        node: [14.15.0, 14, 16, 18, 20]
+        node: [18.0.0, 18, 20]
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -60,7 +60,7 @@ jobs:
         with:
           cache: npm
           cache-dependency-path: ./package.json
-          node-version: 16
+          node-version: 18
 
       - name: 📥 Install deps
         run: npm install
