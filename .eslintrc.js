@@ -15,6 +15,7 @@ module.exports = {
       ],
       rules: {
         'import/default': 'off',
+        'jest/prefer-mock-promise-shorthand': 'off',
       },
     },
   ],

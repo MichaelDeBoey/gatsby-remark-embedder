@@ -38,8 +38,7 @@ cases(
       valid: false,
     },
     "non-GIPHY url ending with 'giphy.com' and having '/gifs/' in the url": {
-      url:
-        'https://this-is-not-giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO',
+      url: 'https://this-is-not-giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO',
       valid: false,
     },
     homepage: {
@@ -47,8 +46,7 @@ cases(
       valid: false,
     },
     'video url': {
-      url:
-        'https://giphy.com/videos/blesstheharts-wayne-bless-the-harts-ciwJyqlgAYkvguS2Nw',
+      url: 'https://giphy.com/videos/blesstheharts-wayne-bless-the-harts-ciwJyqlgAYkvguS2Nw',
       valid: false,
     },
     'gif url': {
