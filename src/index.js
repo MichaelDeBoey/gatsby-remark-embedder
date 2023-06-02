@@ -23,7 +23,7 @@ module.exports = async (
   { cache, markdownAST },
   { customTransformers = [], services = {} } = {}
 ) => {
-  const transformers = [...defaultTransformers, ...customTransformers];
+  const transformers = [...customTransformers, ...defaultTransformers];
 
   const transformations = [];
   visit(markdownAST, 'paragraph', (paragraphNode) => {
@@ -50,37 +50,43 @@ module.exports = async (
       return;
     }
 
-    transformers
-      .filter(({ shouldTransform }) => shouldTransform(urlString))
-      .forEach(({ getHTML, name = '' }) => {
-        transformations.push(async () => {
-          try {
-            let html = await cache.get(urlString);
+    const transformer = transformers.find(({ shouldTransform }) =>
+      shouldTransform(urlString)
+    );
 
-            if (!html) {
-              html = await getHTML(urlString, services[name] || {});
-              await cache.set(urlString, html);
-            }
+    if (!transformer) {
+      return;
+    }
 
-            // if nothing's returned from getHTML, then no modifications are needed
-            if (!html) return;
+    const { getHTML, name = '' } = transformer;
 
-            // convert the HTML string into an AST
-            const htmlElement = htmlToHast(html);
+    transformations.push(async () => {
+      try {
+        let html = await cache.get(urlString);
 
-            // set the paragraphNode.data with the necessary properties
-            paragraphNode.data = {
-              hName: htmlElement.tagName,
-              hProperties: htmlElement.properties,
-              hChildren: htmlElement.children,
-            };
-          } catch (error) {
-            error.message = `The following error appeared while processing '${urlString}':\n\n${error.message}`;
+        if (!html) {
+          html = await getHTML(urlString, services[name] || {});
+          await cache.set(urlString, html);
+        }
 
-            throw error;
-          }
-        });
-      });
+        // if nothing's returned from getHTML, then no modifications are needed
+        if (!html) return;
+
+        // convert the HTML string into an AST
+        const htmlElement = htmlToHast(html);
+
+        // set the paragraphNode.data with the necessary properties
+        paragraphNode.data = {
+          hName: htmlElement.tagName,
+          hProperties: htmlElement.properties,
+          hChildren: htmlElement.children,
+        };
+      } catch (error) {
+        error.message = `The following error appeared while processing '${urlString}':\n\n${error.message}`;
+
+        throw error;
+      }
+    });
   });
 
   await Promise.all(transformations.map((t) => t()));
