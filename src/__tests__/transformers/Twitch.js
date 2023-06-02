@@ -205,6 +205,18 @@ test('Gets the correct Twitch iframe', () => {
   );
 });
 
+test('Gets the correct Twitch iframe with custom dimensions', () => {
+  const html = getHTML('https://twitch.tv/videos/546761743', {
+    parent: 'embed.example.com',
+    width: '50%',
+    height: '50%',
+  });
+
+  expect(html).toMatchInlineSnapshot(
+    `<iframe src="https://player.twitch.tv?video=546761743&parent=embed.example.com" height="50%" width="50%" frameborder="0" scrolling="no" allowfullscreen></iframe>`
+  );
+});
+
 test('Plugin can transform Twitch links', async () => {
   const markdownAST = getMarkdownASTForFile('Twitch');
 

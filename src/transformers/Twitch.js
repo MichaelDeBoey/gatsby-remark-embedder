@@ -91,12 +91,12 @@ export const normalizeParent = (parent) => {
   return parent;
 };
 
-export const getHTML = (url, { parent }) => {
+export const getHTML = (url, { parent, width = '100%', height = '300' }) => {
   const iframeUrl = `${getTwitchIFrameSrc(url)}&parent=${normalizeParent(
     parent
   )}`;
 
-  return `<iframe src="${iframeUrl}" height="300" width="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>`;
+  return `<iframe src="${iframeUrl}" height="${height}" width="${width}" frameborder="0" scrolling="no" allowfullscreen></iframe>`;
 };
 
 export const name = 'Twitch';
